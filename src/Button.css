@@ -1,0 +1,48 @@
+@import "./theme.css";
+
+.react-aria-Button {
+  --button-text-color: var(--gray-50);
+  --button-background: var(--blue-600);
+  --button-background-hover: var(--blue-500);
+  --button-background-pressed: var(--blue-500);
+
+  &[data-intent="secondary"] {
+    --button-text-color: var(--gray-50);
+    --button-background: var(--red-600);
+    --button-background-hover: var(--red-500);
+    --button-background-pressed: var(--red-500);
+  }
+
+  color: var(--button-text-color);
+  background: var(--button-background);
+  border: none;
+  border-radius: 8px;
+  appearance: none;
+  vertical-align: middle;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0;
+  outline: none;
+  padding: 6px 10px;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--button-background-hover);
+  }
+
+  &[data-pressed] {
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.1);
+    background: var(--button-background-pressed);
+    border-color: var(--border-color-pressed);
+  }
+
+  &[data-focus-visible] {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: -1px;
+  }
+
+  &[data-disabled] {
+    border-color: var(--border-color-disabled);
+    color: var(--text-color-disabled);
+  }
+}

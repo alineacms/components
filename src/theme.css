@@ -1,0 +1,128 @@
+/* Base styles */
+:root {
+  font-family: system-ui;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+:root {
+  --pallete-gray-50: #f3f4f6;
+  --pallete-gray-100: #e5e7eb;
+  --pallete-gray-200: #d1d5db;
+  --pallete-gray-300: #6b7280;
+  --pallete-gray-400: #4b5563;
+  --pallete-gray-500: #374151;
+  --pallete-gray-600: #1f2937;
+  --pallete-blue-50: #c6e4ff;
+  --pallete-blue-100: #a9cbff;
+  --pallete-blue-200: #8bb2ff;
+  --pallete-blue-300: #6c9aff;
+  --pallete-blue-400: #4883ff;
+  --pallete-blue-500: #0d6dfd;
+  --pallete-blue-600: #0058e3;
+  --pallete-purple-100: #d5c9fa;
+  --pallete-purple-200: #b8a3f6;
+  --pallete-purple-300: #997cf2;
+  --pallete-purple-400: #7a54ef;
+  --pallete-purple-500: #582ddc;
+  --pallete-purple-600: #3c1e95;
+  --pallete-red-100: #f7c4ba;
+  --pallete-red-200: #f29887;
+  --pallete-red-300: #eb664d;
+  --pallete-red-400: #de2300;
+  --pallete-red-500: #b91c1c;
+  --pallete-red-600: #991b1b;
+}
+
+:root {
+  --background-color: #f8f8f8;
+  --gray-50: var(--pallete-gray-50);
+  --gray-100: var(--pallete-gray-100);
+  --gray-200: var(--pallete-gray-200);
+  --gray-300: var(--pallete-gray-300);
+  --gray-400: var(--pallete-gray-400);
+  --gray-500: var(--pallete-gray-500);
+  --gray-600: var(--pallete-gray-600);
+  --blue-50: var(--pallete-blue-50);
+  --blue-100: var(--pallete-blue-100);
+  --blue-200: var(--pallete-blue-200);
+  --blue-300: var(--pallete-blue-300);
+  --blue-400: var(--pallete-blue-400);
+  --blue-500: var(--pallete-blue-500);
+  --blue-600: var(--pallete-blue-600);
+  --purple-100: var(--pallete-purple-100);
+  --purple-200: var(--pallete-purple-200);
+  --purple-300: var(--pallete-purple-300);
+  --purple-400: var(--pallete-purple-400);
+  --purple-500: var(--pallete-purple-500);
+  --purple-600: var(--pallete-purple-600);
+  --red-100: var(--pallete-red-100);
+  --red-200: var(--pallete-red-200);
+  --red-300: var(--pallete-red-300);
+  --red-400: var(--pallete-red-400);
+  --red-500: var(--pallete-red-500);
+  --red-600: var(--pallete-red-600);
+  --highlight-hover: rgb(0 0 0 / 0.07);
+  --highlight-pressed: rgb(0 0 0 / 0.15);
+}
+
+/* Dark: https://leonardocolor.io/theme.html?name=Dark&config=%7B%22baseScale%22%3A%22Gray%22%2C%22colorScales%22%3A%5B%7B%22name%22%3A%22Gray%22%2C%22colorKeys%22%3A%5B%22%23000000%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%22-1.12%22%2C%221.45%22%2C%222.05%22%2C%223.02%22%2C%224.54%22%2C%227%22%2C%2210.86%22%5D%2C%22smooth%22%3Afalse%7D%2C%7B%22name%22%3A%22Purple%22%2C%22colorKeys%22%3A%5B%22%235e30eb%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%22-1.12%22%2C%221.45%22%2C%222.05%22%2C%223.02%22%2C%224.54%22%2C%227%22%2C%2210.86%22%5D%2C%22smooth%22%3Afalse%7D%2C%7B%22name%22%3A%22Red%22%2C%22colorKeys%22%3A%5B%22%23e32400%22%5D%2C%22colorspace%22%3A%22RGB%22%2C%22ratios%22%3A%5B%22-1.12%22%2C%221.45%22%2C%222.05%22%2C%223.02%22%2C%224.54%22%2C%227%22%2C%2210.86%22%5D%2C%22smooth%22%3Afalse%7D%5D%2C%22lightness%22%3A11%2C%22contrast%22%3A1%2C%22saturation%22%3A100%2C%22formula%22%3A%22wcag2%22%7D */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1d1d1d;
+    --gray-600: var(--pallete-gray-50);
+    --gray-500: var(--pallete-gray-100);
+    --gray-400: var(--pallete-gray-200);
+    --gray-300: var(--pallete-gray-300);
+    --gray-200: var(--pallete-gray-400);
+    --gray-100: var(--pallete-gray-500);
+    --gray-50: var(--pallete-gray-600);
+    --blue-600: var(--pallete-blue-50);
+    --blue-500: var(--pallete-blue-100);
+    --blue-400: var(--pallete-blue-200);
+    --blue-300: var(--pallete-blue-300);
+    --blue-200: var(--pallete-blue-400);
+    --blue-100: var(--pallete-blue-500);
+    --blue-50: var(--pallete-blue-600);
+    --purple-600: var(--pallete-purple-100);
+    --purple-500: var(--pallete-purple-200);
+    --purple-400: var(--pallete-purple-300);
+    --purple-300: var(--pallete-purple-400);
+    --purple-200: var(--pallete-purple-500);
+    --purple-100: var(--pallete-purple-600);
+    --purple-50: var(--pallete-purple-600);
+    --highlight-hover: rgb(255 255 255 / 0.1);
+    --highlight-pressed: rgb(255 255 255 / 0.2);
+  }
+}
+
+/* Semantic colors */
+:root {
+  --focus-ring-color: var(--purple-400);
+  --text-color: var(--gray-600);
+  --text-color-base: var(--gray-500);
+  --text-color-hover: var(--gray-600);
+  --text-color-disabled: var(--gray-200);
+  --text-color-placeholder: var(--gray-400);
+  --link-color: var(--purple-500);
+  --link-color-secondary: var(--gray-500);
+  --link-color-pressed: var(--purple-600);
+  --border-color: var(--gray-300);
+  --border-color-hover: var(--gray-400);
+  --border-color-pressed: var(--gray-400);
+  --border-color-disabled: var(--gray-100);
+  --field-background: var(--gray-50);
+  --field-text-color: var(--gray-600);
+  --overlay-background: var(--gray-50);
+
+  /* these colors are the same between light and dark themes
+   * to ensure contrast with the foreground color */
+  --highlight-background: #6f46ed; /* purple-300 from dark theme, 3.03:1 against background-color */
+  --highlight-background-pressed: #522acd; /* purple-200 from dark theme */
+  --highlight-background-invalid: #cc2000; /* red-300 from dark theme */
+  --highlight-foreground: white; /* 5.56:1 against highlight-background */
+  --highlight-foreground-pressed: #ddd;
+  --highlight-overlay: rgb(from #6f46ed r g b / 15%);
+  --invalid-color: var(--red-400);
+  --invalid-color-pressed: var(--red-500);
+}
