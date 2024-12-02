@@ -7,6 +7,7 @@
   --button-border-color: hsla(0, 0%, 100%, 0.05);
   --button-hover-overlay: hsla(0, 0%, 100%, 0.1);
   --button-icon: hsl(var(--primary-fg) / 60%);
+  --button-border: hsla(0, 0%, 100%, 0.05);
 
   &[data-intent="secondary"] {
     --button-color: hsl(var(--secondary-fg));
@@ -23,10 +24,16 @@
     --button-bg: hsl(var(--warning));
   }
 
+  &[data-appearance="plain"] {
+    --button-bg: transparent;
+    --button-border: transparent;
+    --button-color: hsl(var(--primary));
+  }
+
   position: relative;
   color: var(--button-color);
   background-color: var(--button-bg);
-  border: 1px solid hsla(0, 0%, 100%, 0.05);
+  border: 1px solid var(--button-border);
   font: inherit;
   font-size: 0.875rem;
   font-weight: 500;
