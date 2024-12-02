@@ -13,7 +13,7 @@ export const Intents = () => {
 
 export const Sizes = () => {
   return (
-    <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
+    <div style={{display: 'flex', alignItems: 'flex-start', gap: 10}}>
       <Button size="extra-small">Extra Small</Button>
       <Button size="small">Small</Button>
       <Button>Medium</Button>
