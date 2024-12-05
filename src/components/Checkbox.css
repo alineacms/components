@@ -1,21 +1,21 @@
 @import "../theme.css";
 
 .react-aria-Checkbox {
-  --selected-color: var(--highlight-background);
-  --selected-color-pressed: var(--highlight-background-pressed);
-  --checkmark-color: var(--highlight-foreground);
+  --selected-color: hsl(var(--primary));
+  --selected-color-pressed: hsl(var(--primary));
+  --checkmark-color: hsl(var(--primary-fg));
 
   display: flex;
   align-items: center;
   gap: 0.571rem;
   font-size: 1.143rem;
-  color: var(--text-color);
+  color: hsl(var(--primary));
   forced-color-adjust: none;
 
   .checkbox {
     width: 1.143rem;
     height: 1.143rem;
-    border: 2px solid var(--border-color);
+    border: 2px solid hsl(var(--primary));
     border-radius: 4px;
     transition: all 200ms;
     display: flex;

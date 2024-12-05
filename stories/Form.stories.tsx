@@ -7,18 +7,6 @@ import {
 } from 'react-aria-components'
 import {Form} from '../src/components/Form'
 
-import type {Meta} from '@storybook/react'
-
-const meta: Meta<typeof Form> = {
-  component: Form,
-  parameters: {
-    layout: 'centered'
-  },
-  tags: ['autodocs']
-}
-
-export default meta
-
 export const Example = (args: any) => (
   <Form {...args}>
     <TextField name="email" type="email" isRequired>
