@@ -1,7 +1,5 @@
 @import "../theme.css";
 
-@import "./Checkbox.css";
-
 .react-aria-Tree {
   display: block;
   margin: 4px 0 0 0;

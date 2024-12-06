@@ -1,15 +1,9 @@
-import {Checkbox} from '../src/todo/Checkbox'
+import {Checkbox} from '../src/components/Checkbox'
 
-import type {Meta} from '@storybook/react'
-
-const meta: Meta<typeof Checkbox> = {
-  component: Checkbox,
-  parameters: {
-    layout: 'centered'
-  },
-  tags: ['autodocs']
-}
-
-export default meta
-
-export const Example = (args: any) => <Checkbox {...args}>Unsubscribe</Checkbox>
+export const Example = () => (
+  <div style={{display: 'flex', flexDirection: 'column', gap: 10}}>
+    <Checkbox>Unsubscribe</Checkbox>
+    <Checkbox isInvalid>Unsubscribe</Checkbox>
+    <Checkbox isDisabled>Unsubscribe</Checkbox>
+  </div>
+)

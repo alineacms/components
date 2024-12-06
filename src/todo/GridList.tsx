@@ -4,7 +4,7 @@ import {
   type GridListItemProps,
   type GridListProps
 } from 'react-aria-components'
-import {Checkbox} from './Checkbox'
+import {Checkbox} from '../components/Checkbox'
 import './GridList.css'
 import {Button} from '../components/Button'
 

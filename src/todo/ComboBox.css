@@ -1,8 +1,6 @@
-@import "./Checkbox.css";
 @import "./ListBox.css";
 @import "./Popover.css";
 @import "./Form.css";
-
 @import "../theme.css";
 
 .react-aria-ComboBox {

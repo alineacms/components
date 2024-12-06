@@ -12,7 +12,7 @@ import {
 import './Tree.css'
 import {type ComponentProps, useMemo} from 'react'
 import {Button} from '../components/Button'
-import {Checkbox} from './Checkbox'
+import {Checkbox} from '../components/Checkbox'
 
 export const Tree = <T extends object>({className, ...props}: TreeProps<T>) => {
   const layout = useMemo(() => {

@@ -10,7 +10,8 @@
     "react-aria-components": "latest",
     "react-dom": "^18.3.1",
     "typescript": "5.3.3",
-    "typescript-plugin-css-modules": "^5.1.0"
+    "typescript-plugin-css-modules": "^5.1.0",
+    "@biomejs/biome": "^1.9.4"
   },
   "scripts": {
     "dev": "ladle dev",

@@ -12,7 +12,7 @@ import {
   TableProps,
   useTableOptions
 } from 'react-aria-components';
-import {Checkbox} from './Checkbox';
+import {Checkbox} from '../components/Checkbox';
 
 import './Table.css';
 
