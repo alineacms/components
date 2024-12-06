@@ -1,20 +1,34 @@
 import {Button} from '../src/components/Button'
 
-export const Intents = () => {
+
+export const Appearance = () => {
   return (
-    <div style={{display: 'flex', gap: 10}}>
-      <Button intent="primary">Primary</Button>
-      <Button intent="secondary">Secondary</Button>
-      <Button intent="danger">Danger</Button>
-      <Button intent="warning">Warning</Button>
+    <div style={{display: 'flex', alignItems: 'flex-start', gap: 10}}>
+      <Button>Solid</Button>
+      <Button appearance="outline">Outline</Button>
+      <Button appearance="plain">Plain</Button>
     </div>
   )
+}
+
+export const Intents = ({isDisabled}: {isDisabled: boolean}) => {
+  return (
+    <div style={{display: 'flex', gap: 10}}>
+      <Button intent="primary" isDisabled={isDisabled}>Primary</Button>
+      <Button intent="secondary" isDisabled={isDisabled}>Secondary</Button>
+      <Button intent="danger" isDisabled={isDisabled}>Danger</Button>
+      <Button intent="warning" isDisabled={isDisabled}>Warning</Button>
+    </div>
+  )
+}
+
+Intents.args = {
+  isDisabled: false
 }
 
 export const Sizes = () => {
   return (
     <div style={{display: 'flex', alignItems: 'flex-start', gap: 10}}>
-      <Button size="extra-small">Extra Small</Button>
       <Button size="small">Small</Button>
       <Button>Medium</Button>
       <Button size="large">Large</Button>

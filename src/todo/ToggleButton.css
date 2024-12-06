@@ -2,7 +2,7 @@
 
 .react-aria-ToggleButton {
   color: var(--text-color);
-  background: var(--button-background);
+  background: var(--primary-background);
   border: 1px solid var(--border-color);
   forced-color-adjust: none;
   border-radius: 4px;
@@ -16,7 +16,7 @@
 
   &[data-pressed] {
     box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.1);
-    background: var(--button-background-pressed);
+    background: var(--primary-background-pressed);
     border-color: var(--border-color-pressed);
   }
 
@@ -38,7 +38,7 @@
 
   &[data-disabled] {
     border-color: var(--border-color-disabled);
-    background: var(--button-background);
+    background: var(--primary-background);
     color: var(--text-color-disabled);
   }
 }
