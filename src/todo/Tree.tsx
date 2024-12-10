@@ -46,11 +46,7 @@ export const TreeItemContent = (
 }
 
 export const TreeItemIndicator = () => {
-  return (
-    <Button slot="chevron" size="extra-small">
-      indicator
-    </Button>
-  )
+  return <Button slot="chevron">indicator</Button>
 }
 
 export const TreeItemCheckbox = () => {
