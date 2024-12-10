@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: [v*]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with: { node-version: "20", cache: "yarn" }
+      - run: bun i
+      - run: bun tsc
+      - run: bun run build && bunx pkg-pr-new publish --comment=off
+      - uses: nowsprinting/check-version-format-action@v3
+        id: version
+        with: { prefix: "v" }
+      - if: steps.version.outputs.is_valid == 'true'
+        run: |
+          rm -r dist && rm tsconfig.tsbuildinfo
+          yarn bump ${GITHUB_REF#refs/tags/v}
+          npm config set //registry.npmjs.org/:_authToken ${{secrets.NPM_AUTH_TOKEN}}
+      - if: steps.version.outputs.is_valid == 'true' && !steps.version.outputs.prerelease
+        run: npm publish
+      - if: steps.version.outputs.prerelease
+        run: npm publish --tag preview
+      - if: steps.version.outputs.is_valid == 'true' && !steps.version.outputs.prerelease
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v1
+        with:
+          changelog_file: changelog.md
+      - if: steps.version.outputs.is_valid == 'true' && !steps.version.outputs.prerelease
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+          body: ${{ steps.extract-release-notes.outputs.release_notes }}
