@@ -52,15 +52,16 @@
   --text-color-hover: var(--gray-600);
   --text-color-disabled: var(--gray-300);
   --text-color-placeholder: var(--gray-400);
+  --text-color-focused: var(--gray-800);
   --link-color: var(--indigo-500);
   --link-color-secondary: var(--gray-500);
   --link-color-pressed: var(--indigo-600);
   --border-color: var(--gray-300);
-  --border-color-hover: var(--gray-400);
-  --border-color-pressed: var(--gray-400);
+  --border-color-hover: var(--gray-500);
+  --border-color-pressed: var(--gray-600);
   --border-color-disabled: var(--gray-100);
-  --field-background: var(--gray-50);
-  --field-text-color: var(--gray-600);
+  --field-background: transparent;
+  --field-text-color: var(--gray-900);
   --overlay-background: var(--gray-200);
 
   --primary-color: var(--gray-50);
@@ -109,7 +110,7 @@
   --border-color-pressed: var(--gray-600);
   --border-color-disabled: var(--gray-800);
   --field-background: var(--gray-900);
-  --field-text-color: var(--gray-400);
+  --field-text-color: var(--gray-50);
   --overlay-background: var(--gray-800);
 
   --secondary-color: var(--gray-100);

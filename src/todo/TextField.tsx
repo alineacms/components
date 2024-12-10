@@ -1,32 +1,33 @@
 import {
+  TextField as AriaTextField,
+  type TextFieldProps as AriaTextFieldProps,
   FieldError,
   Input,
   Label,
   Text,
-  TextField as AriaTextField,
-  TextFieldProps as AriaTextFieldProps,
-  ValidationResult
-} from 'react-aria-components';
+  type ValidationResult
+} from 'react-aria-components'
 
-import './TextField.css';
+import './TextField.css'
 
 export interface TextFieldProps extends AriaTextFieldProps {
-  label?: string;
-  description?: string;
-  errorMessage?: string | ((validation: ValidationResult) => string);
+  label?: string
+  description?: string
+  errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-export function TextField(
-  { label, description, errorMessage, ...props }: TextFieldProps
-) {
+export function TextField({
+  label,
+  description,
+  errorMessage,
+  ...props
+}: TextFieldProps) {
   return (
-    (
-      <AriaTextField {...props}>
-        <Label>{label}</Label>
-        <Input />
-        {description && <Text slot="description">{description}</Text>}
-        <FieldError>{errorMessage}</FieldError>
-      </AriaTextField>
-    )
-  );
+    <AriaTextField {...props}>
+      <Label>{label + (props.isRequired ? ' *' : '')}</Label>
+      <Input />
+      {description && <Text slot="description">{description}</Text>}
+      <FieldError>{errorMessage}</FieldError>
+    </AriaTextField>
+  )
 }
