@@ -1,17 +1,5 @@
 import {Checkbox} from '../src/components/Checkbox'
-import {CheckboxGroup} from '../src/todo/CheckboxGroup'
-
-import type {Meta} from '@storybook/react'
-
-const meta: Meta<typeof CheckboxGroup> = {
-  component: CheckboxGroup,
-  parameters: {
-    layout: 'centered'
-  },
-  tags: ['autodocs']
-}
-
-export default meta
+import {CheckboxGroup} from '../src/components/CheckboxGroup'
 
 export const Example = (args: any) => (
   <CheckboxGroup {...args}>
