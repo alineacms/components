@@ -21,7 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.3s ease-out;
+    transition: var(--transition);
     transition-property: background, border, box-shadow;
   }
 
@@ -33,7 +33,7 @@
     stroke-width: 3px;
     stroke-dasharray: 22px;
     stroke-dashoffset: 66;
-    transition: 0.3s ease-out;
+    transition: var(--transition);
   }
 
   &[data-hovered] .checkbox {

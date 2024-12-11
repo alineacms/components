@@ -1,24 +1,43 @@
 @import "../theme.css";
 
 .react-aria-TextField {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  color: var(--text-color);
+  .react-aria-Label {
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 600;
+    display: block;
+    padding-bottom: 4px;
+    transition: var(--transition);
+    transition-property: color;
+  }
+
+  &:has([data-focused]) {
+    .react-aria-Label {
+      color: var(--text-color-focused);
+    }
+  }
 
   .react-aria-Input,
   .react-aria-TextArea {
-    padding: 0.286rem;
-    margin: 0;
+    font: inherit;
+    outline: none;
+    width: 100%;
+    padding: 8px 10px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     background: var(--field-background);
-    font-size: 1.143rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
     color: var(--field-text-color);
+    transition: var(--transition);
+
+    &[data-hovered] {
+      border-color: var(--border-color-hover);
+    }
 
     &[data-focused] {
-      outline: 2px solid var(--focus-ring-color);
-      outline-offset: -1px;
+      border-color: var(--highlight-background);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
     }
   }
 
@@ -26,6 +45,7 @@
   .react-aria-TextArea {
     &[data-invalid] {
       border-color: var(--invalid-color);
+      box-shadow: 0 0 0 4px var(--invalid-overlay);
     }
   }
 

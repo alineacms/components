@@ -52,15 +52,16 @@
   --text-color-hover: var(--gray-600);
   --text-color-disabled: var(--gray-300);
   --text-color-placeholder: var(--gray-400);
+  --text-color-focused: var(--gray-800);
   --link-color: var(--indigo-500);
   --link-color-secondary: var(--gray-500);
   --link-color-pressed: var(--indigo-600);
   --border-color: var(--gray-300);
-  --border-color-hover: var(--gray-400);
-  --border-color-pressed: var(--gray-400);
+  --border-color-hover: var(--gray-500);
+  --border-color-pressed: var(--gray-600);
   --border-color-disabled: var(--gray-100);
-  --field-background: var(--gray-50);
-  --field-text-color: var(--gray-600);
+  --field-background: transparent;
+  --field-text-color: var(--gray-900);
   --overlay-background: var(--gray-200);
 
   --primary-color: var(--gray-50);
@@ -86,10 +87,11 @@
   --highlight-background-invalid: #cc2000;
   --highlight-foreground: white;
   --highlight-foreground-pressed: #ddd;
-  --highlight-overlay: rgb(from #3f61e8 r g b / 25%);
+  --highlight-overlay: rgb(from #3f61e8 r g b / 20%);
   --invalid-color: var(--danger-500);
   --invalid-color-pressed: var(--danger-600);
-  --invalid-overlay: rgb(from #f44336 r g b / 25%);
+  --invalid-overlay: rgb(from #f44336 r g b / 20%);
+  --transition: 0.2s ease-out;
 }
 
 :root[data-theme="dark"] {
@@ -101,6 +103,7 @@
   --text-color-hover: var(--gray-400);
   --text-color-disabled: var(--gray-700);
   --text-color-placeholder: var(--gray-600);
+  --text-color-focused: var(--gray-300);
   --link-color: var(--indigo-500);
   --link-color-secondary: var(--gray-500);
   --link-color-pressed: var(--indigo-400);
@@ -109,7 +112,7 @@
   --border-color-pressed: var(--gray-600);
   --border-color-disabled: var(--gray-800);
   --field-background: var(--gray-900);
-  --field-text-color: var(--gray-400);
+  --field-text-color: var(--gray-50);
   --overlay-background: var(--gray-800);
 
   --secondary-color: var(--gray-100);

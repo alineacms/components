@@ -64,7 +64,7 @@
   padding: 4px 16px;
   border-radius: 4px;
   border: 1px solid var(--button-border);
-  transition: 0.3s ease-out;
+  transition: var(--transition);
   transition-property: background-color, border-color, color;
 
   &[data-size="small"] {
