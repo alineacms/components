@@ -2,7 +2,7 @@ import {useMemo} from 'react'
 import {UNSTABLE_ListLayout, useDragAndDrop} from 'react-aria-components'
 import {UNSTABLE_Virtualizer} from 'react-aria-components'
 import {useListData} from 'react-stately'
-import {GridList, GridListItem} from '../src/todo/GridList'
+import {GridList, GridListItem} from '../src/todo/GridList.tsx'
 
 export const Example = (args: any) => {
   const list = useListData({

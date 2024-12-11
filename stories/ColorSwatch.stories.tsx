@@ -1,4 +1,4 @@
-import {ColorSwatch} from '../src/todo/ColorSwatch'
+import {ColorSwatch} from '../src/todo/ColorSwatch.tsx'
 
 export const Example = (args: any) => <ColorSwatch {...args} />
 

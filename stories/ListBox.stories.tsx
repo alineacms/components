@@ -1,4 +1,4 @@
-import {ListBox, ListBoxItem} from '../src/todo/ListBox'
+import {ListBox, ListBoxItem} from '../src/todo/ListBox.tsx'
 
 export const Example = (args: any) => (
   <ListBox aria-label="Ice cream flavor" {...args}>

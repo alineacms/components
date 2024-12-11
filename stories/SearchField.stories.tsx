@@ -1,4 +1,4 @@
-import {SearchField} from '../src/todo/SearchField'
+import {SearchField} from '../src/todo/SearchField.tsx'
 
 export const Example = (args: any) => <SearchField {...args} />
 

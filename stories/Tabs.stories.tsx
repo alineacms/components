@@ -1,5 +1,5 @@
 import {Tab, TabList, TabPanel} from 'react-aria-components'
-import {Tabs} from '../src/todo/Tabs'
+import {Tabs} from '../src/todo/Tabs.tsx'
 
 export const Example = (args: any) => (
   <Tabs {...args}>

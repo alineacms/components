@@ -1,4 +1,4 @@
-import {NumberField} from '../src/todo/NumberField'
+import {NumberField} from '../src/todo/NumberField.tsx'
 
 export const Example = (args: any) => <NumberField {...args} />
 

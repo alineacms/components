@@ -1,4 +1,4 @@
-import {Link} from '../src/todo/Link'
+import {Link} from '../src/todo/Link.tsx'
 
 export const Example = (args: any) => <Link {...args}>The missing link</Link>
 

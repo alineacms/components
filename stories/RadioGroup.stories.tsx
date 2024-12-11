@@ -1,5 +1,5 @@
 import {Radio} from 'react-aria-components'
-import {RadioGroup} from '../src/todo/RadioGroup'
+import {RadioGroup} from '../src/todo/RadioGroup.tsx'
 
 export const Example = (args: any) => (
   <RadioGroup {...args}>

@@ -1,12 +1,12 @@
 import {
+  DateRangePicker as AriaDateRangePicker,
+  type DateRangePickerProps as AriaDateRangePickerProps,
   Button,
   CalendarCell,
   CalendarGrid,
   DateInput,
-  DateRangePicker as AriaDateRangePicker,
-  DateRangePickerProps as AriaDateRangePickerProps,
   DateSegment,
-  DateValue,
+  type DateValue,
   Dialog,
   FieldError,
   Group,
@@ -15,52 +15,51 @@ import {
   Popover,
   RangeCalendar,
   Text,
-  ValidationResult
-} from 'react-aria-components';
+  type ValidationResult
+} from 'react-aria-components'
 
-import './DateRangePicker.css';
+import './DateRangePicker.css'
 
 export interface DateRangePickerProps<T extends DateValue>
   extends AriaDateRangePickerProps<T> {
-  label?: string;
-  description?: string;
-  errorMessage?: string | ((validation: ValidationResult) => string);
+  label?: string
+  description?: string
+  errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-export function DateRangePicker<T extends DateValue>(
-  { label, description, errorMessage, ...props }: DateRangePickerProps<T>
-) {
+export function DateRangePicker<T extends DateValue>({
+  label,
+  description,
+  errorMessage,
+  ...props
+}: DateRangePickerProps<T>) {
   return (
-    (
-      <AriaDateRangePicker {...props}>
-        <Label>{label}</Label>
-        <Group>
-          <DateInput slot="start">
-            {(segment) => <DateSegment segment={segment} />}
-          </DateInput>
-          <span aria-hidden="true">–</span>
-          <DateInput slot="end">
-            {(segment) => <DateSegment segment={segment} />}
-          </DateInput>
-          <Button>▼</Button>
-        </Group>
-        {description && <Text slot="description">{description}</Text>}
-        <FieldError>{errorMessage}</FieldError>
-        <Popover>
-          <Dialog>
-            <RangeCalendar>
-              <header>
-                <Button slot="previous">◀</Button>
-                <Heading />
-                <Button slot="next">▶</Button>
-              </header>
-              <CalendarGrid>
-                {(date) => <CalendarCell date={date} />}
-              </CalendarGrid>
-            </RangeCalendar>
-          </Dialog>
-        </Popover>
-      </AriaDateRangePicker>
-    )
-  );
+    <AriaDateRangePicker {...props}>
+      <Label>{label}</Label>
+      <Group>
+        <DateInput slot="start">
+          {segment => <DateSegment segment={segment} />}
+        </DateInput>
+        <span aria-hidden="true">–</span>
+        <DateInput slot="end">
+          {segment => <DateSegment segment={segment} />}
+        </DateInput>
+        <Button>▼</Button>
+      </Group>
+      {description && <Text slot="description">{description}</Text>}
+      <FieldError>{errorMessage}</FieldError>
+      <Popover>
+        <Dialog>
+          <RangeCalendar>
+            <header>
+              <Button slot="previous">◀</Button>
+              <Heading />
+              <Button slot="next">▶</Button>
+            </header>
+            <CalendarGrid>{date => <CalendarCell date={date} />}</CalendarGrid>
+          </RangeCalendar>
+        </Dialog>
+      </Popover>
+    </AriaDateRangePicker>
+  )
 }

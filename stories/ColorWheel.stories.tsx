@@ -1,4 +1,4 @@
-import {ColorWheel} from '../src/todo/ColorWheel'
+import {ColorWheel} from '../src/todo/ColorWheel.tsx'
 
 export const Example = (args: any) => <ColorWheel {...args} />
 

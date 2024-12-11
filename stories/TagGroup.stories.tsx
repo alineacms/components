@@ -1,4 +1,4 @@
-import {Tag, TagGroup} from '../src/todo/TagGroup'
+import {Tag, TagGroup} from '../src/todo/TagGroup.tsx'
 
 export const Example = (args: any) => (
   <TagGroup {...args}>

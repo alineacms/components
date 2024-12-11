@@ -1,5 +1,5 @@
-import {Checkbox} from '../src/components/Checkbox'
-import {CheckboxGroup} from '../src/components/CheckboxGroup'
+import {Checkbox} from '../src/components/Checkbox.tsx'
+import {CheckboxGroup} from '../src/components/CheckboxGroup.tsx'
 
 export const Example = (args: any) => (
   <CheckboxGroup {...args}>

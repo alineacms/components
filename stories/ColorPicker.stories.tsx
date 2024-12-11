@@ -1,4 +1,4 @@
-import {ColorPicker} from '../src/todo/ColorPicker'
+import {ColorPicker} from '../src/todo/ColorPicker.tsx'
 
 export const Example = (args: any) => <ColorPicker {...args} />
 

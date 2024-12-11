@@ -1,4 +1,4 @@
-import {ColorArea} from '../src/todo/ColorArea'
+import {ColorArea} from '../src/todo/ColorArea.tsx'
 
 export const Example = (args: any) => <ColorArea {...args} />
 

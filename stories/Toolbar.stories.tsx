@@ -5,7 +5,7 @@ import {
   Separator,
   ToggleButton
 } from 'react-aria-components'
-import {Toolbar} from '../src/todo/Toolbar'
+import {Toolbar} from '../src/todo/Toolbar.tsx'
 
 export const Example = (args: any) => (
   <Toolbar aria-label="Text formatting" {...args}>

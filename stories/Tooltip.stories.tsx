@@ -1,5 +1,5 @@
 import {Button, TooltipTrigger} from 'react-aria-components'
-import {Tooltip} from '../src/todo/Tooltip'
+import {Tooltip} from '../src/todo/Tooltip.tsx'
 
 export const Example = (args: any) => (
   <TooltipTrigger>

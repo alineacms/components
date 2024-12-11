@@ -11,15 +11,14 @@
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "allowImportingTsExtensions": true,
+    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "dist",
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "types": ["vite/client"],
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["src"]
+  "include": ["."],
+  "exclude": ["node_modules"]
 }

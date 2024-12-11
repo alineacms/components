@@ -1,4 +1,4 @@
-import {ColorSlider} from '../src/todo/ColorSlider'
+import {ColorSlider} from '../src/todo/ColorSlider.tsx'
 
 export const Example = (args: any) => <ColorSlider {...args} />
 
