@@ -1,4 +1,4 @@
-import {ComboBox, ComboBoxItem} from '../src/todo/ComboBox'
+import {ComboBox, ComboBoxItem} from '../src/todo/ComboBox.tsx'
 
 export const Example = (args: any) => (
   <ComboBox {...args}>

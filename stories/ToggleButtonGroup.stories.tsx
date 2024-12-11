@@ -1,5 +1,5 @@
 import {ToggleButton} from 'react-aria-components'
-import {ToggleButtonGroup} from '../src/todo/ToggleButtonGroup'
+import {ToggleButtonGroup} from '../src/todo/ToggleButtonGroup.tsx'
 
 export const Example = (args: any) => (
   <ToggleButtonGroup {...args}>

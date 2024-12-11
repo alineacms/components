@@ -1,4 +1,4 @@
-import {DateField} from '../src/todo/DateField'
+import {DateField} from '../src/todo/DateField.tsx'
 
 export const Example = (args: any) => <DateField {...args} />
 

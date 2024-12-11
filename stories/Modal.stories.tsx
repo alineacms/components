@@ -7,7 +7,7 @@ import {
   Label,
   TextField
 } from 'react-aria-components'
-import {Modal} from '../src/todo/Modal'
+import {Modal} from '../src/todo/Modal.tsx'
 
 export const Example = (args: any) => (
   <DialogTrigger>

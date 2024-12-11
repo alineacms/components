@@ -1,5 +1,5 @@
 import {Cell, TableBody} from 'react-aria-components'
-import {Column, Row, Table, TableHeader} from '../src/todo/Table'
+import {Column, Row, Table, TableHeader} from '../src/todo/Table.tsx'
 
 export const Example = (args: any) => (
   <Table aria-label="Files" {...args}>

@@ -5,7 +5,7 @@ import {
   Label,
   TextField
 } from 'react-aria-components'
-import {Form} from '../src/todo/Form'
+import {Form} from '../src/todo/Form.tsx'
 
 export const Example = (args: any) => (
   <Form {...args}>

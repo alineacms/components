@@ -1,7 +1,7 @@
 import {
   ColorSwatchPicker,
   ColorSwatchPickerItem
-} from '../src/todo/ColorSwatchPicker'
+} from '../src/todo/ColorSwatchPicker.tsx'
 
 export const Example = (args: any) => (
   <ColorSwatchPicker {...args}>

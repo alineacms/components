@@ -4,7 +4,7 @@ import {
   DisclosurePanel,
   Heading
 } from 'react-aria-components'
-import {DisclosureGroup} from '../src/todo/DisclosureGroup'
+import {DisclosureGroup} from '../src/todo/DisclosureGroup.tsx'
 
 export const Example = (args: any) => (
   <DisclosureGroup {...args}>

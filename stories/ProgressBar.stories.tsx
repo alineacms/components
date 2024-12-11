@@ -1,4 +1,4 @@
-import {ProgressBar} from '../src/todo/ProgressBar'
+import {ProgressBar} from '../src/todo/ProgressBar.tsx'
 
 export const Example = (args: any) => <ProgressBar {...args} />
 

@@ -1,19 +1,17 @@
 import {
   ColorArea as AriaColorArea,
-  ColorAreaProps,
+  type ColorAreaProps,
   ColorThumb
-} from 'react-aria-components';
+} from 'react-aria-components'
 
-import './ColorArea.css';
+import './ColorArea.css'
 
 export function ColorArea(props: ColorAreaProps) {
   return (
-    (
-      <AriaColorArea {...props}>
-        <ColorThumb />
-      </AriaColorArea>
-    )
-  );
+    <AriaColorArea {...props}>
+      <ColorThumb />
+    </AriaColorArea>
+  )
 }
 
-export { ColorArea as MyColorArea };
+export {ColorArea as MyColorArea}

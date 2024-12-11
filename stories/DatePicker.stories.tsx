@@ -1,4 +1,4 @@
-import {DatePicker} from '../src/todo/DatePicker'
+import {DatePicker} from '../src/todo/DatePicker.tsx'
 
 export const Example = (args: any) => <DatePicker {...args} />
 

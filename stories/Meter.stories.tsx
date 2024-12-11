@@ -1,4 +1,4 @@
-import {Meter} from '../src/todo/Meter'
+import {Meter} from '../src/todo/Meter.tsx'
 
 export const Example = (args: any) => <Meter {...args} />
 

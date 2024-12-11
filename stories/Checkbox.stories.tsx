@@ -1,4 +1,4 @@
-import {Checkbox} from '../src/components/Checkbox'
+import {Checkbox} from '../src/components/Checkbox.tsx'
 
 export const Example = () => (
   <div style={{display: 'flex', flexDirection: 'column', gap: 10}}>

@@ -1,4 +1,4 @@
-import {Slider} from '../src/todo/Slider'
+import {Slider} from '../src/todo/Slider.tsx'
 
 export const Example = (args: any) => <Slider {...args} />
 

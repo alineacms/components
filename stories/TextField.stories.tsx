@@ -1,4 +1,4 @@
-import {TextField} from '../src/todo/TextField'
+import {TextField} from '../src/todo/TextField.tsx'
 
 export const Example = () => {
   return (

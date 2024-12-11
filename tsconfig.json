@@ -8,15 +8,17 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "types": ["vite/client"],
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["src", "stories"]
+  "include": ["."],
+  "exclude": ["node_modules"]
 }
