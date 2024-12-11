@@ -11,8 +11,8 @@ import {
 } from 'react-aria-components'
 import './Tree.css'
 import {type ComponentProps, useMemo} from 'react'
-import {Button} from '../components/Button'
-import {Checkbox} from '../components/Checkbox'
+import {Button} from '../components/Button.tsx'
+import {Checkbox} from '../components/Checkbox.tsx'
 
 export const Tree = <T extends object>({className, ...props}: TreeProps<T>) => {
   const layout = useMemo(() => {

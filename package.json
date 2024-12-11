@@ -1,6 +1,7 @@
 {
   "name": "@alinea/ui",
   "type": "module",
+  "sideEffects": false,
   "devDependencies": {
     "@types/bun": "^1.1.14",
     "@biomejs/biome": "^1.9.4",
@@ -12,10 +13,11 @@
     "react-dom": "^18.3.1",
     "typescript": "5.3.3",
     "typescript-plugin-css-modules": "^5.1.0",
+    "esbuild": "^0.24.0"
   },
   "scripts": {
     "dev": "ladle dev",
     "build": "ladle build",
-    "prepublishOnly": "bun build src/**/*.tsx --no-bundle --outdir dist"
+    "prepublishOnly": "rm -rf dist && tsc && bun build.ts"
   }
 }

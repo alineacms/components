@@ -1,5 +1,11 @@
-import {Checkbox as AriaCheckbox, type CheckboxProps} from 'react-aria-components'
+import {
+  Checkbox as AriaCheckbox,
+  type CheckboxProps
+} from 'react-aria-components'
 import './Checkbox.css'
+import {Button} from './Button.tsx'
+
+console.log(Button)
 
 export function Checkbox({children, ...props}: CheckboxProps) {
   return (

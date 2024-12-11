@@ -4,9 +4,9 @@ import {
   type GridListItemProps,
   type GridListProps
 } from 'react-aria-components'
-import {Checkbox} from '../components/Checkbox'
+import {Checkbox} from '../components/Checkbox.tsx'
 import './GridList.css'
-import {Button} from '../components/Button'
+import {Button} from '../components/Button.tsx'
 
 export function GridList<T extends object>({
   children,
