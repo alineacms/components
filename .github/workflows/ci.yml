@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with: { node-version: "20", cache: "yarn" }
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - run: bun i
       - run: bun tsc
       - run: bun prepublishOnly && bunx pkg-pr-new publish --comment=off
