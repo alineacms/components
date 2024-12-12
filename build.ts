@@ -35,6 +35,8 @@ const externalize: Plugin = {
         write: false
       })
       Bun.write('dist/index.css', res.outputFiles[0].text)
+      Bun.write('dist/empty.js', '')
+      Bun.write('dist/empty.d.ts', '')
     })
   }
 }
