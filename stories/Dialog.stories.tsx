@@ -4,9 +4,9 @@ import {
   Heading,
   Input,
   Label,
-  Modal,
-  TextField
+  Modal
 } from 'react-aria-components'
+import {TextField} from '../src/components/TextField.tsx'
 import {Dialog} from '../src/todo/Dialog.tsx'
 
 export const Example = (args: any) => (

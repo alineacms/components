@@ -4,9 +4,9 @@ import {
   DialogTrigger,
   Heading,
   Input,
-  Label,
-  TextField
+  Label
 } from 'react-aria-components'
+import {TextField} from '../src/components/TextField.tsx'
 import {Modal} from '../src/todo/Modal.tsx'
 
 export const Example = (args: any) => (

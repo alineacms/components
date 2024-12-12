@@ -12,6 +12,7 @@ import './TextField.css'
 
 export interface TextFieldProps extends AriaTextFieldProps {
   label?: string
+  placeholder?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
 }

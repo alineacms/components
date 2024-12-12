@@ -1,10 +1,5 @@
-import {
-  Button,
-  FieldError,
-  Input,
-  Label,
-  TextField
-} from 'react-aria-components'
+import {Button, FieldError, Input, Label} from 'react-aria-components'
+import {TextField} from '../src/components/TextField.tsx'
 import {Form} from '../src/todo/Form.tsx'
 
 export const Example = (args: any) => (
