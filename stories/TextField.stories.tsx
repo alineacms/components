@@ -7,6 +7,7 @@ export const Example = () => {
       <TextField label="TextField" isRequired />
       <TextField label="TextField" placeholder="Placeholder" />
       <TextField label="TextField" description="TextField with description" />
+      <TextField label="TextArea" isTextarea />
     </div>
   )
 }

@@ -41,6 +41,10 @@
     }
   }
 
+  .react-aria-TextArea {
+    resize: vertical;
+  }
+
   .react-aria-Input,
   .react-aria-TextArea {
     &[data-invalid] {
