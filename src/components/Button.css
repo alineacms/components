@@ -10,7 +10,7 @@
   &[data-intent="secondary"] {
     --button-color: var(--text-color);
     --button-bg: var(--background-color);
-    --button-hovered: var(--background-color-hovered);
+    --button-hovered: var(--background-color-hover);
     --button-pressed: var(--background-color-pressed);
   }
 
@@ -53,7 +53,7 @@
   &[data-appearance="plain"] {
     --button-color: var(--text-color);
     --button-bg: transparent;
-    --button-hovered: var(--secondary-background);
+    --button-hovered: var(--background-color-hover);
   }
 
   color: var(--button-color);
@@ -95,7 +95,6 @@
     &[data-intent="secondary"] {
       color: var(--text-color);
       border-color: var(--background-color);
-      background-color: var(--background-color);
     }
   }
 
@@ -108,11 +107,11 @@
     }
 
     &[data-intent="secondary"] {
-      outline-color: var(--secondary-background);
+      outline-color: var(--background-color);
     }
 
     &[data-appearance="plain"] {
-      outline-color: var(--secondary-background);
+      outline-color: var(--background-color);
     }
   }
 
