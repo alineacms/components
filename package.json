@@ -2,6 +2,11 @@
   "name": "@alinea/components",
   "version": "0.0.4",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alineacms/components.git"
+  },
+  "license": "MIT",
   "sideEffects": false,
   "files": [
     "dist",
@@ -11,8 +16,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./css": {
-      "node": "./dist/empty.js",
       "types": "./dist/empty.d.ts",
+      "node": "./dist/empty.js",
       "default": "./dist/index.css"
     },
     "./package.json": "./package.json"
