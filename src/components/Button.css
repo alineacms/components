@@ -8,10 +8,10 @@
   --button-pressed: var(--highlight-background-pressed);
 
   &[data-intent="secondary"] {
-    --button-color: var(--secondary-color);
-    --button-bg: var(--secondary-background);
-    --button-hovered: var(--secondary-background-hovered);
-    --button-pressed: var(--secondary-background-pressed);
+    --button-color: var(--text-color);
+    --button-bg: var(--background-color);
+    --button-hovered: var(--background-color-hovered);
+    --button-pressed: var(--background-color-pressed);
   }
 
   &[data-intent="danger"] {
@@ -33,9 +33,9 @@
   }
 
   &[data-appearance="outline"][data-intent="secondary"] {
-    --button-color: var(--secondary-color);
-    --button-border: var(--secondary-background);
-    --button-hovered: var(--secondary-background);
+    --button-color: var(--text-color);
+    --button-border: var(--background-color);
+    --button-hovered: var(--background-color);
   }
 
   &[data-appearance="outline"][data-intent="danger"] {
@@ -93,9 +93,9 @@
     }
 
     &[data-intent="secondary"] {
-      color: var(--secondary-color);
-      border-color: var(--secondary-background);
-      background-color: var(--secondary-background);
+      color: var(--text-color);
+      border-color: var(--background-color);
+      background-color: var(--background-color);
     }
   }
 

@@ -38,7 +38,7 @@
 
   &[data-hovered] .checkbox {
     border-color: var(--border-color-hover);
-    box-shadow: 0 0 0 4px var(--overlay-background);
+    box-shadow: 0 0 0 4px var(--box-shadow-color);
   }
 
   &[data-focus-visible] .checkbox {

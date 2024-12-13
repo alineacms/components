@@ -16,6 +16,7 @@
   }
 
   &[data-hovered] {
+    color: var(--link-color-hover);
     text-decoration-color: currentColor;
 
     &[data-variant="underline"] {
