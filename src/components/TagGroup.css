@@ -1,6 +1,6 @@
 @import "../theme.css";
 
-.react-aria-TagGroup {
+.alinea-TagGroup {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -8,13 +8,13 @@
   color: var(--text-color);
 }
 
-.react-aria-TagList {
+.alinea-TagList {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.react-aria-Tag {
+.alinea-Tag {
   cursor: default;
   outline: none;
   display: flex;
@@ -39,6 +39,7 @@
   }
 
   &[data-selection-mode] {
+    cursor: pointer;
     padding-block: 2px;
     border: 1px solid var(--border-color);
     background-color: var(--background-color);
@@ -61,6 +62,7 @@
   }
 
   [slot="remove"] {
+    cursor: pointer;
     background: none;
     border: none;
     padding: 0;
@@ -80,15 +82,15 @@
       color: inherit;
     }
   }
+
+  &[data-href] {
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
-.react-aria-Tag[data-href] {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.react-aria-TagList {
-  .react-aria-Tag {
+.alinea-TagList {
+  .alinea-Tag {
     &[data-disabled] {
       border-color: var(--border-color-disabled);
       color: var(--text-color-disabled);
@@ -96,7 +98,7 @@
   }
 }
 
-.react-aria-TagGroup {
+.alinea-TagGroup {
   [slot="description"] {
     font-size: 12px;
   }

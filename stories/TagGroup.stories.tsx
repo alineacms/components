@@ -6,7 +6,7 @@ import {
   type ShapeProps,
   Tag,
   TagGroup
-} from '../src/todo/TagGroup.tsx'
+} from '../src/components/TagGroup.tsx'
 
 const intents: IntentProps[] = ['primary', 'secondary']
 const shapes: ShapeProps[] = ['square', 'circle']
