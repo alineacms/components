@@ -9,6 +9,9 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.suggest.completeJSDocs": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
