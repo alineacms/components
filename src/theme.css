@@ -10,29 +10,31 @@
   --gray-800: #424242;
   --gray-900: #212121;
 
-  --indigo-50: #f0f4fe;
-  --indigo-100: #dde4fc;
-  --indigo-200: #c3d1fa;
-  --indigo-300: #9ab5f6;
-  --indigo-400: #6b8eef;
-  --indigo-500: #3f61e8;
-  --indigo-600: #334add;
-  --indigo-700: #2a37cb;
-  --indigo-800: #282fa5;
-  --indigo-900: #252d83;
-  --indigo-950: #1b1e50;
+  --indigo-50: #e8efff;
+  --indigo-100: #ceddff;
+  --indigo-200: #b3cbfe;
+  --indigo-300: #99b8fe;
+  --indigo-400: #7fa6fe;
+  --indigo-500: #6494fd;
+  --indigo-600: #4a82fd;
+  --indigo-700: #2f6ffc;
+  --indigo-800: #155dfc;
+  --indigo-900: #124fd6;
+  --indigo-950: #0b2f7e;
 
   --danger-50: #ffebee;
   --danger-100: #ffcdd2;
   --danger-200: #ef9a9a;
   --danger-400: #ef5350;
   --danger-500: #f44336;
+  --danger-600: #e53935;
 
   --warning-50: #fff8e1;
   --warning-100: #ffecb3;
   --warning-200: #ffe082;
   --warning-400: #ffca28;
   --warning-500: #ffc107;
+  --warning-600: #ffb300;
 
   --highlight-hover: rgb(0 0 0 / 0.07);
   --highlight-pressed: rgb(0 0 0 / 0.15);
@@ -42,17 +44,17 @@
 :root {
   /* these colors are the same between light and dark themes
    * to ensure contrast with the foreground color */
-  --highlight-background: var(--indigo-500);
-  --highlight-background-hovered: var(--indigo-600);
-  --highlight-background-pressed: var(--indigo-700);
-  --highlight-background-disabled: var(--indigo-100);
+  --highlight-background: var(--indigo-800);
+  --highlight-background-hovered: var(--indigo-700);
+  --highlight-background-pressed: var(--indigo-900);
+  --highlight-background-disabled: var(--indigo-50);
   --highlight-background-invalid: #cc2000;
   --highlight-foreground: white;
   --highlight-foreground-pressed: #ddd;
   --highlight-foreground-disabled: var(--indigo-400);
   --highlight-overlay: rgb(from #3f61e8 r g b / 20%);
   --selected-background: var(--indigo-50);
-  --selected-foreground: var(--indigo-500);
+  --selected-foreground: var(--indigo-700);
   --invalid-color: var(--danger-500);
   --invalid-color-pressed: var(--danger-600);
   --invalid-overlay: rgb(from #f44336 r g b / 20%);
@@ -77,9 +79,9 @@
   --field-background: var(--gray-50);
   --field-text-color: var(--gray-900);
   --overlay-background: var(--gray-50);
-  --background-color: var(--gray-100);
-  --background-color-hover: var(--gray-200);
-  --background-color-pressed: var(--gray-300);
+  --background-color: var(--gray-200);
+  --background-color-hover: var(--gray-300);
+  --background-color-pressed: var(--gray-400);
   --box-shadow-color: var(--gray-200);
 }
 

@@ -1,6 +1,9 @@
+'use client'
+
 import {IcRoundRefresh} from 'alinea/ui/icons/IcRoundRefresh'
-import type {CSSProperties} from 'react'
+import {type CSSProperties, useState} from 'react'
 import {Button} from '../src/components/Button.tsx'
+import {ProgressCircle} from '../src/components/ProgressCircle.tsx'
 
 const styleStack: CSSProperties = {
   display: 'flex',
@@ -80,12 +83,43 @@ export function Sizes() {
   )
 }
 
-export function WithIcon() {
+export function Icons() {
+  const [isLoading, setLoading] = useState<boolean>(false)
+
+  const handlePress = () => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 4500)
+  }
+
   return (
     <div style={styleStack}>
       <Button>
         <IcRoundRefresh data-slot="icon" />
         With icon
+      </Button>
+      <Button size="square-petite">
+        <IcRoundRefresh data-slot="icon" />
+      </Button>
+      <Button size="square-petite" appearance="outline">
+        <IcRoundRefresh data-slot="icon" />
+      </Button>
+      <Button onPress={handlePress}>
+        <>
+          {isLoading ? (
+            <ProgressCircle isIndeterminate aria-label="Refreshing..." />
+          ) : (
+            <IcRoundRefresh data-slot="icon" />
+          )}
+          {isLoading ? 'Refreshing...' : 'Refresh'}
+        </>
+      </Button>
+      <Button onPress={handlePress}>
+        <>
+          <ProgressCircle isIndeterminate aria-label="Loading..." />
+          Loading...
+        </>
       </Button>
     </div>
   )

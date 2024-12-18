@@ -7,10 +7,6 @@
   --button-hovered: var(--highlight-background-hovered);
   --button-pressed: var(--highlight-background-pressed);
 
-  [data-slot="icon"] {
-    flex-shrink: 0;
-  }
-
   &[data-intent="secondary"] {
     --button-color: var(--text-color);
     --button-bg: var(--background-color);
@@ -22,12 +18,14 @@
     --button-color: var(--gray-50);
     --button-bg: var(--danger-400);
     --button-hovered: var(--danger-500);
+    --button-pressed: var(--danger-600);
   }
 
   &[data-intent="warning"] {
     --button-color: var(--gray-900);
     --button-bg: var(--warning-400);
     --button-hovered: var(--warning-500);
+    --button-pressed: var(--warning-600);
   }
 
   &[data-appearance="outline"] {
@@ -58,12 +56,13 @@
     --button-color: var(--text-color);
     --button-bg: transparent;
     --button-hovered: var(--background-color-hover);
+    --button-pressed: var(--background-color-pressed);
   }
 
   color: var(--button-color);
   font: inherit;
   font-size: 14px;
-  line-height: 1.5rem;
+  line-height: 24px;
   text-decoration: none;
   appearance: none;
   cursor: pointer;
@@ -71,24 +70,38 @@
   position: relative;
   vertical-align: middle;
   background-color: var(--button-bg);
-  padding: 4px 16px;
-  border-radius: 8px;
+  padding: 7px 16px;
+  border-radius: 6px;
   border: 1px solid var(--button-border);
   transition: var(--transition);
   transition-property: background-color, border-color, color;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 
   &[data-size="small"] {
     font-size: 12px;
-    padding: 2px 12px;
+    padding: 4px 16px;
     border-radius: 6px;
   }
 
   &[data-size="large"] {
     font-size: 16px;
-    padding: 8px 24px;
+    padding: 9px 20px;
+  }
+
+  &[data-size="square-petite"] {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-slot="icon"] {
+    flex-shrink: 0;
+    display: block;
+    font-size: 18px;
   }
 
   &[data-hovered] {
@@ -99,9 +112,10 @@
       background-color: var(--highlight-background);
     }
 
-    &[data-intent="secondary"] {
+    &[data-appearance="outline"][data-intent="secondary"] {
       color: var(--text-color);
       border-color: var(--background-color);
+      background-color: var(--background-color);
     }
   }
 
@@ -113,17 +127,17 @@
       outline-color: var(--highlight-background);
     }
 
-    &[data-intent="secondary"] {
+    &[data-appearance="plain"] {
       outline-color: var(--background-color);
     }
 
-    &[data-appearance="plain"] {
+    &[data-intent="secondary"] {
       outline-color: var(--background-color);
     }
   }
 
   &[data-pressed] {
-    background: var(--button-pressed);
+    background-color: var(--button-pressed) !important;
     box-shadow: inset 0 -2px 2px -1px rgb(0 0 0 / 0.1);
   }
 
