@@ -1,9 +1,12 @@
 import {execSync} from 'node:child_process'
 
+const binary = 'bun'
 const args = process.argv.slice(2)
 if (args.length === 0) args.push('install')
 try {
-  execSync(`bun ${args.join(' ')}`, {stdio: 'inherit'})
+  execSync(`${binary} ${args.join(' ')}`, {stdio: 'inherit'})
 } catch (error) {
+  if (error.status === 127)
+    console.warn('Install bun from https://bun.sh')
   process.exit(error.status)
 }
