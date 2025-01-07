@@ -99,7 +99,14 @@
 }
 
 .alinea-rac-Column {
+  .alinea-rac-Column-flex {
+    gap: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
   .alinea-rac-Column-sortIndicator {
+    flex-shrink: 0;
     padding: 0 2px;
   }
 

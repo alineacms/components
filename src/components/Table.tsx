@@ -17,6 +17,7 @@ import {
 } from 'react-aria-components'
 import {Checkbox} from './Checkbox.tsx'
 import './Table.css'
+import type {PropsWithChildren} from 'react'
 import {Button} from './Button.tsx'
 
 export type {
@@ -41,14 +42,14 @@ export function Table(
   )
 }
 
-export function Column(props: ColumnProps) {
+export function Column(props: PropsWithChildren<ColumnProps>) {
   return (
     <ColumnPrimitive
       {...props}
       className={clsx('alinea-rac-Column', props.className)}
     >
       {({allowsSorting, sortDirection}) => (
-        <>
+        <div className={clsx('alinea-rac-Column-flex')}>
           {props.children}
           {allowsSorting && (
             <span
@@ -58,7 +59,7 @@ export function Column(props: ColumnProps) {
               {sortDirection === 'ascending' ? '▲' : '▼'}
             </span>
           )}
-        </>
+        </div>
       )}
     </ColumnPrimitive>
   )
