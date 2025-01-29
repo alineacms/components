@@ -90,7 +90,8 @@
 }
 
 /* Dark */
-:root[data-theme="dark"] {
+:root[data-theme="dark"],
+:root.alinea-Viewport-is-dark {
   --focus-ring-color: var(--indigo-500);
   --text-color: var(--gray-200);
   --text-color-base: var(--gray-500);
