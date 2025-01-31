@@ -1,10 +1,10 @@
-@import "./Popover.css";
-@import "./DateField.css";
-@import "./Calendar.css";
+@import "../todo/Popover.css";
+@import "../todo/DateField.css";
+@import "../todo/Calendar.css";
 
 @import "../theme.css";
 
-.react-aria-DatePicker {
+.alinea-rac-DatePicker {
   color: var(--text-color);
 
   .react-aria-Group {
@@ -14,6 +14,7 @@
   }
 
   .react-aria-Button {
+    cursor: pointer;
     background: var(--highlight-background);
     color: var(--highlight-foreground);
     border: 2px solid var(--field-background);
@@ -40,6 +41,15 @@
 
   .react-aria-DateInput {
     padding: 4px 2.5rem 4px 8px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    transition: var(--transition);
+
+    &[data-focus-within] {
+      outline: none;
+      border-color: var(--highlight-background);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
+    }
   }
 }
 

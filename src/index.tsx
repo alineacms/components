@@ -1,6 +1,7 @@
 export * from './components/Button.tsx'
 export * from './components/Checkbox.tsx'
 export * from './components/CheckboxGroup.tsx'
+export * from './components/DatePicker.tsx'
 export * from './components/Dialog.tsx'
 export * from './components/DropZone.tsx'
 export * from './components/Form.tsx'
