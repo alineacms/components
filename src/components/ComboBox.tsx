@@ -1,10 +1,10 @@
+import clsx from 'clsx'
 import {
-  ComboBox as AriaComboBox,
-  type ComboBoxProps as AriaComboBoxProps,
   Button,
+  ComboBox as ComboboxPrimitive,
+  type ComboBoxProps as ComboboxPrimitiveProps,
   FieldError,
   Input,
-  Label,
   ListBox,
   ListBoxItem,
   type ListBoxItemProps,
@@ -12,11 +12,12 @@ import {
   Text,
   type ValidationResult
 } from 'react-aria-components'
+import {Label} from './Label.tsx'
 
 import './ComboBox.css'
 
 export interface ComboBoxProps<T extends object>
-  extends Omit<AriaComboBoxProps<T>, 'children'> {
+  extends Omit<ComboboxPrimitiveProps<T>, 'children'> {
   label?: string
   description?: string | null
   errorMessage?: string | ((validation: ValidationResult) => string)
@@ -31,9 +32,12 @@ export function ComboBox<T extends object>({
   ...props
 }: ComboBoxProps<T>) {
   return (
-    <AriaComboBox {...props}>
+    <ComboboxPrimitive
+      {...props}
+      className={clsx('alinea-rac-Combobox', props.className)}
+    >
       <Label>{label}</Label>
-      <div className="my-combobox-container">
+      <div>
         <Input />
         <Button>▼</Button>
       </div>
@@ -42,7 +46,7 @@ export function ComboBox<T extends object>({
       <Popover>
         <ListBox>{children}</ListBox>
       </Popover>
-    </AriaComboBox>
+    </ComboboxPrimitive>
   )
 }
 

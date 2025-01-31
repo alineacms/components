@@ -1,25 +1,31 @@
-@import "./ListBox.css";
-@import "./Popover.css";
+@import "../todo/ListBox.css";
+@import "../todo/Popover.css";
 
 @import "../theme.css";
 
-.react-aria-ComboBox {
+.alinea-rac-Combobox {
   color: var(--text-color);
 
   .react-aria-Input {
-    margin: 0;
-    font-size: 1.072rem;
-    background: var(--field-background);
-    color: var(--field-text-color);
+    /* margin: 0; */
+    /* vertical-align: middle; */
+    padding: 0.286rem 2rem 0.286rem 0.571rem;
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 0.286rem 2rem 0.286rem 0.571rem;
-    vertical-align: middle;
+    background: var(--field-background);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--field-text-color);
+    transition: var(--transition);
+
+    &[data-hovered] {
+      border-color: var(--border-color-hover);
+    }
 
     &[data-focused] {
       outline: none;
-      outline: 2px solid var(--focus-ring-color);
-      outline-offset: -1px;
+      border-color: var(--highlight-background);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
     }
   }
 
@@ -59,6 +65,8 @@
   }
 
   .react-aria-ListBoxItem {
+    cursor: pointer;
+    font-size: 0.875rem;
     padding: 0.286rem 0.571rem 0.286rem 1.571rem;
 
     &[data-focus-visible] {
