@@ -5,7 +5,6 @@
 @import "./ColorField.css";
 @import "./Popover.css";
 @import "./ListBox.css";
-@import "./Select.css";
 @import "../theme.css";
 
 .color-picker {
