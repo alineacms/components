@@ -10,7 +10,10 @@ bun dev
 If you don't have `bun` installed yet, you can install it by running the following command:
 
 ```shell
-sudo snap install bun-js
+# Linux/MacOS
+curl -fsSL https://bun.sh/install | bash
+# Windows
+powershell -c "irm bun.sh/install.ps1 | iex"
 ```
 
 ## Creating a release
