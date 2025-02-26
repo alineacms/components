@@ -1,11 +1,26 @@
 @import "../theme.css";
 
-.alinea-rac-Label {
+.alinea-rac-Label-label {
   color: var(--text-color);
   font-size: 13px;
   font-weight: 600;
   display: block;
-  padding-bottom: 6px;
+
   transition: var(--transition);
   transition-property: color;
+}
+.alinea-rac-Label-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 2px;
+  line-height: 1;
+}
+
+.alinea-rac-Label-description {
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
 }
