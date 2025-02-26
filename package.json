@@ -39,7 +39,7 @@
   },
   "scripts": {
     "release": "bun release.ts",
-    "dev": "ladle dev",
+    "dev": "node ./node_modules/.bin/ladle serve",
     "build": "ladle build",
     "prepublishOnly": "rm -rf dist && tsc -p tsconfig.d.json && bun build.ts"
   }
