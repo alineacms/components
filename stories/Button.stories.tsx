@@ -109,6 +109,12 @@ export function Icons() {
       <Button size="square-petite" appearance="outline">
         <IcRoundRefresh data-slot="icon" />
       </Button>
+      <Button size="square-petite" appearance='plain'>
+        <IcRoundRefresh data-slot="icon" />
+      </Button>
+      <Button size="square-petite" appearance='plain'>
+        <IcRoundRefresh data-slot="icon" />
+      </Button>
       <Button onPress={handlePress}>
         <>
           {isLoading ? (

@@ -70,7 +70,7 @@
   position: relative;
   vertical-align: middle;
   background-color: var(--button-bg);
-  padding: 7px 16px;
+  padding: 7px 8px;
   border-radius: 6px;
   border: 1px solid var(--button-border);
   transition: var(--transition);
@@ -91,8 +91,8 @@
   }
 
   &[data-size="square-petite"] {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
