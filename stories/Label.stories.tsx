@@ -1,16 +1,19 @@
 import {Label} from '../src/components/Label.tsx'
+import {TextField} from '../src/components/TextField.tsx'
 import {Stack} from './Stack.tsx'
 export const Example = (args: any) => (
   <Stack>
-    <Label label="test" description="testhelp">
-      <input type="text" />
+    <Label label="Title" description="testhelp">
+      <TextField />
     </Label>
     <Label label="Username" errorMessage="Sorry, this username is taken">
-      <input type="text" />
+      <TextField />
     </Label>
-
     <Label label="Username" errorMessage="Sorry, this username is taken">
-      <b>Mijn</b> radio groep
+      <TextField />
+    </Label>
+    <Label label="Username" errorMessage="Sorry, this username is taken">
+      <TextField isDisabled />
     </Label>
   </Stack>
 )

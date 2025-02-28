@@ -5,7 +5,6 @@
   font-size: 13px;
   font-weight: 600;
   display: block;
-
   transition: var(--transition);
   transition-property: color;
 }
@@ -23,4 +22,22 @@
   font-size: 12px;
   font-weight: 400;
   font-style: italic;
+}
+
+.alinea-rac-Label-error {
+  color: var(--danger-500);
+  font-size: 12px;
+}
+
+.alinea-rac-Label-required {
+  color: var(--danger-500);
+  font-size: 12px;
+}
+
+.alinea-rac-Label-disabled {
+  color: red;
+  font-size: 12px;
+  
+
+
 }

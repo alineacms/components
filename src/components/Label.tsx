@@ -11,6 +11,8 @@ interface LabelProps extends LabelPrimitiveProps {
   label: ReactNode
   description?: ReactNode
   errorMessage?: ReactNode
+  isDisabled?: boolean
+  icon?: ReactNode
 }
 
 export function Label({
@@ -18,19 +20,21 @@ export function Label({
   description,
   errorMessage,
   isRequired,
+  isDisabled,
+  icon,
   ...props
 }: LabelProps) {
   return (
     <>
-      <div className="alinea-rac-Label">
-        <div className="alinea-rac-Label-header">
-          <LabelPrimitive {...props} className="alinea-rac-Label-label">
-            {label}
-          </LabelPrimitive>
-          <div className="alinea-rac-Label-description">{description}</div>
-        </div>
-        {props.children}
-        <div className="alinea-rac-Label-error">{errorMessage}</div>
+    <div>
+      <div className="alinea-rac-Label-header">
+        <LabelPrimitive {...props} className="alinea-rac-Label-label">
+          {label}
+        </LabelPrimitive>
+        <div className="alinea-rac-Label-description">{description}</div>
+      </div>
+      {props.children}
+      <div className="alinea-rac-Label-error">{errorMessage}</div>
       </div>
     </>
   )
