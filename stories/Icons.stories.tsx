@@ -2,7 +2,7 @@ import { IcRoundKeyboardArrowDown } from '../src/icons/IcRoundKeyboardArrowDown.
 import { IcRoundKeyboardArrowUp } from '../src/icons/IcRoundKeyboardArrowUp.tsx';
 import { IcRoundKeyboardArrowLeft } from '../src/icons/IcRoundKeyboardArrowLeft.tsx';
 import { IcRoundKeyboardArrowRight } from '../src/icons/IcRoundKeyboardArrowRight.tsx';
-import { IcDocument } from '../src/icons/IcRoundDocument.tsx';
+import { IcRoundDocument } from '../src/icons/IcRoundDocument.tsx';
 import { IcRoundShare } from '../src/icons/IcRoundShare.tsx';
 import { IcRoundRemoveRedEye } from '../src/icons/IcRoundRemoveRedEye.tsx';
 import { IcRoundMoreVert } from '../src/icons/IcRoundMoreVert.tsx';
@@ -44,8 +44,8 @@ export const Example = (args: any) => (
       <p>IcRoundKeyboardArrowRight</p>
     </Stack>
     <Stack direction='row' align='center'>
-      <IcDocument />
-      <p>IcDocument</p>
+      <IcRoundDocument />
+      <p>IcRoundDocument</p>
     </Stack>
     <Stack direction='row' align='center'>
       <IcRoundShare />
