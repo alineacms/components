@@ -21,6 +21,7 @@ import { IcRoundBrightness } from '../src/icons/IcRoundBrightness.tsx';
 import { IcRoundTextFields } from '../src/icons/IcRoundTextFields.tsx';
 import { IcRoundSearch } from '../src/icons/IcRoundSearch.tsx';
 import { IcRoundSettings } from '../src/icons/IcRoundSettings.tsx';
+import { IcRoundHome } from '../src/icons/IcRoundHome.tsx';
 import { Stack } from './Stack.tsx';
 
 
@@ -117,6 +118,10 @@ export const Example = (args: any) => (
     <Stack direction='row' align='center'>
       <IcRoundSettings />
       <p>IcRoundSettings</p>
+    </Stack>
+    <Stack direction='row' align='center'>
+      <IcRoundHome />
+      <p>IcRoundHome</p>
     </Stack>
     
   </div>
