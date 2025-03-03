@@ -22,14 +22,16 @@ import { IcRoundTextFields } from '../src/icons/IcRoundTextFields.tsx';
 import { IcRoundSearch } from '../src/icons/IcRoundSearch.tsx';
 import { IcRoundSettings } from '../src/icons/IcRoundSettings.tsx';
 import { IcRoundHome } from '../src/icons/IcRoundHome.tsx';
+import "../src/icons/icons.css";
+
 import { Stack } from './Stack.tsx';
 
 
 export const Example = (args: any) => (
-  <div style={{ columns: 2 }}>
+  <div style={{ columns: 2,  }}>
     <Stack direction='row' align='center'>
       <IcRoundKeyboardArrowDown />
-      <p>IcRoundKeyboardArrowDown</p>
+      <p style={{ color: 'var(--text-color)' }}>IcRoundKeyboardArrowDown</p>
     </Stack>
     <Stack direction='row' align='center'>
       <IcRoundKeyboardArrowUp />
