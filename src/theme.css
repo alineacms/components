@@ -90,6 +90,9 @@
   --icon-color-plain: var(--gray-500);
   --icon-color-active: var(--gray-500);
   --icon-background-active: var(--gray-200);
+  --icon-color-plain: var(--gray-500);
+  --icon-color-active: var(--gray-500);
+  --icon-background-color-active: var(--gray-200);
 }
 
 /* Dark */
@@ -118,4 +121,7 @@
   --box-shadow-color: var(--gray-800);
   --icon-color-active: var(--gray-500);
   --icon-background-active: rgb(from #3f61e8 r g b / 20%);
+  --icon-color-plain: var(--gray-500);
+  --icon-color-active: var(--gray-500);
+  --icon-background-color-active: var(--gray-200);
 }

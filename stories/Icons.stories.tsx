@@ -2,7 +2,7 @@ import { IcRoundKeyboardArrowDown } from '../src/icons/IcRoundKeyboardArrowDown.
 import { IcRoundKeyboardArrowUp } from '../src/icons/IcRoundKeyboardArrowUp.tsx';
 import { IcRoundKeyboardArrowLeft } from '../src/icons/IcRoundKeyboardArrowLeft.tsx';
 import { IcRoundKeyboardArrowRight } from '../src/icons/IcRoundKeyboardArrowRight.tsx';
-import { IcDocument } from '../src/icons/IcRoundDocument.tsx';
+import { IcRoundDocument } from '../src/icons/IcRoundDocument.tsx';
 import { IcRoundShare } from '../src/icons/IcRoundShare.tsx';
 import { IcRoundRemoveRedEye } from '../src/icons/IcRoundRemoveRedEye.tsx';
 import { IcRoundMoreVert } from '../src/icons/IcRoundMoreVert.tsx';
@@ -21,14 +21,17 @@ import { IcRoundBrightness } from '../src/icons/IcRoundBrightness.tsx';
 import { IcRoundTextFields } from '../src/icons/IcRoundTextFields.tsx';
 import { IcRoundSearch } from '../src/icons/IcRoundSearch.tsx';
 import { IcRoundSettings } from '../src/icons/IcRoundSettings.tsx';
+import { IcRoundHome } from '../src/icons/IcRoundHome.tsx';
+import "../src/icons/icons.css";
+
 import { Stack } from './Stack.tsx';
 
 
 export const Example = (args: any) => (
-  <div style={{ columns: 2 }}>
+  <div style={{ columns: 2,  }}>
     <Stack direction='row' align='center'>
       <IcRoundKeyboardArrowDown />
-      <p>IcRoundKeyboardArrowDown</p>
+      <p style={{ color: 'var(--text-color)' }}>IcRoundKeyboardArrowDown</p>
     </Stack>
     <Stack direction='row' align='center'>
       <IcRoundKeyboardArrowUp />
@@ -43,8 +46,8 @@ export const Example = (args: any) => (
       <p>IcRoundKeyboardArrowRight</p>
     </Stack>
     <Stack direction='row' align='center'>
-      <IcDocument />
-      <p>IcDocument</p>
+      <IcRoundDocument />
+      <p>IcRoundDocument</p>
     </Stack>
     <Stack direction='row' align='center'>
       <IcRoundShare />
@@ -117,6 +120,10 @@ export const Example = (args: any) => (
     <Stack direction='row' align='center'>
       <IcRoundSettings />
       <p>IcRoundSettings</p>
+    </Stack>
+    <Stack direction='row' align='center'>
+      <IcRoundHome />
+      <p>IcRoundHome</p>
     </Stack>
     
   </div>
