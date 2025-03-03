@@ -80,9 +80,10 @@ Intents.args = {
 export function Sizes() {
   return (
     <Stack>
-      <Button size="small">Small</Button>
       <Button>Medium</Button>
-      <Button size="large">Large</Button>
+      <Button>this is a medium button</Button>
+      <Button data-size="large">Large</Button>
+      <Button data-size="large">This is a large button</Button>
     </Stack>
   )
 }
@@ -109,10 +110,10 @@ export function Icons() {
       <Button size="square-petite" appearance="outline">
         <IcRoundRefresh data-slot="icon" />
       </Button>
-      <Button size="square-petite" appearance='plain'>
+      <Button size="square-petite" appearance="plain">
         <IcRoundRefresh data-slot="icon" />
       </Button>
-      <Button size="square-petite" appearance='plain'>
+      <Button size="square-petite" appearance="plain">
         <IcRoundRefresh data-slot="icon" />
       </Button>
       <Button onPress={handlePress}>
@@ -131,6 +132,31 @@ export function Icons() {
           Loading...
         </>
       </Button>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 10,
+          border: '1px solid gray',
+          padding: 10
+        }}
+      >
+        <Button data-size="square-petite">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+      </div>
     </HStack>
   )
 }
