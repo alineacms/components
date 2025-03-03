@@ -95,8 +95,8 @@
     padding: 0;
 
     &[data-appearance="active"] {
-      background-color: var(--icon-background-active) !important;
-      color: var(--selected-foreground);
+      background-color: var(--icon-background-color-active) !important;
+      color: var(--icon-color-active);
       
     }
 
