@@ -87,6 +87,9 @@
   --background-color-hover: var(--gray-300);
   --background-color-pressed: var(--gray-400);
   --box-shadow-color: var(--gray-200);
+  --icon-color-plain: var(--gray-500);
+  --icon-color-active: var(--gray-500);
+  --icon-background-color-active: var(--gray-200);
 }
 
 /* Dark */
@@ -113,4 +116,7 @@
   --background-color-hover: var(--gray-800);
   --background-color-pressed: var(--gray-700);
   --box-shadow-color: var(--gray-800);
+  --icon-color-plain: var(--gray-500);
+  --icon-color-active: var(--gray-500);
+  --icon-background-color-active: var(--gray-200);
 }
