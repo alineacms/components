@@ -9,11 +9,11 @@ export const Example = (args: any) => (
     <Label label="Username" errorMessage="Sorry, this username is taken">
       <TextField />
     </Label>
-    <Label label="Username" errorMessage="Sorry, this username is taken">
+    <Label label="Username" description="This is a very long description just to see how it would look" errorMessage="Sorry, this username is taken">
       <TextField />
     </Label>
     <Label label="Username" errorMessage="Sorry, this username is taken">
-      <TextField isDisabled />
+      <input />
     </Label>
   </Stack>
 )
