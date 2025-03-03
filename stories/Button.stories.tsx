@@ -10,6 +10,12 @@ import {
 import {Button} from '../src/components/Button.tsx'
 import {ProgressCircle} from '../src/components/ProgressCircle.tsx'
 import {Stack} from './Stack.tsx'
+import { IcRoundAccountCircle } from '../src/icons/IcRoundAccountCircle.tsx'
+import { IcRoundLanguage } from '../src/icons/IcRoundLanguage.tsx'
+import { IcRoundShare } from '../src/icons/IcRoundShare.tsx'
+import { IcRoundSearch } from '../src/icons/IcRoundSearch.tsx'
+import { IcRoundSettings } from '../src/icons/IcRoundSettings.tsx'
+import { IcDocument } from '../src/icons/IcRoundDocument.tsx'
 
 const styleStack: CSSProperties = {
   display: 'flex',
@@ -142,20 +148,24 @@ export function Icons() {
         }}
       >
         <Button data-size="square-petite">
-          <IcRoundRefresh data-slot="icon" />
+          <IcRoundAccountCircle data-slot="icon" />
         </Button>
         <Button data-size="square-petite" appearance="plain">
-          <IcRoundRefresh data-slot="icon" />
+          <IcRoundLanguage data-slot="icon" />
         </Button>
         <Button data-size="square-petite" appearance="plain">
-          <IcRoundRefresh data-slot="icon" />
+          <IcRoundShare data-slot="icon" />
         </Button>
         <Button data-size="square-petite" appearance="plain">
-          <IcRoundRefresh data-slot="icon" />
+          <IcRoundSearch data-slot="icon" />
         </Button>
         <Button data-size="square-petite" appearance="plain">
-          <IcRoundRefresh data-slot="icon" />
+          <IcRoundSettings data-slot="icon" />
         </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcDocument data-slot="icon" />
+        </Button>
+
       </div>
     </HStack>
   )
