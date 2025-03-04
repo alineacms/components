@@ -1,76 +1,78 @@
 @import "../theme.css";
 
 .alinea-rac-TextField {
-  .alinea-rac-Label {
-    font-size: 13px;
-    font-weight: 600;
-    display: block;
-    padding-bottom: 6px;
-    transition: var(--transition);
-    transition-property: color;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.alinea-rac-Input,
+.alinea-rac-TextArea {
+  font: inherit;
+  outline: none;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--field-background);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--field-text-color);
+  transition: var(--transition);
+
+  &[data-hovered] {
+    border-color: var(--border-color-hover);
   }
 
-  .alinea-rac-Label,
-  .alinea-rac-Text {
-    color: var(--text-color);
+  &[data-focused] {
+    border-color: var(--highlight-background);
+    box-shadow: 0 0 0 4px var(--highlight-overlay);
   }
+}
 
-  &:has([data-focused]) {
-    .alinea-rac-Label {
-      color: var(--text-color-focused);
-    }
-  }
+.alinea-rac-Input[data-invalid="true"], .alinea-rac-TextArea[data-invalid="true"] {
+  border: 1px solid var(--danger-500);
+  outline: 3px solid rgb(from var(--danger-500) r g b / 50%);
+}
 
-  .alinea-rac-Input,
-  .alinea-rac-TextArea {
-    font: inherit;
-    outline: none;
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--field-background);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--field-text-color);
-    transition: var(--transition);
+.alinea-rac-TextField-error {
+  border-color: var(--danger-500) !important;
+}
 
-    &[data-hovered] {
-      border-color: var(--border-color-hover);
-    }
+.alinea-rac-Description {
+  font-size: 12px;
+  color: var(--text-color-muted);
+}
+.alinea-rac-Input[disabled],
+.alinea-rac-TextArea[disabled],
+.alinea-rac-Input[readonly],
+.alinea-rac-TextArea[readonly] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.alinea-rac-Input[disabled],
+.alinea-rac-TextArea[disabled] {
+  background-color: var(--text-color-disabled);
+  opacity: 0.5;
+  color: var(--text-color-disabled);
+}
 
-    &[data-focused] {
-      border-color: var(--highlight-background);
-      box-shadow: 0 0 0 4px var(--highlight-overlay);
-    }
-  }
+.alinea-rac-TextArea-container {
+  display: grid;
+  width: 100%;
+}
 
-  .alinea-rac-TextArea {
-    resize: vertical;
-  }
+.alinea-rac-TextArea {
+  grid-area: 1 / 1 / 2 / 2;
+  overflow-x: auto;
+  resize: none;
+  white-space: pre-wrap;
+}
 
-  .alinea-rac-Input,
-  .alinea-rac-TextArea {
-    &[data-invalid] {
-      border-color: var(--invalid-color);
-      box-shadow: 0 0 0 4px var(--invalid-overlay);
-    }
-  }
-
-  .alinea-rac-FieldError {
-    font-size: 12px;
-    color: var(--invalid-color);
-  }
-
-  [slot="description"] {
-    font-size: 12px;
-  }
-
-  .alinea-rac-Input,
-  .alinea-rac-TextArea {
-    &[data-disabled] {
-      border-color: var(--border-color-disabled);
-      color: var(--text-color-disabled);
-    }
-  }
+.alinea-rac-TextArea-shadow {
+  content: attr(data-value) " ";
+  grid-area: 1 / 1 / 2 / 2;
+  overflow-x: auto;
+  visibility: hidden;
+  white-space: pre-wrap;
 }

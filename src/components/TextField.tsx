@@ -1,41 +1,46 @@
-import clsx from 'clsx'
+import clsx from 'clsx';
 import {
-  FieldError,
   Input,
-  Label,
-  Text,
   TextField as TextFieldPrimitive,
-  type TextFieldProps as TextFieldPrimitiveProps,
-  type ValidationResult
-} from 'react-aria-components'
+  type TextFieldProps as TextFieldPrimitiveProps
+} from 'react-aria-components';
 
-import './TextField.css'
+import { useLabelContext } from '../components/Label.tsx';
+import './TextField.css';
+
 export interface TextFieldProps extends TextFieldPrimitiveProps {
-  label?: string
-  placeholder?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
+  label?: React.ReactNode;
+  placeholder?: string;
+  icon?: React.ReactNode;
+  isDisabled?: boolean;
+  isReadOnly?: boolean;
+  children?: React.ReactNode;
 }
 
 export function TextField({
-  label,
-  description,
-  errorMessage,
+  placeholder,
+  icon,
+  isDisabled,
+  isReadOnly,
+  children,
   ...props
 }: TextFieldProps) {
+  const { errorMessage } = useLabelContext();
+  const hasError = !!errorMessage;
+
   return (
     <TextFieldPrimitive
       {...props}
-      className={clsx('alinea-rac-TextField', props.className)}
+      isDisabled={isDisabled}
+      isReadOnly={isReadOnly}
+      isInvalid={hasError || undefined}
+      className={clsx('alinea-rac-TextField', props.className, { 'alinea-rac-TextField-error': hasError })}
     >
-      {label && (
-        <Label className="alinea-rac-Label">
-          {label + (props.isRequired ? ' *' : '')}
-        </Label>
-      )}
-      <Input className="alinea-rac-Input" />
-      {description && <Text slot="description">{description}</Text>}
-      <FieldError className="alinea-rac-FieldError">{errorMessage}</FieldError>
+      <Input 
+        className={clsx('alinea-rac-Input')}
+        placeholder={placeholder}
+        tabIndex={isReadOnly ? -1 : undefined}
+      />
     </TextFieldPrimitive>
-  )
+  );
 }

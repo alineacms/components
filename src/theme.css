@@ -63,6 +63,7 @@
   --invalid-color-pressed: var(--danger-600);
   --invalid-overlay: rgb(from #f44336 r g b / 20%);
   --transition: 0.2s ease-out;
+  --error-border-color-transparent: rgba(244, 67, 54, 0.5);
 }
 
 /* Light */
@@ -87,6 +88,9 @@
   --background-color-hover: var(--gray-300);
   --background-color-pressed: var(--gray-400);
   --box-shadow-color: var(--gray-200);
+  --error-border-color: var(--danger-500);
+
+
 }
 
 /* Dark */
@@ -113,4 +117,6 @@
   --background-color-hover: var(--gray-800);
   --background-color-pressed: var(--gray-700);
   --box-shadow-color: var(--gray-800);
+  --text-color-readonly: var(--gray-50);
+  --error-border-color: var(--danger-500);
 }
