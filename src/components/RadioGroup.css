@@ -1,9 +1,9 @@
 @import "../theme.css";
 
 .alinea-rac-RadioGroup {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 8px; */
   color: var(--text-color);
 
   .alinea-rac-FieldError {
@@ -88,5 +88,9 @@
     &:before {
       border-color: var(--border-color-disabled);
     }
+  }
+
+  & + & {
+    margin-top: 4px;
   }
 }
