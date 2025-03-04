@@ -31,8 +31,8 @@ export function TextArea({
   // ✅ Functie om de grootte aan te passen
   useEffect(() => {
     if (autoSize && textAreaRef.current && shadowRef.current) {
-      shadowRef.current.textContent = textAreaRef.current.value + ' '; // Voeg spatie toe om correcte hoogte te krijgen
-      textAreaRef.current.style.height = shadowRef.current.offsetHeight + 'px';
+      shadowRef.current.textContent = `${textAreaRef.current.value} `; // Voeg spatie toe om correcte hoogte te krijgen
+      textAreaRef.current.style.height = `${shadowRef.current.offsetHeight}px`;
     }
   });
 
@@ -54,8 +54,8 @@ export function TextArea({
           tabIndex={isReadOnly ? -1 : undefined}
           onInput={() => {
             if (autoSize && textAreaRef.current && shadowRef.current) {
-              shadowRef.current.textContent = textAreaRef.current.value + ' ';
-              textAreaRef.current.style.height = shadowRef.current.offsetHeight + 'px';
+              shadowRef.current.textContent = `${textAreaRef.current.value} `;
+              textAreaRef.current.style.height = `${shadowRef.current.offsetHeight}px`;
             }
           }}
         />
