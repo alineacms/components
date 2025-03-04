@@ -59,7 +59,6 @@
     --button-pressed: var(--background-color-pressed);
   }
 
-
   color: var(--button-color);
   font: inherit;
   font-size: 12px;
@@ -97,7 +96,8 @@
     &[data-appearance="active"] {
       background-color: var(--icon-background-color-active) !important;
       color: var(--icon-color-active);
-      
+      --button-hovered: var(--background-color-hover);
+      --button-pressed: var(--background-color-pressed);
     }
 
     &[data-appearance="plain"] {
@@ -125,6 +125,26 @@
       border-color: var(--button-border);
       background-color: var(--button-hovered);
     }
+  }
+
+  &[data-size="square-petite"][data-hovered] {
+    background-color: var(--button-hovered);
+    color: var(--button-color);
+  }
+
+  &[data-size="square-petite"][data-hovered][data-appearance="active"] {
+    background-color: var(--icon-background-color-active-hover);
+    color: var(--icon-color-active);
+  }
+
+  &[data-size="square-petite"][data-hovered][data-appearance="plain"] {
+    background-color: var(--background-color-hover);
+    color: var(--icon-color-plain-hover);
+  }
+
+  &[data-size="square-petite"][data-hovered][data-appearance="outline"] {
+    color: var(--highlight-foreground);
+    background-color: var(--highlight-background-hovered);
   }
 
   &[data-focus-visible] {
