@@ -7,8 +7,7 @@ import {
 import {Radio as RadioPrimitive, type RadioProps} from 'react-aria-components'
 import './RadioGroup.css'
 import clsx from 'clsx'
-import {Label} from './Label.tsx' // Gebruik je eigen Label component
-
+import {Label} from './Label.tsx' 
 export type {RadioProps} from 'react-aria-components'
 
 export function Radio(props: RadioProps) {
@@ -50,7 +49,7 @@ export function RadioGroup({
       )}
       {!label && children}
 
-      {/* Verplaats de FieldError naar binnen in de Label-component */}
+
       {errorMessage && (
         <FieldError className="alinea-rac-FieldError">
           {typeof errorMessage === 'function'
