@@ -1,20 +1,28 @@
-import { Radio, RadioGroup } from '../src/components/RadioGroup.tsx';
-import { Stack } from './Stack.tsx';
+import {Radio, RadioGroup} from '../src/components/RadioGroup.tsx'
+import {Stack} from './Stack.tsx'
 
 export const Example = () => {
   return (
     <Stack>
-      <RadioGroup
-        label="Favorite sport"
-        description="Choose one of the options below"
-        errorMessage="This field is required"
-      >
-        <Radio value="soccer">Soccer</Radio>
-        <Radio value="baseball">Baseball</Radio>
-        <Radio value="basketball">Basketball</Radio>
-      </RadioGroup>
+      <form onSubmit={e => e.preventDefault()}>
+        <RadioGroup
+          name="fav_sport"
+          label="Favorite sport"
+          description="Choose one of the options below"
+          isRequired
+          errorMessage="Please select a sport."
+        >
+          <Radio value="soccer">Soccer</Radio>
+          <Radio value="baseball">Baseball</Radio>
+          <Radio value="basketball">Basketball</Radio>
+        </RadioGroup>
+        <button type="submit">Submit</button>
+      </form>
 
-      <RadioGroup label="Favorite codeurs member" description="Choose one of the options below">
+      <RadioGroup
+        label="Favorite codeurs member"
+        description="Choose one of the options below"
+      >
         <Radio value="brecht">Brecht</Radio>
         <Radio value="dimi">Dimi</Radio>
         <Radio value="ben">Ben</Radio>
@@ -22,12 +30,15 @@ export const Example = () => {
         <Radio value="david">David</Radio>
       </RadioGroup>
 
-      <RadioGroup label="Disabled group" description="This group is disabled" isDisabled>
+      <RadioGroup
+        label="Disabled group"
+        description="This group is disabled"
+        isDisabled
+      >
         <Radio value="option1">Option 1</Radio>
         <Radio value="option2">Option 2</Radio>
         <Radio value="option3">Option 3</Radio>
       </RadioGroup>
     </Stack>
-  );
-};
-
+  )
+}

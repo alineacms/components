@@ -1,13 +1,13 @@
 import {
   RadioGroup as AriaRadioGroup,
   type RadioGroupProps as AriaRadioGroupProps,
-  FieldError,
   type ValidationResult
 } from 'react-aria-components'
 import {Radio as RadioPrimitive, type RadioProps} from 'react-aria-components'
 import './RadioGroup.css'
 import clsx from 'clsx'
-import {Label} from './Label.tsx' 
+import {Label} from './Label.tsx'
+
 export type {RadioProps} from 'react-aria-components'
 
 export function Radio(props: RadioProps) {
@@ -24,12 +24,14 @@ export interface RadioGroupProps extends Omit<AriaRadioGroupProps, 'children'> {
   label?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
+  isRequired?: boolean
 }
 
 export function RadioGroup({
   label,
   description,
   errorMessage,
+  isRequired,
   children,
   ...props
 }: RadioGroupProps) {
@@ -37,6 +39,7 @@ export function RadioGroup({
     <AriaRadioGroup
       {...props}
       className={clsx('alinea-rac-RadioGroup', props.className)}
+      isRequired={isRequired}
     >
       {label && (
         <Label
@@ -48,31 +51,6 @@ export function RadioGroup({
         </Label>
       )}
       {!label && children}
-
-
-      {errorMessage && (
-        <FieldError className="alinea-rac-FieldError">
-          {typeof errorMessage === 'function'
-            ? errorMessage({
-                isInvalid: true,
-                validationErrors: [],
-                validationDetails: {
-                  badInput: false,
-                  customError: false,
-                  patternMismatch: false,
-                  rangeOverflow: false,
-                  rangeUnderflow: false,
-                  stepMismatch: false,
-                  tooLong: false,
-                  tooShort: false,
-                  typeMismatch: false,
-                  valid: false,
-                  valueMissing: false
-                }
-              })
-            : errorMessage}
-        </FieldError>
-      )}
     </AriaRadioGroup>
   )
 }
