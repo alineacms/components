@@ -9,6 +9,12 @@ import {
 } from 'react'
 import {Button} from '../src/components/Button.tsx'
 import {ProgressCircle} from '../src/components/ProgressCircle.tsx'
+import {IcRoundAccountCircle} from '../src/icons/IcRoundAccountCircle.tsx'
+import {IcRoundDocument} from '../src/icons/IcRoundDocument.tsx'
+import {IcRoundLanguage} from '../src/icons/IcRoundLanguage.tsx'
+import {IcRoundSearch} from '../src/icons/IcRoundSearch.tsx'
+import {IcRoundSettings} from '../src/icons/IcRoundSettings.tsx'
+import {IcRoundShare} from '../src/icons/IcRoundShare.tsx'
 import {Stack} from './Stack.tsx'
 
 const styleStack: CSSProperties = {
@@ -80,9 +86,10 @@ Intents.args = {
 export function Sizes() {
   return (
     <Stack>
-      <Button size="small">Small</Button>
       <Button>Medium</Button>
-      <Button size="large">Large</Button>
+      <Button>this is a medium button</Button>
+      <Button data-size="large">Large</Button>
+      <Button data-size="large">This is a large button</Button>
     </Stack>
   )
 }
@@ -109,6 +116,12 @@ export function Icons() {
       <Button size="square-petite" appearance="outline">
         <IcRoundRefresh data-slot="icon" />
       </Button>
+      <Button size="square-petite" appearance="plain">
+        <IcRoundRefresh data-slot="icon" />
+      </Button>
+      <Button size="square-petite" appearance="plain">
+        <IcRoundRefresh data-slot="icon" />
+      </Button>
       <Button onPress={handlePress}>
         <>
           {isLoading ? (
@@ -125,6 +138,34 @@ export function Icons() {
           Loading...
         </>
       </Button>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 10,
+          border: '1px solid gray',
+          padding: 10
+        }}
+      >
+        <Button data-size="square-petite" appearance="active">
+          <IcRoundAccountCircle data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundLanguage data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundShare data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundSearch data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundSettings data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundDocument data-slot="icon" />
+        </Button>
+      </div>
     </HStack>
   )
 }

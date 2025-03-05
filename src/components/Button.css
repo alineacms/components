@@ -61,7 +61,7 @@
 
   color: var(--button-color);
   font: inherit;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 24px;
   text-decoration: none;
   appearance: none;
@@ -70,7 +70,7 @@
   position: relative;
   vertical-align: middle;
   background-color: var(--button-bg);
-  padding: 7px 16px;
+  padding: 4px 16px;
   border-radius: 6px;
   border: 1px solid var(--button-border);
   transition: var(--transition);
@@ -79,29 +79,37 @@
   align-items: center;
   gap: 6px;
 
-  &[data-size="small"] {
-    font-size: 12px;
-    padding: 4px 16px;
+  &[data-size="large"] {
+    font-size: 14px;
+    padding: 7px 8px;
     border-radius: 6px;
   }
 
-  &[data-size="large"] {
-    font-size: 16px;
-    padding: 9px 20px;
-  }
-
   &[data-size="square-petite"] {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+
+    &[data-appearance="active"] {
+      background-color: var(--icon-background-color-active) !important;
+      color: var(--icon-color-active);
+      --button-hovered: var(--background-color-hover);
+      --button-pressed: var(--background-color-pressed);
+    }
+
+    &[data-appearance="plain"] {
+      background-color: transparent;
+      color: var(--icon-color-plain);
+    }
   }
 
   [data-slot="icon"] {
     flex-shrink: 0;
     display: block;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   &[data-hovered] {
@@ -117,6 +125,26 @@
       border-color: var(--button-border);
       background-color: var(--button-hovered);
     }
+  }
+
+  &[data-size="square-petite"][data-hovered] {
+    background-color: var(--button-hovered);
+    color: var(--button-color);
+  }
+
+  &[data-size="square-petite"][data-hovered][data-appearance="active"] {
+    background-color: var(--icon-background-color-active-hover);
+    color: var(--icon-color-active);
+  }
+
+  &[data-size="square-petite"][data-hovered][data-appearance="plain"] {
+    background-color: var(--background-color-hover);
+    color: var(--icon-color-plain-hover);
+  }
+
+  &[data-size="square-petite"][data-hovered][data-appearance="outline"] {
+    color: var(--highlight-foreground);
+    background-color: var(--highlight-background-hovered);
   }
 
   &[data-focus-visible] {
