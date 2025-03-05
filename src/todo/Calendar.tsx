@@ -24,10 +24,10 @@ export function Calendar<T extends DateValue>({
     <AriaCalendar {...props}>
       <header>
         <Heading />
-        <Button size="small" appearance="plain" slot="previous">
+        <Button appearance="plain" slot="previous">
           ◀
         </Button>
-        <Button size="small" appearance="plain" slot="next">
+        <Button appearance="plain" slot="next">
           ▶
         </Button>
       </header>
