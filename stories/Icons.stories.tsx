@@ -1,5 +1,4 @@
 import "../src/theme.css";
-import "../src/icons/icons.css";
 import { IcRoundKeyboardArrowDown } from '../src/icons/IcRoundKeyboardArrowDown.tsx';
 import { IcRoundKeyboardArrowUp } from '../src/icons/IcRoundKeyboardArrowUp.tsx';
 import { IcRoundKeyboardArrowLeft } from '../src/icons/IcRoundKeyboardArrowLeft.tsx';
