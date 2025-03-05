@@ -1,46 +1,44 @@
-import "../src/theme.css";
-import { IcRoundKeyboardArrowDown } from '../src/icons/IcRoundKeyboardArrowDown.tsx';
-import { IcRoundKeyboardArrowUp } from '../src/icons/IcRoundKeyboardArrowUp.tsx';
-import { IcRoundKeyboardArrowLeft } from '../src/icons/IcRoundKeyboardArrowLeft.tsx';
-import { IcRoundKeyboardArrowRight } from '../src/icons/IcRoundKeyboardArrowRight.tsx';
-import { IcRoundDocument } from '../src/icons/IcRoundDocument.tsx';
-import { IcRoundShare } from '../src/icons/IcRoundShare.tsx';
-import { IcRoundRemoveRedEye } from '../src/icons/IcRoundRemoveRedEye.tsx';
-import { IcRoundMoreVert } from '../src/icons/IcRoundMoreVert.tsx';
-import { IcRoundKeyboardTab } from '../src/icons/IcRoundKeyboardTab.tsx';
-import { IcRoundArrowBack } from '../src/icons/IcRoundArrowBack.tsx';
-import { IcRoundArrowForward } from '../src/icons/IcRoundArrowForward.tsx';
-import { IcRoundRefresh } from '../src/icons/IcRoundRefresh.tsx';
-import { IcRoundOpenInNew } from '../src/icons/IcRoundOpenInNew.tsx';
-import { IcRoundLanguage } from '../src/icons/IcRoundLanguage.tsx';
-import { IcRoundArticle } from '../src/icons/IcRoundArticle.tsx';
-import { IcRoundContentCopy } from '../src/icons/IcRoundContentCopy.tsx';
-import { IcRoundClose } from '../src/icons/IcRoundClose.tsx';
-import { IcRoundCloudUpload } from '../src/icons/IcRoundCloudUpload.tsx';
-import { IcRoundAccountCircle } from '../src/icons/IcRoundAccountCircle.tsx';
-import { IcRoundBrightness } from '../src/icons/IcRoundBrightness.tsx';
-import { IcRoundTextFields } from '../src/icons/IcRoundTextFields.tsx';
-import { IcRoundSearch } from '../src/icons/IcRoundSearch.tsx';
-import { IcRoundSettings } from '../src/icons/IcRoundSettings.tsx';
-import { IcRoundHome } from '../src/icons/IcRoundHome.tsx';
-import { Stack } from './Stack.tsx';
-
+import '../src/theme.css'
+import {IcRoundAccountCircle} from '../src/icons/IcRoundAccountCircle.tsx'
+import {IcRoundArrowBack} from '../src/icons/IcRoundArrowBack.tsx'
+import {IcRoundArrowForward} from '../src/icons/IcRoundArrowForward.tsx'
+import {IcRoundArticle} from '../src/icons/IcRoundArticle.tsx'
+import {IcRoundBrightness} from '../src/icons/IcRoundBrightness.tsx'
+import {IcRoundClose} from '../src/icons/IcRoundClose.tsx'
+import {IcRoundCloudUpload} from '../src/icons/IcRoundCloudUpload.tsx'
+import {IcRoundContentCopy} from '../src/icons/IcRoundContentCopy.tsx'
+import {IcRoundDocument} from '../src/icons/IcRoundDocument.tsx'
+import {IcRoundHome} from '../src/icons/IcRoundHome.tsx'
+import {IcRoundKeyboardArrowDown} from '../src/icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundKeyboardArrowLeft} from '../src/icons/IcRoundKeyboardArrowLeft.tsx'
+import {IcRoundKeyboardArrowRight} from '../src/icons/IcRoundKeyboardArrowRight.tsx'
+import {IcRoundKeyboardArrowUp} from '../src/icons/IcRoundKeyboardArrowUp.tsx'
+import {IcRoundKeyboardTab} from '../src/icons/IcRoundKeyboardTab.tsx'
+import {IcRoundLanguage} from '../src/icons/IcRoundLanguage.tsx'
+import {IcRoundMoreVert} from '../src/icons/IcRoundMoreVert.tsx'
+import {IcRoundOpenInNew} from '../src/icons/IcRoundOpenInNew.tsx'
+import {IcRoundRefresh} from '../src/icons/IcRoundRefresh.tsx'
+import {IcRoundRemoveRedEye} from '../src/icons/IcRoundRemoveRedEye.tsx'
+import {IcRoundSearch} from '../src/icons/IcRoundSearch.tsx'
+import {IcRoundSettings} from '../src/icons/IcRoundSettings.tsx'
+import {IcRoundShare} from '../src/icons/IcRoundShare.tsx'
+import {IcRoundTextFields} from '../src/icons/IcRoundTextFields.tsx'
+import {Stack} from './Stack.tsx'
 
 const addGlobalStyles = () => {
-  const style = document.createElement("style");
+  const style = document.createElement('style')
   style.textContent = `
     p {
       color: var(--text-color);
     }
-  `;
-  document.head.appendChild(style);
-};
+  `
+  document.head.appendChild(style)
+}
 
-
-addGlobalStyles();
+addGlobalStyles()
 
 export const Example = (args: any) => (
-  <div style={{ columns: 2 }}>
+  <div style={{columns: 2}}>
     <Stack direction="row" align="center">
       <IcRoundKeyboardArrowDown fill="var(--icon-color-plain)" />
       <p>IcRoundKeyboardArrowDown</p>
@@ -138,4 +136,4 @@ export const Example = (args: any) => (
       <p>IcRoundHome</p>
     </Stack>
   </div>
-);
+)
