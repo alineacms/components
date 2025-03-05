@@ -9,28 +9,25 @@ export const Example = () => {
       <Label
         label="Username"
         description="Enter your username"
-        htmlFor="username"
         errorMessage="This username is taken"
       >
-        <TextField type='username' id='username' />
+        <TextField />
       </Label>
 
-      <Label label="Password" htmlFor='password' >
-        <TextField type="password" id='password' />
+      <Label label="Password">
+        <TextField type="password" />
       </Label>
 
       <Label
         label="With Description"
         description="This is extra information"
         icon="ℹ️"
-        htmlFor='description'
       >
-        <TextField placeholder="Placeholder" id='description'/>
+        <TextField placeholder="Placeholder" />
       </Label>
 
       <Label
         label="With Description"
-        htmlFor='longdescription'
         description={
           <>
             This is an <strong>important</strong> description with a
@@ -51,7 +48,7 @@ export const Example = () => {
         }
         icon="ℹ️"
       >
-        <TextField type='longdescription' id='longdescription'/>
+        <TextField />
       </Label>
 
       <Label label="Disabled">
@@ -61,12 +58,12 @@ export const Example = () => {
       <Label label="Read Only">
         <TextField isReadOnly defaultValue="This is read-only text" />
       </Label>
-      <Label label="TextArea" htmlFor='textarea'>
-        <TextArea type='textarea' id='textarea'/>
+      <Label label="TextArea">
+        <TextArea />
       </Label>
 
-      <Label label="TextArea with Placeholder" htmlFor='placeholdertextarea'>
-        <TextArea placeholder="Placeholder" type='placeholdertextarea' id='placeholdertextarea'/>
+      <Label label="TextArea with Placeholder">
+        <TextArea placeholder="Placeholder" />
       </Label>
 
       <Label label="TextArea readonly">
