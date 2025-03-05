@@ -3,14 +3,11 @@ import {
   Button,
   ComboBox as ComboboxPrimitive,
   type ComboBoxProps as ComboboxPrimitiveProps,
-  FieldError,
   Input,
   ListBox,
   ListBoxItem,
   type ListBoxItemProps,
-  Popover,
-  Text,
-  type ValidationResult
+  Popover
 } from 'react-aria-components'
 import {Label} from './Label.tsx'
 
@@ -20,7 +17,7 @@ export interface ComboBoxProps<T extends object>
   extends Omit<ComboboxPrimitiveProps<T>, 'children'> {
   label?: string
   description?: string | null
-  errorMessage?: string | ((validation: ValidationResult) => string)
+  errorMessage?: string
   children: React.ReactNode | ((item: T) => React.ReactNode)
 }
 
@@ -32,21 +29,20 @@ export function ComboBox<T extends object>({
   ...props
 }: ComboBoxProps<T>) {
   return (
-    <ComboboxPrimitive
-      {...props}
-      className={clsx('alinea-rac-Combobox', props.className)}
-    >
-      <Label>{label}</Label>
-      <div>
-        <Input />
-        <Button>▼</Button>
-      </div>
-      {description && <Text slot="description">{description}</Text>}
-      <FieldError>{errorMessage}</FieldError>
-      <Popover>
-        <ListBox>{children}</ListBox>
-      </Popover>
-    </ComboboxPrimitive>
+    <Label label={label} errorMessage={errorMessage} description={description}>
+      <ComboboxPrimitive
+        {...props}
+        className={clsx('alinea-rac-Combobox', props.className)}
+      >
+        <div>
+          <Input />
+          <Button>▼</Button>
+        </div>
+        <Popover>
+          <ListBox>{children}</ListBox>
+        </Popover>
+      </ComboboxPrimitive>
+    </Label>
   )
 }
 
