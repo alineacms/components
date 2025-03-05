@@ -1,8 +1,7 @@
 import clsx from 'clsx'
 import type {
   ListBoxItemProps,
-  SelectProps as SelectPrimitiveProps,
-  ValidationResult
+  SelectProps as SelectPrimitiveProps
 } from 'react-aria-components'
 import {
   Button,
@@ -22,7 +21,7 @@ export interface SelectProps<T extends object>
   extends Omit<SelectPrimitiveProps<T>, 'children'> {
   label?: string
   description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
+  errorMessage?: string
   items?: Iterable<T>
   children: React.ReactNode | ((item: T) => React.ReactNode)
 }
@@ -36,21 +35,22 @@ export function Select<T extends object>({
   ...props
 }: SelectProps<T>) {
   return (
-    <SelectPrimitive
-      {...props}
-      className={clsx('alinea-rac-Select', props.className)}
-    >
-      <Label>{label}</Label>
-      <Button>
-        <SelectValue />
-        <span aria-hidden="true">▼</span>
-      </Button>
-      {description && <Text slot="description">{description}</Text>}
-      <FieldError>{errorMessage}</FieldError>
-      <Popover>
-        <ListBox items={items}>{children}</ListBox>
-      </Popover>
-    </SelectPrimitive>
+    <Label label={label} errorMessage={errorMessage} description={description}>
+      <SelectPrimitive
+        {...props}
+        className={clsx('alinea-rac-Select', props.className)}
+      >
+        <Button>
+          <SelectValue />
+          <span aria-hidden="true">▼</span>
+        </Button>
+        {description && <Text slot="description">{description}</Text>}
+        <FieldError>{errorMessage}</FieldError>
+        <Popover>
+          <ListBox items={items}>{children}</ListBox>
+        </Popover>
+      </SelectPrimitive>
+    </Label>
   )
 }
 
