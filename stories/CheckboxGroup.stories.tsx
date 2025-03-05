@@ -20,7 +20,7 @@ export const Example = (args: any) => (
 
     <CheckboxGroup
       label="More choices"
-      description="Choose as many as you like"
+      description="Choose as many as you like and I am not going to judge you but I am going to make this a very long description to see how it looks like and if it wraps correctly or not and if it does not wrap correctly then I am going to be very sad and I am going to cry and I am going to be very sad and I am going to cry"  
     >
       <Checkbox value="optionA">Option A</Checkbox>
       <Checkbox value="optionB">Option B</Checkbox>
