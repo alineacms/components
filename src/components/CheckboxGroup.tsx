@@ -1,19 +1,18 @@
 import {
   CheckboxGroup as CheckboxGroupPrimitive,
   type CheckboxGroupProps as CheckboxPrimitiveGroupProps,
-  FieldError,
   type ValidationResult
-} from 'react-aria-components'
+} from 'react-aria-components';
 
 import {
   Checkbox as CheckboxPrimitive,
   type CheckboxProps
-} from 'react-aria-components'
-import './CheckboxGroup.css'
-import clsx from 'clsx'
-import {Label} from './Label.tsx' 
+} from 'react-aria-components';
+import './CheckboxGroup.css';
+import clsx from 'clsx';
+import { Label } from './Label.tsx';
 
-export type {CheckboxProps} from 'react-aria-components'
+export type { CheckboxProps } from 'react-aria-components';
 
 export function Checkbox(props: CheckboxProps) {
   return (
@@ -21,21 +20,23 @@ export function Checkbox(props: CheckboxProps) {
       {...props}
       className={clsx('alinea-rac-Checkbox', props.className)}
     />
-  )
+  );
 }
 
 export interface CheckboxGroupProps
   extends Omit<CheckboxPrimitiveGroupProps, 'children'> {
-  children?: React.ReactNode
-  label?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
+  children?: React.ReactNode;
+  label?: string;
+  description?: string;
+  errorMessage?: string | ((validation: ValidationResult) => string);
+  isRequired?: boolean;
 }
 
 export function CheckboxGroup({
   label,
   description,
   errorMessage,
+  isRequired,
   children,
   ...props
 }: CheckboxGroupProps) {
@@ -43,6 +44,7 @@ export function CheckboxGroup({
     <CheckboxGroupPrimitive
       {...props}
       className={clsx('alinea-rac-CheckboxGroup', props.className)}
+      isRequired={isRequired}
     >
       {label && (
         <Label
@@ -54,30 +56,6 @@ export function CheckboxGroup({
         </Label>
       )}
       {!label && children}
-
-      {errorMessage && (
-        <FieldError className="alinea-rac-FieldError">
-          {typeof errorMessage === 'function'
-            ? errorMessage({
-                isInvalid: true,
-                validationErrors: [],
-                validationDetails: {
-                  badInput: false,
-                  customError: false,
-                  patternMismatch: false,
-                  rangeOverflow: false,
-                  rangeUnderflow: false,
-                  stepMismatch: false,
-                  tooLong: false,
-                  tooShort: false,
-                  typeMismatch: false,
-                  valid: false,
-                  valueMissing: false
-                }
-              })
-            : errorMessage}
-        </FieldError>
-      )}
     </CheckboxGroupPrimitive>
-  )
+  );
 }

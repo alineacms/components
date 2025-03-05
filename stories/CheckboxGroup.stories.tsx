@@ -9,14 +9,17 @@ export const Example = (args: any) => (
       <Checkbox value="basketball">Basketball</Checkbox>
     </CheckboxGroup>
 
-    <CheckboxGroup
+    <form onSubmit={(e) => e.preventDefault()}>
+      <CheckboxGroup
       label="Invalid selection"
       errorMessage="You must select at least one option"
-    >
+      >
       <Checkbox value="option1">Option 1</Checkbox>
       <Checkbox value="option2">Option 2</Checkbox>
       <Checkbox value="option3">Option 3</Checkbox>
-    </CheckboxGroup>
+      </CheckboxGroup>
+      <button type="submit">Submit</button>
+    </form>
 
     <CheckboxGroup
       label="More choices"
