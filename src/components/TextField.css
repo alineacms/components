@@ -14,32 +14,35 @@
     padding: 8px 10px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    background: var(--field-background);
+    background-color: transparent;
     font-size: 0.875rem;
     line-height: 1.5;
     color: var(--field-text-color);
     transition: var(--transition);
 
+    &::placeholder {
+      color: var(--text-color-placeholder);
+    }
+
     &[data-hovered] {
       border-color: var(--border-color-hover);
     }
-
     &[data-focused] {
       border-color: var(--highlight-background);
+      border-color: var(--indigo-500);
       box-shadow: 0 0 0 4px var(--highlight-overlay);
     }
     &[data-invalid="true"] {
       border: 1px solid var(--danger-500);
       outline: 3px solid rgb(from var(--danger-500) r g b / 50%);
     }
-    &[disabled],
-    &[readonly] {
-      opacity: 0.5;
-      pointer-events: none;
-    }
     &[disabled] {
-      background-color: var(--text-color-disabled);
+      pointer-events: none;
+      background-color: var(--background-color);
       opacity: 0.5;
+    }
+    &[readonly] {
+      pointer-events: none;
       color: var(--text-color-disabled);
     }
   }
