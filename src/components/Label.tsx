@@ -1,28 +1,22 @@
 import {
   FieldError,
   Label as LabelPrimitive,
-  type LabelProps as LabelPrimitiveProps
+  type LabelProps as LabelPrimitiveProps,
+  type ValidationResult
 } from 'react-aria-components'
-
 import './Label.css'
 import type {ReactNode} from 'react'
-import {createContext, useContext} from 'react'
 
-const LabelContext = createContext<{errorMessage?: ReactNode}>({})
-
-type Props = LabelPrimitiveProps
-
-export interface LabelProps {
-  isDisabled?: boolean
-  isRequired?: boolean
+export interface LabelSharedProps {
   label: ReactNode
   description?: ReactNode
-  errorMessage?: ReactNode | ((validation: {isInvalid: boolean}) => ReactNode)
+  errorMessage?: ReactNode | ((validation: ValidationResult) => ReactNode)
+  isDisabled?: boolean
+  isRequired?: boolean
   icon?: ReactNode
-  children: React.ReactNode
-  id?: string
-  defaultValue?: string
 }
+
+export interface LabelProps extends LabelSharedProps, LabelPrimitiveProps {}
 
 export function Label({
   label,
@@ -34,41 +28,46 @@ export function Label({
   children,
   ...props
 }: LabelProps) {
-  const resolvedErrorMessage =
-    typeof errorMessage === 'function'
-      ? errorMessage({isInvalid: true})
-      : errorMessage
-
   return (
-    <LabelContext.Provider value={{errorMessage: resolvedErrorMessage}}>
-      <div className="alinea-rac-Label">
-        <div className="alinea-rac-Label-header">
-          <div className="alinea-rac-Label-title">
-            {icon && <span className="alinea-rac-Label-icon">{icon}</span>}
-            <LabelPrimitive {...props} className="alinea-rac-Label-label">
-              {label}
-              {isRequired && (
-                <span className="alinea-rac-Label-required"> *</span>
-              )}
-            </LabelPrimitive>
-          </div>
-          {description && (
-            <div className="alinea-rac-Label-description">{description}</div>
-          )}
+    <div className="alinea-rac-Label">
+      <header className="alinea-rac-Label-header">
+        <div className="alinea-rac-Label-title">
+          {icon && <span className="alinea-rac-Label-icon">{icon}</span>}
+          <LabelPrimitive {...props} className="alinea-rac-Label-label">
+            {label}
+            {isRequired && (
+              <span className="alinea-rac-Label-required"> *</span>
+            )}
+          </LabelPrimitive>
         </div>
-        {children}
-        {errorMessage && (
-          <FieldError className="alinea-rac-Label-error">
-            {typeof errorMessage === 'function'
-              ? errorMessage({isInvalid: true})
-              : errorMessage}
-          </FieldError>
+        {description && (
+          <div className="alinea-rac-Label-description">{description}</div>
         )}
-      </div>
-    </LabelContext.Provider>
+      </header>
+      {children}
+      {errorMessage && (
+        <FieldError className="alinea-rac-Label-error">
+          {errorMessage}
+        </FieldError>
+      )}
+    </div>
   )
 }
 
-export function useLabelContext() {
-  return useContext(LabelContext)
+export function labelProps<T extends LabelSharedProps>({
+  label,
+  description,
+  errorMessage,
+  isDisabled,
+  isRequired,
+  icon
+}: T): LabelProps {
+  return {
+    label,
+    description,
+    errorMessage,
+    isDisabled,
+    isRequired,
+    icon
+  }
 }
