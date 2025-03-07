@@ -1,50 +1,48 @@
 import clsx from 'clsx'
 import {
   Input,
+  TextArea,
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps
 } from 'react-aria-components'
-
-import {Label, type LabelProps} from '../components/Label.tsx'
+import {Label, type LabelSharedProps, labelProps} from '../components/Label.tsx'
 import './TextField.css'
 
-export interface TextFieldProps extends Omit<LabelProps, 'children'> {
+export interface TextFieldProps
+  extends LabelSharedProps,
+    TextFieldPrimitiveProps {
+  multiline?: boolean
   placeholder?: string
-  isDisabled?: boolean
-  isReadOnly?: boolean
-  defaultValue?: string
   className?: string
 }
 
-export function TextField({
-  label,
-  description,
-  errorMessage,
-  icon,
-  isDisabled,
-  isReadOnly,
-  placeholder,
-  ...props
-}: TextFieldProps) {
+export function TextField({multiline, ...props}: TextFieldProps) {
+  const hasValue =
+    (props.value ?? props.placeholder ?? props.defaultValue) !== undefined
+  if (multiline && !hasValue)
+    throw new Error('Multiline TextField requires a value or defaultValue')
   return (
-    <Label
-      label={label}
-      description={description}
-      errorMessage={errorMessage}
-      isDisabled={isDisabled}
-      icon={icon}
-    >
+    <Label {...labelProps(props)}>
       <TextFieldPrimitive
-        {...(props as TextFieldPrimitiveProps)}
-        isDisabled={isDisabled}
-        isReadOnly={isReadOnly}
+        {...props}
         className={clsx('alinea-rac-TextField', props.className)}
       >
-        <Input
-          className="alinea-rac-TextField-input"
-          placeholder={placeholder}
-          tabIndex={isReadOnly ? -1 : undefined}
-        />
+        {multiline ? (
+          <div className="alinea-rac-TextField-multiline">
+            <TextArea
+              className="alinea-rac-TextField-multiline-area"
+              rows={1}
+            />
+            <div
+              aria-hidden="true"
+              className="alinea-rac-TextField-multiline-shadow"
+            >
+              {props.value || props.placeholder}{' '}
+            </div>
+          </div>
+        ) : (
+          <Input className="alinea-rac-TextField-input" />
+        )}
       </TextFieldPrimitive>
     </Label>
   )
