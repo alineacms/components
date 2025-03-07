@@ -2,10 +2,14 @@
 
 .alinea-rac-SearchField {
   display: flex;
-  border: 2px solid yellow;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  height: 1.75rem;
+  background: var(--field-background); 
+
 
   &:hover {
-    border-color: var(--border-color-hover);
+    outline: 2px solid var(--highlight-overlay);
   }
 
   &:focus-within {
@@ -14,11 +18,17 @@
   }
 
   .alinea-rac-SearchField-input {
+    border-radius: 6px;
     flex: 1;
-    appearance: none;
-    background: transparent;
-    border: none;
+    font: inherit;
     outline: none;
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    background: var(--field-background);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--field-text-color);
 
     &::-webkit-search-cancel-button,
     &::-webkit-search-decoration {
@@ -29,5 +39,10 @@
   .alinea-rac-SearchField-clear {
     background: transparent;
     border: none;
+    color: var(--icon-color-plain);
+    cursor: pointer;
+    font-size: 1rem;
+    outline: none;
+    padding-top: 4px;
   }
 }
