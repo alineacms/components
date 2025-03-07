@@ -1,97 +1,33 @@
 @import "../theme.css";
 
 .alinea-rac-SearchField {
-  .alinea-rac-Label {
-    font-size: 13px;
-    font-weight: 600;
-    display: block;
-    padding-bottom: 6px;
-    transition: var(--transition);
-    transition-property: color;
+  display: flex;
+  border: 2px solid yellow;
+
+  &:hover {
+    border-color: var(--border-color-hover);
   }
 
-  .alinea-rac-Label,
-  .alinea-rac-Text {
-    color: var(--text-color);
+  &:focus-within {
+    border-color: var(--highlight-background);
+    box-shadow: 0 0 0 4px var(--highlight-overlay);
   }
 
-  &:has([data-focused]) {
-    .alinea-rac-Label {
-      color: var(--text-color-focused);
-    }
-  }
-
-  .alinea-rac-FieldGroup {
-    position: relative;
-
-    .alinea-rac-Clear {
-      cursor: pointer;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font: inherit;
-      padding: 0;
-
-      svg {
-        display: block;
-      }
-    }
-  }
-
-  .alinea-rac-Input {
-    font: inherit;
+  .alinea-rac-SearchField-input {
+    flex: 1;
+    appearance: none;
+    background: transparent;
+    border: none;
     outline: none;
-    width: 100%;
-    padding: 8px 10px;
-    padding-right: 36px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--field-background);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--field-text-color);
-    transition: var(--transition);
 
     &::-webkit-search-cancel-button,
     &::-webkit-search-decoration {
       -webkit-appearance: none;
     }
-
-    &[data-hovered] {
-      border-color: var(--border-color-hover);
-    }
-
-    &[data-focused] {
-      border-color: var(--highlight-background);
-      box-shadow: 0 0 0 4px var(--highlight-overlay);
-    }
   }
 
-  &[data-empty] .alinea-rac-Clear {
-    display: none;
-  }
-
-  .alinea-rac-Input {
-    &[data-invalid] {
-      border-color: var(--invalid-color);
-      box-shadow: 0 0 0 4px var(--invalid-overlay);
-    }
-  }
-
-  .alinea-rac-FieldError {
-    font-size: 12px;
-    color: var(--invalid-color);
-  }
-
-  [slot="description"] {
-    font-size: 12px;
-  }
-
-  .alinea-rac-Input {
-    &[data-disabled] {
-      border-color: var(--border-color-disabled);
-      color: var(--text-color-disabled);
-    }
+  .alinea-rac-SearchField-clear {
+    background: transparent;
+    border: none;
   }
 }
