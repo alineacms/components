@@ -5,37 +5,29 @@ import type {
 } from 'react-aria-components'
 import {
   Button,
-  FieldError,
   ListBox,
   ListBoxItem,
   Popover,
   Select as SelectPrimitive,
-  SelectValue,
-  Text
+  SelectValue
 } from 'react-aria-components'
-import {Label} from './Label.tsx'
-
+import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './Select.css'
 
 export interface SelectProps<T extends object>
-  extends Omit<SelectPrimitiveProps<T>, 'children'> {
-  label?: string
-  description?: string
-  errorMessage?: string
+  extends Omit<SelectPrimitiveProps<T>, 'children'>,
+    LabelSharedProps {
   items?: Iterable<T>
   children: React.ReactNode | ((item: T) => React.ReactNode)
 }
 
 export function Select<T extends object>({
-  label,
-  description,
-  errorMessage,
   children,
   items,
   ...props
 }: SelectProps<T>) {
   return (
-    <Label label={label} errorMessage={errorMessage} description={description}>
+    <Label {...labelProps(props)}>
       <SelectPrimitive
         {...props}
         className={clsx('alinea-rac-Select', props.className)}
@@ -44,8 +36,6 @@ export function Select<T extends object>({
           <SelectValue />
           <span aria-hidden="true">▼</span>
         </Button>
-        {description && <Text slot="description">{description}</Text>}
-        <FieldError>{errorMessage}</FieldError>
         <Popover>
           <ListBox items={items}>{children}</ListBox>
         </Popover>
