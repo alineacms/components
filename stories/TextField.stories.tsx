@@ -25,6 +25,7 @@ export const Example = () => {
         description="This is extra information"
         icon={<Icon icon={IcRoundCloudUpload} />}
         placeholder="Placeholder"
+        id="description"
       />
 
       <TextField

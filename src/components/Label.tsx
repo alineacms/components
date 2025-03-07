@@ -14,6 +14,7 @@ export interface LabelSharedProps {
   isDisabled?: boolean
   isRequired?: boolean
   icon?: ReactNode
+  id?: string
 }
 
 export interface LabelProps extends LabelSharedProps, LabelPrimitiveProps {}
@@ -60,7 +61,8 @@ export function labelProps<T extends LabelSharedProps>({
   errorMessage,
   isDisabled,
   isRequired,
-  icon
+  icon,
+  id
 }: T): LabelProps {
   return {
     label,
@@ -68,6 +70,7 @@ export function labelProps<T extends LabelSharedProps>({
     errorMessage,
     isDisabled,
     isRequired,
-    icon
+    icon,
+    htmlFor: id
   }
 }
