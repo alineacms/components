@@ -1,14 +1,11 @@
+import clsx from 'clsx'
 import {
   RadioGroup as AriaRadioGroup,
-  type RadioGroupProps as AriaRadioGroupProps,
-  FieldError,
-  Label,
-  Text,
-  type ValidationResult
+  type RadioGroupProps as AriaRadioGroupProps
 } from 'react-aria-components'
 import {Radio as RadioPrimitive, type RadioProps} from 'react-aria-components'
+import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './RadioGroup.css'
-import clsx from 'clsx'
 
 export type {RadioProps} from 'react-aria-components'
 
@@ -21,29 +18,19 @@ export function Radio(props: RadioProps) {
   )
 }
 
-export interface RadioGroupProps extends Omit<AriaRadioGroupProps, 'children'> {
-  children?: React.ReactNode
-  label?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
-}
+export interface RadioGroupProps
+  extends AriaRadioGroupProps,
+    LabelSharedProps {}
 
-export function RadioGroup({
-  label,
-  description,
-  errorMessage,
-  children,
-  ...props
-}: RadioGroupProps) {
+export function RadioGroup({children, ...props}: RadioGroupProps) {
   return (
-    <AriaRadioGroup
-      {...props}
-      className={clsx('alinea-rac-RadioGroup', props.className)}
-    >
-      <Label>{label}</Label>
-      {children}
-      {description && <Text slot="description">{description}</Text>}
-      <FieldError className="alinea-rac-FieldError">{errorMessage}</FieldError>
-    </AriaRadioGroup>
+    <Label {...labelProps(props)}>
+      <AriaRadioGroup
+        {...props}
+        className={clsx('alinea-rac-RadioGroup', props.className)}
+      >
+        {children}
+      </AriaRadioGroup>
+    </Label>
   )
 }
