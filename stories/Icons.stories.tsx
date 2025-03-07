@@ -1,4 +1,5 @@
 import '../src/theme.css'
+import {Icon} from '../src/components/Icon.tsx'
 import {IcRoundAccountCircle} from '../src/icons/IcRoundAccountCircle.tsx'
 import {IcRoundArrowBack} from '../src/icons/IcRoundArrowBack.tsx'
 import {IcRoundArrowForward} from '../src/icons/IcRoundArrowForward.tsx'
@@ -25,114 +26,102 @@ import {IcRoundShare} from '../src/icons/IcRoundShare.tsx'
 import {IcRoundTextFields} from '../src/icons/IcRoundTextFields.tsx'
 import {Stack} from './Stack.tsx'
 
-const addGlobalStyles = () => {
-  const style = document.createElement('style')
-  style.textContent = `
-    p {
-      color: var(--text-color);
-    }
-  `
-  document.head.appendChild(style)
-}
-
-addGlobalStyles()
-
 export const Example = (args: any) => (
   <div style={{columns: 2}}>
     <Stack direction="row" align="center">
-      <IcRoundKeyboardArrowDown fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundKeyboardArrowDown} />
       <p>IcRoundKeyboardArrowDown</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundKeyboardArrowUp fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundKeyboardArrowUp} />
       <p>IcRoundKeyboardArrowUp</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundKeyboardArrowLeft fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundKeyboardArrowLeft} />
       <p>IcRoundKeyboardArrowLeft</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundKeyboardArrowRight fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundKeyboardArrowRight} />
       <p>IcRoundKeyboardArrowRight</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundDocument fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundDocument} />
       <p>IcRoundDocument</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundShare fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundShare} />
       <p>IcRoundShare</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundRemoveRedEye fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundRemoveRedEye} />
       <p>IcRoundRemoveRedEye</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundMoreVert fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundMoreVert} />
       <p>IcRoundMoreVert</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundKeyboardTab fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundKeyboardTab} />
       <p>IcRoundKeyboardTab</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundArrowBack fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundArrowBack} />
       <p>IcRoundArrowBack</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundArrowForward fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundArrowForward} />
       <p>IcRoundArrowForward</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundRefresh fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundRefresh} />
       <p>IcRoundRefresh</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundOpenInNew fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundOpenInNew} />
       <p>IcRoundOpenInNew</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundLanguage fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundLanguage} />
       <p>IcRoundLanguage</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundArticle fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundArticle} />
       <p>IcRoundArticle</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundContentCopy fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundContentCopy} />
       <p>IcRoundContentCopy</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundClose fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundClose} />
       <p>IcRoundClose</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundCloudUpload fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundCloudUpload} />
       <p>IcRoundCloudUpload</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundAccountCircle fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundAccountCircle} />
       <p>IcRoundAccountCircle</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundBrightness fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundBrightness} />
       <p>IcRoundBrightness</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundTextFields fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundTextFields} />
       <p>IcRoundTextFields</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundSearch fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundSearch} />
       <p>IcRoundSearch</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundSettings fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundSettings} />
       <p>IcRoundSettings</p>
     </Stack>
     <Stack direction="row" align="center">
-      <IcRoundHome fill="var(--icon-color-plain)" />
+      <Icon icon={IcRoundHome} />
       <p>IcRoundHome</p>
     </Stack>
   </div>
