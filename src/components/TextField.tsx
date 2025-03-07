@@ -1,46 +1,51 @@
-import clsx from 'clsx';
+import clsx from 'clsx'
 import {
   Input,
   TextField as TextFieldPrimitive,
   type TextFieldProps as TextFieldPrimitiveProps
-} from 'react-aria-components';
+} from 'react-aria-components'
 
-import { useLabelContext } from '../components/Label.tsx';
-import './TextField.css';
+import {Label, type LabelProps} from '../components/Label.tsx'
+import './TextField.css'
 
-export interface TextFieldProps extends TextFieldPrimitiveProps {
-  label?: React.ReactNode;
-  placeholder?: string;
-  icon?: React.ReactNode;
-  isDisabled?: boolean;
-  isReadOnly?: boolean;
-  children?: React.ReactNode;
+export interface TextFieldProps extends Omit<LabelProps, 'children'> {
+  placeholder?: string
+  isDisabled?: boolean
+  isReadOnly?: boolean
+  defaultValue?: string
+  className?: string
 }
 
 export function TextField({
-  placeholder,
+  label,
+  description,
+  errorMessage,
   icon,
   isDisabled,
   isReadOnly,
-  children,
+  placeholder,
   ...props
 }: TextFieldProps) {
-  const { errorMessage } = useLabelContext();
-  const hasError = !!errorMessage;
-
   return (
-    <TextFieldPrimitive
-      {...props}
+    <Label
+      label={label}
+      description={description}
+      errorMessage={errorMessage}
       isDisabled={isDisabled}
-      isReadOnly={isReadOnly}
-      isInvalid={hasError || undefined}
-      className={clsx('alinea-rac-TextField', props.className, { 'alinea-rac-TextField-error': hasError })}
+      icon={icon}
     >
-      <Input 
-        className={clsx('alinea-rac-Input')}
-        placeholder={placeholder}
-        tabIndex={isReadOnly ? -1 : undefined}
-      />
-    </TextFieldPrimitive>
-  );
+      <TextFieldPrimitive
+        {...(props as TextFieldPrimitiveProps)}
+        isDisabled={isDisabled}
+        isReadOnly={isReadOnly}
+        className={clsx('alinea-rac-TextField', props.className)}
+      >
+        <Input
+          className="alinea-rac-TextField-input"
+          placeholder={placeholder}
+          tabIndex={isReadOnly ? -1 : undefined}
+        />
+      </TextFieldPrimitive>
+    </Label>
+  )
 }

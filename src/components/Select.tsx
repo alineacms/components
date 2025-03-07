@@ -44,8 +44,6 @@ export function Select<T extends object>({
           <SelectValue />
           <span aria-hidden="true">▼</span>
         </Button>
-        {description && <Text slot="description">{description}</Text>}
-        <FieldError>{errorMessage}</FieldError>
         <Popover>
           <ListBox items={items}>{children}</ListBox>
         </Popover>

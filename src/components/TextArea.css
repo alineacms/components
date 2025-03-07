@@ -1,11 +1,10 @@
 @import "../theme.css";
 
-.alinea-rac-TextField {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.alinea-rac-TextArea {
+  display: grid;
+  width: 100%;
 
-  .alinea-rac-TextField-input {
+  .alinea-rac-TextArea-input {
     font: inherit;
     outline: none;
     width: 100%;
@@ -18,6 +17,12 @@
     color: var(--field-text-color);
     transition: var(--transition);
 
+    /* autoSize */
+    grid-area: 1 / 1 / 2 / 2;
+    overflow-x: auto;
+    resize: none;
+    white-space: pre-wrap;
+
     &[data-hovered] {
       border-color: var(--border-color-hover);
     }
@@ -26,19 +31,30 @@
       border-color: var(--highlight-background);
       box-shadow: 0 0 0 4px var(--highlight-overlay);
     }
+
     &[data-invalid="true"] {
       border: 1px solid var(--danger-500);
       outline: 3px solid rgb(from var(--danger-500) r g b / 50%);
     }
+
     &[disabled],
     &[readonly] {
       opacity: 0.5;
       pointer-events: none;
     }
+
     &[disabled] {
       background-color: var(--text-color-disabled);
       opacity: 0.5;
       color: var(--text-color-disabled);
     }
+  }
+
+  .alinea-rac-TextArea-shadow {
+    content: attr(data-value) " ";
+    grid-area: 1 / 1 / 2 / 2;
+    overflow-x: auto;
+    visibility: hidden;
+    white-space: pre-wrap;
   }
 }

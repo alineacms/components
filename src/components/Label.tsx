@@ -10,36 +10,38 @@ import {createContext, useContext} from 'react'
 
 const LabelContext = createContext<{errorMessage?: ReactNode}>({})
 
-interface LabelProps extends LabelPrimitiveProps {
+type Props = LabelPrimitiveProps
+
+export interface LabelProps {
+  isDisabled?: boolean
   isRequired?: boolean
   label: ReactNode
   description?: ReactNode
   errorMessage?: ReactNode | ((validation: {isInvalid: boolean}) => ReactNode)
-  isDisabled?: boolean
   icon?: ReactNode
-  children: ReactNode
+  children: React.ReactNode
+  id?: string
+  defaultValue?: string
 }
 
 export function Label({
   label,
   description,
   errorMessage,
-  isRequired,
   isDisabled,
+  isRequired,
   icon,
   children,
   ...props
 }: LabelProps) {
+  const resolvedErrorMessage =
+    typeof errorMessage === 'function'
+      ? errorMessage({isInvalid: true})
+      : errorMessage
+
   return (
-    <LabelContext.Provider
-      value={{
-        errorMessage:
-          typeof errorMessage === 'function'
-            ? errorMessage({isInvalid: true})
-            : errorMessage
-      }}
-    >
-      <div className="alinea-rac-Label-container">
+    <LabelContext.Provider value={{errorMessage: resolvedErrorMessage}}>
+      <div className="alinea-rac-Label">
         <div className="alinea-rac-Label-header">
           <div className="alinea-rac-Label-title">
             {icon && <span className="alinea-rac-Label-icon">{icon}</span>}
@@ -55,7 +57,6 @@ export function Label({
           )}
         </div>
         {children}
-
         {errorMessage && (
           <FieldError className="alinea-rac-Label-error">
             {typeof errorMessage === 'function'

@@ -1,72 +1,54 @@
-import clsx from 'clsx';
+import clsx from 'clsx'
 import {
   TextArea as TextAreaPrimitive,
-  TextField as TextFieldPrimitive,
-  type TextFieldProps as TextFieldPrimitiveProps
-} from 'react-aria-components';
+  type TextAreaProps as TextAreaPrimitiveProps
+} from 'react-aria-components'
+import {Label, type LabelProps} from './Label.tsx'
+import './TextArea.css'
 
-import { useRef, useEffect } from 'react';
-import { useLabelContext } from '../components/Label.tsx'; // ✅ Context importeren
-import './TextField.css';
-
-export interface TextAreaProps extends TextFieldPrimitiveProps {
-  placeholder?: string;
-  isDisabled?: boolean;
-  isReadOnly?: boolean;
-  autoSize?: boolean; // ✅ Nieuw: activeert auto-resize functionaliteit
+export interface TextAreaProps extends Omit<LabelProps, 'children'> {
+  autoSize?: boolean
+  placeholder?: string
+  isDisabled?: boolean
+  isReadOnly?: boolean
+  value?: string
+  className?: string
 }
 
 export function TextArea({
-  placeholder,
+  autoSize = true,
+  label,
+  description,
+  errorMessage,
   isDisabled,
   isReadOnly,
-  autoSize = true, // ✅ Standaard auto-resize aan
+  placeholder,
+  icon,
   ...props
 }: TextAreaProps) {
-  const { errorMessage } = useLabelContext(); // ✅ Haal de errorMessage uit context
-  const hasError = !!errorMessage;
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const shadowRef = useRef<HTMLDivElement>(null);
-
-  // ✅ Functie om de grootte aan te passen
-  useEffect(() => {
-    if (autoSize && textAreaRef.current && shadowRef.current) {
-      shadowRef.current.textContent = `${textAreaRef.current.value} `; // Voeg spatie toe om correcte hoogte te krijgen
-      textAreaRef.current.style.height = `${shadowRef.current.offsetHeight}px`;
-    }
-  });
-
   return (
-    <TextFieldPrimitive
-      {...props}
+    <Label
+      label={label}
+      description={description}
+      errorMessage={errorMessage}
       isDisabled={isDisabled}
-      isReadOnly={isReadOnly}
-      isInvalid={hasError || undefined} // ✅ Error aangeven in component
-      className={clsx('alinea-rac-TextField', props.className, { 'alinea-rac-TextField-error': hasError })}
+      icon={icon}
     >
-      <div className="alinea-rac-TextArea-container">
-        {/* ✅ Zichtbare TextArea */}
+      <div className="alinea-rac-TextArea">
         <TextAreaPrimitive
-          ref={textAreaRef}
-          className={clsx('alinea-rac-TextArea', { 'alinea-rac-TextArea-error': hasError })}
+          {...(props as Omit<TextAreaPrimitiveProps, 'children'>)}
+          disabled={isDisabled}
+          readOnly={isReadOnly}
+          className={clsx('alinea-rac-TextArea-input', props.className, {
+            'alinea-rac-TextArea-error': errorMessage
+          })}
           placeholder={placeholder}
           rows={2}
-          tabIndex={isReadOnly ? -1 : undefined}
-          onInput={() => {
-            if (autoSize && textAreaRef.current && shadowRef.current) {
-              shadowRef.current.textContent = `${textAreaRef.current.value} `;
-              textAreaRef.current.style.height = `${shadowRef.current.offsetHeight}px`;
-            }
-          }}
         />
-        {autoSize && (
-          <div
-            ref={shadowRef}
-            aria-hidden="true"
-            className="alinea-rac-TextArea-shadow"
-          />
-        )}
+        <div aria-hidden="true" className={'alinea-rac-TextArea-shadow'}>
+          {`${props.value || placeholder} + ' '`}
+        </div>
       </div>
-    </TextFieldPrimitive>
-  );
+    </Label>
+  )
 }
