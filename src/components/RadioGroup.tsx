@@ -6,6 +6,7 @@ import {
 import {Radio as RadioPrimitive, type RadioProps} from 'react-aria-components'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './RadioGroup.css'
+import type {PropsWithChildren} from 'react'
 
 export type {RadioProps} from 'react-aria-components'
 
@@ -19,18 +20,21 @@ export function Radio(props: RadioProps) {
 }
 
 export interface RadioGroupProps
-  extends AriaRadioGroupProps,
+  extends Omit<AriaRadioGroupProps, 'children'>,
     LabelSharedProps {}
 
-export function RadioGroup({children, ...props}: RadioGroupProps) {
+export function RadioGroup({
+  children,
+  className,
+  ...props
+}: PropsWithChildren<RadioGroupProps>) {
   return (
-    <Label {...labelProps(props)}>
-      <AriaRadioGroup
-        {...props}
-        className={clsx('alinea-rac-RadioGroup', props.className)}
-      >
-        {children}
-      </AriaRadioGroup>
-    </Label>
+    <AriaRadioGroup {...props}>
+      <Label {...labelProps(props)}>
+        <div className={clsx('alinea-rac-RadioGroup', className)}>
+          {children}
+        </div>
+      </Label>
+    </AriaRadioGroup>
   )
 }

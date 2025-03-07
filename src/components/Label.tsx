@@ -11,7 +11,6 @@ export interface LabelSharedProps {
   label: ReactNode
   description?: ReactNode
   errorMessage?: ReactNode | ((validation: ValidationResult) => ReactNode)
-  isDisabled?: boolean
   isRequired?: boolean
   icon?: ReactNode
   id?: string
@@ -23,7 +22,6 @@ export function Label({
   label,
   description,
   errorMessage,
-  isDisabled,
   isRequired,
   icon,
   children,
@@ -59,18 +57,14 @@ export function labelProps<T extends LabelSharedProps>({
   label,
   description,
   errorMessage,
-  isDisabled,
   isRequired,
-  icon,
-  id
+  icon
 }: T): LabelProps {
   return {
     label,
     description,
     errorMessage,
-    isDisabled,
     isRequired,
-    icon,
-    htmlFor: id
+    icon
   }
 }

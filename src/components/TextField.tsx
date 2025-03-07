@@ -16,34 +16,33 @@ export interface TextFieldProps
   className?: string
 }
 
-export function TextField({multiline, ...props}: TextFieldProps) {
+export function TextField({multiline, className, ...props}: TextFieldProps) {
   const hasValue =
     (props.value ?? props.placeholder ?? props.defaultValue) !== undefined
   if (multiline && !hasValue)
     throw new Error('Multiline TextField requires a value or defaultValue')
   return (
-    <Label {...labelProps(props)}>
-      <TextFieldPrimitive
-        {...props}
-        className={clsx('alinea-rac-TextField', props.className)}
-      >
-        {multiline ? (
-          <div className="alinea-rac-TextField-multiline">
-            <TextArea
-              className="alinea-rac-TextField-multiline-area"
-              rows={1}
-            />
-            <div
-              aria-hidden="true"
-              className="alinea-rac-TextField-multiline-shadow"
-            >
-              {props.value || props.placeholder}{' '}
+    <TextFieldPrimitive {...props}>
+      <Label {...labelProps(props)}>
+        <div className={clsx('alinea-rac-TextField', className)}>
+          {multiline ? (
+            <div className="alinea-rac-TextField-multiline">
+              <TextArea
+                className="alinea-rac-TextField-multiline-area"
+                rows={1}
+              />
+              <div
+                aria-hidden="true"
+                className="alinea-rac-TextField-multiline-shadow"
+              >
+                {props.value || props.placeholder}{' '}
+              </div>
             </div>
-          </div>
-        ) : (
-          <Input className="alinea-rac-TextField-input" />
-        )}
-      </TextFieldPrimitive>
-    </Label>
+          ) : (
+            <Input className="alinea-rac-TextField-input" />
+          )}
+        </div>
+      </Label>
+    </TextFieldPrimitive>
   )
 }
