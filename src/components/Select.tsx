@@ -34,7 +34,9 @@ export function Select<T extends object>({
       >
         <Button>
           <SelectValue />
-          <span aria-hidden="true">▼</span>
+          <span className="alinea-rac-Select-arrow" aria-hidden="true">
+            ▼
+          </span>
         </Button>
         <Popover>
           <ListBox items={items}>{children}</ListBox>
