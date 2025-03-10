@@ -16,7 +16,6 @@
     line-height: 1.5;
     transition: var(--transition);
     text-align: left;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,16 +35,20 @@
   .react-aria-SelectValue {
     flex-grow: 1;
     color: var(--field-text-color);
+
     &[data-placeholder] {
       color: var(--text-color-placeholder);
     }
   }
+
   .alinea-rac-Select button {
     color: var(--text-color) !important;
   }
+
   .alinea-rac-Select-arrow {
     padding-left: 8px;
   }
+
   span[aria-hidden] {
     width: 1.5rem;
     margin-left: auto;
@@ -76,17 +79,15 @@
     display: flex;
     align-items: center;
     border-radius: 6px;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
 
     &[data-focus-visible] {
       outline: none;
     }
 
     &[data-selected] {
-      font-weight: 600;
-      background: unset;
+      font-weight: 600; /* Iets vetter gedrukt */
+      background: var(--border-color); /* Grijze achtergrond */
       color: var(--text-color);
       position: relative;
     }
