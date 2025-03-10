@@ -130,7 +130,7 @@ export const Example = () => {
 
   return (
     <Stack>
-      <Select label="Ice cream flavor">
+      <Select label="Ice cream flavor" isRequired>
         <SelectItem>Chocolate</SelectItem>
         <SelectItem>Mint</SelectItem>
         <SelectItem>Strawberry</SelectItem>
@@ -152,10 +152,11 @@ export const Example = () => {
       <Select label="Rich text options" items={richTextOptions}>
         {item => (
           <SelectItem key={item.id}>
-            <div>
+            <p style={{margin: 0}}>
               <strong>{item.title}</strong>
-              <p>{item.description}</p>
-            </div>
+              <br />
+              {item.description}
+            </p>
           </SelectItem>
         )}
       </Select>

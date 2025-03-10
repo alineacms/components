@@ -23,6 +23,7 @@ import {IcRoundSearch} from '../src/icons/IcRoundSearch.tsx'
 import {IcRoundSettings} from '../src/icons/IcRoundSettings.tsx'
 import {IcRoundShare} from '../src/icons/IcRoundShare.tsx'
 import {IcRoundTextFields} from '../src/icons/IcRoundTextFields.tsx'
+import {IcRoundCheck} from '../src/icons/IcRoundCheck.tsx'
 import {Stack} from './Stack.tsx'
 
 const addGlobalStyles = () => {
@@ -134,6 +135,10 @@ export const Example = (args: any) => (
     <Stack direction="row" align="center">
       <IcRoundHome fill="var(--icon-color-plain)" />
       <p>IcRoundHome</p>
+    </Stack>
+    <Stack direction="row" align="center">
+      <IcRoundCheck fill="var(--icon-color-plain)" />
+      <p>IcRoundCheck</p>
     </Stack>
   </div>
 )
