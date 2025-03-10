@@ -77,14 +77,15 @@
       font-weight: 600;
       background: unset;
       color: var(--text-color);
+      position: relative;
 
       &::before {
         content: "✓";
-        content: "✓" / "";
         alt: " ";
         position: absolute;
-        top: 4px;
-        left: 4px;
+        top: 50%;
+        right: 4px; /* Verplaatst de checkmark naar rechts */
+        transform: translateY(-50%); 
       }
     }
 
