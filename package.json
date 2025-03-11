@@ -42,5 +42,8 @@
     "dev": "node ./node_modules/.bin/ladle serve",
     "build": "ladle build",
     "prepublishOnly": "rm -rf dist && tsc -p tsconfig.d.json && bun build.ts"
+  },
+  "dependencies": {
+    "@internationalized/date": "^3.7.0"
   }
 }
