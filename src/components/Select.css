@@ -49,6 +49,9 @@
       border: none;
       cursor: pointer;
       padding: 0;
+    padding-left: 4px;
+      color: var(--icon-color-plain);
+      font-size: 18px;
     }
   }
 }

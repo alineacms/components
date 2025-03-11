@@ -45,9 +45,10 @@ export function Select<T extends object>({
             <IcRoundKeyboardArrowDown />
             {!props.isRequired && (
               <button type="button" className="alinea-rac-Select-button-close">
-                <IcRoundClose />
+              <IcRoundClose />
               </button>
             )}
+
           </span>
         </Button>
         <Popover className="alinea-rac-Select-popover">
