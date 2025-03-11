@@ -3,33 +3,27 @@ import {
   TagGroup as AriaTagGroup,
   type TagGroupProps as AriaTagGroupProps,
   Button,
-  Label,
   TagList,
   type TagListProps,
   type TagProps,
-  Text
 } from 'react-aria-components'
-import './TagGroup.css'
 import clsx from 'clsx'
-import type {SVGProps} from 'react'
+import type { SVGProps } from 'react'
+import { Label, type LabelSharedProps, labelProps } from './Label.tsx'
+import './TagGroup.css'
 
 export type IntentProps = 'primary' | 'secondary'
 export type ShapeProps = 'square' | 'circle'
 
 export interface TagGroupProps<T>
   extends Omit<AriaTagGroupProps, 'children'>,
-    Pick<TagListProps<T>, 'items' | 'children' | 'renderEmptyState'> {
-  label?: string
-  description?: string
-  errorMessage?: string
-  intent?: 'primary' | 'secondary'
+    Pick<TagListProps<T>, 'items' | 'children' | 'renderEmptyState'>,
+    LabelSharedProps {
+  intent?: IntentProps
   shape?: ShapeProps
 }
 
 export function TagGroup<T extends object>({
-  label,
-  description,
-  errorMessage,
   items,
   children,
   renderEmptyState,
@@ -38,47 +32,43 @@ export function TagGroup<T extends object>({
   ...props
 }: TagGroupProps<T>) {
   return (
-    <AriaTagGroup
-      data-intent={intent}
-      data-shape={shape}
-      {...props}
-      className={clsx('alinea-rac-TagGroup', props.className)}
-    >
-      <Label>{label}</Label>
-      <TagList
-        items={items}
-        renderEmptyState={renderEmptyState}
-        className={clsx('alinea-rac-TagList')}
+    <Label {...labelProps(props)}>
+      <AriaTagGroup
+        data-intent={intent}
+        data-shape={shape}
+        {...props}
+        className={clsx('alinea-rac-TagGroup', props.className)}
       >
-        {children}
-      </TagList>
-      {description && <Text slot="description">{description}</Text>}
-      {errorMessage && <Text slot="errorMessage">{errorMessage}</Text>}
-    </AriaTagGroup>
+        <TagList
+          items={items}
+          renderEmptyState={renderEmptyState}
+          className="alinea-rac-TagGroup-list"
+        >
+          {children}
+        </TagList>
+      </AriaTagGroup>
+    </Label>
   )
 }
 
-export function Tag({children, ...props}: TagProps) {
+export function Tag({ children, ...props }: TagProps) {
   const textValue = typeof children === 'string' ? children : undefined
   return (
     <AriaTag
       textValue={textValue}
       {...props}
-      className={clsx('alinea-rac-Tag', props.className)}
+      className={clsx('alinea-rac-Taggroup-tag', props.className)}
     >
-      {args => {
-        const inner = typeof children === 'function' ? children(args) : children
-        return (
-          <>
-            {inner}
-            {args.allowsRemoving && (
-              <Button slot="remove">
-                <IcRoundCancel style={{display: 'block'}} />
-              </Button>
-            )}
-          </>
-        )
-      }}
+      {({ allowsRemoving }) => (
+        <>
+          {children}
+          {allowsRemoving && (
+            <Button slot="remove" className="alinea-rac-TagGroup-remove">
+              <IcRoundCancel />
+            </Button>
+          )}
+        </>
+      )}
     </AriaTag>
   )
 }
