@@ -1,12 +1,11 @@
-@import "../todo/ListBox.css";
-@import "../todo/Popover.css";
-
+/* @import "../todo/ListBox.css"; */
+/* @import "../todo/Popover.css"; */
 @import "../theme.css";
 
 .alinea-rac-Select {
   color: var(--text-color);
 
-  .react-aria-Button {
+  .alinea-rac-Select-button {
     background: none;
     font: inherit;
     outline: none;
@@ -16,126 +15,96 @@
     font-size: 0.875rem;
     line-height: 1.5;
     transition: var(--transition);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
     &[data-hovered],
-    &[data-focus-visible] {
-      border-color: var(--border-color-hover);
-    }
-
+    &[data-focus-visible],
     &[aria-expanded="true"] {
       border-color: var(--highlight-background);
       box-shadow: 0 0 0 4px var(--highlight-overlay);
     }
-  }
 
-  .react-aria-SelectValue {
-    &[data-placeholder] {
-      color: var(--text-color-placeholder);
+    .alinea-rac-Select-button-value {
+      flex-grow: 1;
+      color: var(--field-text-color);
+
+      &[data-placeholder] {
+        color: var(--text-color-placeholder);
+      }
     }
-  }
 
-  span[aria-hidden] {
-    width: 1.5rem;
-    margin-left: 1rem;
-    color: var(--text-color);
-    forced-color-adjust: none;
+    .alinea-rac-Select-button-arrow {
+      padding-left: 8px;
+      font-size: 18px;
+      color: var(--icon-color-plain);
+      display: flex;
+    }
+    .alinea-rac-Select-button-close {
+      /* display: none; */
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    padding-left: 4px;
+      color: var(--icon-color-plain);
+      font-size: 18px;
+    }
   }
 }
 
-.react-aria-Popover[data-trigger="Select"] {
-  min-width: var(--trigger-width);
-
-  .react-aria-ListBox {
+.alinea-rac-Select-popover {
+  .alinea-rac-Select-popover-listbox {
+    outline: none;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    width: 100%;
     display: block;
-    width: unset;
-    max-height: inherit;
     min-height: unset;
-    border: none;
-
-    .react-aria-Header {
-      padding-left: 1.571rem;
-    }
-  }
-
-  .react-aria-ListBoxItem {
-    cursor: pointer;
-    font-size: 0.875rem;
-    padding: 0.286rem 0.571rem 0.286rem 1.571rem;
-
-    &[data-focus-visible] {
-      outline: none;
-    }
-
-    &[data-selected] {
-      font-weight: 600;
-      background: unset;
-      color: var(--text-color);
-
-      &::before {
-        content: "✓";
-        content: "✓" / "";
-        alt: " ";
-        position: absolute;
-        top: 4px;
-        left: 4px;
-      }
-    }
-
-    &[data-focused],
-    &[data-pressed] {
-      background: var(--highlight-background);
-      color: var(--highlight-foreground);
-    }
+    max-height: inherit;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--field-background);
   }
 }
 
-.react-aria-ListBoxItem[href] {
-  text-decoration: none;
+.alinea-rac-SelectItem {
   cursor: pointer;
-}
+  font-size: 0.875rem;
+  padding: 0.4rem;
+  padding-right: 2.4rem;
+  display: flex;
+  outline: none;
+  border-radius: 4px;
+  justify-content: space-between;
+  position: relative;
 
-.react-aria-Select {
-  .react-aria-SelectValue {
-    [slot="description"] {
-      display: none;
-    }
+  .alinea-rac-SelectItem-check {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
   }
 
-  .react-aria-Button {
-    &[data-disabled] {
-      border-color: var(--border-color-disabled);
-      color: var(--text-color-disabled);
-      span[aria-hidden] {
-        background: var(--border-color-disabled);
-        color: var(--text-color-disabled);
-      }
-
-      .react-aria-SelectValue {
-        &[data-placeholder] {
-          color: var(--text-color-disabled);
-        }
-      }
-    }
-  }
-}
-
-@media (forced-colors: active) {
-  .react-aria-Select {
-    .react-aria-Button {
-      &[data-disabled] span[aria-hidden] {
-        background: 0 0;
-      }
-    }
-  }
-}
-
-.react-aria-Select {
-  .react-aria-FieldError {
-    font-size: 12px;
-    color: var(--invalid-color);
+  &[data-focus-visible] {
+    outline: none;
   }
 
-  [slot="description"] {
-    font-size: 12px;
+  &[data-selected] {
+    font-weight: 600;
+    background: var(--border-color);
+    color: var(--text-color);
+    position: relative;
+  }
+
+  &[data-focused],
+  &[data-pressed] {
+    background: var(--highlight-background);
+    color: var(--highlight-foreground);
   }
 }
