@@ -9,7 +9,8 @@ import {
   ListBoxItem,
   Popover,
   Select as SelectPrimitive,
-  SelectValue
+  SelectValue,
+  SelectStateContext
 } from 'react-aria-components'
 import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
@@ -17,12 +18,27 @@ import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './Select.css'
 import type {ReactNode} from 'react'
 import {IcRoundClose} from '../icons/IcRoundClose.tsx'
+import {useContext} from 'react'
 
 export interface SelectProps<T extends object>
   extends Omit<SelectPrimitiveProps<T>, 'children'>,
     LabelSharedProps {
   items?: Iterable<T>
   children: React.ReactNode | ((item: T) => React.ReactNode)
+}
+
+function SelectClearButton() {
+  const state = useContext(SelectStateContext)
+  if (!state?.selectedKey) return null
+  return (
+    <button
+      type="button"
+      className="alinea-rac-Select-button-clear"
+      onClick={() => state.setSelectedKey(null)}
+    >
+      <IcRoundClose />
+    </button>
+  )
 }
 
 export function Select<T extends object>({
@@ -36,21 +52,16 @@ export function Select<T extends object>({
         {...props}
         className={clsx('alinea-rac-Select', props.className)}
       >
-        <Button
-          className="alinea-rac-Select-button"
-          data-expanded={props.isOpen}
-        >
-          <SelectValue className="alinea-rac-Select-button-value" />
-          <span className="alinea-rac-Select-button-arrow" aria-hidden="true">
-            <IcRoundKeyboardArrowDown />
-            {!props.isRequired && (
-              <button type="button" className="alinea-rac-Select-button-close">
-              <IcRoundClose />
-              </button>
-            )}
-
-          </span>
-        </Button>
+        <div className="alinea-rac-Select-wrapper">
+          <Button
+            className="alinea-rac-Select-button"
+            data-expanded={props.isOpen}
+          >
+            <SelectValue className="alinea-rac-Select-button-value" />
+            <IcRoundKeyboardArrowDown className="alinea-rac-Select-button-arrow" />
+          </Button>
+          <SelectClearButton />
+        </div>
         <Popover className="alinea-rac-Select-popover">
           <ListBox items={items} className="alinea-rac-Select-popover-listbox">
             {children}
