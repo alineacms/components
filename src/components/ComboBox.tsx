@@ -9,11 +9,14 @@ import {
   Input,
   ListBox,
   ListBoxItem,
-  Popover
+  Popover,
+  ComboBoxStateContext
 } from 'react-aria-components'
 import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundClose} from '../icons/IcRoundClose.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
+import {useContext} from 'react'
 import './ComboBox.css'
 
 export interface ComboBoxProps<T extends object>
@@ -23,30 +26,46 @@ export interface ComboBoxProps<T extends object>
   children: React.ReactNode | ((item: T) => React.ReactNode)
 }
 
+function ComboBoxClearButton() {
+  const state = useContext(ComboBoxStateContext)
+  if (!state?.inputValue) return null
+
+  return (
+    <button
+      type="button"
+      className="alinea-rac-Combobox-button-clear"
+      onClick={() => state.setInputValue('')}
+    >
+      <IcRoundClose />
+    </button>
+  )
+}
+
 export function ComboBox<T extends object>({
   children,
   items,
   ...props
 }: ComboBoxProps<T>) {
   return (
-    <ComboBoxPrimitive {...props}>
-      <Label {...labelProps(props)}>
-        <div className={clsx('alinea-rac-Combobox', props.className)}>
+    <Label {...labelProps(props)}>
+      <ComboBoxPrimitive
+        {...props}
+        className={clsx('alinea-rac-Combobox', props.className)}
+      >
+        <div className="alinea-rac-Combobox-wrapper">
           <Input className="alinea-rac-Combobox-input" />
           <Button className="alinea-rac-Combobox-button">
             <IcRoundKeyboardArrowDown />
           </Button>
+          <ComboBoxClearButton />
         </div>
         <Popover className="alinea-rac-Combobox-popover">
-          <ListBox
-            items={items}
-            className="alinea-rac-Combobox-popover-listbox"
-          >
+          <ListBox items={items} className="alinea-rac-Combobox-popover-listbox">
             {children}
           </ListBox>
         </Popover>
-      </Label>
-    </ComboBoxPrimitive>
+      </ComboBoxPrimitive>
+    </Label>
   )
 }
 
@@ -60,11 +79,10 @@ export function ComboBoxItem({children, ...props}: ListBoxItemProps) {
       {({isSelected}) => (
         <>
           {children}
-          {isSelected && (
-            <IcRoundCheck className="alinea-rac-ComboBoxItem-check" />
-          )}
+          {isSelected && <IcRoundCheck className="alinea-rac-ComboBoxItem-check" />}
         </>
       )}
     </ListBoxItem>
   )
 }
+
