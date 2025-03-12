@@ -1,44 +1,44 @@
 @import "../theme.css";
 
 .alinea-rac-Select {
-  color: var(--text-color);
-
-  .alinea-rac-Select-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 100%;
-  }
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
 
   .alinea-rac-Select-button {
     background: none;
-    flex: 1;
     font: inherit;
-    outline: none;
-    padding: 8px 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    transition: var(--transition);
-    text-align: left;
+    width: 100%;
+    gap: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding-right: 2.4rem;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    outline: 4px solid transparent;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: left;
+    color: var(--field-text-color);
+    transition: var(--transition);
 
     &[data-hovered],
     &[data-focus-visible],
     &[aria-expanded="true"] {
-      border-color: var(--highlight-background);
-      box-shadow: 0 0 0 4px var(--highlight-overlay);
+      border-color: var(--highlight-border);
+      outline-color: var(--highlight-overlay);
+    }
+
+    [data-invalid="true"] & {
+      border-color: var(--invalid-color);
+      outline-color: var(--invalid-overlay);
     }
 
     .alinea-rac-Select-button-value {
       flex-grow: 1;
       color: var(--field-text-color);
-      margin-right: 16px;
 
       &[data-placeholder] {
         color: var(--text-color-placeholder);
@@ -47,43 +47,47 @@
 
     .alinea-rac-Select-button-arrow {
       font-size: 18px;
-      color: var(--icon-color-plain);
+      color: var(--icon-color);
+      transition: transform 0.3s ease-out;
+
+      [aria-expanded="true"] & {
+        transform: rotate(180deg);
+      }
     }
   }
 
-  .alinea-rac-Select-button-clear {
+  .alinea-rac-SelectClearButton {
+    cursor: pointer;
     position: absolute;
-    right: 16px;
+    right: 38px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    color: var(--icon-color-plain);
-    font-size: 18px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    border-radius: 6px;
+    border: none;
+    border-radius: 100%;
+    background-color: transparent;
+    color: var(--icon-color);
+    font-size: 18px;
     transition: var(--transition);
-
-    
   }
 
-  .alinea-rac-Select-button-clear:hover {
-    color: var(--icon-color-active);
+  .alinea-rac-SelectClearButton:hover {
+    background-color: var(--background-color);
   }
 }
 
-.alinea-rac-Select-popover {
+.alinea-rac-SelectPopover {
   position: absolute;
   width: 100%;
   z-index: 10;
   max-width: var(--trigger-width, 600px);
 
-  .alinea-rac-Select-popover-listbox {
+  .alinea-rac-SelectPopover-listbox {
     outline: none;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -132,5 +136,10 @@
   &[data-pressed] {
     background: var(--highlight-background);
     color: var(--highlight-foreground);
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.2;
   }
 }

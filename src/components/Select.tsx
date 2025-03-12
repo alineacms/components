@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import {type ReactNode, useContext} from 'react'
 import type {
   ListBoxItemProps,
   SelectProps as SelectPrimitiveProps
@@ -9,36 +10,20 @@ import {
   ListBoxItem,
   Popover,
   Select as SelectPrimitive,
-  SelectValue,
-  SelectStateContext
+  SelectStateContext,
+  SelectValue
 } from 'react-aria-components'
 import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
+import {IcRoundClose} from '../icons/IcRoundClose.tsx'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
-import './Select.css'
-import type {ReactNode} from 'react'
-import {IcRoundClose} from '../icons/IcRoundClose.tsx'
-import {useContext} from 'react'
 
+import './Select.css'
 export interface SelectProps<T extends object>
   extends Omit<SelectPrimitiveProps<T>, 'children'>,
     LabelSharedProps {
   items?: Iterable<T>
   children: React.ReactNode | ((item: T) => React.ReactNode)
-}
-
-function SelectClearButton() {
-  const state = useContext(SelectStateContext)
-  if (!state?.selectedKey) return null
-  return (
-    <button
-      type="button"
-      className="alinea-rac-Select-button-clear"
-      onClick={() => state.setSelectedKey(null)}
-    >
-      <IcRoundClose />
-    </button>
-  )
 }
 
 export function Select<T extends object>({
@@ -47,12 +32,9 @@ export function Select<T extends object>({
   ...props
 }: SelectProps<T>) {
   return (
-    <Label {...labelProps(props)}>
-      <SelectPrimitive
-        {...props}
-        className={clsx('alinea-rac-Select', props.className)}
-      >
-        <div className="alinea-rac-Select-wrapper">
+    <SelectPrimitive {...props}>
+      <Label {...labelProps(props)}>
+        <div className={clsx('alinea-rac-Select', props.className)}>
           <Button
             className="alinea-rac-Select-button"
             data-expanded={props.isOpen}
@@ -60,15 +42,29 @@ export function Select<T extends object>({
             <SelectValue className="alinea-rac-Select-button-value" />
             <IcRoundKeyboardArrowDown className="alinea-rac-Select-button-arrow" />
           </Button>
-          <SelectClearButton />
+          {!props.isRequired && <SelectClearButton />}
         </div>
-        <Popover className="alinea-rac-Select-popover">
-          <ListBox items={items} className="alinea-rac-Select-popover-listbox">
+        <Popover className="alinea-rac-SelectPopover">
+          <ListBox items={items} className="alinea-rac-SelectPopover-listbox">
             {children}
           </ListBox>
         </Popover>
-      </SelectPrimitive>
-    </Label>
+      </Label>
+    </SelectPrimitive>
+  )
+}
+
+function SelectClearButton() {
+  const state = useContext(SelectStateContext)
+  if (!state?.selectedKey) return null
+  return (
+    <button
+      type="button"
+      onClick={() => state.setSelectedKey(null)}
+      className="alinea-rac-SelectClearButton"
+    >
+      <IcRoundClose />
+    </button>
   )
 }
 
@@ -78,7 +74,11 @@ interface SelectItemProps extends ListBoxItemProps {
 
 export function SelectItem({children, ...props}: SelectItemProps) {
   return (
-    <ListBoxItem {...props} className="alinea-rac-SelectItem">
+    <ListBoxItem
+      className="alinea-rac-SelectItem"
+      textValue={typeof children === 'string' ? children : props.textValue}
+      {...props}
+    >
       {({isSelected}) => {
         return (
           <>
