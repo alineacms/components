@@ -13,7 +13,7 @@ export const Basic = () => {
     {id: 5, name: 'Sketch'}
   ]
 
-  const largeOptions = Array.from({length: 250}, (_, i) => ({
+  const largeOptions = Array.from({length: 1000}, (_, i) => ({
     id: i + 1,
     name: `Option ${i + 1}`
   }))
