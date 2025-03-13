@@ -17,8 +17,8 @@ import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
 import {IcRoundClose} from '../icons/IcRoundClose.tsx'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
-
 import './Select.css'
+
 export interface SelectProps<T extends object>
   extends Omit<SelectPrimitiveProps<T>, 'children'>,
     LabelSharedProps {
@@ -27,44 +27,70 @@ export interface SelectProps<T extends object>
 }
 
 export function Select<T extends object>({
-  children,
-  items,
+  className,
   ...props
 }: SelectProps<T>) {
   return (
-    <SelectPrimitive {...props}>
+    <SelectPrimitive
+      {...props}
+      className={clsx('alinea-rac-Select', className)}
+    >
       <Label {...labelProps(props)}>
-        <div className={clsx('alinea-rac-Select', props.className)}>
-          <Button
-            className="alinea-rac-Select-button"
-            data-expanded={props.isOpen}
-          >
-            <SelectValue className="alinea-rac-Select-button-value" />
-            <IcRoundKeyboardArrowDown className="alinea-rac-Select-button-arrow" />
-          </Button>
-          {!props.isRequired && <SelectClearButton />}
-        </div>
-        <Popover className="alinea-rac-SelectPopover">
-          <ListBox items={items} className="alinea-rac-SelectPopover-listbox">
-            {children}
-          </ListBox>
-        </Popover>
+        <SelectTrigger {...props} />
+        <SelectPopover {...props} />
       </Label>
     </SelectPrimitive>
   )
 }
 
-function SelectClearButton() {
+function SelectTrigger<T extends object>({
+  children,
+  items,
+  ...props
+}: SelectProps<T>) {
+  const state = useContext(SelectStateContext)
+  const hasClear = Boolean(!props.isRequired && state?.selectedKey)
+  return (
+    <div className="alinea-rac-SelectTrigger">
+      <Button
+        className="alinea-rac-SelectTrigger-button"
+        data-expanded={props.isOpen}
+        data-clear={hasClear || undefined}
+      >
+        <SelectValue className="alinea-rac-SelectTrigger-button-value" />
+        <IcRoundKeyboardArrowDown className="alinea-rac-SelectTrigger-button-arrow" />
+      </Button>
+      {!props.isRequired && <SelectClear />}
+    </div>
+  )
+}
+
+function SelectPopover<T extends object>(props: SelectProps<T>) {
+  const state = useContext(SelectStateContext)
+  const hasClear = Boolean(!props.isRequired && state?.selectedKey)
+  return (
+    <Popover
+      className="alinea-rac-SelectPopover"
+      data-clear={hasClear || undefined}
+    >
+      <ListBox items={props.items} className="alinea-rac-SelectPopover-listbox">
+        {props.children}
+      </ListBox>
+    </Popover>
+  )
+}
+
+function SelectClear() {
   const state = useContext(SelectStateContext)
   if (!state?.selectedKey) return null
   return (
-    <button
-      type="button"
-      onClick={() => state.setSelectedKey(null)}
-      className="alinea-rac-SelectClearButton"
+    <Button
+      slot={null}
+      onPress={() => state?.setSelectedKey(null)}
+      className="alinea-rac-SelectClear"
     >
       <IcRoundClose />
-    </button>
+    </Button>
   )
 }
 

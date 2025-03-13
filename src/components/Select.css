@@ -1,42 +1,49 @@
 @import "../theme.css";
 
-.alinea-rac-Select {
+.alinea-rac-SelectTrigger {
   position: relative;
   width: 100%;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border-color);
+  outline: 4px solid transparent;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--field-text-color);
+  transition: var(--transition);
 
-  .alinea-rac-Select-button {
+  &:has(> .alinea-rac-SelectTrigger-button[data-hovered]),
+  &:has(> .alinea-rac-SelectTrigger-button[data-focus-visible]),
+  &:has(> .alinea-rac-SelectTrigger-button[aria-expanded="true"]) {
+    border-color: var(--highlight-border);
+    outline-color: var(--highlight-overlay);
+  }
+
+  .alinea-rac-Select[data-invalid="true"] & {
+    border-color: var(--invalid-color);
+    outline-color: var(--invalid-overlay);
+  }
+
+  .alinea-rac-SelectTrigger-button {
+    appearance: none;
     background: none;
     font: inherit;
-    width: 100%;
-    gap: 16px;
+    outline: none;
+    border: none;
+    flex-grow: 1;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    outline: 4px solid transparent;
-    font-size: 0.875rem;
-    line-height: 1.5;
     text-align: left;
-    color: var(--field-text-color);
-    transition: var(--transition);
+    padding: 8px 10px 8px 10px;
+    gap: 20px;
 
-    &[data-hovered],
-    &[data-focus-visible],
-    &[aria-expanded="true"] {
-      border-color: var(--highlight-border);
-      outline-color: var(--highlight-overlay);
+    &[data-clear] {
+      padding-right: 0;
     }
 
-    [data-invalid="true"] & {
-      border-color: var(--invalid-color);
-      outline-color: var(--invalid-overlay);
-    }
-
-    .alinea-rac-Select-button-value {
+    .alinea-rac-SelectTrigger-button-value {
       flex-grow: 1;
       color: var(--field-text-color);
 
@@ -45,7 +52,7 @@
       }
     }
 
-    .alinea-rac-Select-button-arrow {
+    .alinea-rac-SelectTrigger-button-arrow {
       font-size: 18px;
       color: var(--icon-color);
       transition: transform 0.3s ease-out;
@@ -55,37 +62,13 @@
       }
     }
   }
-
-  .alinea-rac-SelectClearButton {
-    cursor: pointer;
-    position: absolute;
-    right: 38px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 100%;
-    background-color: transparent;
-    color: var(--icon-color);
-    font-size: 18px;
-    transition: var(--transition);
-  }
-
-  .alinea-rac-SelectClearButton:hover {
-    background-color: var(--background-color);
-  }
 }
 
 .alinea-rac-SelectPopover {
-  position: absolute;
-  width: 100%;
-  z-index: 10;
-  max-width: var(--trigger-width, 600px);
+  width: var(--trigger-width);
+  &[data-clear] {
+    width: calc(var(--trigger-width) + 40px);
+  }
 
   .alinea-rac-SelectPopover-listbox {
     outline: none;
@@ -99,6 +82,51 @@
     border-radius: 6px;
     border: 1px solid var(--border-color);
     background-color: var(--field-background);
+  }
+}
+
+.alinea-rac-SelectClear {
+  position: relative;
+  cursor: pointer;
+  background: none;
+  width: 40px;
+  flex-shrink: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 100%;
+  background-color: transparent;
+  color: var(--icon-color);
+  font-size: 18px;
+  font-size: 14px;
+  outline: none;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: var(--background-color);
+    z-index: -1;
+    transition: var(--transition);
+    opacity: 0;
+    border: 1px solid transparent;
+    outline: 4px solid transparent;
+  }
+  &:hover:after {
+    opacity: 1;
+  }
+  &:focus:after {
+    background-color: transparent;
+    border-color: var(--highlight-border);
+    outline-color: var(--highlight-overlay);
+    opacity: 1;
   }
 }
 
