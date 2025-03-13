@@ -1,38 +1,28 @@
+import clsx from 'clsx'
 import {
   CheckboxGroup as CheckboxGroupPrimitive,
-  type CheckboxGroupProps as CheckboxPrimitiveGroupProps,
-  FieldError,
-  Label,
-  Text,
-  type ValidationResult
+  type CheckboxGroupProps as CheckboxPrimitiveGroupProps
 } from 'react-aria-components'
-
+import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './CheckboxGroup.css'
-import clsx from 'clsx'
+import type {PropsWithChildren} from 'react'
 
-export interface CheckboxGroupProps extends CheckboxPrimitiveGroupProps {
-  children?: React.ReactNode
-  label?: string
-  description?: string
-  errorMessage?: string | ((validation: ValidationResult) => string)
-}
+export interface CheckboxGroupProps
+  extends Omit<CheckboxPrimitiveGroupProps, 'children'>,
+    LabelSharedProps {}
 
 export function CheckboxGroup({
-  label,
-  description,
-  errorMessage,
   children,
+  className,
   ...props
-}: CheckboxGroupProps) {
+}: PropsWithChildren<CheckboxGroupProps>) {
   return (
-    <CheckboxGroupPrimitive
-      {...props}
-      className={clsx('alinea-rac-CheckboxGroup', props.className)}
-    >
-      {label && <Label>{label}</Label>}
-      {children}
-      {description && <Text slot="description">{description}</Text>}
-      <FieldError className="alinea-rac-FieldError">{errorMessage}</FieldError>
+    <CheckboxGroupPrimitive {...props}>
+      <Label {...labelProps(props)}>
+        <div className={clsx('alinea-rac-CheckboxGroup', className)}>
+          {children}
+        </div>
+      </Label>
     </CheckboxGroupPrimitive>
   )
 }

@@ -73,7 +73,7 @@
   --text-color-base: var(--gray-500);
   --text-color-hover: var(--gray-700);
   --text-color-focused: var(--gray-900);
-  --text-color-disabled: var(--gray-300);
+  --text-color-disabled: var(--gray-500);
   --text-color-placeholder: var(--gray-400);
   --link-color: var(--indigo-500);
   --link-color-hover: var(--indigo-600);
@@ -104,7 +104,7 @@
   --text-color-base: var(--gray-500);
   --text-color-hover: var(--gray-300);
   --text-color-focused: var(--gray-100);
-  --text-color-disabled: var(--gray-700);
+  --text-color-disabled: var(--gray-600);
   --text-color-placeholder: var(--gray-600);
   --link-color: var(--indigo-500);
   --link-color-hover: var(--indigo-400);

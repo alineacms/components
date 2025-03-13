@@ -9,6 +9,12 @@ export const Example = () => {
         <Radio value="baseball">Baseball</Radio>
         <Radio value="basketball">Basketball</Radio>
       </RadioGroup>
+
+      <RadioGroup label="Favorite juice" isDisabled description="What is your favorite juice?">
+        <Radio value="apple">Apple</Radio>
+        <Radio value="orange">Orange</Radio>
+        <Radio value="grape">Grape</Radio>
+      </RadioGroup>
     </Stack>
   )
 }

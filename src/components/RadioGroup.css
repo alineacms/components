@@ -83,10 +83,8 @@
   }
 
   &[data-disabled] {
+    pointer-events: none;
     color: var(--text-color-disabled);
 
-    &:before {
-      border-color: var(--border-color-disabled);
-    }
   }
 }
