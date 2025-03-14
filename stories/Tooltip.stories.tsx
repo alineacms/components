@@ -1,71 +1,73 @@
-import {Button, TooltipTrigger} from 'react-aria-components'
+import {Button} from 'react-aria-components'
 import {Tooltip} from '../src/components/Tooltip.tsx'
 import {Stack} from './Stack.tsx'
 
 export const Basic = () => (
   <div style={{paddingBlock: '80px'}}>
-  <Stack align="center" gap={64}>
-    <TooltipTrigger>
-      <Button>💾</Button>
-      <Tooltip>Save</Tooltip>
-    </TooltipTrigger>
+    <Stack align="center" gap={64}>
+      <Tooltip tooltip="Save">
+        <Button>💾</Button>
+      </Tooltip>
 
-    <TooltipTrigger>
-      <Button>❌</Button>
-      <Tooltip>Delete</Tooltip>
-    </TooltipTrigger>
-  </Stack>
+      <Tooltip tooltip="Delete">
+        <Button>❌</Button>
+      </Tooltip>
+    </Stack>
   </div>
 )
 
 export const Positions = () => (
   <div style={{paddingBlock: '80px'}}>
     <Stack align="center" gap={32}>
-      <TooltipTrigger>
-        <Button>Top</Button>
-        <Tooltip placement="top">Tooltip on top</Tooltip>
-      </TooltipTrigger>
+      <Tooltip
+        placement="start"
+        tooltip="
+      In left-to-right, this is on the left. In right-to-left, this is on the
+      right."
+      >
+        <Button>⬅️</Button>
+      </Tooltip>
 
-      <TooltipTrigger>
-        <Button>Right</Button>
-        <Tooltip placement="right">Tooltip on right</Tooltip>
-      </TooltipTrigger>
+      <Tooltip placement="top" tooltip="This tooltip is above the button">
+        <Button>⬆️</Button>
+      </Tooltip>
 
-      <TooltipTrigger>
-        <Button>Bottom</Button>
-        <Tooltip placement="bottom">Tooltip on bottom</Tooltip>
-      </TooltipTrigger>
+      <Tooltip placement="bottom" tooltip="This tooltip is below the button.">
+        <Button>⬇️</Button>
+      </Tooltip>
 
-      <TooltipTrigger>
-        <Button>Left</Button>
-        <Tooltip placement="left">Tooltip on left</Tooltip>
-      </TooltipTrigger>
+      <Tooltip
+        placement="end"
+        tooltip="In left-to-right, this is on the right. In right-to-left, this is on the
+      left."
+      >
+        <Button>➡️</Button>
+      </Tooltip>
     </Stack>
   </div>
 )
 
 export const DelayedTooltip = () => (
-  <TooltipTrigger delay={500}>
+  <Tooltip delay={500} tooltip="Tooltip appears after 500ms">
     <Button>⏳</Button>
-    <Tooltip>Tooltip appears after 500ms</Tooltip>
-  </TooltipTrigger>
+  </Tooltip>
 )
 
 export const InteractiveTooltip = () => (
-  <TooltipTrigger>
-    <Button>🛠️ Hover for info</Button>
-    <Tooltip>
+  <Tooltip
+    tooltip={
       <Stack>
         <strong>Important Info</strong>
         <p>This tooltip contains multiple elements.</p>
       </Stack>
-    </Tooltip>
-  </TooltipTrigger>
+    }
+  >
+    <Button>🛠️ Hover for info</Button>
+  </Tooltip>
 )
 
 export const DisabledButtonTooltip = () => (
-  <TooltipTrigger>
+  <Tooltip tooltip="Cannot perform this action">
     <Button isDisabled>🔒</Button>
-    <Tooltip>Cannot perform this action</Tooltip>
-  </TooltipTrigger>
+  </Tooltip>
 )
