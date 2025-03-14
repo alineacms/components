@@ -11,8 +11,7 @@
   max-width: 200px;
   font-size: 0.875rem;
   line-height: 1.4;
-  transition: var(--transition);
-  transform: translate3d(0, 0, 0);
+
 
   &[data-placement="top"] {
     margin-bottom: 8px;
