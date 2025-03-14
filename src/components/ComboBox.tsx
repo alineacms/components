@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import {useState} from 'react'
+import {type ReactNode, useContext} from 'react'
 import type {
   ComboBoxProps as ComboBoxPrimitiveProps,
   ListBoxItemProps
@@ -10,7 +10,8 @@ import {
   Input,
   ListBox,
   ListBoxItem,
-  Popover
+  Popover,
+  ComboBoxStateContext
 } from 'react-aria-components'
 import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
 import {IcRoundClose} from '../icons/IcRoundClose.tsx'
@@ -21,62 +22,78 @@ import './ComboBox.css'
 export interface ComboBoxProps<T extends object>
   extends Omit<ComboBoxPrimitiveProps<T>, 'children'>,
     LabelSharedProps {
-  items: T[]
-  children: (item: T) => React.ReactNode
+  items?: Iterable<T>
+  children: React.ReactNode | ((item: T) => React.ReactNode)
 }
 
-export function ComboBox<T extends {name: string}>({
+export function ComboBox<T extends object>({
   className,
-  items,
   ...props
 }: ComboBoxProps<T>) {
-  const [inputValue, setInputValue] = useState('')
-  const filteredItems = items.filter(item =>
-    item.name.toLowerCase().includes(inputValue.toLowerCase())
-  )
-
   return (
     <ComboBoxPrimitive
       {...props}
       className={clsx('alinea-rac-Combobox', className)}
-      onInputChange={setInputValue} // ✅ Filtering activeren
     >
       <Label {...labelProps(props)}>
-        <div className="alinea-rac-ComboboxTrigger">
-          <Input className="alinea-rac-ComboboxTrigger-input" />
-          <Button className="alinea-rac-ComboboxTrigger-button">
-            <IcRoundKeyboardArrowDown />
-          </Button>
-          <ComboBoxClearButton />
-        </div>
-        <Popover className="alinea-rac-ComboboxPopover">
-          <ListBox
-            items={filteredItems}
-            className="alinea-rac-ComboboxPopover-listbox"
-          >
-            {props.children}
-          </ListBox>
-        </Popover>
+        <ComboBoxTrigger {...props} />
+        <ComboBoxPopover {...props} />
       </Label>
     </ComboBoxPrimitive>
   )
 }
 
-function ComboBoxClearButton() {
-  const [inputValue, setInputValue] = useState('')
+function ComboBoxTrigger<T extends object>({
+  children,
+  items,
+  ...props
+}: ComboBoxProps<T>) {
+  const state = useContext(ComboBoxStateContext)
+  const hasClear = Boolean(state?.inputValue)
 
-  if (!inputValue) return null
+  return (
+    <div className="alinea-rac-ComboboxTrigger">
+      <Input className="alinea-rac-ComboboxTrigger-input" />
+      <Button className="alinea-rac-ComboboxTrigger-button">
+        <IcRoundKeyboardArrowDown className="alinea-rac-ComboboxTrigger-button-arrow" />
+      </Button>
+      {hasClear && <ComboBoxClear />}
+    </div>
+  )
+}
+
+function ComboBoxPopover<T extends object>(props: ComboBoxProps<T>) {
+  const state = useContext(ComboBoxStateContext)
+  const hasClear = Boolean(state?.inputValue)
+
+  return (
+    <Popover className="alinea-rac-ComboboxPopover" data-clear={hasClear || undefined}>
+      <ListBox items={props.items} className="alinea-rac-ComboboxPopover-listbox">
+        {props.children}
+      </ListBox>
+    </Popover>
+  )
+}
+
+function ComboBoxClear() {
+  const state = useContext(ComboBoxStateContext)
+  if (!state?.inputValue) return null
   return (
     <Button
-      onPress={() => setInputValue('')}
-      className="alinea-rac-ComboboxTrigger-clear"
+      slot={null}
+      onPress={() => state?.setInputValue('')}
+      className="alinea-rac-ComboboxClear"
     >
       <IcRoundClose />
     </Button>
   )
 }
 
-export function ComboBoxItem({children, ...props}: ListBoxItemProps) {
+interface ComboBoxItemProps extends ListBoxItemProps {
+  children: ReactNode
+}
+
+export function ComboBoxItem({children, ...props}: ComboBoxItemProps) {
   return (
     <ListBoxItem
       className="alinea-rac-ComboBoxItem"
@@ -86,9 +103,7 @@ export function ComboBoxItem({children, ...props}: ListBoxItemProps) {
       {({isSelected}) => (
         <>
           {children}
-          {isSelected && (
-            <IcRoundCheck className="alinea-rac-ComboBoxItem-check" />
-          )}
+          {isSelected && <IcRoundCheck className="alinea-rac-ComboBoxItem-check" />}
         </>
       )}
     </ListBoxItem>
