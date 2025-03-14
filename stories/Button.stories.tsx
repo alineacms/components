@@ -10,11 +10,11 @@ import {
 import {Button} from '../src/components/Button.tsx'
 import {ProgressCircle} from '../src/components/ProgressCircle.tsx'
 import {IcRoundAccountCircle} from '../src/icons/IcRoundAccountCircle.tsx'
-import {IcRoundDocument} from '../src/icons/IcRoundDocument.tsx'
+import {IcRoundArchive} from '../src/icons/IcRoundArchive.tsx'
+import {IcRoundHistory} from '../src/icons/IcRoundHistory.tsx'
 import {IcRoundLanguage} from '../src/icons/IcRoundLanguage.tsx'
 import {IcRoundSearch} from '../src/icons/IcRoundSearch.tsx'
 import {IcRoundSettings} from '../src/icons/IcRoundSettings.tsx'
-import {IcRoundShare} from '../src/icons/IcRoundShare.tsx'
 import {Stack} from './Stack.tsx'
 
 const styleStack: CSSProperties = {
@@ -143,27 +143,28 @@ export function Icons() {
           display: 'flex',
           flexDirection: 'column',
           gap: 10,
-          border: '1px solid gray',
-          padding: 10
+          padding: 10,
+          borderRadius: 6,
+          border: '1px solid lightgray'
         }}
       >
         <Button data-size="square-petite" appearance="active">
           <IcRoundAccountCircle data-slot="icon" />
         </Button>
         <Button data-size="square-petite" appearance="plain">
-          <IcRoundLanguage data-slot="icon" />
+          <IcRoundArchive data-slot="icon" />
         </Button>
         <Button data-size="square-petite" appearance="plain">
-          <IcRoundShare data-slot="icon" />
+          <IcRoundHistory data-slot="icon" />
+        </Button>
+        <Button data-size="square-petite" appearance="plain">
+          <IcRoundLanguage data-slot="icon" />
         </Button>
         <Button data-size="square-petite" appearance="plain">
           <IcRoundSearch data-slot="icon" />
         </Button>
         <Button data-size="square-petite" appearance="plain">
           <IcRoundSettings data-slot="icon" />
-        </Button>
-        <Button data-size="square-petite" appearance="plain">
-          <IcRoundDocument data-slot="icon" />
         </Button>
       </div>
     </HStack>
