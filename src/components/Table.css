@@ -1,280 +1,97 @@
 @import "../theme.css";
 
-.alinea-rac-TableOverflow {
-  overflow-x: auto;
-
-  &::-webkit-scrollbar {
-    height: 8px;
-    margin-top: 4px;
-  }
-  &::-webkit-scrollbar-track {
-    cursor: pointer;
-    background: var(--background-color);
-    border-radius: 50px;
-  }
-  &::-webkit-scrollbar-thumb {
-    cursor: grab;
-    background: var(--background-color-hover);
-    border-radius: 50px;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: var(--background-color-pressed);
-  }
-}
-
 .alinea-rac-Table {
-  border-spacing: 0;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  max-width: 100%;
-  outline: none;
-  overflow: hidden;
-
-  &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
-    outline-offset: -1px;
-  }
-
-  .alinea-rac-TableHeader {
-    color: var(--text-color);
-    font-size: 14px;
-
-    tr .alinea-rac-Column {
-      cursor: default;
-      white-space: nowrap;
-      border-bottom: 1px solid var(--border-color);
-    }
-  }
-
-  .alinea-rac-Row {
-    outline: none;
-    cursor: default;
-    color: var(--text-color);
-    font-size: 14px;
-    position: relative;
-
-    [data-striped]:nth-child(odd) {
-      background-color: var(--background-color);
-
-      .alinea-rac-Cell,
-      .alinea-rac-Column {
-        padding-block: 12px;
-      }
-    }
-
-    &[data-focus-visible] {
-      outline: 2px solid var(--focus-ring-color);
-      outline-offset: -2px;
-    }
-
-    &[data-pressed] {
-      background: var(--background-color-hover);
-    }
-
-    &[data-selected] {
-      background: var(--highlight-overlay);
-      --focus-ring-color: var(--highlight-foreground);
-
-      .alinea-rac-Row-Indicator {
-        background-color: var(--highlight-background);
-      }
-
-      &[data-focus-visible],
-      .alinea-rac-Cell[data-focus-visible] {
-        outline-offset: -4px;
-      }
-    }
-
-    &[data-disabled] {
-      color: var(--text-color-disabled);
-    }
-  }
-
-  .alinea-rac-Cell,
-  .alinea-rac-Column {
-    outline: none;
-    padding: 8px;
-    min-width: 100px;
-    text-align: left;
-    word-break: break-word;
-
-    &[data-focus-visible] {
-      outline: 2px solid var(--focus-ring-color);
-      outline-offset: -2px;
-    }
-  }
-
-  .alinea-rac-Cell {
-    transform: translateZ(0);
-  }
-}
-
-:where(.alinea-rac-Row) .alinea-rac-Checkbox {
-  --selected-color: var(--highlight-foreground);
-  --selected-color-pressed: var(--highlight-foreground-pressed);
-  --checkmark-color: var(--highlight-background);
-  --background-color: var(--highlight-background);
-}
-
-.alinea-rac-Row[data-href] {
-  cursor: pointer;
-}
-
-.alinea-rac-Column {
-  .alinea-rac-Column-flex {
-    gap: 8px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .alinea-rac-Column-sortIndicator {
-    flex-shrink: 0;
-    padding: 0 2px;
-  }
-
-  &:not([data-sort-direction]) .alinea-rac-Column-sortIndicator {
-    visibility: hidden;
-  }
-}
-
-.alinea-rac-TableBody {
-  &[data-empty] {
-    font-size: 14px;
-    text-align: center;
-    font-style: italic;
-  }
-}
-
-.alinea-rac-ResizableTableContainer {
-  max-width: 400px;
-  overflow: auto;
-  position: relative;
+  width: 100%;
+  border-collapse: collapse;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--background-color);
+  outline: none;
+  overflow: hidden;
+}
 
-  .alinea-rac-Table {
-    border: none;
+.alinea-rac-Table-overflow {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.alinea-rac-Table-header {
+  background-color: var(--header-background);
+  color: var(--text-color);
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid var(--border-color);
+
+  .alinea-rac-Column {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
   }
 
-  .column-name,
-  .alinea-rac-Button {
-    --background-color: var(--overlay-background);
-    flex: 1;
-    font: inherit;
-    text-align: start;
-    color: inherit;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border-color: transparent;
-    transition: background 200ms;
-    &[data-hovered] {
-      background: var(--highlight-hover);
-    }
-
-    &[data-pressed] {
-      background: var(--highlight-pressed);
-      box-shadow: none;
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--focus-ring-color);
-    }
+  .alinea-rac-Column-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .alinea-rac-ColumnResizer {
-    width: 15px;
-    background-color: grey;
-    height: 25px;
-    flex: 0 0 auto;
-    touch-action: none;
-    box-sizing: border-box;
-    border: 5px;
-    border-style: none solid;
-    border-color: transparent;
-    background-clip: content-box;
-
-    &[data-resizable-direction="both"] {
-      cursor: ew-resize;
-    }
-
-    &[data-resizable-direction="left"] {
-      cursor: e-resize;
-    }
-
-    &[data-resizable-direction="right"] {
-      cursor: w-resize;
-    }
-
-    &[data-focus-visible] {
-      background-color: var(--focus-ring-color);
-    }
-
-    &[data-resizing] {
-      border-color: var(--focus-ring-color);
-      background-color: transparent;
-    }
+  .alinea-rac-Column-sortIndicator {
+    font-size: 14px;
+    color: var(--icon-color);
+    margin-left: 6px;
   }
+}
 
-  .alinea-rac-Column,
-  .alinea-rac-Cell {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.alinea-rac-Table-body {
+  font-size: 14px;
+  color: var(--text-color);
 }
 
 .alinea-rac-Row {
-  &[data-dragging] {
-    opacity: 0.6;
-    transform: translateZ(0);
-  }
-
-  [slot="drag"] {
-    all: unset;
-    width: 15px;
-    text-align: center;
-
-    &[data-focus-visible] {
-      border-radius: 4px;
-      outline: 2px solid var(--focus-ring-color);
-    }
-  }
+  border-bottom: 1px solid var(--border-color);
 }
 
-.alinea-rac-Row-Indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background-color: transparent;
+.alinea-rac-Row:hover {
+  background-color: var(--background-hover);
 }
 
-.alinea-rac-DropIndicator[data-drop-target] {
-  outline: 1px solid var(--highlight-background);
-  transform: translateZ(0);
+.alinea-rac-Table[data-striped] .alinea-rac-Row:nth-child(odd) {
+  background-color: var(--background-striped);
 }
 
-.alinea-rac-Table[data-drop-target] {
-  outline: 2px solid var(--highlight-background);
-  outline-offset: -1px;
-  background: var(--highlight-overlay);
+.alinea-rac-Cell {
+  padding: 12px;
+  border-right: 1px solid var(--border-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.alinea-rac-Row[data-drop-target] {
-  outline: 2px solid var(--highlight-background);
-  background: var(--highlight-overlay);
+.alinea-rac-Row .alinea-rac-Cell:last-child {
+  border-right: none;
 }
 
-.alinea-rac-DropIndicator[data-drop-target] {
-  outline: 1px solid var(--highlight-background);
-  transform: translateZ(0);
+.alinea-rac-Row[data-selected] {
+  background-color: var(--highlight-background) !important;
+  color: var(--highlight-foreground) !important;
 }
 
-.alinea-rac-Cell img {
-  height: 30px;
-  width: 30px;
-  object-fit: cover;
-  display: block;
+.alinea-rac-Row[data-selected] .alinea-rac-Cell {
+  font-weight: bold;
+}
+
+.alinea-rac-Table-overflow::-webkit-scrollbar {
+  height: 8px;
+}
+
+.alinea-rac-Table-overflow::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+.alinea-rac-Table-overflow::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.alinea-rac-Table-overflow::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color-hover);
 }

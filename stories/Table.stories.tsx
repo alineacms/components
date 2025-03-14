@@ -34,7 +34,7 @@ export const Example = () => (
           ))}
       </TableBody>
     </Table>
-    <Table aria-label="Table" style={{width: '100%'}}>
+    <Table aria-label="Table" style={{width: '100%'}} striped>
       <TableHeader>
         <Column isRowHeader>Name</Column>
         <Column>Type</Column>
@@ -55,7 +55,7 @@ export const Example = () => (
 )
 
 export const Selection = () => (
-  <Table aria-label="Table" selectionMode="multiple">
+  <Table aria-label="Table" selectionMode="multiple" striped>
     {columns?.length > 0 && (
       <TableHeader>
         {columns.map(column => (
