@@ -52,6 +52,7 @@ function SelectTrigger<T extends object>({
   const hasClear = Boolean(!props.isRequired && state?.selectedKey)
   return (
     <div className="alinea-rac-SelectTrigger">
+      
       <Button
         className="alinea-rac-SelectTrigger-button"
         data-expanded={props.isOpen}
