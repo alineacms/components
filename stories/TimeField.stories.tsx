@@ -23,11 +23,11 @@ export const Example = () => {
         </Stack>
       </form>
 
-      <TimeField label="Event time (24h mode)" use24HourClock />
+      <TimeField label="Event time (24h mode)" hourCycle={24} />
 
       <TimeField
         label="Event time"
-        use24HourClock
+        hourCycle={24}
         description="(24h mode) with description"
       />
     </Stack>
