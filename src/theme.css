@@ -132,5 +132,5 @@
   --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
   --icon-color-plain: var(--gray-500);
   --tag-color-disabled: var(--gray-500);
-  --table-color-selected: rgb(63, 97, 232);
+  --table-color-selected:  rgb(from #3f61e8 r g b / 30%);
 }
