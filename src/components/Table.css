@@ -13,20 +13,20 @@
   border-top-right-radius: 6px;
 }
 
-.alinea-rac-TableOverflow {
+.alinea-rac-data-overflow {
   width: 100%;
   overflow-x: auto;
   display: block;
   max-width: 100%;
-  .alinea-rac-TableOverflow::-webkit-scrollbar {
+  .alinea-rac-data-overflow::-webkit-scrollbar {
     height: 8px;
   }
 
-  .alinea-rac-TableOverflow::-webkit-scrollbar-track {
+  .alinea-rac-data-overflow::-webkit-scrollbar-track {
     background: var(--background-color);
   }
 
-  .alinea-rac-TableOverflow::-webkit-scrollbar-thumb {
+  .alinea-rac-data-overflow::-webkit-scrollbar-thumb {
     background: var(--border-color);
     border-radius: 4px;
   }

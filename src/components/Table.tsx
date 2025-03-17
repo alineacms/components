@@ -33,7 +33,7 @@ export function TableOverflow(props: PropsWithChildren<{className?: string}>) {
   return (
     <div
       {...props}
-      className={clsx('alinea-rac-TableOverflow', props.className)}
+      className={clsx('alinea-rac-data-overflow', props.className)}
     />
   )
 }
@@ -47,7 +47,7 @@ export function Table(
   return (
     <div
       className={clsx('alinea-rac-Table-container', {
-        'alinea-rac-TableOverflow': props.overflow
+        'alinea-rac-data-overflow': props.overflow
       })}
     >
       <TablePrimitive
