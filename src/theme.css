@@ -52,6 +52,7 @@
   --highlight-background-hovered: var(--indigo-700);
   --highlight-background-pressed: var(--indigo-900);
   --highlight-background-disabled: var(--indigo-50);
+  --highlight-border: var(--indigo-500);
   --highlight-background-invalid: #cc2000;
   --highlight-foreground: white;
   --highlight-foreground-pressed: #ddd;
@@ -89,10 +90,11 @@
   --background-color-pressed: var(--gray-400);
   --box-shadow-color: var(--gray-200);
   --error-border-color: var(--danger-500);
-  --icon-color-plain: var(--gray-500);
   --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
+  --icon-color: var(--gray-600);
   --icon-color-plain: var(--gray-500);
   --icon-color-active: var(--indigo-700);
+  --tag-color-disabled: var(--gray-500);
 }
 
 /* Dark */
@@ -124,4 +126,5 @@
   --icon-color-active: var(--indigo-50);
   --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
   --icon-color-plain: var(--gray-500);
+  --tag-color-disabled: var(--gray-500);
 }

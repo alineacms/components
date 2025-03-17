@@ -35,14 +35,14 @@ export const Selection = () => {
       {id: 1, name: 'Chocolate'},
       {id: 2, name: 'Mint'},
       {id: 3, name: 'Strawberry'},
-      {id: 4, name: 'Vanilla'}
+      {id: 4, name: 'Vanilla', isDisabled: true}
     ]
   })
 
   return (
     <Stack>
       <TagGroup items={list.items} label="Ice cream flavor">
-        {item => <Tag>{item.name}</Tag>}
+        {item => <Tag isDisabled={item.isDisabled}>{item.name}</Tag>}
       </TagGroup>
       <TagGroup
         items={list.items}
@@ -51,7 +51,7 @@ export const Selection = () => {
         selectionMode="multiple"
         onRemove={keys => list.remove(...keys)}
       >
-        {item => <Tag>{item.name}</Tag>}
+        {item => <Tag isDisabled={item.isDisabled}>{item.name}</Tag>}
       </TagGroup>
     </Stack>
   )

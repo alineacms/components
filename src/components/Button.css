@@ -55,8 +55,8 @@
   &[data-appearance="plain"] {
     --button-color: var(--text-color);
     --button-bg: transparent;
-    --button-hovered: var(--background-color-hover);
-    --button-pressed: var(--background-color-pressed);
+    --button-hovered: var(--background-color);
+    --button-pressed: var(--background-color-hover);
   }
 
   color: var(--button-color);
@@ -86,23 +86,21 @@
   }
 
   &[data-size="square-petite"] {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border-radius: 0.5rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-
-    &[data-appearance="active"] {
-      background-color: var(--icon-background-color-active) !important;
-      color: var(--icon-color-active);
-      --button-hovered: var(--background-color-hover);
-      --button-pressed: var(--background-color-pressed);
-    }
 
     &[data-appearance="plain"] {
-      background-color: transparent;
       color: var(--icon-color-plain);
+    }
+
+    &[data-appearance="active"] {
+      background-color: var(--highlight-overlay);
+      color: var(--highlight-background);
     }
   }
 
@@ -132,14 +130,9 @@
     color: var(--button-color);
   }
 
-  &[data-size="square-petite"][data-hovered][data-appearance="active"] {
-    background-color: var(--icon-background-color-active-hover);
-    color: var(--icon-color-active);
-  }
-
   &[data-size="square-petite"][data-hovered][data-appearance="plain"] {
-    background-color: var(--background-color-hover);
-    color: var(--icon-color-plain-hover);
+    background-color: var(--background-color);
+    color: var(--text-color-hover);
   }
 
   &[data-size="square-petite"][data-hovered][data-appearance="outline"] {
