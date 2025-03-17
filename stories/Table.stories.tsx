@@ -1,5 +1,3 @@
-'use client'
-
 import {useAsyncList} from 'react-stately'
 import {
   Cell,
