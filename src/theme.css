@@ -95,6 +95,10 @@
   --icon-color-plain: var(--gray-500);
   --icon-color-active: var(--indigo-700);
   --tag-color-disabled: var(--gray-500);
+  --tab-background-color: var(--gray-100);
+  --tab-background-color-active: rgb(from #abbaf5 r g b / 20%);
+  --tab-color-active: var(--indigo-800);
+  --tab-color-base: var(--gray-500);
 }
 
 /* Dark */
@@ -127,4 +131,8 @@
   --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
   --icon-color-plain: var(--gray-500);
   --tag-color-disabled: var(--gray-500);
+  --tab-background-color: var(--gray-800);
+  --tab-background-color-active: rgb(from #3f61e8 r g b / 20%);
+  --tab-color-active: var(--indigo-300);
+  --tab-color-base: var(--gray-300);
 }
