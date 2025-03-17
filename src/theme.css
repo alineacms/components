@@ -86,7 +86,8 @@
   --field-text-color: var(--gray-700);
   --overlay-background: var(--gray-50);
   --background-color: var(--gray-200);
-  --background-striped: var(--gray-100);
+  --background-striped: var(--gray-200);
+  --header-background: var(--gray-100);
   --background-color-hover: var(--gray-300);
   --background-color-pressed: var(--gray-400);
   --box-shadow-color: var(--gray-200);
@@ -96,6 +97,7 @@
   --icon-color-plain: var(--gray-500);
   --icon-color-active: var(--indigo-700);
   --tag-color-disabled: var(--gray-500);
+  --table-color-selected: rgb(from #c1ccf8 r g b / 50%);
 }
 
 /* Dark */
@@ -119,7 +121,8 @@
   --field-text-color: var(--gray-50);
   --overlay-background: var(--gray-900);
   --background-color: var(--gray-900);
-  --background-striped: var(--gray-800);
+  --background-striped: var(--gray-900);
+  --header-background: var(--gray-800);
   --background-color-hover: var(--gray-800);
   --background-color-pressed: var(--gray-700);
   --box-shadow-color: var(--gray-800);
@@ -129,4 +132,5 @@
   --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
   --icon-color-plain: var(--gray-500);
   --tag-color-disabled: var(--gray-500);
+  --table-color-selected: rgb(63, 97, 232);
 }
