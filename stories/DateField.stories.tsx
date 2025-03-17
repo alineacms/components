@@ -1,4 +1,3 @@
-'use client'
 import {Button} from '../src/components/Button.tsx'
 import {DateField} from '../src/components/DateField.tsx'
 import {Stack} from './Stack.tsx'

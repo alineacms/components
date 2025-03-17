@@ -60,12 +60,3 @@
   background: var(--highlight-background-invalid);
   color: var(--highlight-foreground);
 }
-
-.alinea-rac-DateField .alinea-rac-FieldError {
-  font-size: 12px;
-  color: var(--invalid-color);
-}
-
-.alinea-rac-DateField [slot="description"] {
-  font-size: 12px;
-}
