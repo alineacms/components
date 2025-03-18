@@ -1,131 +1,217 @@
-@import "../todo/ListBox.css";
-@import "../todo/Popover.css";
-
 @import "../theme.css";
 
-.alinea-rac-Combobox {
-  color: var(--text-color);
+.alinea-rac-ComboboxTrigger {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--border-color);
+  outline: 4px solid transparent;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--field-text-color);
+  transition: var(--transition);
 
-  .react-aria-Input {
-    /* margin: 0; */
-    /* vertical-align: middle; */
-    padding: 0.286rem 2rem 0.286rem 0.571rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--field-background);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--field-text-color);
-    transition: var(--transition);
-
-    &[data-hovered] {
-      border-color: var(--border-color-hover);
-    }
-
-    &[data-focused] {
-      outline: none;
-      border-color: var(--highlight-background);
-      box-shadow: 0 0 0 4px var(--highlight-overlay);
-    }
+  &:has(> .alinea-rac-ComboboxTrigger-input[data-hovered]),
+  &:has(> .alinea-rac-ComboboxTrigger-input[data-focused]),
+  &:has(> .alinea-rac-ComboboxTrigger-input[aria-expanded="true"]),
+  &:has(> .alinea-rac-ComboboxTrigger-button[data-hovered]),
+  &:has(> .alinea-rac-ComboboxTrigger-button[data-open]) {
+    border-color: var(--highlight-border);
+    outline-color: var(--highlight-overlay);
   }
 
-  .react-aria-Button {
-    background: var(--highlight-background);
-    color: var(--highlight-foreground);
-    forced-color-adjust: none;
-    border-radius: 4px;
+  &:has(> .alinea-rac-ComboboxTrigger-input[data-disabled]) {
+    pointer-events: none;
+    background-color: var(--field-background);
+    opacity: 0.5;
+  }
+
+  .alinea-rac-Combobox[data-invalid="true"] & {
+    border-color: var(--invalid-color);
+    outline-color: var(--invalid-overlay);
+  }
+  .alinea-rac-ComboboxTrigger-input {
+    appearance: none;
+    background: none;
+    font: inherit;
+    outline: none;
     border: none;
-    margin-left: -1.714rem;
-    width: 1.429rem;
-    height: 1.429rem;
-    padding: 0;
-    font-size: 0.857rem;
-    cursor: default;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 8px 10px 8px 10px;
+    gap: 20px;
 
-    &[data-pressed] {
-      box-shadow: none;
-      background: var(--highlight-background);
-    }
-  }
-}
-
-.react-aria-Popover[data-trigger="ComboBox"] {
-  width: var(--trigger-width);
-
-  .react-aria-ListBox {
-    display: block;
-    width: unset;
-    max-height: inherit;
-    min-height: unset;
-    border: none;
-
-    .react-aria-Header {
-      padding-left: 1.571rem;
-    }
-  }
-
-  .react-aria-ListBoxItem {
-    cursor: pointer;
-    font-size: 0.875rem;
-    padding: 0.286rem 0.571rem 0.286rem 1.571rem;
-
-    &[data-focus-visible] {
-      outline: none;
+    &[data-clear] {
+      padding-right: 0;
     }
 
-    &[data-selected] {
-      font-weight: 600;
-      background: unset;
-      color: var(--text-color);
+    .alinea-rac-ComboboxTrigger-button-value {
+      flex-grow: 1;
+      color: var(--field-text-color);
 
-      &::before {
-        content: "✓";
-        content: "✓" / "";
-        alt: " ";
-        position: absolute;
-        top: 4px;
-        left: 4px;
+      &[data-placeholder] {
+        color: var(--text-color-placeholder);
       }
     }
 
-    &[data-focused],
-    &[data-pressed] {
-      background: var(--highlight-background);
-      color: var(--highlight-foreground);
+    .alinea-rac-ComboboxTrigger-button-arrow {
+      font-size: 18px;
+      color: var(--icon-color);
+      transition: transform 0.3s ease-out;
+
+      [aria-expanded="true"] & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .alinea-rac-ComboboxTrigger-button {
+    appearance: none;
+    background: none;
+    font: inherit;
+    outline: none;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 8px 10px 8px 10px;
+    gap: 20px;
+
+    &[data-clear] {
+      padding-right: 0;
+    }
+
+    .alinea-rac-ComboboxTrigger-button-value {
+      flex-grow: 1;
+      color: var(--field-text-color);
+
+      &[data-placeholder] {
+        color: var(--text-color-placeholder);
+      }
+    }
+
+    .alinea-rac-ComboboxTrigger-button-arrow {
+      font-size: 18px;
+      color: var(--icon-color);
+      transition: transform 0.3s ease-out;
+
+      [aria-expanded="true"] & {
+        transform: rotate(180deg);
+      }
     }
   }
 }
 
-.react-aria-ListBoxItem[href] {
-  text-decoration: none;
+.alinea-rac-ComboboxPopover {
+  width: var(--trigger-width);
+  &[data-clear] {
+    width: calc(var(--trigger-width) + 40px);
+  }
+
+  .alinea-rac-ComboboxPopover-listbox {
+    outline: none;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    width: 100%;
+    display: block;
+    min-height: unset;
+    max-height: inherit;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--field-background);
+  }
+}
+
+.alinea-rac-ComboboxClear {
+  position: relative;
   cursor: pointer;
+  background: none;
+  width: 40px;
+  flex-shrink: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 100%;
+  background-color: transparent;
+  color: var(--icon-color);
+  font-size: 18px;
+  font-size: 14px;
+  outline: none;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: var(--background-color);
+    z-index: -1;
+    transition: var(--transition);
+    opacity: 0;
+    border: 1px solid transparent;
+    outline: 4px solid transparent;
+  }
+  &:hover:after {
+    opacity: 1;
+  }
+  &:focus:after {
+    background-color: transparent;
+    border-color: var(--highlight-border);
+    outline-color: var(--highlight-overlay);
+    opacity: 1;
+  }
 }
 
-.react-aria-ComboBox {
-  .react-aria-Input {
-    &[data-disabled] {
-      border-color: var(--border-color-disabled);
-    }
+.alinea-rac-ComboBoxItem {
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.4rem;
+  padding-right: 2.4rem;
+  display: flex;
+  outline: none;
+  border-radius: 4px;
+  justify-content: space-between;
+  position: relative;
+
+  .alinea-rac-ComboBoxItem-check {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
   }
 
-  .react-aria-Button {
-    &[data-disabled] {
-      background: var(--border-color-disabled);
-    }
+  &[data-focus-visible] {
+    outline: none;
   }
 
-  .react-aria-Input {
-    &[data-invalid]:not([data-focused]) {
-      border-color: var(--invalid-color);
-    }
+  &[data-selected] {
+    font-weight: 600;
+    background: var(--border-color);
+    color: var(--text-color);
+    position: relative;
   }
 
-  .react-aria-FieldError {
-    font-size: 12px;
-    color: var(--invalid-color);
+  &[data-focused],
+  &[data-pressed] {
+    background: var(--highlight-background);
+    color: var(--highlight-foreground);
   }
 
-  [slot="description"] {
-    font-size: 12px;
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.2;
   }
 }

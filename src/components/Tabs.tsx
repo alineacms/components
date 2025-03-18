@@ -15,12 +15,14 @@ export type {TabProps, TabListProps, TabPanelProps} from 'react-aria-components'
 
 export interface TabsProps extends TabsPrimitiveProps {
   variant?: 'line' | 'subtle' | 'enclosed'
+  overflow?: boolean
 }
 
-export function Tabs({variant = 'line', ...props}: TabsProps) {
+export function Tabs({variant = 'line', overflow, ...props}: TabsProps) {
   return (
     <TabsPrimitive
       data-variant={variant}
+      data-overflow={overflow}
       {...props}
       className={clsx('alinea-rac-Tabs', props.className)}
     />
@@ -36,14 +38,16 @@ export function Tab(props: TabProps) {
   )
 }
 
-export function TabList<T extends object>(props: TabListProps<T>) {
+export function TabList<T extends object>(
+  props: TabListProps<T> & {overflow?: boolean}
+) {
   return (
-    <TabListPrimitive<T>
-      {...props}
-      className={clsx('alinea-rac-TabList', props.className)}
-    />
+    <div className={clsx('alinea-rac-Tablist', props.className)}>
+      <TabListPrimitive<T> {...props} className="alinea-rac-Tablist-list" />
+    </div>
   )
 }
+
 export function TabPanel(props: TabPanelProps) {
   return (
     <TabPanelPrimitive

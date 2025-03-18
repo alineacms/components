@@ -1,0 +1,72 @@
+@import "../theme.css";
+
+.alinea-rac-TimeField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--text-color);
+}
+
+.alinea-rac-TimeField-input {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--field-background);
+  width: fit-content;
+
+  white-space: nowrap;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.alinea-rac-TimeField-input:focus-within {
+  border-color: var(--highlight-background);
+  box-shadow: 0 0 0 4px var(--highlight-overlay);
+  outline: none;
+}
+
+.alinea-rac-TimeField-segment {
+  padding: 4px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.alinea-rac-TimeField-segment[data-type="literal"] {
+  padding: 0;
+}
+
+.alinea-rac-TimeField-segment[data-placeholder] {
+  color: var(--text-color-placeholder);
+  font-style: italic;
+}
+
+.alinea-rac-TimeField-segment:focus {
+  color: var(--highlight-foreground);
+  background: var(--highlight-background);
+  outline: none;
+  border-radius: 4px;
+  caret-color: transparent;
+}
+
+.alinea-rac-TimeField-segment[data-invalid] {
+  color: var(--invalid-color);
+}
+
+.alinea-rac-TimeField-segment[data-invalid]:focus {
+  background: var(--highlight-background-invalid);
+  color: var(--highlight-foreground);
+}
+
+.alinea-rac-TimeField .alinea-rac-FieldError {
+  font-size: 12px;
+  color: var(--invalid-color);
+}
+
+.alinea-rac-TimeField [slot="description"] {
+  font-size: 12px;
+}
