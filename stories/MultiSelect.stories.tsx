@@ -4,26 +4,48 @@ import {
   MultipleSelectItem
 } from '../src/components/MultipleSelect.tsx'
 import {Tag} from '../src/components/TagGroup.tsx'
+import {Stack} from './Stack.tsx'
 
-export function Example() {
+export function Basic() {
   const selectedItems = useListData({
     initialItems: [fruits[0], fruits[1]]
   })
   return (
-    <MultipleSelect
-      label="Fruits"
-      selectedItems={selectedItems}
-      items={fruits}
-      tag={item => <Tag>{item.name}</Tag>}
-    >
-      {item => {
-        return (
-          <MultipleSelectItem textValue={item.name}>
+    <Stack>
+      <MultipleSelect
+        label="Fruits"
+        selectedItems={selectedItems}
+        items={fruits}
+        tag={item => <Tag data-shape="circle">{item.name}</Tag>}
+      >
+        {item => {
+          return (
+            <MultipleSelectItem textValue={item.name}>
+              {item.name}
+            </MultipleSelectItem>
+          )
+        }}
+      </MultipleSelect>
+      <MultipleSelect
+        label="Fruits (isDisabled)"
+        selectedItems={selectedItems}
+        items={fruits}
+        tag={item => (
+          <Tag isDisabled data-shape="circle">
             {item.name}
-          </MultipleSelectItem>
-        )
-      }}
-    </MultipleSelect>
+          </Tag>
+        )}
+        isDisabled
+      >
+        {item => {
+          return (
+            <MultipleSelectItem textValue={item.name}>
+              {item.name}
+            </MultipleSelectItem>
+          )
+        }}
+      </MultipleSelect>
+    </Stack>
   )
 }
 
@@ -47,5 +69,15 @@ const fruits = [
   {id: 17, name: 'Strawberry'},
   {id: 18, name: 'Tangerine'},
   {id: 19, name: 'Ugli Fruit'},
-  {id: 20, name: 'Watermelon'}
+  {id: 20, name: 'Watermelon'},
+  {id: 21, name: 'Dragonfruit'},
+  {id: 22, name: 'Durian'},
+  {id: 23, name: 'Jackfruit'},
+  {id: 24, name: 'Kiwano'},
+  {id: 25, name: 'Langsat'},
+  {id: 26, name: 'Mangosteen'},
+  {id: 27, name: 'Miracle Fruit'},
+  {id: 28, name: 'Rambutan'},
+  {id: 29, name: 'Salak'},
+  {id: 30, name: 'Soursop'}
 ]

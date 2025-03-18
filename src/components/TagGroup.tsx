@@ -12,7 +12,7 @@ import type {
 } from 'react-aria-components'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './TagGroup.css'
-import {IcRoundCancel} from '../icons/IcRoundCancel.tsx'
+import {IcRoundClose} from '../icons/IcRoundClose.tsx'
 import {Icon} from './Icon.tsx'
 
 export type IntentProps = 'primary' | 'secondary'
@@ -61,12 +61,18 @@ export function Tag({children, ...props}: TagProps) {
         <>
           {children}
           {allowsRemoving && (
-            <Button slot="remove">
-              <Icon icon={IcRoundCancel} />
-            </Button>
+            <TagRemove />
           )}
         </>
       )}
     </TagPrimitive>
+  )
+}
+
+function TagRemove() {
+  return (
+    <Button slot="remove" className="alinea-rac-TagRemove">
+      <Icon icon={IcRoundClose} />
+    </Button>
   )
 }

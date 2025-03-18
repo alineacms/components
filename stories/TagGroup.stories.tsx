@@ -53,6 +53,16 @@ export const Selection = () => {
       >
         {item => <Tag isDisabled={item.isDisabled}>{item.name}</Tag>}
       </TagGroup>
+      <TagGroup
+        items={list.items}
+        label="Ice cream flavor (secondary)"
+        description="Multiple selectionMode"
+        selectionMode="multiple"
+        intent="secondary"
+        onRemove={keys => list.remove(...keys)}
+      >
+        {item => <Tag isDisabled={item.isDisabled}>{item.name}</Tag>}
+      </TagGroup>
     </Stack>
   )
 }

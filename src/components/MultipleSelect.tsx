@@ -1,5 +1,4 @@
-'use client'
-
+import './MultipleSelect.css'
 import {
   type ReactNode,
   useCallback,
@@ -73,6 +72,7 @@ export function MultipleSelect<T extends SelectedKey>({
   name,
   renderEmptyState,
   errorMessage,
+
   ...props
 }: MultipleSelectProps<T>) {
   const tagGroupIdentifier = useId()
@@ -195,80 +195,84 @@ export function MultipleSelect<T extends SelectedKey>({
   const triggerButtonRef = useRef<HTMLButtonElement | null>(null)
 
   return (
-    <Label {...labelProps(props)}>
-      <div>
-        <div ref={triggerRef}>
-          <TagGroup
-            aria-label="Selected items"
-            id={tagGroupIdentifier}
-            onRemove={onRemove}
+    <Label {...labelProps(props)} className="alinea-rac-MultipleSelect">
+      <div className="alinea-rac-MultipleSelect-container" ref={triggerRef}>
+        <TagGroup
+          className="alinea-rac-MultipleSelect-tagGroup"
+          aria-label="Selected items"
+          id={tagGroupIdentifier}
+          onRemove={onRemove}
+        >
+          <TagList
+            items={selectedItems.items}
+            className="alinea-rac-MultipleSelect-tagList"
           >
-            <TagList items={selectedItems.items}>{props.tag}</TagList>
-          </TagGroup>
-          <ComboBox
-            {...props}
-            allowsEmptyCollection
-            aria-label="Available items"
-            items={accessibleList.items}
-            selectedKey={fieldState.selectedKey}
-            inputValue={fieldState.inputValue}
-            onSelectionChange={onSelectionChange}
-            onInputChange={onInputChange}
-          >
-            <div>
-              <Input
-                placeholder={props.placeholder}
-                onBlur={() => {
-                  setFieldState({
-                    inputValue: '',
-                    selectedKey: null
-                  })
-                  accessibleList.setFilterText('')
-                }}
-                onKeyDownCapture={onKeyDownCapture}
-              />
-
-              <Button
-                slot="remove"
-                type="button"
-                aria-label="Remove"
-                ref={triggerButtonRef}
-              >
-                <Icon icon={IcRoundKeyboardArrowDown} />
-              </Button>
-            </div>
-            <Popover
-              isNonModal
-              style={{width: `${width}px`}}
-              triggerRef={triggerRef}
-              trigger="ComboBox"
+            {props.tag}
+          </TagList>
+        </TagGroup>
+        <ComboBox
+          {...props}
+          allowsEmptyCollection
+          aria-label="Available items"
+          items={accessibleList.items}
+          selectedKey={fieldState.selectedKey}
+          inputValue={fieldState.inputValue}
+          onSelectionChange={onSelectionChange}
+          onInputChange={onInputChange}
+          className="alinea-rac-MultipleSelect-comboBox"
+        >
+          <div className="alinea-rac-MultipleSelect-inputWrapper">
+            <Input
+              className="alinea-rac-MultipleSelect-input"
+              placeholder={props.placeholder}
+              onBlur={() => {
+                setFieldState({
+                  inputValue: '',
+                  selectedKey: null
+                })
+                accessibleList.setFilterText('')
+              }}
+              onKeyDownCapture={onKeyDownCapture}
+            />
+            <Button
+              className="alinea-rac-MultipleSelect-trigger"
+              type="button"
+              ref={triggerButtonRef}
             >
-              <ListBox
-                renderEmptyState={() =>
-                  renderEmptyState ? (
-                    renderEmptyState(fieldState.inputValue)
-                  ) : (
-                    <div>
-                      {fieldState.inputValue ? (
-                        <>
-                          No results found for:{' '}
-                          <strong className="font-medium text-fg">
-                            {fieldState.inputValue}
-                          </strong>
-                        </>
-                      ) : (
-                        'No options'
-                      )}
-                    </div>
-                  )
-                }
-                selectionMode="multiple"
-              >
-                {children}
-              </ListBox>
-            </Popover>
-          </ComboBox>
-        </div>
+              <Icon icon={IcRoundKeyboardArrowDown} />
+            </Button>
+          </div>
+          <Popover
+            className="alinea-rac-MultipleSelect-popover"
+            isNonModal
+            style={{width: `${width}px`}}
+            triggerRef={triggerRef}
+            trigger="ComboBox"
+          >
+            <ListBox
+              className="alinea-rac-MultipleSelect-popover-listbox"
+              renderEmptyState={() =>
+                renderEmptyState ? (
+                  renderEmptyState(fieldState.inputValue)
+                ) : (
+                  <div className="alinea-rac-MultipleSelect-popover-empty">
+                    {fieldState.inputValue ? (
+                      <>
+                        No results found for:{' '}
+                        <strong>{fieldState.inputValue}</strong>
+                      </>
+                    ) : (
+                      'No options'
+                    )}
+                  </div>
+                )
+              }
+              selectionMode="multiple"
+            >
+              {children}
+            </ListBox>
+          </Popover>
+        </ComboBox>
       </div>
       {name && (
         <input hidden name={name} value={selectedKeys.join(',')} readOnly />
@@ -287,20 +291,18 @@ export function MultipleSelectItem({
 }: MultipleSelectItemProps) {
   return (
     <ListBoxItem
-      className="alinea-rac-SelectItem"
+      className="alinea-rac-MultipleSelectItem"
       textValue={typeof children === 'string' ? children : props.textValue}
       {...props}
     >
-      {({isSelected}) => {
-        return (
-          <>
-            {isSelected && (
-              <IcRoundCheck className="alinea-rac-SelectItem-check" />
-            )}
-            {children}
-          </>
-        )
-      }}
+      {({isSelected}) => (
+        <>
+          {isSelected && (
+            <IcRoundCheck className="alinea-rac-MultipleSelectItem-check" />
+          )}
+          {children}
+        </>
+      )}
     </ListBoxItem>
   )
 }
