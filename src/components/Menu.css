@@ -1,4 +1,3 @@
-@import "./Popover.css";
 @import "../theme.css";
 
 .react-aria-Menu {
@@ -11,53 +10,45 @@
   outline: none;
 }
 
-.react-aria-MenuItem {
-  margin: 2px;
-  padding: 0.286rem 0.571rem;
-  border-radius: 6px;
+.alinea-rac-MenuItem {
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.4rem;
+  padding-right: 2.4rem;
+  display: flex;
   outline: none;
-  cursor: default;
-  color: var(--text-color);
-  font-size: 1.072rem;
+  border-radius: 4px;
+  justify-content: space-between;
   position: relative;
-  display: grid;
-  grid-template-areas:
-    "label kbd"
-    "desc  kbd";
-  align-items: center;
-  column-gap: 20px;
-  forced-color-adjust: none;
 
-  &[data-focused] {
+  .alinea-rac-ComboBoxItem-check {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+
+  &[data-focus-visible] {
+    outline: none;
+  }
+
+  &[data-selected] {
+    font-weight: 600;
+    background: var(--border-color);
+    color: var(--text-color);
+    position: relative;
+  }
+
+  &[data-focused],
+  &[data-pressed] {
     background: var(--highlight-background);
     color: var(--highlight-foreground);
   }
-}
 
-.react-aria-MenuItem {
-  &[data-selection-mode] {
-    padding-left: 24px;
-
-    &::before {
-      position: absolute;
-      left: 4px;
-      font-weight: 600;
-    }
-
-    &[data-selection-mode="multiple"][data-selected]::before {
-      content: "✓";
-      content: "✓" / "";
-      alt: " ";
-      position: absolute;
-      left: 4px;
-      font-weight: 600;
-    }
-
-    &[data-selection-mode="single"][data-selected]::before {
-      content: "●";
-      content: "●" / "";
-      transform: scale(0.7);
-    }
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.2;
   }
 }
 

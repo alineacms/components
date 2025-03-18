@@ -1,4 +1,4 @@
-import {MenuButton, MenuItem} from '../src/todo/Menu.tsx'
+import {MenuButton, MenuItem} from '../src/components/Menu.tsx'
 
 export const Example = (args: any) => (
   <MenuButton label="Edit">
