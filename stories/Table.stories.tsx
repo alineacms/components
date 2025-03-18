@@ -89,8 +89,13 @@ export const Selection = () => (
               <Cell>{item.name}</Cell>
               <Cell>{item.type}</Cell>
               <Cell>{item.date_modified}</Cell>
-              <Cell >
-                <Button type="button" size="square-petite" appearance="outline"                   style={{marginRight: 8}}>
+              <Cell>
+                <Button
+                  type="button"
+                  size="square-petite"
+                  appearance="outline"
+                  style={{marginRight: 8}}
+                >
                   <Icon icon={IcRoundEdit} />
                 </Button>
                 <Button type="button" size="square-petite" appearance="outline">

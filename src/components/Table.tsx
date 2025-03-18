@@ -1,19 +1,21 @@
 import clsx from 'clsx'
 import {
   Cell as CellPrimitive,
-  type CellProps,
   Collection,
   Column as ColumnPrimitive,
-  type ColumnProps,
   Row as RowPrimitive,
-  type RowProps,
   TableBody as TableBodyPrimitive,
-  type TableBodyProps,
   TableHeader as TableHeaderPrimitive,
-  type TableHeaderProps,
   Table as TablePrimitive,
-  type TableProps,
   useTableOptions
+} from 'react-aria-components'
+import type {
+  CellProps,
+  ColumnProps,
+  RowProps,
+  TableBodyProps,
+  TableHeaderProps,
+  TableProps as TablePrimitiveProps
 } from 'react-aria-components'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {IcRoundKeyboardArrowUp} from '../icons/IcRoundKeyboardArrowUp.tsx'
@@ -22,40 +24,25 @@ import './Table.css'
 import type {PropsWithChildren} from 'react'
 
 export type {
-  TableProps,
   ColumnProps,
   RowProps,
   CellProps,
   TableBodyProps
 } from 'react-aria-components'
 
-export function TableOverflow(props: PropsWithChildren<{className?: string}>) {
-  return (
-    <div
-      {...props}
-      className={clsx('alinea-rac-data-overflow', props.className)}
-    />
-  )
+export interface TableProps extends TablePrimitiveProps {
+  striped?: boolean
+  overflow?: boolean
 }
 
-export function Table(
-  props: TableProps & {
-    striped?: boolean
-    overflow?: boolean
-  }
-) {
+export function Table(props: TableProps) {
   return (
     <div
-      className={clsx('alinea-rac-Table-container', {
-        'alinea-rac-data-overflow': props.overflow
-      })}
+      className={clsx('alinea-rac-Table', props.className)}
+      data-overflow={props.overflow}
+      data-striped={props.striped}
     >
-      <TablePrimitive
-        data-striped={props.striped}
-        data-overflow={props.overflow}
-        {...props}
-        className={clsx('alinea-rac-Table', props.className)}
-      />
+      <TablePrimitive {...props} className="alinea-rac-Table-table" />
     </div>
   )
 }
@@ -64,39 +51,44 @@ export function Column(props: PropsWithChildren<ColumnProps>) {
   return (
     <ColumnPrimitive
       {...props}
-      className={clsx('alinea-rac-Table-column', props.className)}
+      className={clsx('alinea-rac-Column', props.className)}
     >
-      {({allowsSorting, sortDirection}) => (
-        <div className="alinea-rac-Table-content">
-          {props.children}
-          {allowsSorting && (
-            <span className="alinea-rac-Table-sortIndicator">
-              {sortDirection === 'ascending' ? (
-                <IcRoundKeyboardArrowUp />
-              ) : (
-                <IcRoundKeyboardArrowDown />
-              )}
-            </span>
-          )}
-        </div>
-      )}
+      {({allowsSorting, sortDirection}) => {
+        if (!allowsSorting) return props.children
+        return (
+          <div
+            className="alinea-rac-Column-label"
+            data-sortable={allowsSorting}
+          >
+            {props.children}
+            {allowsSorting && (
+              <span className="alinea-rac-Column-sortIndicator">
+                {sortDirection === 'ascending' ? (
+                  <IcRoundKeyboardArrowUp />
+                ) : (
+                  <IcRoundKeyboardArrowDown />
+                )}
+              </span>
+            )}
+          </div>
+        )
+      }}
     </ColumnPrimitive>
   )
 }
 
 export function TableHeader<T extends object>({
   columns,
-  children,
-  ...props
+  children
 }: TableHeaderProps<T>) {
   const {selectionMode} = useTableOptions()
 
   return (
-    <TableHeaderPrimitive className="alinea-rac-Table-header">
+    <TableHeaderPrimitive className="alinea-rac-TableHeader">
       {selectionMode === 'multiple' && (
-        <ColumnPrimitive className="alinea-rac-Table-column">
+        <Column>
           <Checkbox slot="selection" />
-        </ColumnPrimitive>
+        </Column>
       )}
       <Collection items={columns}>{children}</Collection>
     </TableHeaderPrimitive>
@@ -110,15 +102,14 @@ export function Row<T extends object>({
   ...props
 }: RowProps<T>) {
   const {selectionMode} = useTableOptions()
-
   return (
     <RowPrimitive
       id={id}
       {...props}
-      className={clsx('alinea-rac-Table-row', props.className)}
+      className={clsx('alinea-rac-Row', props.className)}
     >
       {selectionMode === 'multiple' && (
-        <Cell className="alinea-rac-Table-cell">
+        <Cell>
           <Checkbox slot="selection" />
         </Cell>
       )}
@@ -131,11 +122,11 @@ export function Cell(props: CellProps) {
   return (
     <CellPrimitive
       {...props}
-      className={clsx('alinea-rac-Table-cell', props.className)}
+      className={clsx('alinea-rac-Cell', props.className)}
     />
   )
 }
 
 export function TableBody<T extends object>(props: TableBodyProps<T>) {
-  return <TableBodyPrimitive<T> {...props} className="alinea-rac-Table-body" />
+  return <TableBodyPrimitive<T> {...props} className="alinea-rac-TableBody" />
 }

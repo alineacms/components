@@ -96,7 +96,7 @@
   --icon-color-plain: var(--gray-500);
   --icon-color-active: var(--indigo-700);
   --tag-color-disabled: var(--gray-500);
-  --table-background-striped: var(--gray-200);
+  --table-background-striped: var(--gray-50);
   --table-color-selected: rgb(from #c1ccf8 r g b / 50%);
 }
 
@@ -132,5 +132,5 @@
   --icon-color-plain: var(--gray-500);
   --tag-color-disabled: var(--gray-500);
   --table-background-striped: var(--gray-900);
-  --table-color-selected:  rgb(from #3f61e8 r g b / 30%);
+  --table-color-selected: rgb(from #3f61e8 r g b / 30%);
 }
