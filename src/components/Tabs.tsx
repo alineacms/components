@@ -33,24 +33,17 @@ export function Tab(props: TabProps) {
   return (
     <TabPrimitive
       {...props}
-      className={clsx('alinea-rac-Tabs-field', props.className)}
+      className={clsx('alinea-rac-Tab', props.className)}
     />
   )
 }
 
 export function TabList<T extends object>(
-  props: TabListProps<T> & { overflow?: boolean }
+  props: TabListProps<T> & {overflow?: boolean}
 ) {
   return (
-    <div
-      className={clsx('alinea-rac-Tabs-container', {
-        'alinea-rac-TabListOverflow': props.overflow
-      })}
-    >
-      <TabListPrimitive<T>
-        {...props}
-        className={clsx('alinea-rac-Tablist', props.className)}
-      />
+    <div className={clsx('alinea-rac-Tablist', props.className)}>
+      <TabListPrimitive<T> {...props} className="alinea-rac-Tablist-list" />
     </div>
   )
 }
