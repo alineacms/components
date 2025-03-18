@@ -1,280 +1,102 @@
 @import "../theme.css";
 
-.alinea-rac-TableOverflow {
-  overflow-x: auto;
-
-  &::-webkit-scrollbar {
-    height: 8px;
-    margin-top: 4px;
-  }
-  &::-webkit-scrollbar-track {
-    cursor: pointer;
-    background: var(--background-color);
-    border-radius: 50px;
-  }
-  &::-webkit-scrollbar-thumb {
-    cursor: grab;
-    background: var(--background-color-hover);
-    border-radius: 50px;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: var(--background-color-pressed);
-  }
-}
-
 .alinea-rac-Table {
-  border-spacing: 0;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  border-top: 1px solid var(--border-color);
+  border-right: none;
+  border-left: 1px solid var(--border-color);
   max-width: 100%;
-  outline: none;
-  overflow: hidden;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 
-  &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
-    outline-offset: -1px;
-  }
+  &[data-overflow] {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    max-width: 100%;
 
-  .alinea-rac-TableHeader {
-    color: var(--text-color);
-    font-size: 14px;
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
 
-    tr .alinea-rac-Column {
-      cursor: default;
-      white-space: nowrap;
-      border-bottom: 1px solid var(--border-color);
+    &::-webkit-scrollbar-track {
+      background: var(--background-color);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
     }
   }
 
-  .alinea-rac-Row {
+  &[data-striped] .alinea-rac-Table-row:nth-child(odd) {
+    background-color: var(--table-background-striped);
+  }
+
+  .alinea-rac-Table-table {
+    width: 100%;
+    min-width: max-content;
+    border-collapse: collapse;
+    background: transparent;
     outline: none;
-    cursor: default;
-    color: var(--text-color);
-    font-size: 14px;
-    position: relative;
-
-    [data-striped]:nth-child(odd) {
-      background-color: var(--background-color);
-
-      .alinea-rac-Cell,
-      .alinea-rac-Column {
-        padding-block: 12px;
-      }
-    }
-
-    &[data-focus-visible] {
-      outline: 2px solid var(--focus-ring-color);
-      outline-offset: -2px;
-    }
-
-    &[data-pressed] {
-      background: var(--background-color-hover);
-    }
-
-    &[data-selected] {
-      background: var(--highlight-overlay);
-      --focus-ring-color: var(--highlight-foreground);
-
-      .alinea-rac-Row-Indicator {
-        background-color: var(--highlight-background);
-      }
-
-      &[data-focus-visible],
-      .alinea-rac-Cell[data-focus-visible] {
-        outline-offset: -4px;
-      }
-    }
-
-    &[data-disabled] {
-      color: var(--text-color-disabled);
-    }
-  }
-
-  .alinea-rac-Cell,
-  .alinea-rac-Column {
-    outline: none;
-    padding: 8px;
-    min-width: 100px;
-    text-align: left;
-    word-break: break-word;
-
-    &[data-focus-visible] {
-      outline: 2px solid var(--focus-ring-color);
-      outline-offset: -2px;
-    }
-  }
-
-  .alinea-rac-Cell {
-    transform: translateZ(0);
-  }
-}
-
-:where(.alinea-rac-Row) .alinea-rac-Checkbox {
-  --selected-color: var(--highlight-foreground);
-  --selected-color-pressed: var(--highlight-foreground-pressed);
-  --checkmark-color: var(--highlight-background);
-  --background-color: var(--highlight-background);
-}
-
-.alinea-rac-Row[data-href] {
-  cursor: pointer;
-}
-
-.alinea-rac-Column {
-  .alinea-rac-Column-flex {
-    gap: 8px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .alinea-rac-Column-sortIndicator {
-    flex-shrink: 0;
-    padding: 0 2px;
-  }
-
-  &:not([data-sort-direction]) .alinea-rac-Column-sortIndicator {
-    visibility: hidden;
+    border-radius: 6px;
   }
 }
 
 .alinea-rac-TableBody {
-  &[data-empty] {
-    font-size: 14px;
-    text-align: center;
-    font-style: italic;
-  }
+  font-size: 14px;
+  color: var(--text-color);
+  width: 100%;
 }
 
-.alinea-rac-ResizableTableContainer {
-  max-width: 400px;
-  overflow: auto;
-  position: relative;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background: var(--background-color);
-
-  .alinea-rac-Table {
-    border: none;
-  }
-
-  .column-name,
-  .alinea-rac-Button {
-    --background-color: var(--overlay-background);
-    flex: 1;
-    font: inherit;
-    text-align: start;
-    color: inherit;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border-color: transparent;
-    transition: background 200ms;
-    &[data-hovered] {
-      background: var(--highlight-hover);
-    }
-
-    &[data-pressed] {
-      background: var(--highlight-pressed);
-      box-shadow: none;
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--focus-ring-color);
-    }
-  }
-
-  .alinea-rac-ColumnResizer {
-    width: 15px;
-    background-color: grey;
-    height: 25px;
-    flex: 0 0 auto;
-    touch-action: none;
-    box-sizing: border-box;
-    border: 5px;
-    border-style: none solid;
-    border-color: transparent;
-    background-clip: content-box;
-
-    &[data-resizable-direction="both"] {
-      cursor: ew-resize;
-    }
-
-    &[data-resizable-direction="left"] {
-      cursor: e-resize;
-    }
-
-    &[data-resizable-direction="right"] {
-      cursor: w-resize;
-    }
-
-    &[data-focus-visible] {
-      background-color: var(--focus-ring-color);
-    }
-
-    &[data-resizing] {
-      border-color: var(--focus-ring-color);
-      background-color: transparent;
-    }
-  }
-
-  .alinea-rac-Column,
-  .alinea-rac-Cell {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.alinea-rac-Cell {
+  padding: 10px 12px;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 200px;
+  border-right: solid 1px var(--border-color);
+  border-bottom: solid 1px var(--border-color);
 }
 
 .alinea-rac-Row {
-  &[data-dragging] {
-    opacity: 0.6;
-    transform: translateZ(0);
+  &[data-selected] {
+    background-color: var(--table-color-selected) !important;
   }
+}
 
-  [slot="drag"] {
-    all: unset;
-    width: 15px;
-    text-align: center;
+.alinea-rac-TableHeader {
+  background-color: var(--header-background);
+  color: var(--text-color);
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
 
-    &[data-focus-visible] {
-      border-radius: 4px;
-      outline: 2px solid var(--focus-ring-color);
+.alinea-rac-Column {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 14px;
+
+  .alinea-rac-Column-label {
+    display: inline-flex;
+
+    &[data-sortable] {
+      cursor: pointer;
     }
   }
-}
 
-.alinea-rac-Row-Indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background-color: transparent;
-}
-
-.alinea-rac-DropIndicator[data-drop-target] {
-  outline: 1px solid var(--highlight-background);
-  transform: translateZ(0);
-}
-
-.alinea-rac-Table[data-drop-target] {
-  outline: 2px solid var(--highlight-background);
-  outline-offset: -1px;
-  background: var(--highlight-overlay);
-}
-
-.alinea-rac-Row[data-drop-target] {
-  outline: 2px solid var(--highlight-background);
-  background: var(--highlight-overlay);
-}
-
-.alinea-rac-DropIndicator[data-drop-target] {
-  outline: 1px solid var(--highlight-background);
-  transform: translateZ(0);
-}
-
-.alinea-rac-Cell img {
-  height: 30px;
-  width: 30px;
-  object-fit: cover;
-  display: block;
+  .alinea-rac-Column-sortIndicator {
+    font-size: 20px;
+    color: var(--icon-color);
+    margin-left: 6px;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
