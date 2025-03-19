@@ -5,70 +5,60 @@
   flex-direction: column;
   gap: 4px;
   color: var(--text-color);
-}
 
-/* Container voor input en knop */
-.alinea-rac-DateRangePicker-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+  .alinea-rac-DateRangePicker-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .alinea-rac-DateRangePicker-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--field-background);
+    width: fit-content;
+    white-space: nowrap;
+    transition: var(--transition);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
 
-/* Input en button wrapper */
-.alinea-rac-DateRangePicker-input-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background: var(--field-background);
-  width: fit-content;
-  white-space: nowrap;
-  transition: var(--transition);
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.alinea-rac-DateRangePicker-input-wrapper:focus-within {
-  border-color: var(--highlight-background);
-  box-shadow: 0 0 0 4px var(--highlight-overlay);
-  outline: none;
-}
-
-/* Date Inputs */
-.alinea-rac-DateRangePicker-input {
-  display: flex;
-  flex-grow: 1;
-  font-size: 0.875rem;
-  border: none;
-  outline: none;
-  background: transparent;
-  padding: 4px;
-  color: var(--text-color);
-}
-
-.alinea-rac-DateRangePicker-input:focus {
-  outline: none;
-}
-
-/* Separator tussen start- en einddatum */
+  .alinea-rac-DateRangePicker-input-wrapper[data-disabled] {
+    background: var(--field-background);
+    color: var(--text-color-disabled);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  .alinea-rac-DateRangePicker-input-wrapper:focus-within {
+    border-color: var(--highlight-background);
+    box-shadow: 0 0 0 4px var(--highlight-overlay);
+    outline: none;
+  }
+  .alinea-rac-DateRangePicker-input {
+    display: flex;
+    flex-grow: 1;
+    font-size: 0.875rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 4px;
+    color: var(--text-color);
+  }
+  
 .alinea-rac-DateRangePicker-separator {
   font-size: 1rem;
   font-weight: bold;
   color: var(--text-color-muted);
 }
 
-/* Date Segments */
 .alinea-rac-DateRangePicker-segment {
   padding: 0px 2px;
   font-variant-numeric: tabular-nums;
   text-align: center;
   color: var(--text-color);
-}
-
-.alinea-rac-DateRangePicker-segment[data-type="literal"] {
-  padding: 0;
 }
 
 .alinea-rac-DateRangePicker-segment[data-placeholder] {
@@ -83,8 +73,6 @@
   border-radius: 4px;
   caret-color: transparent;
 }
-
-/* Kalender Button */
 .alinea-rac-DateRangePicker-trigger {
   display: flex;
   align-items: center;
@@ -99,11 +87,9 @@
   font-size: 1rem;
 }
 
-.alinea-rac-DateRangePicker-trigger:hover {
-  background-color: var(--background-hover);
+
 }
 
-/* 📅 Popover Styling */
 .alinea-rac-DateRangePicker-popover {
   position: absolute;
   z-index: 1000;
@@ -116,19 +102,6 @@
   animation: fadeIn 0.2s ease-in-out;
 }
 
-/* Fade-in effect bij openen popover */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 📆 Kalender */
 .alinea-rac-DateRangePicker-calendar {
   display: flex;
   flex-direction: column;
@@ -136,85 +109,52 @@
   background-color: var(--field-background);
   border-radius: 6px;
   padding: 12px;
+  .alinea-rac-DateRangePicker-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  .alinea-rac-DateRangePicker-calendar-heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .alinea-rac-DateRangePicker-calendar-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+    color: var(--icon-color);
+    transition: var(--transition);
+  }
+  
+  .alinea-rac-DateRangePicker-calendar-cell {
+    text-align: center;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .alinea-rac-DateRangePicker-calendar-cell[data-selected] {
+    background-color: var(--highlight-background);
+    color: var(--highlight-foreground);
+    font-weight: bold;
+  }
+  
+  .alinea-rac-DateRangePicker-calendar-cell[data-disabled] {
+    color: var(--text-color-disabled);
+    cursor: not-allowed;
+  }
+  
 }
 
-/* 🔹 Kalender Header (Maand en navigatieknoppen) */
-.alinea-rac-DateRangePicker-calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding-bottom: 8px;
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-.alinea-rac-DateRangePicker-calendar-heading {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-/* 📅 Kalender knoppen */
-.alinea-rac-DateRangePicker-calendar-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 4px;
-  color: var(--icon-color);
-  transition: var(--transition);
-}
-
-.alinea-rac-DateRangePicker-calendar-button:hover {
-  background-color: var(--background-hover);
-  border-radius: 4px;
-}
 
 
-
-/* 📆 Kalender Dagen */
-.alinea-rac-DateRangePicker-calendar-cell {
-  text-align: center;
-  padding: 6px;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  transition: var(--transition);
-  cursor: pointer;
-}
-
-.alinea-rac-DateRangePicker-calendar-cell:hover {
-  background-color: var(--background-hover);
-}
-
-.alinea-rac-DateRangePicker-calendar-cell[data-selected] {
-  background-color: var(--highlight-background);
-  color: var(--highlight-foreground);
-  font-weight: bold;
-}
-
-.alinea-rac-DateRangePicker-calendar-cell[data-today] {
-  border: 2px solid var(--highlight-background);
-}
-
-.alinea-rac-DateRangePicker-calendar-cell[data-disabled] {
-  color: var(--text-color-disabled);
-  cursor: not-allowed;
-}
-
-/* Label */
-.alinea-rac-DateRangePicker-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.alinea-rac-DateRangePicker-description {
-  font-size: 0.75rem;
-  color: var(--text-color-muted);
-}
-
-.alinea-rac-DateRangePicker-error {
-  font-size: 0.75rem;
-  color: var(--error-color);
-}
