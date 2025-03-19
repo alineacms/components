@@ -1,39 +1,120 @@
+import {Menu, MenuItem, MenuTrigger} from 'react-aria-components'
+import {Button} from '../src/components/Button.tsx'
 import {
-  Button,
-  Checkbox,
-  Group,
-  Separator,
-  ToggleButton
-} from 'react-aria-components'
-import {Toolbar} from '../src/todo/Toolbar.tsx'
+  ToolbarSeparator as Separator,
+  Toolbar,
+  ToolbarGroup,
+} from '../src/components/Toolbar.tsx'
+import {IcRoundBrightness} from '../src/icons/IcRoundBrightness.tsx'
+import {Popover} from '../src/todo/Popover.tsx'
+import '../src/components/Toolbar.css'
+import {Icon} from '../src/components/Icon.tsx'
+import { IcRoundUnfoldMore } from '../src/icons/IcRoundUnfoldMore.tsx'
 
 export const Example = (args: any) => (
-  <Toolbar aria-label="Text formatting" {...args}>
-    <Group aria-label="Style">
-      <ToggleButton aria-label="Bold">
-        <b>B</b>
-      </ToggleButton>
-      <ToggleButton aria-label="Italic">
-        <i>I</i>
-      </ToggleButton>
-      <ToggleButton aria-label="Underline">
-        <u>U</u>
-      </ToggleButton>
-    </Group>
-    <Separator orientation="vertical" />
-    <Group aria-label="Clipboard">
-      <Button>Copy</Button>
-      <Button>Paste</Button>
-      <Button>Cut</Button>
-    </Group>
-    <Separator orientation="vertical" />
-    <Checkbox>
-      <div className="checkbox">
-        <svg viewBox="0 0 18 18" aria-hidden="true">
-          <polyline points="1 9 7 14 15 4" />
-        </svg>
-      </div>
-      Night Mode
-    </Checkbox>
+  <Toolbar aria-label="Text formatting" data-orientation="horizontal" {...args}>
+    <ToolbarGroup>
+      <MenuTrigger>
+        <Button appearance='plain'>
+          Options...
+          <IcRoundUnfoldMore />
+        </Button>
+        <Popover>
+          <Menu>
+            <MenuItem>
+              <IcRoundBrightness />
+              Undo
+            </MenuItem>
+            <MenuItem>
+              <IcRoundBrightness />
+              Redo
+            </MenuItem>
+            <MenuItem>
+              <IcRoundBrightness />
+              Insert Link
+            </MenuItem>
+            <MenuItem>
+              <IcRoundBrightness />
+              Insert Image
+            </MenuItem>
+            <MenuItem>
+              <IcRoundBrightness />
+              Insert Grid
+            </MenuItem>
+          </Menu>
+        </Popover>
+      </MenuTrigger>
+    </ToolbarGroup>
+    <Separator />
+    <ToolbarGroup>
+      <Button size="square-petite" appearance="plain" data-appearance="active">
+        <Icon icon={IcRoundBrightness} />
+      </Button>
+      <Button size='large' appearance="plain">
+        <Icon icon={IcRoundBrightness}/> <Icon icon={IcRoundUnfoldMore} />
+      </Button>
+      <MenuTrigger>
+        <Button  size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+        </Button>
+        <Popover>
+          <Menu>
+            <MenuItem>
+              <IcRoundBrightness />
+              Undo
+            </MenuItem>
+            <MenuItem>
+              <IcRoundBrightness />
+              Redo
+            </MenuItem>
+            <MenuItem>
+              <IcRoundBrightness />
+              Insert Link
+            </MenuItem>
+            <MenuItem>
+              <IcRoundBrightness />
+              Insert Image
+            </MenuItem>
+            <MenuItem>
+              <IcRoundBrightness />
+              Insert Grid
+            </MenuItem>
+          </Menu>
+        </Popover>
+      </MenuTrigger>
+      <Button size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+      </Button>
+    </ToolbarGroup>
+    <Separator />
+    <ToolbarGroup>
+      <Button size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+      </Button>
+      <Button size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+      </Button>
+    </ToolbarGroup>
+    <Separator />
+    <ToolbarGroup>
+      <Button size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+      </Button>
+    </ToolbarGroup>
+    <Separator/>
+    <ToolbarGroup>
+      <Button size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+      </Button>
+      <Button size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+      </Button>
+    </ToolbarGroup>
+    <Separator/>
+    <ToolbarGroup>
+      <Button size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+      </Button>
+    </ToolbarGroup>
   </Toolbar>
 )
