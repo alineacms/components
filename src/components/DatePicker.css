@@ -151,18 +151,7 @@
   border-radius: 4px;
 }
 
-.alinea-rac-DatePicker-calendar-grid {
-  gap: 4px;
-  text-align: center;
-  width: 100%;
-}
 
-.alinea-rac-DatePicker-calendar-grid > .react-aria-CalendarCell[data-day-of-week] {
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 4px;
-  color: var(--text-color);
-}
 
 .alinea-rac-DatePicker-calendar-cell {
   text-align: center;
@@ -173,37 +162,15 @@
   cursor: pointer;
 }
 
-.alinea-rac-DatePicker-calendar-cell:hover {
-  background-color: var(--background-hover);
-}
-
 .alinea-rac-DatePicker-calendar-cell[data-selected] {
   background-color: var(--highlight-background);
   color: var(--highlight-foreground);
   font-weight: bold;
 }
 
-.alinea-rac-DatePicker-calendar-cell[data-today] {
-  border: 2px solid var(--highlight-background);
-}
 
 .alinea-rac-DatePicker-calendar-cell[data-disabled] {
   color: var(--text-color-disabled);
   cursor: not-allowed;
 }
 
-.alinea-rac-DatePicker-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.alinea-rac-DatePicker-description {
-  font-size: 0.75rem;
-  color: var(--text-color-muted);
-}
-
-.alinea-rac-DatePicker-error {
-  font-size: 0.75rem;
-  color: var(--error-color);
-}
