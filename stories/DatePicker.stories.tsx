@@ -1,4 +1,3 @@
-'use client';
 import { I18nProvider } from 'react-aria-components';
 import { Button } from '../src/components/Button.tsx';
 import { DatePicker } from '../src/components/DatePicker.tsx';
