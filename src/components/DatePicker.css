@@ -1,78 +1,209 @@
-@import "../todo/Popover.css";
-@import "../todo/Calendar.css";
-
 @import "../theme.css";
 
 .alinea-rac-DatePicker {
+  display: flex;
+  gap: 4px;
   color: var(--text-color);
+}
 
-  .react-aria-Group {
-    display: flex;
-    width: fit-content;
-    align-items: center;
+.alinea-rac-DatePicker-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: transparent;
+  width: fit-content;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.alinea-rac-DatePicker-input-wrapper {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.alinea-rac-DatePicker-container:focus-within {
+  border-color: var(--highlight-background);
+  box-shadow: 0 0 0 4px var(--highlight-overlay);
+  outline: none;
+}
+
+.alinea-rac-DatePicker-input {
+  display: flex;
+  flex-grow: 1;
+  font-size: 0.875rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 4px;
+  color: var(--text-color);
+}
+
+.alinea-rac-DatePicker-input:focus {
+  outline: none;
+}
+
+.alinea-rac-DatePicker-segment {
+  padding: 0px 2px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.alinea-rac-DatePicker-segment[data-type="literal"] {
+  padding: 0;
+}
+
+.alinea-rac-DatePicker-segment[data-placeholder] {
+  color: var(--text-color-placeholder);
+  font-style: italic;
+}
+
+.alinea-rac-DatePicker-segment:focus {
+  color: var(--highlight-foreground);
+  background: var(--highlight-background);
+  outline: none;
+  border-radius: 4px;
+  caret-color: transparent;
+}
+
+.alinea-rac-DatePicker-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--icon-color);
+  font-size: 1rem;
+}
+
+.alinea-rac-DatePicker-trigger:hover {
+  background-color: var(--background-hover);
+}
+
+.alinea-rac-DatePicker-popover {
+  position: absolute;
+  z-index: 1000;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  border-radius: 6px;
+  box-shadow: var(--shadow-lg);
+  max-width: 320px;
+  width: fit-content;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
   }
-
-  .react-aria-Button {
-    cursor: pointer;
-    background: var(--highlight-background);
-    color: var(--highlight-foreground);
-    border: 2px solid var(--field-background);
-    forced-color-adjust: none;
-    border-radius: 4px;
-    border: none;
-    margin-left: -1.929rem;
-    width: 1.429rem;
-    height: 1.429rem;
-    padding: 0;
-    font-size: 0.857rem;
-    box-sizing: content-box;
-
-    &[data-pressed] {
-      box-shadow: none;
-      background: var(--highlight-background);
-    }
-
-    &[data-focus-visible] {
-      outline: 2px solid var(--focus-ring-color);
-      outline-offset: 2px;
-    }
-  }
-
-  .react-aria-DateInput {
-    padding: 4px 2.5rem 4px 8px;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    transition: var(--transition);
-
-    &[data-focus-within] {
-      outline: none;
-      border-color: var(--highlight-background);
-      box-shadow: 0 0 0 4px var(--highlight-overlay);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.react-aria-Popover[data-trigger="DatePicker"] {
-  max-width: unset;
+.alinea-rac-DatePicker-calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--highlight-foreground);
+  border-radius: 6px;
+  padding: 12px;
 }
 
-.react-aria-DatePicker {
-  &[data-invalid] {
-    .react-aria-DateInput:after {
-      content: "🚫" / "";
-      content: "🚫";
-      alt: " ";
-      flex: 1;
-      text-align: end;
-    }
-  }
+.alinea-rac-DatePicker-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 8px;
+  font-weight: bold;
+  color: var(--text-color);
+}
 
-  .react-aria-FieldError {
-    font-size: 12px;
-    color: var(--invalid-color);
-  }
+.alinea-rac-DatePicker-calendar-heading {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
 
-  [slot="description"] {
-    font-size: 12px;
-  }
+.alinea-rac-DatePicker-calendar-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+  color: var(--icon-color);
+  transition: var(--transition);
+}
+
+.alinea-rac-DatePicker-calendar-button:hover {
+  background-color: var(--background-hover);
+  border-radius: 4px;
+}
+
+.alinea-rac-DatePicker-calendar-grid {
+  gap: 4px;
+  text-align: center;
+  width: 100%;
+}
+
+.alinea-rac-DatePicker-calendar-grid > .react-aria-CalendarCell[data-day-of-week] {
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 4px;
+  color: var(--text-color);
+}
+
+.alinea-rac-DatePicker-calendar-cell {
+  text-align: center;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.alinea-rac-DatePicker-calendar-cell:hover {
+  background-color: var(--background-hover);
+}
+
+.alinea-rac-DatePicker-calendar-cell[data-selected] {
+  background-color: var(--highlight-background);
+  color: var(--highlight-foreground);
+  font-weight: bold;
+}
+
+.alinea-rac-DatePicker-calendar-cell[data-today] {
+  border: 2px solid var(--highlight-background);
+}
+
+.alinea-rac-DatePicker-calendar-cell[data-disabled] {
+  color: var(--text-color-disabled);
+  cursor: not-allowed;
+}
+
+.alinea-rac-DatePicker-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.alinea-rac-DatePicker-description {
+  font-size: 0.75rem;
+  color: var(--text-color-muted);
+}
+
+.alinea-rac-DatePicker-error {
+  font-size: 0.75rem;
+  color: var(--error-color);
 }
