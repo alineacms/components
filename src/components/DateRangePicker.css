@@ -47,47 +47,45 @@
     padding: 4px;
     color: var(--text-color);
   }
-  
-.alinea-rac-DateRangePicker-separator {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--text-color-muted);
-}
 
-.alinea-rac-DateRangePicker-segment {
-  padding: 0px 2px;
-  font-variant-numeric: tabular-nums;
-  text-align: center;
-  color: var(--text-color);
-}
+  .alinea-rac-DateRangePicker-separator {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color-muted);
+  }
 
-.alinea-rac-DateRangePicker-segment[data-placeholder] {
-  color: var(--text-color-placeholder);
-  font-style: italic;
-}
+  .alinea-rac-DateRangePicker-segment {
+    padding: 0px 2px;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    color: var(--text-color);
+  }
 
-.alinea-rac-DateRangePicker-segment:focus {
-  color: var(--highlight-foreground);
-  background: var(--highlight-background);
-  outline: none;
-  border-radius: 4px;
-  caret-color: transparent;
-}
-.alinea-rac-DateRangePicker-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  color: var(--icon-color);
-  font-size: 1rem;
-}
+  .alinea-rac-DateRangePicker-segment[data-placeholder] {
+    color: var(--text-color-placeholder);
+    font-style: italic;
+  }
 
-
+  .alinea-rac-DateRangePicker-segment:focus {
+    color: var(--highlight-foreground);
+    background: var(--highlight-background);
+    outline: none;
+    border-radius: 4px;
+    caret-color: transparent;
+  }
+  .alinea-rac-DateRangePicker-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--icon-color);
+    font-size: 1rem;
+  }
 }
 
 .alinea-rac-DateRangePicker-popover {
@@ -118,13 +116,13 @@
     font-weight: bold;
     color: var(--text-color);
   }
-  
+
   .alinea-rac-DateRangePicker-calendar-heading {
     text-align: center;
     font-weight: bold;
     font-size: 1rem;
   }
-  
+
   .alinea-rac-DateRangePicker-calendar-button {
     background: none;
     border: none;
@@ -134,27 +132,51 @@
     color: var(--icon-color);
     transition: var(--transition);
   }
-  
+
   .alinea-rac-DateRangePicker-calendar-cell {
     text-align: center;
     padding: 6px;
-    border-radius: 4px;
     font-size: 0.875rem;
     transition: var(--transition);
     cursor: pointer;
   }
   .alinea-rac-DateRangePicker-calendar-cell[data-selected] {
-    background-color: var(--highlight-background);
+    background-color: var(--indigo-300);
     color: var(--highlight-foreground);
     font-weight: bold;
   }
-  
+
   .alinea-rac-DateRangePicker-calendar-cell[data-disabled] {
     color: var(--text-color-disabled);
     cursor: not-allowed;
   }
-  
+  .alinea-rac-DateRangePicker-calendar-cell[data-selection-start] {
+    background-color: var(--highlight-background);
+    border-start-start-radius: 6px;
+    border-end-start-radius: 6px;
+  }
+  .alinea-rac-DateRangePicker-calendar-cell[data-selection-end] {
+    background-color: var(--highlight-background);
+    border-start-end-radius: 6px;
+    border-end-end-radius: 6px;
+  }
 }
 
+.alinea-rac-DateRangePicker-calendar-grid {
+  border-spacing: 0px;
+  td {
+    padding: 0px;
+    padding-top: 4px;
+  }
+}
+[slot="start"] + span {
+  padding: 0 4px;
+  background-color: red;
+  border-radius: 2px;
+}
 
-
+[slot="end"] {
+  margin-right: 2rem;
+  background-color: red;
+  flex: 1;
+}
