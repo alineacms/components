@@ -1,23 +1,50 @@
-import { DateRangePicker } from '../src/components/DateRangePicker.tsx'
-import { Stack } from './Stack.tsx'
+import {getLocalTimeZone, today} from '@internationalized/date'
+import {useState} from 'react'
+import type {DateRange} from 'react-aria-components'
+import {DateRangePicker} from '../src/components/DateRangePicker.tsx'
+import {Stack} from './Stack.tsx'
 
-export const Variants = () => (
-  <Stack gap={32}>
-    <Example label="Default" />
-    <Example label="With Description" description="Select a date range for your event" />
-    <Example label="With Error" isRequired errorMessage="Date range is required" />
-    <Example label="Disabled" isDisabled />
-  </Stack>
-)
-
-interface ExampleProps {
-  label: string
-  description?: string
-  errorMessage?: string
-  isRequired?: boolean
-  isDisabled?: boolean
+export const Basic = () => {
+  return (
+    <Stack gap={32}>
+      <DateRangePicker label="Default" />
+      <DateRangePicker
+        label="With Description"
+        description="Select a date range for your event"
+      />
+      <DateRangePicker
+        label="minValue (today)"
+        minValue={today(getLocalTimeZone())}
+      />
+      <DateRangePicker
+        label="With Error"
+        isRequired
+        errorMessage="Date range is required"
+      />
+      <DateRangePicker label="Disabled" isDisabled />
+      <DateRangePicker label="Disabled" isDisabled />
+    </Stack>
+  )
 }
 
-function Example(props: ExampleProps) {
-  return <DateRangePicker {...props} />
+export const CustomValidation = () => {
+  const [range, setRange] = useState<DateRange | null>({
+    start: today(getLocalTimeZone()),
+    end: today(getLocalTimeZone()).add({weeks: 1})
+  })
+  const isInvalid = range?.end && range.end.compare(range.start) > 7
+  const errorMessage =
+    range?.end && range.end.compare(range.start) > 7
+      ? 'Maximum booking duration is 1 week.'
+      : undefined
+
+  return (
+    <DateRangePicker
+      label="Custom validation (1 week max)"
+      value={range}
+      onChange={setRange}
+      isInvalid={isInvalid}
+      errorMessage={errorMessage}
+    />
+  )
 }
