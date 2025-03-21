@@ -50,14 +50,11 @@ export const Example = (args: any) => (
       <Button size="square-petite" appearance="plain" data-appearance="active">
         <Icon icon={IcRoundBrightness} />
       </Button>
+      <MenuTrigger>
       <Button size='large' appearance="plain">
         <Icon icon={IcRoundBrightness}/> <Icon icon={IcRoundUnfoldMore} />
       </Button>
-      <MenuTrigger>
-        <Button  size="square-petite" appearance="plain">
-        <Icon icon={IcRoundBrightness} />
-        </Button>
-        <Popover>
+      <Popover>
           <Menu>
             <MenuItem>
               <IcRoundBrightness />
@@ -82,6 +79,11 @@ export const Example = (args: any) => (
           </Menu>
         </Popover>
       </MenuTrigger>
+      
+        <Button  size="square-petite" appearance="plain">
+        <Icon icon={IcRoundBrightness} />
+        </Button>
+
       <Button size="square-petite" appearance="plain">
         <Icon icon={IcRoundBrightness} />
       </Button>
