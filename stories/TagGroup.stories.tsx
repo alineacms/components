@@ -35,33 +35,35 @@ export const Selection = () => {
       {id: 1, name: 'Chocolate'},
       {id: 2, name: 'Mint'},
       {id: 3, name: 'Strawberry'},
-      {id: 4, name: 'Vanilla', isDisabled: true}
+      {id: 4, name: 'Vanilla'}
     ]
   })
 
   return (
     <Stack>
       <TagGroup items={list.items} label="Ice cream flavor">
-        {item => <Tag isDisabled={item.isDisabled}>{item.name}</Tag>}
+        {item => <Tag>{item.name}</Tag>}
       </TagGroup>
       <TagGroup
         items={list.items}
         label="Ice cream flavor"
         description="Multiple selectionMode"
         selectionMode="multiple"
+        disabledKeys={[4]}
         onRemove={keys => list.remove(...keys)}
       >
-        {item => <Tag isDisabled={item.isDisabled}>{item.name}</Tag>}
+        {item => <Tag>{item.name}</Tag>}
       </TagGroup>
       <TagGroup
         items={list.items}
         label="Ice cream flavor (secondary)"
         description="Multiple selectionMode"
         selectionMode="multiple"
+        disabledKeys={[4]}
         intent="secondary"
         onRemove={keys => list.remove(...keys)}
       >
-        {item => <Tag isDisabled={item.isDisabled}>{item.name}</Tag>}
+        {item => <Tag>{item.name}</Tag>}
       </TagGroup>
     </Stack>
   )
