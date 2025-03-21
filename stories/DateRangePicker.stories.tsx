@@ -1,4 +1,4 @@
-import {getLocalTimeZone, today} from '@internationalized/date'
+import {endOfYear, getLocalTimeZone, today} from '@internationalized/date'
 import {useState} from 'react'
 import type {DateRange} from 'react-aria-components'
 import {DateRangePicker} from '../src/components/DateRangePicker.tsx'
@@ -17,11 +17,15 @@ export const Basic = () => {
         minValue={today(getLocalTimeZone())}
       />
       <DateRangePicker
+        label="maxValue (endOfYear)"
+        maxValue={endOfYear(today(getLocalTimeZone()))}
+      />
+      <DateRangePicker
         label="With Error"
         isRequired
+        isInvalid
         errorMessage="Date range is required"
       />
-      <DateRangePicker label="Disabled" isDisabled />
       <DateRangePicker label="Disabled" isDisabled />
     </Stack>
   )
