@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import {
-  Button,
   Header,
   Menu,
   MenuSection,
@@ -10,10 +9,12 @@ import {
   Separator,
   SubmenuTrigger
 } from 'react-aria-components'
+import {Button} from '../src/components/Button.tsx'
 import {Icon} from '../src/components/Icon.tsx'
 import {MenuItem} from '../src/components/Menu.tsx'
 import {IcRoundArchive} from '../src/icons/IcRoundArchive.tsx'
 import {IcRoundHistory} from '../src/icons/IcRoundHistory.tsx'
+import {IcRoundRefresh} from '../src/icons/IcRoundRefresh.tsx'
 import {Stack} from './Stack.tsx'
 
 const items = [
@@ -28,6 +29,16 @@ const items = [
 
 export const Example = () => (
   <Stack>
+    <MenuTrigger>
+      <Button>
+        <IcRoundRefresh data-slot="icon" />
+        With icon
+      </Button>
+      <Popover>
+        <Menu items={items}>{item => <MenuItem>{item.name}</MenuItem>}</Menu>
+      </Popover>
+    </MenuTrigger>
+
     <MenuTrigger>
       <Button aria-label="Menu">Menu ☰</Button>
       <Popover>
@@ -49,11 +60,11 @@ export const Example = () => (
       <Popover>
         <Menu>
           <MenuItem id="left">
-            <Icon icon={IcRoundHistory} />
+            <Icon icon={IcRoundHistory} data-slot="icon" />
             Show history
           </MenuItem>
           <MenuItem id="center">
-            <Icon icon={IcRoundArchive} />
+            <Icon icon={IcRoundArchive} data-slot="icon" />
             Archive
           </MenuItem>
         </Menu>
