@@ -9,6 +9,7 @@ import {
 
 import './Menu.css'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundKeyboardArrowRight} from '../icons/IcRoundKeyboardArrowRight.tsx'
 import {Popover} from '../todo/Popover.tsx'
 import {Button} from './Button.tsx'
 import {Icon} from './Icon.tsx'
@@ -51,9 +52,10 @@ export function MenuItem(props: MenuItemProps) {
         <>
           {props.children}
           {hasSubmenu && (
-            <svg className="chevron" viewBox="0 0 24 24">
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+            <Icon
+              className="alinea-rac-MenuItem-Icon"
+              icon={IcRoundKeyboardArrowRight}
+            />
           )}
         </>
       )}

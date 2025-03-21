@@ -1,6 +1,6 @@
 @import "../theme.css";
 
-.react-aria-Menu {
+.alinea-rac-ComboBoxItem-check {
   max-height: inherit;
   box-sizing: border-box;
   overflow: auto;
@@ -29,6 +29,13 @@
     transform: translateY(-50%);
   }
 
+  .alinea-rac-MenuItem-Icon {
+    align-items: flex-end;
+    display: block;
+    font-size: 22px;
+    
+  }
+
   &[data-focus-visible] {
     outline: none;
   }
@@ -52,30 +59,30 @@
   }
 }
 
-.react-aria-MenuItem[href] {
+.alinea-rac-ComboBoxItem-checkItem[href] {
   text-decoration: none;
   cursor: pointer;
 }
 
-.react-aria-Menu {
-  .react-aria-MenuSection:not(:first-child) {
+.alinea-rac-ComboBoxItem-check {
+  .alinea-rac-ComboBoxItem-checkSection:not(:first-child) {
     margin-top: 12px;
   }
 
-  .react-aria-Header {
+  .alinea-rac-ComboBoxItem-check-Header {
     font-size: 1.143rem;
     font-weight: bold;
     padding: 0 0.714rem;
   }
 
-  .react-aria-Separator {
+  .alinea-rac-ComboBoxItem-check-Separator {
     height: 1px;
     background: var(--border-color);
     margin: 2px 4px;
   }
 }
 
-.react-aria-MenuItem {
+.alinea-rac-ComboBoxItem-checkItem {
   [slot="label"] {
     font-weight: bold;
     grid-area: label;
@@ -97,10 +104,10 @@
   }
 }
 
-.react-aria-Popover[data-trigger="SubmenuTrigger"][data-placement="right"] {
+.alinea-rac-ComboBoxItem-check-Popover[data-trigger="SubmenuTrigger"][data-placement="right"] {
   margin-left: -5px;
 }
 
-.react-aria-Popover[data-trigger="SubmenuTrigger"][data-placement="left"] {
+.alinea-rac-ComboBoxItem-check-Popover[data-trigger="SubmenuTrigger"][data-placement="left"] {
   margin-right: -5px;
 }
