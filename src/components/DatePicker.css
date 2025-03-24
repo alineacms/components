@@ -66,17 +66,6 @@
     color: var(--icon-color);
     font-size: 1rem;
   }
-  .alinea-rac-DatePicker-popover {
-    position: absolute;
-    z-index: 1000;
-    border: 1px solid var(--border-color);
-    background-color: var(--field-background);
-    border-radius: 6px;
-    box-shadow: var(--shadow-lg);
-    max-width: 320px;
-    width: fit-content;
-    animation: fadeIn 0.2s ease-in-out;
-  }
   .alinea-rac-DatePicker-calendar {
     display: flex;
     flex-direction: column;

@@ -11,8 +11,7 @@ import {
   type DateValue,
   Dialog,
   Group,
-  Heading,
-  Popover
+  Heading
 } from 'react-aria-components'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 
@@ -21,6 +20,7 @@ import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {IcRoundKeyboardArrowLeft} from '../icons/IcRoundKeyboardArrowLeft.tsx'
 import {IcRoundKeyboardArrowRight} from '../icons/IcRoundKeyboardArrowRight.tsx'
 import {Icon} from './Icon.tsx'
+import {Popover} from './Popover.tsx'
 
 export interface DatePickerProps<T extends DateValue>
   extends DatePickerPrimitiveProps<T>,
@@ -30,11 +30,13 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   return (
     <DatePickerPrimitive {...props}>
       <Label {...labelProps(props)}>
-        <div className={clsx('alinea-rac-DatePicker-container', props.className)}>
+        <div
+          className={clsx('alinea-rac-DatePicker-container', props.className)}
+        >
           <Group className="alinea-rac-DatePicker-input-wrapper">
             <DateInput
               className="alinea-rac-DatePicker-input"
-              aria-invalid={!!props.errorMessage} 
+              aria-invalid={!!props.errorMessage}
             >
               {segment => (
                 <DateSegment
@@ -47,7 +49,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
               <Icon icon={IcRoundKeyboardArrowDown} />
             </Button>
           </Group>
-          <Popover className="alinea-rac-DatePicker-popover">
+          <Popover>
             <Dialog className="alinea-rac-DatePicker-dialog">
               <Calendar className="alinea-rac-DatePicker-calendar">
                 <header className="alinea-rac-DatePicker-calendar-header">
