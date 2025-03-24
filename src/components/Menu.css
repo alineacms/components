@@ -1,10 +1,13 @@
 @import "../theme.css";
 
+.alinea-rac-Menu {
+  outline: none;
+}
+
 .alinea-rac-MenuItem {
   cursor: pointer;
   font-size: 0.875rem;
   padding: 0.4rem;
-  padding-right: 2.4rem;
   display: flex;
   outline: none;
   align-items: center;
@@ -16,7 +19,6 @@
     font-size: 16px;
     margin-left: auto;
   }
-  
 
   &[data-focus-visible] {
     outline: none;
@@ -24,13 +26,12 @@
 
   &[data-selected] {
     font-weight: 600;
-    background: var(--border-color);
+    background: var(--gray-200);
     color: var(--text-color);
     position: relative;
   }
 
-  &[data-focused],
-  &[data-pressed] {
+  &[data-focused] {
     background: var(--highlight-background);
     color: var(--highlight-foreground);
   }
@@ -44,8 +45,8 @@
 .alinea-rac-MenuHeader {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-color-hover);
-  padding: 4px 12px;
+  color: var(--text-color-base);
+  padding: 4px 6px;
 }
 
 .alinea-rac-MenuSeparator {
