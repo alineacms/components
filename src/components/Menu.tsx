@@ -1,3 +1,4 @@
+import {type ReactNode, useContext} from 'react'
 import {
   MenuContext,
   type MenuItemProps,
@@ -9,13 +10,12 @@ import {
   Separator as PrimitiveSeparator,
   SubmenuTrigger
 } from 'react-aria-components'
-
-import './Menu.css'
-import {type ReactNode, useContext} from 'react'
 import {IcRoundKeyboardArrowRight} from '../icons/IcRoundKeyboardArrowRight.tsx'
 import {Button} from './Button.tsx'
 import {Icon} from './Icon.tsx'
 import {Popover} from './Popover.tsx'
+import './Menu.css'
+import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
 
 export function MenuItem(props: MenuItemProps) {
   const textValue =
@@ -28,9 +28,12 @@ export function MenuItem(props: MenuItemProps) {
       className="alinea-rac-MenuItem"
       textValue={textValue}
     >
-      {({hasSubmenu}) => (
+      {({hasSubmenu, isSelected, selectionMode}) => (
         <>
           {props.children}
+          {isSelected && selectionMode && (
+            <IcRoundCheck className="alinea-rac-MenuItem-check" />
+          )}
           {hasSubmenu && (
             <Icon
               className="alinea-rac-MenuItem-icon"

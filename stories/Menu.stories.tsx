@@ -13,13 +13,12 @@ import {
 } from '../src/components/Menu.tsx'
 import {IcRoundArchive} from '../src/icons/IcRoundArchive.tsx'
 import {IcRoundHistory} from '../src/icons/IcRoundHistory.tsx'
-import {IcRoundRefresh} from '../src/icons/IcRoundRefresh.tsx'
 import {Stack} from './Stack.tsx'
 
 const items = [
   {id: 1, name: 'New'},
   {id: 2, name: 'Open'},
-  {id: 3, name: 'Closea dbhufdoijd noidflgdjiopnrlg e riiçfrklg riikr'},
+  {id: 3, name: 'Close'},
   {id: 4, name: 'Save'},
   {id: 5, name: 'Duplicate'},
   {id: 6, name: 'Rename'},
@@ -28,11 +27,10 @@ const items = [
 
 export const Example = () => (
   <Stack>
-    <Menu label="With icon">
-      <MenuItem>
-        <Icon icon={IcRoundRefresh} data-slot="icon" />
-        With icon
-      </MenuItem>
+    <Menu label="Default">
+      {items.map(item => (
+        <MenuItem key={item.id}>{item.name}</MenuItem>
+      ))}
     </Menu>
 
     <Menu label="Menu ☰">
@@ -51,11 +49,11 @@ export const Example = () => (
     </Menu>
 
     <Menu label="Menu with icons">
-      <MenuItem id="left">
+      <MenuItem>
         <Icon icon={IcRoundHistory} data-slot="icon" />
         Show history
       </MenuItem>
-      <MenuItem id="center">
+      <MenuItem>
         <Icon icon={IcRoundArchive} data-slot="icon" />
         Archive
       </MenuItem>
@@ -96,7 +94,7 @@ export const Selection = () => {
           selectedKeys={style}
           onSelectionChange={setStyle}
         >
-          <MenuHeader>Text style</MenuHeader>
+          <MenuHeader>Style (selectionMode multiple)</MenuHeader>
           <MenuItem id="bold">Bold</MenuItem>
           <MenuItem id="italic">Italic</MenuItem>
           <MenuItem id="underline">Underline</MenuItem>
@@ -106,7 +104,7 @@ export const Selection = () => {
           selectedKeys={align}
           onSelectionChange={setAlign}
         >
-          <MenuHeader>Text alignment</MenuHeader>
+          <MenuHeader>Alignment (selectionMode single)</MenuHeader>
           <MenuItem id="left">Left</MenuItem>
           <MenuItem id="center">Center</MenuItem>
           <MenuItem id="right">Right</MenuItem>
