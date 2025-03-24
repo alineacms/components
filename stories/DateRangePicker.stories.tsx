@@ -1,33 +1,36 @@
 import {endOfYear, getLocalTimeZone, today} from '@internationalized/date'
 import {useState} from 'react'
+import {I18nProvider} from 'react-aria-components'
 import type {DateRange} from 'react-aria-components'
 import {DateRangePicker} from '../src/components/DateRangePicker.tsx'
 import {Stack} from './Stack.tsx'
 
 export const Basic = () => {
   return (
-    <Stack gap={32}>
-      <DateRangePicker label="Default" />
-      <DateRangePicker
-        label="With Description"
-        description="Select a date range for your event"
-      />
-      <DateRangePicker
-        label="minValue (today)"
-        minValue={today(getLocalTimeZone())}
-      />
-      <DateRangePicker
-        label="maxValue (endOfYear)"
-        maxValue={endOfYear(today(getLocalTimeZone()))}
-      />
-      <DateRangePicker
-        label="With Error"
-        isRequired
-        isInvalid
-        errorMessage="Date range is required"
-      />
-      <DateRangePicker label="Disabled" isDisabled />
-    </Stack>
+    <I18nProvider locale="en-UK">
+      <Stack gap={32}>
+        <DateRangePicker label="Default" />
+        <DateRangePicker
+          label="With Description"
+          description="Select a date range for your event"
+        />
+        <DateRangePicker
+          label="minValue (today)"
+          minValue={today(getLocalTimeZone())}
+        />
+        <DateRangePicker
+          label="maxValue (endOfYear)"
+          maxValue={endOfYear(today(getLocalTimeZone()))}
+        />
+        <DateRangePicker
+          label="With Error"
+          isRequired
+          isInvalid
+          errorMessage="Date range is required"
+        />
+        <DateRangePicker label="Disabled" isDisabled />
+      </Stack>
+    </I18nProvider>
   )
 }
 
