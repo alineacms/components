@@ -11,7 +11,6 @@ import {
   Dialog,
   Group,
   Heading,
-  Popover,
   RangeCalendar
 } from 'react-aria-components'
 
@@ -21,6 +20,7 @@ import {IcRoundKeyboardArrowLeft} from '../icons/IcRoundKeyboardArrowLeft.tsx'
 import {IcRoundKeyboardArrowRight} from '../icons/IcRoundKeyboardArrowRight.tsx'
 import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
+import {Popover} from './Popover.tsx'
 
 export interface DateRangePickerProps<T extends DateValue>
   extends AriaDateRangePickerProps<T>,
@@ -66,7 +66,7 @@ export function DateRangePicker<T extends DateValue>({
           </Button>
         </Group>
       </Label>
-      <Popover className="alinea-rac-DateRangePicker-popover">
+      <Popover>
         <Dialog className="alinea-rac-DateRangePicker-dialog">
           <RangeCalendar className="alinea-rac-DateRangePicker-calendar">
             <header className="alinea-rac-DateRangePicker-calendar-header">
