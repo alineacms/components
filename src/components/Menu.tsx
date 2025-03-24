@@ -46,11 +46,11 @@ export function MenuItem(props: MenuItemProps) {
 export function MenuHeader(
   props: React.ComponentProps<typeof PrimitiveHeader>
 ) {
-  return <PrimitiveHeader {...props} className="alinea-rac-MenuItem-header" />
+  return <PrimitiveHeader {...props} className="alinea-rac-MenuHeader" />
 }
 
 export function MenuSeparator() {
-  return <PrimitiveSeparator className="alinea-rac-MenuItem-separator" />
+  return <PrimitiveSeparator className="alinea-rac-MenuSeparator" />
 }
 
 export interface MenuProps<T> extends MenuPrimitiveProps<T> {

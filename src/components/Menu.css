@@ -1,15 +1,5 @@
 @import "../theme.css";
 
-.alinea-rac-ComboBoxItem-check {
-  max-height: inherit;
-  box-sizing: border-box;
-  overflow: auto;
-  padding: 2px;
-  min-width: 150px;
-  box-sizing: border-box;
-  outline: none;
-}
-
 .alinea-rac-MenuItem {
   cursor: pointer;
   font-size: 0.875rem;
@@ -22,13 +12,11 @@
   gap: 8px;
   position: relative;
 
-  .alinea-rac-ComboBoxItem-check {
-    font-size: 1rem;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+  .alinea-rac-MenuItem-icon {
+    font-size: 16px;
+    margin-left: auto;
   }
+  
 
   &[data-focus-visible] {
     outline: none;
@@ -53,71 +41,15 @@
   }
 }
 
-.alinea-rac-ComboBoxItem-checkItem[href] {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.alinea-rac-ComboBoxItem-check {
-  .alinea-rac-ComboBoxItem-checkSection:not(:first-child) {
-    margin-top: 12px;
-  }
-
-  .alinea-rac-ComboBoxItem-check-Header {
-    font-size: 1.143rem;
-    font-weight: bold;
-    padding: 0 0.714rem;
-  }
-
-  .alinea-rac-ComboBoxItem-check-Separator {
-    height: 1px;
-    background: var(--border-color);
-    margin: 2px 4px;
-  }
-}
-
-.alinea-rac-ComboBoxItem-checkItem {
-  [slot="label"] {
-    font-weight: bold;
-    grid-area: label;
-  }
-
-  [slot="description"] {
-    font-size: small;
-    grid-area: desc;
-  }
-
-  kbd {
-    grid-area: kbd;
-    font-family: monospace;
-    text-align: end;
-  }
-
-  &[data-disabled] {
-    color: var(--text-color-disabled);
-  }
-}
-
-.alinea-rac-ComboBoxItem-check-Popover[data-trigger="SubmenuTrigger"][data-placement="right"] {
-  margin-left: -5px;
-}
-
-.alinea-rac-ComboBoxItem-check-Popover[data-trigger="SubmenuTrigger"][data-placement="left"] {
-  margin-right: -5px;
-}
-.alinea-rac-MenuItem-header {
+.alinea-rac-MenuHeader {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-color-hover);
   padding: 4px 12px;
 }
 
-.alinea-rac-MenuItem-separator {
+.alinea-rac-MenuSeparator {
   height: 1px;
   margin: 4px 8px;
   background-color: var(--border-color);
-}
-.alinea-rac-MenuItem-icon {
-  font-size: 16px;
-  margin-left: auto;
 }
