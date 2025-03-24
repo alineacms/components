@@ -1,5 +1,5 @@
-
 @import "../theme.css";
+
 .alinea-rac-Popover {
   width: var(--trigger-width);
   &[data-clear] {
@@ -8,6 +8,7 @@
   outline: none;
   overflow-y: auto;
   scrollbar-width: thin;
+  scroll-snap-type: y mandatory;
   min-width: 240px;
   max-width: 320px;
   display: block;
@@ -17,4 +18,8 @@
   border-radius: 6px;
   border: 1px solid var(--border-color);
   background-color: var(--field-background);
+
+  &[data-trigger="ComboBox"] {
+    max-height: 320px !important;
+  }
 }

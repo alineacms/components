@@ -29,7 +29,7 @@ import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {ListBoxItem} from '../todo/ListBox.tsx'
 import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
-import { Popover } from './Popover.tsx'
+import {Popover} from './Popover.tsx'
 
 interface SelectedKey {
   id: Key

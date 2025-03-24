@@ -89,28 +89,6 @@
   text-align: center;
 }
 
-.alinea-rac-MultipleSelect-popover {
-  width: var(--trigger-width);
-  &[data-clear] {
-    width: calc(var(--trigger-width) + 40px);
-  }
-
-  .alinea-rac-MultipleSelect-popover-listbox {
-    outline: none;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
-    scrollbar-width: thin;
-    width: 100%;
-    display: block;
-    min-height: unset;
-    max-height: inherit;
-    padding: 4px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background-color: var(--field-background);
-  }
-}
-
 .alinea-rac-MultipleSelectItem {
   scroll-snap-align: start;
   cursor: pointer;
