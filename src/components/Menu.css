@@ -17,8 +17,9 @@
   padding-right: 2.4rem;
   display: flex;
   outline: none;
+  align-items: center;
   border-radius: 4px;
-  justify-content: space-between;
+  gap: 8px;
   position: relative;
 
   .alinea-rac-ComboBoxItem-check {
@@ -27,13 +28,6 @@
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-  }
-
-  .alinea-rac-MenuItem-Icon {
-    align-items: flex-end;
-    display: block;
-    font-size: 22px;
-    
   }
 
   &[data-focus-visible] {
@@ -110,4 +104,20 @@
 
 .alinea-rac-ComboBoxItem-check-Popover[data-trigger="SubmenuTrigger"][data-placement="left"] {
   margin-right: -5px;
+}
+.alinea-rac-MenuItem-header {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-color-hover);
+  padding: 4px 12px;
+}
+
+.alinea-rac-MenuItem-separator {
+  height: 1px;
+  margin: 4px 8px;
+  background-color: var(--border-color);
+}
+.alinea-rac-MenuItem-icon {
+  font-size: 16px;
+  margin-left: auto;
 }

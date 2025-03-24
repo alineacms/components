@@ -1,0 +1,20 @@
+
+@import "../theme.css";
+.alinea-rac-Popover {
+  width: var(--trigger-width);
+  &[data-clear] {
+    width: calc(var(--trigger-width) + 40px);
+  }
+  outline: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  min-width: 240px;
+  max-width: 320px;
+  display: block;
+  min-height: unset;
+  max-height: inherit;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--field-background);
+}

@@ -50,6 +50,8 @@
 
     .alinea-rac-SelectTrigger-button-value {
       flex-grow: 1;
+      display: flex;
+      align-items: center;
       color: var(--field-text-color);
 
       &[data-placeholder] {

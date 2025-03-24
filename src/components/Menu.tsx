@@ -1,51 +1,31 @@
 import {
-  MenuItem as AriaMenuItem,
-  Menu,
+  MenuContext,
   type MenuItemProps,
-  type MenuProps,
+  type MenuProps as MenuPrimitiveProps,
   MenuTrigger,
-  type MenuTriggerProps
+  Header as PrimitiveHeader,
+  Menu as PrimitiveMenu,
+  MenuItem as PrimitiveMenuItem,
+  Separator as PrimitiveSeparator,
+  SubmenuTrigger
 } from 'react-aria-components'
 
 import './Menu.css'
-import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
+import {type ReactNode, useContext} from 'react'
 import {IcRoundKeyboardArrowRight} from '../icons/IcRoundKeyboardArrowRight.tsx'
-import {Popover} from '../todo/Popover.tsx'
 import {Button} from './Button.tsx'
 import {Icon} from './Icon.tsx'
-
-export interface MenuButtonProps<T>
-  extends MenuProps<T>,
-    Omit<MenuTriggerProps, 'children'> {
-  label?: string
-}
-
-export function MenuButton<T extends object>({
-  label,
-  children,
-  ...props
-}: MenuButtonProps<T>) {
-  return (
-    <MenuTrigger {...props}>
-      <Button size="square-petite">
-        {' '}
-        <Icon icon={IcRoundKeyboardArrowDown} />
-      </Button>
-      <Popover>
-        <Menu {...props}>{children}</Menu>
-      </Popover>
-    </MenuTrigger>
-  )
-}
+import {Popover} from './Popover.tsx'
 
 export function MenuItem(props: MenuItemProps) {
   const textValue =
     props.textValue ||
     (typeof props.children === 'string' ? props.children : undefined)
+
   return (
-    <AriaMenuItem
-      className="alinea-rac-MenuItem"
+    <PrimitiveMenuItem
       {...props}
+      className="alinea-rac-MenuItem"
       textValue={textValue}
     >
       {({hasSubmenu}) => (
@@ -53,12 +33,44 @@ export function MenuItem(props: MenuItemProps) {
           {props.children}
           {hasSubmenu && (
             <Icon
-              className="alinea-rac-MenuItem-Icon"
+              className="alinea-rac-MenuItem-icon"
               icon={IcRoundKeyboardArrowRight}
             />
           )}
         </>
       )}
-    </AriaMenuItem>
+    </PrimitiveMenuItem>
+  )
+}
+
+export function MenuHeader(
+  props: React.ComponentProps<typeof PrimitiveHeader>
+) {
+  return <PrimitiveHeader {...props} className="alinea-rac-MenuItem-header" />
+}
+
+export function MenuSeparator() {
+  return <PrimitiveSeparator className="alinea-rac-MenuItem-separator" />
+}
+
+export interface MenuProps<T> extends MenuPrimitiveProps<T> {
+  label: ReactNode
+  children: ReactNode
+}
+
+export function Menu<T extends object>({
+  label,
+  children,
+  ...props
+}: MenuProps<T>) {
+  const isInMenu = useContext(MenuContext)
+  const Trigger = isInMenu ? SubmenuTrigger : MenuTrigger
+  return (
+    <Trigger>
+      {typeof label === 'string' ? <Button>{label}</Button> : <>{label}</>}
+      <Popover>
+        <PrimitiveMenu {...props}>{children}</PrimitiveMenu>
+      </Popover>
+    </Trigger>
   )
 }
