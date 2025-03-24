@@ -1,35 +1,41 @@
-import { I18nProvider } from 'react-aria-components';
-import { Button } from '../src/components/Button.tsx';
-import { DatePicker } from '../src/components/DatePicker.tsx';
-import { Stack } from './Stack.tsx';
-import { useState } from 'react';
+import {endOfYear, getLocalTimeZone, today} from '@internationalized/date'
+import {useState} from 'react'
+import {I18nProvider} from 'react-aria-components'
+import {DatePicker} from '../src/components/DatePicker.tsx'
+import {Stack} from './Stack.tsx'
 
 export const Example = () => {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(true); 
-  };
+    e.preventDefault()
+    setError(true)
+  }
 
   return (
     <I18nProvider locale="en-UK">
-      <Stack align="normal">
-        <DatePicker label="Event date" />
-
-        <form onSubmit={handleSubmit}>
-          <Stack align="normal">
-            <DatePicker
-              isRequired
-              label="Event date with error if empty"
-              errorMessage="date is required"
-            />
-            <Button type="submit">Submit</Button>
-          </Stack>
-        </form>
-
-        <DatePicker label="Event date" description="Select a date for the event" />
+      <Stack gap={32}>
+        <DatePicker label="Default" />
+        <DatePicker
+          label="With Description"
+          description="Select a date for the event"
+        />
+        <DatePicker
+          label="minValue (today)"
+          minValue={today(getLocalTimeZone())}
+        />
+        <DatePicker
+          label="maxValue (endOfYear)"
+          maxValue={endOfYear(today(getLocalTimeZone()))}
+        />
+        <DatePicker
+          isRequired
+          isInvalid
+          label="With Error"
+          errorMessage="Date is required"
+        />
+        <DatePicker label="Disabled" isDisabled />
       </Stack>
     </I18nProvider>
-  );
-};
+  )
+}
