@@ -243,19 +243,17 @@ export function MultipleSelect<T extends SelectedKey>({
             </Button>
           </div>
           <Popover
-            className="alinea-rac-MultipleSelect-popover"
             isNonModal
             style={{width: `${width}px`}}
             triggerRef={triggerRef}
             trigger="ComboBox"
           >
             <ListBox
-              className="alinea-rac-MultipleSelect-popover-listbox"
               renderEmptyState={() =>
                 renderEmptyState ? (
                   renderEmptyState(fieldState.inputValue)
                 ) : (
-                  <div className="alinea-rac-MultipleSelect-popover-empty">
+                  <div>
                     {fieldState.inputValue ? (
                       <>
                         No results found for:{' '}
