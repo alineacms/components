@@ -72,7 +72,9 @@ export function Menu<T extends object>({
     <Trigger>
       {typeof label === 'string' ? <Button>{label}</Button> : <>{label}</>}
       <Popover>
-        <PrimitiveMenu {...props}>{children}</PrimitiveMenu>
+        <PrimitiveMenu {...props} className="alinea-rac-Menu">
+          {children}
+        </PrimitiveMenu>
       </Popover>
     </Trigger>
   )
