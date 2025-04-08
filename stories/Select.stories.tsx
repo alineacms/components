@@ -85,7 +85,11 @@ export const Basic = () => {
         {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
       </Select>
 
-      <Select items={softwareOptions} label="Design software" selectedKey={3}>
+      <Select
+        items={softwareOptions}
+        label="Design software"
+        defaultSelectedKey={3}
+      >
         {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
       </Select>
 
@@ -119,8 +123,27 @@ export const Basic = () => {
       <Select items={iconOptions} label="Select with Icon">
         {item => (
           <SelectItem key={item.id} textValue={item.name}>
-            <Icon icon={item.icon} />
-            {item.name}
+            <div
+              style={{
+                flexGrow: 1,
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8
+              }}
+            >
+              <Icon icon={item.icon} />
+              <span
+                style={{
+                  flexShrink: 1,
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis'
+                }}
+              >
+                {item.name}
+              </span>
+            </div>
           </SelectItem>
         )}
       </Select>
