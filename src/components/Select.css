@@ -49,6 +49,10 @@
     }
 
     .alinea-rac-SelectTrigger-button-value {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
       flex-grow: 1;
       color: var(--field-text-color);
 
