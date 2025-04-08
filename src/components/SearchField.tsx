@@ -11,7 +11,9 @@ import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 
 export interface SearchFieldProps
   extends SearchFieldPrimitiveProps,
-    LabelSharedProps {}
+    LabelSharedProps {
+  placeholder?: string
+}
 
 export function SearchField(props: SearchFieldProps) {
   return (
@@ -23,7 +25,10 @@ export function SearchField(props: SearchFieldProps) {
         data-disabled={props.isDisabled}
         data-readonly={props.isReadOnly}
       >
-        <Input className="alinea-rac-SearchField-input" />
+        <Input
+          className="alinea-rac-SearchField-input"
+          aria-labelledby={props.id}
+        />
         <Button className="alinea-rac-SearchField-clear">
           <IcRoundCancel />
         </Button>
@@ -31,4 +36,3 @@ export function SearchField(props: SearchFieldProps) {
     </Label>
   )
 }
-
