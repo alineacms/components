@@ -8,7 +8,6 @@ import {
   Button,
   ListBox,
   ListBoxItem,
-  Popover,
   Select as SelectPrimitive,
   SelectStateContext,
   SelectValue
@@ -18,6 +17,8 @@ import {IcRoundClose} from '../icons/IcRoundClose.tsx'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './Select.css'
+import { Popover } from './Popover.tsx'
+
 
 export interface SelectProps<T extends object>
   extends Omit<SelectPrimitiveProps<T>, 'children'>,
@@ -30,15 +31,23 @@ export function Select<T extends object>({
   className,
   ...props
 }: SelectProps<T>) {
+  const content = (
+    <>
+      <SelectTrigger {...props} />
+      <SelectPopover {...props} />
+    </>
+  )
+
   return (
     <SelectPrimitive
       {...props}
       className={clsx('alinea-rac-Select', className)}
     >
-      <Label {...labelProps(props)}>
-        <SelectTrigger {...props} />
-        <SelectPopover {...props} />
-      </Label>
+      {props.label ? (
+        <Label {...labelProps(props)}>{content}</Label>
+      ) : (
+        content
+      )}
     </SelectPrimitive>
   )
 }
@@ -99,10 +108,12 @@ interface SelectItemProps extends ListBoxItemProps {
 }
 
 export function SelectItem({children, ...props}: SelectItemProps) {
+ const textValue = props.textValue || (typeof children === 'string' ? children : "option");
   return (
     <ListBoxItem
       className="alinea-rac-SelectItem"
-      textValue={typeof children === 'string' ? children : props.textValue}
+      
+    textValue={textValue}
       {...props}
     >
       {({isSelected}) => {

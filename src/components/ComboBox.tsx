@@ -10,7 +10,6 @@ import {
   Input,
   ListBox,
   ListBoxItem,
-  Popover,
   ComboBoxStateContext
 } from 'react-aria-components'
 import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
@@ -18,6 +17,7 @@ import {IcRoundClose} from '../icons/IcRoundClose.tsx'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './ComboBox.css'
+import { Popover } from './Popover.tsx'
 
 export interface ComboBoxProps<T extends object>
   extends Omit<ComboBoxPrimitiveProps<T>, 'children'>,
