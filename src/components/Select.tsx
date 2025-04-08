@@ -8,7 +8,6 @@ import {
   Button,
   ListBox,
   ListBoxItem,
-  Popover,
   Select as SelectPrimitive,
   SelectStateContext,
   SelectValue
@@ -18,6 +17,8 @@ import {IcRoundClose} from '../icons/IcRoundClose.tsx'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './Select.css'
+import { Popover } from './Popover.tsx'
+
 
 export interface SelectProps<T extends object>
   extends Omit<SelectPrimitiveProps<T>, 'children'>,

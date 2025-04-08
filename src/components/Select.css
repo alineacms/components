@@ -54,6 +54,8 @@
       align-items: center;
       gap: 8px;
       flex-grow: 1;
+      display: flex;
+      align-items: center;
       color: var(--field-text-color);
 
       &[data-placeholder] {
