@@ -30,15 +30,23 @@ export function Select<T extends object>({
   className,
   ...props
 }: SelectProps<T>) {
+  const content = (
+    <>
+      <SelectTrigger {...props} />
+      <SelectPopover {...props} />
+    </>
+  )
+
   return (
     <SelectPrimitive
       {...props}
       className={clsx('alinea-rac-Select', className)}
     >
-      <Label {...labelProps(props)}>
-        <SelectTrigger {...props} />
-        <SelectPopover {...props} />
-      </Label>
+      {props.label ? (
+        <Label {...labelProps(props)}>{content}</Label>
+      ) : (
+        content
+      )}
     </SelectPrimitive>
   )
 }
