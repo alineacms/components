@@ -5,8 +5,8 @@
   border: 1px solid var(--border-color);
   border-radius: 6px;
   height: 39px;
-  background: var(--field-background); 
-
+  background: var(--field-background);
+  align-items: center;
 
   &:hover {
     outline: 2px solid var(--highlight-overlay);
@@ -18,7 +18,6 @@
   }
 
   .alinea-rac-SearchField-input {
-    
     border-radius: 6px;
     flex: 1;
     font: inherit;
@@ -30,7 +29,7 @@
     font-size: 0.875rem;
     line-height: 1.5;
     color: var(--field-text-color);
-    height: 36px;
+    height: 100%;
     &::-webkit-search-cancel-button,
     &::-webkit-search-decoration {
       -webkit-appearance: none;
@@ -44,7 +43,11 @@
     cursor: pointer;
     font-size: 1rem;
     outline: none;
-    padding-top: 4px;
-    height: 39px;
+    padding: 0px 6px;
+    height: 100%;
+  }
+
+  .alinea-rac-SearchField-clear > svg {
+    display: block;
   }
 }
