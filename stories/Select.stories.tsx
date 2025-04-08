@@ -118,7 +118,7 @@ export const Basic = () => {
 
       <Select items={iconOptions} label="Select with Icon">
         {item => (
-          <SelectItem key={item.id}>
+          <SelectItem key={item.id} textValue={item.name}>
             <Icon icon={item.icon} />
             {item.name}
           </SelectItem>

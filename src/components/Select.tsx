@@ -107,10 +107,12 @@ interface SelectItemProps extends ListBoxItemProps {
 }
 
 export function SelectItem({children, ...props}: SelectItemProps) {
+ const textValue = props.textValue || (typeof children === 'string' ? children : "option");
   return (
     <ListBoxItem
       className="alinea-rac-SelectItem"
-      textValue={typeof children === 'string' ? children : props.textValue}
+      
+    textValue={textValue}
       {...props}
     >
       {({isSelected}) => {
