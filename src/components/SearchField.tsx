@@ -16,6 +16,9 @@ export interface SearchFieldProps
 }
 
 export function SearchField(props: SearchFieldProps) {
+  const ariaLabel =
+    props['aria-label'] || (!props.label ? props.placeholder : undefined)
+
   return (
     <SearchFieldPrimitive
       {...props}
@@ -23,6 +26,7 @@ export function SearchField(props: SearchFieldProps) {
       data-invalid={props.isInvalid}
       data-disabled={props.isDisabled}
       data-readonly={props.isReadOnly}
+      aria-label={ariaLabel}
     >
       <Label {...labelProps(props)} />
       <div className="alinea-rac-SearchField-field">
