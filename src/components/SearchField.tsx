@@ -28,10 +28,7 @@ export function SearchField(props: SearchFieldProps) {
     >
       <Label {...labelProps(props)} />
       <div className="alinea-rac-SearchField-field">
-        <Input
-          className="alinea-rac-SearchField-field-input"
-          aria-labelledby={props.id}
-        />
+        <Input className="alinea-rac-SearchField-field-input" />
         <Button className="alinea-rac-SearchField-field-clear">
           <Icon
             icon={IcRoundCancel}
