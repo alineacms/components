@@ -17,8 +17,7 @@ import {IcRoundClose} from '../icons/IcRoundClose.tsx'
 import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './Select.css'
-import { Popover } from './Popover.tsx'
-
+import {Popover} from './Popover.tsx'
 
 export interface SelectProps<T extends object>
   extends Omit<SelectPrimitiveProps<T>, 'children'>,
@@ -43,11 +42,7 @@ export function Select<T extends object>({
       {...props}
       className={clsx('alinea-rac-Select', className)}
     >
-      {props.label ? (
-        <Label {...labelProps(props)}>{content}</Label>
-      ) : (
-        content
-      )}
+      {props.label ? <Label {...labelProps(props)}>{content}</Label> : content}
     </SelectPrimitive>
   )
 }
@@ -108,12 +103,12 @@ interface SelectItemProps extends ListBoxItemProps {
 }
 
 export function SelectItem({children, ...props}: SelectItemProps) {
- const textValue = props.textValue || (typeof children === 'string' ? children : "option");
+  const textValue =
+    props.textValue || (typeof children === 'string' ? children : 'option')
   return (
     <ListBoxItem
       className="alinea-rac-SelectItem"
-      
-    textValue={textValue}
+      textValue={textValue}
       {...props}
     >
       {({isSelected}) => {
