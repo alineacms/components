@@ -7,6 +7,7 @@ import {
 } from 'react-aria-components'
 import './SearchField.css'
 import {IcRoundCancel} from '../icons/IcRoundCancel.tsx'
+import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 
 export interface SearchFieldProps
@@ -32,7 +33,10 @@ export function SearchField(props: SearchFieldProps) {
           aria-labelledby={props.id}
         />
         <Button className="alinea-rac-SearchField-field-clear">
-          <IcRoundCancel className="alinea-rac-SearchField-field-clear-icon" />
+          <Icon
+            icon={IcRoundCancel}
+            className="alinea-rac-SearchField-field-clear-icon"
+          />
         </Button>
       </div>
     </SearchFieldPrimitive>

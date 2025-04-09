@@ -54,10 +54,6 @@
       outline: none;
       padding: 0px 6px;
       height: 100%;
-
-      > .alinea-rac-SearchField-field-clear-icon {
-        display: block;
-      }
     }
   }
 }
