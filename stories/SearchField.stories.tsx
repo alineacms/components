@@ -4,9 +4,9 @@ export const Example = () => (
   <Stack>
     <SearchField label="Search" />
     <SearchField placeholder="Search..." />
-    <SearchField label="Readonly" isReadOnly={true} />
-    <SearchField label="Invalid" isInvalid={true} />
-    <SearchField label="Required" isRequired={true} />
-    <SearchField label="Disabled" isDisabled={true} />
+    <SearchField label="Search: isReadOnly" isReadOnly={true} />
+    <SearchField label="Search: isInvalid" isInvalid={true} />
+    <SearchField label="Search: isRequired" isRequired={true} />
+    <SearchField label="Search: isDisabled" isDisabled={true} />
   </Stack>
 )
