@@ -17,22 +17,23 @@ export interface SearchFieldProps
 
 export function SearchField(props: SearchFieldProps) {
   return (
-    <Label {...labelProps(props)}>
-      <SearchFieldPrimitive
-        {...props}
-        className={clsx('alinea-rac-SearchField', props.className)}
-        data-invalid={props.isInvalid}
-        data-disabled={props.isDisabled}
-        data-readonly={props.isReadOnly}
-      >
+    <SearchFieldPrimitive
+      {...props}
+      className={clsx('alinea-rac-SearchField', props.className)}
+      data-invalid={props.isInvalid}
+      data-disabled={props.isDisabled}
+      data-readonly={props.isReadOnly}
+    >
+      <Label {...labelProps(props)} />
+      <div className="alinea-rac-SearchField-field">
         <Input
-          className="alinea-rac-SearchField-input"
+          className="alinea-rac-SearchField-field-input"
           aria-labelledby={props.id}
         />
-        <Button className="alinea-rac-SearchField-clear">
+        <Button className="alinea-rac-SearchField-field-clear">
           <IcRoundCancel />
         </Button>
-      </SearchFieldPrimitive>
-    </Label>
+      </div>
+    </SearchFieldPrimitive>
   )
 }
