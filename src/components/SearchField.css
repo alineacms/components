@@ -1,50 +1,62 @@
 @import "../theme.css";
 
 .alinea-rac-SearchField {
-  display: flex;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  height: 39px;
-  background: var(--field-background); 
-
-
-  &:hover {
-    outline: 2px solid var(--highlight-overlay);
-  }
-
-  &:focus-within {
-    border-color: var(--highlight-background);
-    box-shadow: 0 0 0 4px var(--highlight-overlay);
-  }
-
-  .alinea-rac-SearchField-input {
-    
+  .alinea-rac-SearchField-field {
+    align-items: center;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
-    flex: 1;
-    font: inherit;
-    outline: none;
-    width: 100%;
-    padding: 8px 10px;
-    border: none;
-    background: var(--field-background);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--field-text-color);
-    height: 36px;
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-decoration {
-      -webkit-appearance: none;
-    }
-  }
-
-  .alinea-rac-SearchField-clear {
-    background: transparent;
-    border: none;
-    color: var(--icon-color-plain);
-    cursor: pointer;
-    font-size: 1rem;
-    outline: none;
-    padding-top: 4px;
+    display: flex;
     height: 39px;
+    overflow: hidden;
+
+    &:hover {
+      outline: 2px solid var(--highlight-overlay);
+    }
+
+    &:focus-within {
+      border-color: var(--highlight-background);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
+    }
+
+    .alinea-rac-SearchField-field-input {
+      border-radius: 6px;
+      flex: 1;
+      font: inherit;
+      outline: none;
+      width: 100%;
+      padding: 8px 10px;
+      border: none;
+      background: var(--field-background);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--field-text-color);
+      height: 100%;
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+
+      &[value=""] + .alinea-rac-SearchField-field-clear {
+        cursor: text;
+        > svg {
+          visibility: hidden;
+        }
+      }
+    }
+
+    .alinea-rac-SearchField-field-clear {
+      background: var(--field-background);
+      border: none;
+      color: var(--icon-color-plain);
+      cursor: pointer;
+      font-size: 1rem;
+      outline: none;
+      padding: 0px 6px;
+      height: 100%;
+
+      > svg {
+        display: block;
+      }
+    }
   }
 }

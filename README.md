@@ -23,3 +23,7 @@ To create a release, run the following command:
 ```shell
 bun release
 ```
+
+## Auto format
+
+Install the Biome extension to format your code.

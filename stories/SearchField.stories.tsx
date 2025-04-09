@@ -1,3 +1,8 @@
 import {SearchField} from '../src/components/SearchField.tsx'
-
-export const Example = () => <SearchField label="Search" />
+import {Stack} from './Stack.tsx'
+export const Example = () => (
+  <Stack>
+    <SearchField label="Search" />
+    <SearchField placeholder="Search..." />
+  </Stack>
+)

@@ -11,24 +11,33 @@ import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 
 export interface SearchFieldProps
   extends SearchFieldPrimitiveProps,
-    LabelSharedProps {}
-
-export function SearchField(props: SearchFieldProps) {
-  return (
-    <Label {...labelProps(props)}>
-      <SearchFieldPrimitive
-        {...props}
-        className={clsx('alinea-rac-SearchField', props.className)}
-        data-invalid={props.isInvalid}
-        data-disabled={props.isDisabled}
-        data-readonly={props.isReadOnly}
-      >
-        <Input className="alinea-rac-SearchField-input" />
-        <Button className="alinea-rac-SearchField-clear">
-          <IcRoundCancel />
-        </Button>
-      </SearchFieldPrimitive>
-    </Label>
-  )
+    LabelSharedProps {
+  placeholder?: string
 }
 
+export function SearchField(props: SearchFieldProps) {
+  const ariaLabel =
+    props['aria-label'] || (!props.label ? props.placeholder : undefined)
+
+  return (
+    <SearchFieldPrimitive
+      {...props}
+      className={clsx('alinea-rac-SearchField', props.className)}
+      data-invalid={props.isInvalid}
+      data-disabled={props.isDisabled}
+      data-readonly={props.isReadOnly}
+      aria-label={ariaLabel}
+    >
+      <Label {...labelProps(props)} />
+      <div className="alinea-rac-SearchField-field">
+        <Input
+          className="alinea-rac-SearchField-field-input"
+          aria-labelledby={props.id}
+        />
+        <Button className="alinea-rac-SearchField-field-clear">
+          <IcRoundCancel />
+        </Button>
+      </div>
+    </SearchFieldPrimitive>
+  )
+}
