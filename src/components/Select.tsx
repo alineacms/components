@@ -106,7 +106,9 @@ export function SelectItem({children, ...props}: SelectItemProps) {
   const textValue =
     props.textValue || (typeof children === 'string' ? children : undefined)
   if (!textValue)
-    throw 'You must provide a textValue property or a string child to SelectItem'
+    throw new Error(
+      'You must provide a textValue property or a string child to SelectItem'
+    )
 
   return (
     <ListBoxItem
