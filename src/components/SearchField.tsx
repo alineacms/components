@@ -32,7 +32,7 @@ export function SearchField(props: SearchFieldProps) {
           aria-labelledby={props.id}
         />
         <Button className="alinea-rac-SearchField-field-clear">
-          <IcRoundCancel />
+          <IcRoundCancel className="alinea-rac-SearchField-field-clear-icon" />
         </Button>
       </div>
     </SearchFieldPrimitive>

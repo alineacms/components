@@ -38,7 +38,8 @@
 
       &[value=""] + .alinea-rac-SearchField-field-clear {
         cursor: text;
-        > svg {
+
+        > .alinea-rac-SearchField-field-clear-icon {
           visibility: hidden;
         }
       }
@@ -54,7 +55,7 @@
       padding: 0px 6px;
       height: 100%;
 
-      > svg {
+      > .alinea-rac-SearchField-field-clear-icon {
         display: block;
       }
     }
