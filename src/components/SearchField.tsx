@@ -23,9 +23,6 @@ export function SearchField(props: SearchFieldProps) {
     <SearchFieldPrimitive
       {...props}
       className={clsx('alinea-rac-SearchField', props.className)}
-      data-invalid={props.isInvalid}
-      data-disabled={props.isDisabled}
-      data-readonly={props.isReadOnly}
       aria-label={ariaLabel}
     >
       <Label {...labelProps(props)} />
