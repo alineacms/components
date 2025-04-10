@@ -18,6 +18,7 @@
   text-align: left;
   color: var(--field-text-color);
   transition: var(--transition);
+  background: var(--field-background);
 
   &:has(> .alinea-rac-SelectTrigger-button[data-hovered]),
   &:has(> .alinea-rac-SelectTrigger-button[data-focus-visible]),
