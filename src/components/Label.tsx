@@ -27,24 +27,20 @@ export function Label({
   children,
   ...props
 }: LabelProps) {
-  if (
-    !icon &&
-    !label &&
-    !isRequired &&
-    !description &&
-    !errorMessage &&
-    !children
-  )
-    return null
+  const hasLabel = label || isRequired
+  const hasTitle = hasLabel || icon
+  const hasHeader = hasTitle || description
+
+  if (!hasHeader && !errorMessage && !children) return null
 
   return (
     <div className="alinea-rac-Label">
-      {(icon || label || isRequired || description) && (
+      {hasHeader && (
         <header className="alinea-rac-Label-header">
-          {(icon || label || isRequired) && (
+          {hasTitle && (
             <div className="alinea-rac-Label-title">
               {icon && <span className="alinea-rac-Label-icon">{icon}</span>}
-              {(label || isRequired) && (
+              {hasLabel && (
                 <LabelPrimitive {...props} className="alinea-rac-Label-label">
                   {label}
                   {isRequired && (

@@ -7,6 +7,7 @@ import {
 } from 'react-aria-components'
 import './SearchField.css'
 import {IcRoundCancel} from '../icons/IcRoundCancel.tsx'
+import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 
 export interface SearchFieldProps
@@ -23,19 +24,16 @@ export function SearchField(props: SearchFieldProps) {
     <SearchFieldPrimitive
       {...props}
       className={clsx('alinea-rac-SearchField', props.className)}
-      data-invalid={props.isInvalid}
-      data-disabled={props.isDisabled}
-      data-readonly={props.isReadOnly}
       aria-label={ariaLabel}
     >
       <Label {...labelProps(props)} />
       <div className="alinea-rac-SearchField-field">
-        <Input
-          className="alinea-rac-SearchField-field-input"
-          aria-labelledby={props.id}
-        />
+        <Input className="alinea-rac-SearchField-field-input" />
         <Button className="alinea-rac-SearchField-field-clear">
-          <IcRoundCancel />
+          <Icon
+            icon={IcRoundCancel}
+            className="alinea-rac-SearchField-field-clear-icon"
+          />
         </Button>
       </div>
     </SearchFieldPrimitive>
