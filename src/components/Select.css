@@ -24,7 +24,9 @@
   }
 
   &:has(> .alinea-rac-SelectTrigger-button[data-disabled]) {
-    background-color: var(--field-background);
+    pointer-events: none;
+    background-color: var(--field-background-disabled);
+    color: var(--text-color-disabled);
     opacity: 0.5;
   }
 

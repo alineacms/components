@@ -19,6 +19,7 @@
     line-height: 1.5;
     color: var(--field-text-color);
     transition: var(--transition);
+    background-color: var(--field-background);
 
     &::placeholder {
       color: var(--text-color-placeholder);
@@ -38,12 +39,15 @@
     }
     &[disabled] {
       pointer-events: none;
-      background-color: var(--background-color);
+      background-color: var(--field-background-disabled);
+      color: var(--text-color-disabled);
       opacity: 0.5;
     }
     &[readonly] {
       pointer-events: none;
+      background-color: var(--field-background-disabled);
       color: var(--text-color-disabled);
+      opacity: 1;
     }
   }
 

@@ -22,16 +22,17 @@ export function SearchField(props: SearchFieldProps) {
       {...props}
       className={clsx('alinea-rac-SearchField', props.className)}
     >
-      <Label {...labelProps(props)} />
-      <div className="alinea-rac-SearchField-field">
-        <Input className="alinea-rac-SearchField-field-input" />
-        <Button className="alinea-rac-SearchField-field-clear">
-          <Icon
-            icon={IcRoundCancel}
-            className="alinea-rac-SearchField-field-clear-icon"
-          />
-        </Button>
-      </div>
+      <Label {...labelProps(props)}>
+        <div className="alinea-rac-SearchField-field">
+          <Input className="alinea-rac-SearchField-field-input" />
+          <Button className="alinea-rac-SearchField-field-clear">
+            <Icon
+              icon={IcRoundCancel}
+              className="alinea-rac-SearchField-field-clear-icon"
+            />
+          </Button>
+        </div>
+      </Label>
     </SearchFieldPrimitive>
   )
 }

@@ -1,6 +1,12 @@
 @import "../theme.css";
 
 .alinea-rac-SearchField {
+  &:not(:has(input[readonly]), [data-disabled="true"], [data-invalid="true"]) {
+    .alinea-rac-SearchField-field:hover {
+      outline: 2px solid var(--highlight-overlay);
+    }
+  }
+
   .alinea-rac-SearchField-field {
     align-items: center;
     border: 1px solid var(--border-color);
@@ -9,13 +15,14 @@
     height: 39px;
     overflow: hidden;
 
-    &:hover {
-      outline: 2px solid var(--highlight-overlay);
-    }
-
     &:focus-within {
       border-color: var(--highlight-background);
       box-shadow: 0 0 0 4px var(--highlight-overlay);
+    }
+
+    [data-invalid="true"] & {
+      border: 1px solid var(--danger-500);
+      outline: 3px solid rgb(from var(--danger-500) r g b / 50%);
     }
 
     .alinea-rac-SearchField-field-input {
@@ -53,6 +60,25 @@
       outline: none;
       padding: 0px 6px;
       height: 100%;
+    }
+
+    .alinea-rac-SearchField-field-input,
+    .alinea-rac-SearchField-field-clear {
+      &[disabled] {
+        pointer-events: none;
+        background-color: var(--field-background-disabled);
+        color: var(--text-color-disabled);
+        opacity: 0.5;
+      }
+    }
+
+    .alinea-rac-SearchField-field-input[readonly],
+    .alinea-rac-SearchField-field-input[readonly]
+      + .alinea-rac-SearchField-field-clear {
+      pointer-events: none;
+      background-color: var(--field-background-disabled);
+      color: var(--text-color-disabled);
+      opacity: 1;
     }
   }
 }

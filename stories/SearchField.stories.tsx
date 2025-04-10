@@ -6,7 +6,11 @@ export const Example = () => (
     <SearchField aria-label="Search" />
     <SearchField aria-label="Search" placeholder="Search..." />
     <SearchField label="Search: isReadOnly" isReadOnly={true} />
-    <SearchField label="Search: isInvalid" isInvalid={true} />
+    <SearchField
+      errorMessage="Lorem ipsum"
+      isInvalid={true}
+      label="Search: isInvalid"
+    />
     <SearchField label="Search: isRequired" isRequired={true} />
     <SearchField label="Search: isDisabled" isDisabled={true} />
   </Stack>
