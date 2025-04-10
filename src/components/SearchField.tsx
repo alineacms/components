@@ -17,14 +17,10 @@ export interface SearchFieldProps
 }
 
 export function SearchField(props: SearchFieldProps) {
-  const ariaLabel =
-    props['aria-label'] || (!props.label ? props.placeholder : undefined)
-
   return (
     <SearchFieldPrimitive
       {...props}
       className={clsx('alinea-rac-SearchField', props.className)}
-      aria-label={ariaLabel}
     >
       <Label {...labelProps(props)} />
       <div className="alinea-rac-SearchField-field">

@@ -3,7 +3,8 @@ import {Stack} from './Stack.tsx'
 export const Example = () => (
   <Stack>
     <SearchField label="Search" />
-    <SearchField placeholder="Search..." />
+    <SearchField aria-label="Search" />
+    <SearchField aria-label="Search" placeholder="Search..." />
     <SearchField label="Search: isReadOnly" isReadOnly={true} />
     <SearchField label="Search: isInvalid" isInvalid={true} />
     <SearchField label="Search: isRequired" isRequired={true} />
