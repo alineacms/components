@@ -76,7 +76,7 @@ export const Basic = () => {
   ]
 
   return (
-    <Stack align="normal">
+    <Stack align="flex-start">
       <Select
         items={softwareOptions}
         label="Design software"
