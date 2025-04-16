@@ -5,22 +5,31 @@
   flex-direction: column;
   gap: 4px;
   color: var(--text-color);
+  
+  .alinea-rac-DateField-input {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--field-background);
+    width: fit-content;
+    white-space: nowrap;
+    transition: var(--transition);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .alinea-rac-DateField-segment {
+    padding: 4px;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    color: var(--text-color);
+  }
+  
 }
 
-.alinea-rac-DateField-input {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background: var(--field-background);
-  width: fit-content;
-  white-space: nowrap;
-  transition: var(--transition);
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
+
 
 .alinea-rac-DateField-input:focus-within {
   border-color: var(--highlight-background);
@@ -28,12 +37,6 @@
   outline: none;
 }
 
-.alinea-rac-DateField-segment {
-  padding: 4px;
-  font-variant-numeric: tabular-nums;
-  text-align: center;
-  color: var(--text-color);
-}
 
 .alinea-rac-DateField-segment[data-type="literal"] {
   padding: 0;
