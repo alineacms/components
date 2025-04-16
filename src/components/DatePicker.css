@@ -17,6 +17,7 @@
 
   &[data-hovered] {
     border-color: var(--border-color-hover);
+    box-shadow: 0 0 0 4px var(--highlight-overlay);
   }
   &[data-focus-within],
   .react-aria-DateRangePicker[data-open="true"] & {
