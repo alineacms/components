@@ -18,19 +18,19 @@
     font-size: 0.875rem;
     line-height: 1.5;
     color: var(--field-text-color);
-    transition: var(--transition);
     background-color: var(--field-background);
 
     &::placeholder {
       color: var(--text-color-placeholder);
+
     }
 
     &[data-hovered] {
       border-color: var(--border-color-hover);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
     }
     &[data-focused] {
-      border-color: var(--highlight-background);
-      border-color: var(--indigo-500);
+      border-color: var(--border-color-hover);
       box-shadow: 0 0 0 4px var(--highlight-overlay);
     }
     &[data-invalid="true"] {
