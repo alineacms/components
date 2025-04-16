@@ -16,6 +16,7 @@
   .alinea-rac-Checkbox-box {
     width: 16px;
     height: 16px;
+    background-color: var(--overlay-background);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     display: flex;
