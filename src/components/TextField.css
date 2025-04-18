@@ -12,14 +12,14 @@
     outline: none;
     width: 100%;
     padding: 8px 10px;
+    background-color: var(--field-background);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    background-color: transparent;
+    outline: 4px solid transparent;
+    color: var(--field-text-color);
     font-size: 0.875rem;
     line-height: 1.5;
-    color: var(--field-text-color);
     transition: var(--transition);
-    background-color: var(--field-background);
 
     &::placeholder {
       color: var(--text-color-placeholder);
@@ -27,15 +27,15 @@
 
     &[data-hovered] {
       border-color: var(--border-color-hover);
+      outline-color: var(--box-shadow-color);
     }
     &[data-focused] {
-      border-color: var(--highlight-background);
-      border-color: var(--indigo-500);
-      box-shadow: 0 0 0 4px var(--highlight-overlay);
+      border-color: var(--highlight-border);
+      outline-color: var(--highlight-overlay);
     }
     &[data-invalid="true"] {
-      border: 1px solid var(--danger-500);
-      outline: 3px solid rgb(from var(--danger-500) r g b / 50%);
+      border-color: var(--invalid-color);
+      outline-color: var(--invalid-overlay);
     }
     &[disabled] {
       pointer-events: none;

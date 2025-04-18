@@ -76,10 +76,15 @@ export const Basic = () => {
   ]
 
   return (
-    <Stack align="flex-start">
+    <Stack align="normal">
+      <Select items={softwareOptions} label="Design software">
+        {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
+      </Select>
+
       <Select
         items={softwareOptions}
         label="Design software"
+        description="Placeholder"
         placeholder="Select a software"
       >
         {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
@@ -88,37 +93,11 @@ export const Basic = () => {
       <Select
         items={softwareOptions}
         label="Design software"
+        description="Initial selected key"
         defaultSelectedKey={3}
       >
         {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
       </Select>
-
-      <Select items={softwareOptions} label="Select: isDisabled" isDisabled>
-        {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
-      </Select>
-
-      <Select
-        items={softwareOptions}
-        label="SelectItem: isDisabled"
-        disabledKeys={[2, 4]}
-      >
-        {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
-      </Select>
-
-      <form onSubmit={e => e.preventDefault()}>
-        <Stack gap={8}>
-          <Select
-            isRequired
-            items={softwareOptions}
-            label="Design software"
-            description="Validation on submit"
-            errorMessage="Please select an item in the list."
-          >
-            {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
-          </Select>
-          <Button type="submit">Submit</Button>
-        </Stack>
-      </form>
 
       <Select items={iconOptions} label="Select with Icon">
         {item => (
@@ -155,6 +134,54 @@ export const Basic = () => {
       <Select label="Funny long text options" items={longTextOptions}>
         {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
       </Select>
+
+      <h3 style={{marginBottom: 0}}>States</h3>
+
+      <Select
+        isDisabled
+        items={softwareOptions}
+        label="Select"
+        description="isDisabled"
+      >
+        {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
+      </Select>
+
+      <Select
+        disabledKeys={[2, 4]}
+        items={softwareOptions}
+        label="SelectItem"
+        description="isDisabled"
+      >
+        {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
+      </Select>
+
+      <Select
+        isRequired
+        isInvalid
+        items={softwareOptions}
+        label="Design software"
+        description="isInvalid"
+        errorMessage="Please select an item in the list."
+      >
+        {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
+      </Select>
+
+      <form onSubmit={e => e.preventDefault()}>
+        <Stack gap={8} align="normal">
+          <Select
+            isRequired
+            items={softwareOptions}
+            label="Design software"
+            description="Validation on submit"
+            errorMessage="Please select an item in the list."
+          >
+            {item => <SelectItem key={item.id}>{item.name}</SelectItem>}
+          </Select>
+          <Button type="submit" style={{alignSelf: 'flex-start'}}>
+            Submit
+          </Button>
+        </Stack>
+      </form>
     </Stack>
   )
 }
@@ -226,7 +253,7 @@ export const Details = () => {
     <Stack align="normal">
       <Select label="Rich text options" items={richTextOptions}>
         {item => (
-          <SelectItem key={item.id}>
+          <SelectItem key={item.id} textValue={item.title}>
             <Stack gap={0}>
               <p style={{margin: 0}}>
                 <strong>{item.title}</strong>
