@@ -2,26 +2,27 @@
 
 .alinea-rac-Checkbox {
   --selected-color: var(--highlight-background);
-  --selected-color-pressed: var(--highlight-background-pressed);
   --checkmark-color: var(--highlight-foreground);
 
   cursor: pointer;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.571rem;
   font-size: 0.875rem;
+  line-height: 1;
   color: var(--text-color);
   forced-color-adjust: none;
 
   .alinea-rac-Checkbox-box {
     width: 16px;
     height: 16px;
-    background-color: var(--overlay-background);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--field-background);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     transition: var(--transition);
     transition-property: background, border, box-shadow;
   }
@@ -50,8 +51,8 @@
   &[data-selected],
   &[data-indeterminate] {
     .alinea-rac-Checkbox-box {
+      background-color: var(--selected-color);
       border-color: var(--selected-color);
-      background: var(--selected-color);
     }
 
     &[data-hovered] .alinea-rac-Checkbox-box {
@@ -90,13 +91,40 @@
     &[data-selected],
     &[data-indeterminate] {
       .alinea-rac-Checkbox-box {
-        background: var(--invalid-color);
+        background-color: var(--invalid-color);
       }
     }
   }
 
-  &[data-disabled] {
+  &[data-disabled],
+  &[data-readonly] {
     pointer-events: none;
     color: var(--text-color-disabled);
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+
+    .alinea-rac-Checkbox-box {
+      background-color: var(--field-background-disabled);
+      border-color: var(--border-color);
+    }
+  }
+
+  &[data-readonly] {
+    .alinea-rac-Checkbox-box {
+      background-color: var(--border-color);
+      border-color: var(--border-color);
+    }
+  }
+
+  .alinea-rac-Label-description {
+    color: var(--text-color-base);
+    font-size: 12px;
+    line-height: normal;
+    font-weight: 400;
+    font-style: italic;
+    white-space: normal;
+    word-wrap: break-word;
   }
 }
