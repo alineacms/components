@@ -4,6 +4,7 @@
   &:not(:has(input[readonly]), [data-disabled="true"], [data-invalid="true"]) {
     .alinea-rac-SearchField-field:hover {
       border-color: var(--border-color-hover);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
     }
   }
 
@@ -82,7 +83,6 @@
       background-color: var(--field-background-disabled);
       color: var(--text-color-disabled);
       opacity: 1;
+    }
   }
-
-}
 }
