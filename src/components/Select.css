@@ -16,7 +16,11 @@
   transition: var(--transition);
   background: var(--field-background);
 
-  &:has(> .alinea-rac-SelectTrigger-button[data-hovered]),
+  &:has(> .alinea-rac-SelectTrigger-button[data-hovered]) {
+    border-color: var(--border-color-hover);
+    outline-color: var(--box-shadow-color);
+  }
+
   &:has(> .alinea-rac-SelectTrigger-button[data-focus-visible]),
   &:has(> .alinea-rac-SelectTrigger-button[aria-expanded="true"]) {
     border-color: var(--highlight-border);
