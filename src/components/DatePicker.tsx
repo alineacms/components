@@ -38,7 +38,16 @@ export function DatePicker<T extends DateValue>({
         className={clsx('alinea-rac-DatePicker', props.className)}
       >
         <Group>
-          <DateInput>{segment => <DateSegment segment={segment} />}</DateInput>
+          <div className="alinea-rac-DateField-input">
+            <DateInput>
+              {segment => (
+                <DateSegment
+                  segment={segment}
+                  className="alinea-rac-DateField-segment"
+                />
+              )}
+            </DateInput>
+          </div>
           <Button>▼</Button>
         </Group>
         <Popover>
