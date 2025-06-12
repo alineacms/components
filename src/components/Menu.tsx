@@ -10,12 +10,12 @@ import {
   Separator as PrimitiveSeparator,
   SubmenuTrigger
 } from 'react-aria-components'
-import {IcRoundKeyboardArrowRight} from '../icons/IcRoundKeyboardArrowRight.tsx'
+import {IcRoundKeyboardArrowRight} from '../stories/icons/IcRoundKeyboardArrowRight.tsx'
 import {Button} from './Button.tsx'
 import {Icon} from './Icon.tsx'
 import {Popover} from './Popover.tsx'
 import './Menu.css'
-import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
+import {IcRoundCheck} from '../stories/icons/IcRoundCheck.tsx'
 
 export function MenuItem(props: MenuItemProps) {
   const textValue =

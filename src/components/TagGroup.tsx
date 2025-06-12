@@ -12,7 +12,7 @@ import type {
 } from 'react-aria-components'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './TagGroup.css'
-import {IcRoundCancel} from '../icons/IcRoundCancel.tsx'
+import {IcRoundCancel} from '../stories/icons/IcRoundCancel.tsx'
 import {Icon} from './Icon.tsx'
 
 export type IntentProps = 'primary' | 'secondary'

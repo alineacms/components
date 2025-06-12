@@ -19,8 +19,8 @@ import {
   TagList
 } from 'react-aria-components'
 import {type ListData, useListData} from 'react-stately'
-import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
-import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundCheck} from '../stories/icons/IcRoundCheck.tsx'
+import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
 import {ListBoxItem} from '../todo/ListBox.tsx'
 import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'

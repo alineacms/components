@@ -12,9 +12,9 @@ import {
   SelectStateContext,
   SelectValue
 } from 'react-aria-components'
-import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
-import {IcRoundClose} from '../icons/IcRoundClose.tsx'
-import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundCheck} from '../stories/icons/IcRoundCheck.tsx'
+import {IcRoundClose} from '../stories/icons/IcRoundClose.tsx'
+import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './Select.css'
 import {Popover} from './Popover.tsx'

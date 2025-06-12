@@ -1,4 +1,4 @@
 /** @type {import('@ladle/react').UserConfig} */
 export default {
-  stories: "stories/**/*.stories.tsx",
-};
+  stories: 'src/components/**/*.stories.tsx'
+}
