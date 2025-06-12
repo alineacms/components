@@ -8,3 +8,7 @@ export const Example = (args: any) => (
     <ToggleButton id="right">Right</ToggleButton>
   </ToggleButtonGroup>
 )
+
+export default {
+  title: 'Todo / ToogleButtonGroup'
+}

@@ -37,3 +37,7 @@ export const Example = (args: any) => (
     </Checkbox>
   </Toolbar>
 )
+
+export default {
+  title: 'Todo / Toolbar'
+}
