@@ -5,3 +5,5 @@ export const Example = (args: any) => <ColorField {...args} />
 Example.args = {
   label: 'Color'
 }
+
+export default { title: 'Todo / ColorField' }

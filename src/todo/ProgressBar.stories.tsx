@@ -6,3 +6,5 @@ Example.args = {
   label: 'Loading…',
   value: 80
 }
+
+export default { title: 'Todo / ProgressBar' }

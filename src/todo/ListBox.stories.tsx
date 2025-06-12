@@ -13,3 +13,5 @@ Example.args = {
   onAction: null,
   selectionMode: 'single'
 }
+
+export default { title: 'Todo / ListBox' }

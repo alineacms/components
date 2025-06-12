@@ -40,3 +40,5 @@ export const Example = (args: any) => (
 Example.args = {
   defaultExpandedKeys: ['personal']
 }
+
+export default { title: 'Todo / DisclosureGroup' }

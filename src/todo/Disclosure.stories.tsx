@@ -7,3 +7,5 @@ export const Example = (args: any) => (
 Example.args = {
   title: 'Manage your account'
 }
+
+export default { title: 'Todo / Disclosure' }

@@ -7,3 +7,5 @@ Example.args = {
   defaultValue: '#f00',
   channel: 'alpha'
 }
+
+export default { title: 'Todo / ColorSlider' }

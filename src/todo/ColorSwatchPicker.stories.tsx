@@ -10,3 +10,5 @@ export const Example = (args: any) => (
     <ColorSwatchPickerItem color="#008" />
   </ColorSwatchPicker>
 )
+
+export default { title: 'Todo / ColorSwatchPicker' }

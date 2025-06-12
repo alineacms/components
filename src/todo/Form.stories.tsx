@@ -8,3 +8,5 @@ export const Example = (args: any) => (
     <Button type="submit">Submit</Button>
   </Form>
 )
+
+export default { title: 'Todo / Form' }

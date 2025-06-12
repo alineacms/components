@@ -6,3 +6,5 @@ Example.args = {
   label: 'Fill color',
   defaultValue: '#f00'
 }
+
+export default { title: 'Todo / ColorPicker' }

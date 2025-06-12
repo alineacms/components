@@ -6,3 +6,5 @@ Example.args = {
   label: 'Storage space',
   value: 80
 }
+
+export default { title: 'Todo / Meter' }

@@ -7,3 +7,5 @@ Example.args = {
   defaultValue: [30, 60],
   thumbLabels: ['start', 'end']
 }
+
+export default { title: 'Todo / Slider' }
