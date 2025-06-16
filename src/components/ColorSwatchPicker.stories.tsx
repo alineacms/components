@@ -11,4 +11,4 @@ export const Example = (args: any) => (
   </ColorSwatchPicker>
 )
 
-export default { title: 'Todo / ColorSwatchPicker' }
+export default {title: 'Components / ColorSwatchPicker'}

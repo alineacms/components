@@ -6,4 +6,4 @@ Example.args = {
   color: '#f00a'
 }
 
-export default { title: 'Todo / ColorSwatch' }
+export default {title: 'Components / ColorSwatch'}

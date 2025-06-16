@@ -4,26 +4,27 @@ import {
   type ColorSwatchPickerItemProps,
   type ColorSwatchPickerProps
 } from 'react-aria-components'
-
-import {MyColorSwatch} from './ColorSwatch.tsx'
-
 import './ColorSwatchPicker.css'
+import {ColorSwatch} from './ColorSwatch.tsx'
 
 export function ColorSwatchPicker({
   children,
   ...props
 }: ColorSwatchPickerProps) {
-  return <AriaColorSwatchPicker {...props}>{children}</AriaColorSwatchPicker>
-}
-
-export {ColorSwatchPicker as MyColorSwatchPicker}
-
-export function ColorSwatchPickerItem(props: ColorSwatchPickerItemProps) {
   return (
-    <AriaColorSwatchPickerItem {...props}>
-      <MyColorSwatch />
-    </AriaColorSwatchPickerItem>
+    <AriaColorSwatchPicker {...props} className="alinea-rac-ColorSwatchPicker">
+      {children}
+    </AriaColorSwatchPicker>
   )
 }
 
-export {ColorSwatchPickerItem as MyColorSwatchPickerItem}
+export function ColorSwatchPickerItem(props: ColorSwatchPickerItemProps) {
+  return (
+    <AriaColorSwatchPickerItem
+      {...props}
+      className="alinea-rac-ColorSwatchPicker-item"
+    >
+      <ColorSwatch />
+    </AriaColorSwatchPickerItem>
+  )
+}

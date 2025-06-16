@@ -6,10 +6,10 @@ import {
   DialogTrigger,
   Popover
 } from 'react-aria-components'
+import {MyColorSwatch} from '../components/ColorSwatch.tsx'
 import {MyColorArea} from './ColorArea.tsx'
 import {MyColorField} from './ColorField.tsx'
 import {MyColorSlider} from './ColorSlider.tsx'
-import {MyColorSwatch} from './ColorSwatch.tsx'
 
 import './ColorPicker.css'
 
