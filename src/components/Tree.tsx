@@ -1,4 +1,3 @@
-import {useDrag} from 'react-aria'
 import {
   Tree as AriaTree,
   TreeItem as AriaTreeItem,
@@ -34,11 +33,6 @@ export function TreeItem(props: TreeItemProps) {
 function TreeItemContent(
   props: Omit<TreeItemContentProps, 'children'> & {children?: React.ReactNode}
 ) {
-  const {dragProps} = useDrag({
-    getItems() {
-      return [{'text/plain': 'hello world'}]
-    }
-  })
   return (
     <AriaTreeItemContent>
       {({
@@ -47,7 +41,7 @@ function TreeItemContent(
         isExpanded
       }: TreeItemContentRenderProps) => (
         <>
-          <div {...dragProps} className="alinea-TreeItem">
+          <div className="alinea-TreeItem">
             {selectionBehavior === 'toggle' && selectionMode !== 'none' && (
               <Checkbox slot="selection" />
             )}
