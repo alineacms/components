@@ -1,0 +1,74 @@
+.alinea-Tree {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #a2b4bc;
+    border-radius: 50px;
+    height: 6px;
+    width: 6px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    transition: 0.25s ease-out;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    border: 2px solid transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: 0 0;
+    border: none;
+  }
+
+  &::-webkit-scrollbar-track:hover {
+    background: 0 0;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: 0 0;
+  }
+}
+
+.alinea-TreeItem {
+  color: var(--text-color);
+  position: relative;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  margin: 0 12px;
+  font-size: 14px;
+  cursor: pointer;
+  padding-left: calc((var(--tree-item-level) - 1) * 12px);
+
+  &:hover {
+    background: var(--background-color-hover);
+  }
+
+  .alinea-TreeItem-icon {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    margin-right: 4px;
+    height: 20px;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+}
