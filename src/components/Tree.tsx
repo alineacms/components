@@ -40,21 +40,19 @@ function TreeItemContent(
         selectionMode,
         isExpanded
       }: TreeItemContentRenderProps) => (
-        <>
-          <div className="alinea-TreeItem">
-            {selectionBehavior === 'toggle' && selectionMode !== 'none' && (
-              <Checkbox slot="selection" />
+        <div className="alinea-TreeItem">
+          {selectionBehavior === 'toggle' && selectionMode !== 'none' && (
+            <Checkbox slot="selection" />
+          )}
+          <Button slot="chevron" className="alinea-TreeItem-icon">
+            {isExpanded ? (
+              <IcRoundKeyboardArrowDown style={{flexShrink: 0}} />
+            ) : (
+              <IcRoundKeyboardArrowRight style={{flexShrink: 0}} />
             )}
-            <Button slot="chevron" className="alinea-TreeItem-icon">
-              {isExpanded ? (
-                <IcRoundKeyboardArrowDown style={{flexShrink: 0}} />
-              ) : (
-                <IcRoundKeyboardArrowRight style={{flexShrink: 0}} />
-              )}
-            </Button>
-            {props.children}
-          </div>
-        </>
+          </Button>
+          {props.children}
+        </div>
       )}
     </AriaTreeItemContent>
   )
