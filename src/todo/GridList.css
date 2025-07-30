@@ -1,6 +1,3 @@
-@import "./ToggleButton.css";
-@import "../theme.css";
-
 .react-aria-GridList {
   display: flex;
   flex-direction: column;
@@ -26,14 +23,14 @@
   .react-aria-GridListItem {
     display: flex;
     align-items: center;
-    gap: 0.571rem;
+    gap: 0.499625rem;
     min-height: 28px;
-    padding: 0.286rem 0.286rem 0.286rem 0.571rem;
+    padding: 0.25025rem 0.25025rem 0.25025rem 0.499625rem;
     border-radius: 6px;
     outline: none;
     cursor: default;
     color: var(--text-color);
-    font-size: 1.072rem;
+    font-size: 0.9380000000000001rem;
     position: relative;
     transform: translateZ(0);
 
@@ -74,9 +71,9 @@
     .react-aria-Button {
       background: transparent;
       border: none;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       line-height: 1.2em;
-      padding: 0.286rem 0.429rem;
+      padding: 0.25025rem 0.375375rem;
       transition: background 200ms;
 
       &[data-hovered] {
@@ -87,6 +84,12 @@
         background: var(--highlight-pressed);
         box-shadow: none;
       }
+    }
+
+    .react-aria-Button[slot="drag"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 

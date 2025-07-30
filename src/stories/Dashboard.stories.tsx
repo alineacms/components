@@ -50,7 +50,7 @@ export function Home() {
                 <DragNDrop />
               </div>
               <div style={{marginLeft: 'auto'}}>
-                <Button>Create new</Button>
+                <Button intent="secondary">Create new</Button>
               </div>
             </div>
           </Allotment.Pane>
