@@ -1,7 +1,7 @@
 import {Tree, TreeItem} from './Tree.tsx'
 
-export const Example = args => (
-  <Tree aria-label="Files" {...args}>
+export const Example = () => (
+  <Tree aria-label="Files">
     <TreeItem title="Documents">
       <TreeItem title="Project">
         <TreeItem title="Weekly Report" />
@@ -13,8 +13,3 @@ export const Example = args => (
     </TreeItem>
   </Tree>
 )
-
-Example.args = {
-  style: {height: '300px'},
-  defaultExpandedKeys: ['documents', 'photos', 'project']
-}
