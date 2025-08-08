@@ -1,5 +1,3 @@
-'use client'
-
 import clsx from 'clsx'
 import {ProgressBar, type ProgressBarProps} from 'react-aria-components'
 

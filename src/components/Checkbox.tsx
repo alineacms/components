@@ -1,13 +1,23 @@
+import clsx from 'clsx'
 import {
   Checkbox as CheckboxPrimitive,
-  type CheckboxProps
+  type CheckboxProps as CheckboxPrimitiveProps
 } from 'react-aria-components'
 import './Checkbox.css'
-import clsx from 'clsx'
 
 export type {CheckboxProps} from 'react-aria-components'
 
-export function Checkbox({children, ...props}: CheckboxProps) {
+interface CheckboxProps extends CheckboxPrimitiveProps {
+  label?: string
+  description?: string
+}
+
+export function Checkbox({
+  label,
+  description,
+  children,
+  ...props
+}: CheckboxProps) {
   return (
     <CheckboxPrimitive
       {...props}
@@ -28,7 +38,10 @@ export function Checkbox({children, ...props}: CheckboxProps) {
               )}
             </svg>
           </div>
-          {children}
+          {label || children}
+          {description && (
+            <div className="alinea-rac-Label-description">{description}</div>
+          )}
         </>
       )}
     </CheckboxPrimitive>

@@ -1,8 +1,7 @@
 import {
-  Popover as PopoverPrimitive,
   type PopoverProps as AriaPopoverProps,
+  Popover as PopoverPrimitive
 } from 'react-aria-components'
-
 import './Popover.css'
 
 export interface PopoverProps extends Omit<AriaPopoverProps, 'children'> {
@@ -11,8 +10,8 @@ export interface PopoverProps extends Omit<AriaPopoverProps, 'children'> {
 
 export function Popover({children, ...props}: PopoverProps) {
   return (
-    <PopoverPrimitive className={"alinea-rac-Popover"} {...props}>
-    {children}
+    <PopoverPrimitive className={'alinea-rac-Popover'} {...props}>
+      {children}
     </PopoverPrimitive>
   )
 }

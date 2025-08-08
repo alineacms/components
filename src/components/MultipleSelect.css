@@ -1,0 +1,181 @@
+@import "../theme.css";
+
+.alinea-rac-MultipleSelect {
+  .alinea-rac-MultipleSelect-container {
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 4px 6px;
+    min-height: 39px;
+    background-color: var(--field-background);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    outline: 4px solid transparent;
+    transition: var(--transition);
+
+    &:has(.alinea-rac-MultipleSelect-input[data-hovered]) {
+      border-color: var(--border-color-hover);
+      outline-color: var(--box-shadow-color);
+    }
+
+    &:has(.alinea-rac-MultipleSelect-input[data-focused]) {
+      border-color: var(--highlight-border);
+      outline-color: var(--highlight-overlay);
+    }
+
+    &:has(.alinea-rac-MultipleSelect-input[data-invalid="true"]) {
+      border-color: var(--invalid-color);
+      outline-color: var(--invalid-overlay);
+    }
+
+    &:has(.alinea-rac-MultipleSelect-input[data-disabled]) {
+      pointer-events: none;
+      background-color: var(--field-background-disabled);
+      color: var(--text-color-disabled);
+      opacity: 0.5;
+    }
+  }
+
+  .alinea-rac-MultipleSelect-tagGroup {
+    .alinea-rac-MultipleSelect-tagGroup-tagList {
+      gap: 6px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .alinea-rac-Tag {
+      font-size: 12px;
+    }
+  }
+
+  .alinea-rac-MultipleSelect-comboBox {
+    flex-grow: 1;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .alinea-rac-MultipleSelect-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .alinea-rac-MultipleSelect-input {
+      flex-grow: 1;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 0;
+      color: var(--field-text-color);
+      font: inherit;
+      font-size: 0.875rem;
+      line-height: 1.5;
+
+      &::placeholder {
+        color: var(--text-color-placeholder);
+      }
+    }
+
+    .alinea-rac-MultipleSelect-trigger {
+      position: relative;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: inherit;
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        background-color: transparent;
+        transition: var(--transition);
+        transition-property: background-color;
+      }
+
+      &:hover:before,
+      &:focus:before {
+        background-color: var(--background-color);
+      }
+
+      .alinea-rac-MultipleSelect-trigger-icon {
+        position: relative;
+      }
+    }
+  }
+}
+
+.alinea-rac-MultipleSelectPopover {
+  width: var(--trigger-width);
+
+  .alinea-rac-MultipleSelectPopover-empty {
+    margin: 0;
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+
+  .alinea-rac-MultipleSelectPopover-listbox {
+    outline: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    width: 100%;
+    display: block;
+    min-height: unset;
+    max-height: inherit;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--field-background);
+  }
+}
+
+.alinea-rac-MultipleSelectItem {
+  scroll-snap-align: start;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.4rem;
+  padding-right: 2.4rem;
+  display: flex;
+  outline: none;
+  border-radius: 4px;
+  justify-content: space-between;
+  position: relative;
+
+  .alinea-rac-MultipleSelectItem-check {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+
+  &[data-focus-visible] {
+    outline: none;
+  }
+
+  &[data-selected] {
+    font-weight: 600;
+    background: var(--border-color);
+    color: var(--text-color);
+    position: relative;
+  }
+
+  &[data-focused],
+  &[data-pressed] {
+    background: var(--highlight-background);
+    color: var(--highlight-foreground);
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.2;
+  }
+}
