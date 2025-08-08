@@ -1,4 +1,3 @@
-import {IcRoundRefresh} from 'alinea/ui/icons/IcRoundRefresh'
 import {
   type CSSProperties,
   type HTMLAttributes,
@@ -10,6 +9,7 @@ import {IcRoundAccountCircle} from '../stories/icons/IcRoundAccountCircle.tsx'
 import {IcRoundArchive} from '../stories/icons/IcRoundArchive.tsx'
 import {IcRoundHistory} from '../stories/icons/IcRoundHistory.tsx'
 import {IcRoundLanguage} from '../stories/icons/IcRoundLanguage.tsx'
+import {IcRoundRefresh} from '../stories/icons/IcRoundRefresh.tsx'
 import {IcRoundSearch} from '../stories/icons/IcRoundSearch.tsx'
 import {IcRoundSettings} from '../stories/icons/IcRoundSettings.tsx'
 import {Button} from './Button.tsx'
