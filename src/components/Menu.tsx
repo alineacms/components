@@ -17,6 +17,8 @@ import {Popover} from './Popover.tsx'
 import './Menu.css'
 import {IcRoundCheck} from '../stories/icons/IcRoundCheck.tsx'
 
+export {MenuSection} from 'react-aria-components'
+
 export function MenuItem(props: MenuItemProps) {
   const textValue =
     props.textValue ||
