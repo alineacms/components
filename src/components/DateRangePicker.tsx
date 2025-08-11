@@ -15,9 +15,9 @@ import {
 } from 'react-aria-components'
 
 import './DateRangePicker.css'
-import {IcRoundCalendarMonth} from '../icons/IcRoundCalendarMonth.tsx'
-import {IcRoundKeyboardArrowLeft} from '../icons/IcRoundKeyboardArrowLeft.tsx'
-import {IcRoundKeyboardArrowRight} from '../icons/IcRoundKeyboardArrowRight.tsx'
+import {IcRoundCalendarMonth} from '../stories/icons/IcRoundCalendarMonth.tsx'
+import {IcRoundKeyboardArrowLeft} from '../stories/icons/IcRoundKeyboardArrowLeft.tsx'
+import {IcRoundKeyboardArrowRight} from '../stories/icons/IcRoundKeyboardArrowRight.tsx'
 import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import {Popover} from './Popover.tsx'
