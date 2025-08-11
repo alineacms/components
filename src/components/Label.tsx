@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import {
   FieldError,
   Label as LabelPrimitive,
@@ -8,10 +9,11 @@ import './Label.css'
 import type {ReactNode} from 'react'
 
 export interface LabelSharedProps {
-  label: ReactNode
+  label?: ReactNode
   description?: ReactNode
   errorMessage?: ReactNode | ((validation: ValidationResult) => ReactNode)
   isRequired?: boolean
+  isDisabled?: boolean
   icon?: ReactNode
   id?: string
 }
@@ -27,22 +29,34 @@ export function Label({
   children,
   ...props
 }: LabelProps) {
+  const hasLabel = label || isRequired
+  const hasTitle = hasLabel || icon
+  const hasHeader = hasTitle || description
+
+  if (!hasHeader && !errorMessage && !children) return null
+
   return (
-    <div className="alinea-rac-Label">
-      <header className="alinea-rac-Label-header">
-        <div className="alinea-rac-Label-title">
-          {icon && <span className="alinea-rac-Label-icon">{icon}</span>}
-          <LabelPrimitive {...props} className="alinea-rac-Label-label">
-            {label}
-            {isRequired && (
-              <span className="alinea-rac-Label-required"> *</span>
-            )}
-          </LabelPrimitive>
-        </div>
-        {description && (
-          <div className="alinea-rac-Label-description">{description}</div>
-        )}
-      </header>
+    <div className={clsx('alinea-rac-Label', props.className)}>
+      {hasHeader && (
+        <header className="alinea-rac-Label-header">
+          {hasTitle && (
+            <div className="alinea-rac-Label-title">
+              {icon && <span className="alinea-rac-Label-icon">{icon}</span>}
+              {hasLabel && (
+                <LabelPrimitive {...props} className="alinea-rac-Label-label">
+                  {label}
+                  {isRequired && (
+                    <span className="alinea-rac-Label-required"> *</span>
+                  )}
+                </LabelPrimitive>
+              )}
+            </div>
+          )}
+          {description && (
+            <div className="alinea-rac-Label-description">{description}</div>
+          )}
+        </header>
+      )}
       {children}
       {errorMessage && (
         <FieldError className="alinea-rac-Label-error">

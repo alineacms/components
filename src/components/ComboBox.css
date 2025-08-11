@@ -108,11 +108,8 @@
   }
 }
 
-.alinea-rac-ComboboxPopover {
-  width: var(--trigger-width);
-  &[data-clear] {
-    width: calc(var(--trigger-width) + 40px);
-  }
+
+
 
   .alinea-rac-ComboboxPopover-listbox {
     outline: none;
@@ -127,7 +124,7 @@
     border: 1px solid var(--border-color);
     background-color: var(--field-background);
   }
-}
+
 
 .alinea-rac-ComboboxClear {
   position: relative;

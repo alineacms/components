@@ -6,29 +6,50 @@ import {
   type SearchFieldProps as SearchFieldPrimitiveProps
 } from 'react-aria-components'
 import './SearchField.css'
-import {IcRoundCancel} from '../icons/IcRoundCancel.tsx'
+import {IcRoundClose} from '../stories/icons/IcRoundClose.tsx'
+import {IcRoundSearch} from '../stories/icons/IcRoundSearch.tsx'
+import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
+import {ProgressCircle} from './ProgressCircle.tsx'
 
 export interface SearchFieldProps
   extends SearchFieldPrimitiveProps,
-    LabelSharedProps {}
-
-export function SearchField(props: SearchFieldProps) {
-  return (
-    <Label {...labelProps(props)}>
-      <SearchFieldPrimitive
-        {...props}
-        className={clsx('alinea-rac-SearchField', props.className)}
-        data-invalid={props.isInvalid}
-        data-disabled={props.isDisabled}
-        data-readonly={props.isReadOnly}
-      >
-        <Input className="alinea-rac-SearchField-input" />
-        <Button className="alinea-rac-SearchField-clear">
-          <IcRoundCancel />
-        </Button>
-      </SearchFieldPrimitive>
-    </Label>
-  )
+    LabelSharedProps {
+  placeholder?: string
+  hasIcon?: boolean
+  isPending?: boolean
 }
 
+export function SearchField({hasIcon, isPending, ...props}: SearchFieldProps) {
+  return (
+    <SearchFieldPrimitive
+      {...props}
+      className={clsx('alinea-rac-SearchField', props.className)}
+    >
+      <Label {...labelProps(props)}>
+        <div className="alinea-rac-SearchField-field">
+          {hasIcon && !isPending && (
+            <Icon
+              icon={IcRoundSearch}
+              className="alinea-rac-SearchField-field-icon"
+            />
+          )}
+          {hasIcon && isPending && (
+            <ProgressCircle
+              isIndeterminate
+              aria-label="Refreshing..."
+              className="alinea-rac-SearchField-field-pending"
+            />
+          )}
+          <Input className="alinea-rac-SearchField-field-input" />
+          <Button className="alinea-rac-SearchField-field-clear">
+            <Icon
+              icon={IcRoundClose}
+              className="alinea-rac-SearchField-field-clear-icon"
+            />
+          </Button>
+        </div>
+      </Label>
+    </SearchFieldPrimitive>
+  )
+}

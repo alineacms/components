@@ -1,6 +1,6 @@
 {
   "name": "@alinea/components",
-  "version": "0.0.14",
+  "version": "0.0.22",
   "type": "module",
   "repository": {
     "type": "git",
@@ -23,24 +23,33 @@
     "./package.json": "./package.json"
   },
   "peerDependencies": {
-    "react-aria-components": "1.x"
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@ladle/react": "^5.0.1",
+    "@react-types/shared": "^3.31.0",
+    "@react-types/tooltip": "^3.4.19",
     "@types/bun": "^1.1.14",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "alinea": "^1.2.0",
-    "esbuild": "^0.24.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "clsx": "^2.1.1",
+    "dtsroll": "^1.4.1",
+    "esbuild": "^0.25.5",
+    "react-aria": "^3.42.0",
+    "react-aria-components": "^1.11.0",
+    "react-stately": "^3.40.0",
     "typescript": "^5.7.3"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@latest"
   },
   "scripts": {
     "release": "bun release.ts",
-    "dev": "node ./node_modules/.bin/ladle serve",
+    "dev": "ladle serve",
     "build": "ladle build",
-    "prepublishOnly": "rm -rf dist && tsc -p tsconfig.d.json && bun build.ts"
+    "package": "bun package.ts",
+    "prepublishOnly": "bun package.ts"
   }
 }

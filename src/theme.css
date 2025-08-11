@@ -83,7 +83,8 @@
   --border-color: var(--gray-300);
   --border-color-hover: var(--gray-400);
   --border-color-pressed: var(--gray-500);
-  --field-background: var(--gray-50);
+  --field-background: white;
+  --field-background-disabled: var(--gray-50);
   --field-text-color: var(--gray-700);
   --overlay-background: var(--gray-50);
   --background-color: var(--gray-200);

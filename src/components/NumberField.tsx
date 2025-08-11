@@ -5,8 +5,8 @@ import {
   NumberField as NumberFieldPrimitive,
   type NumberFieldProps as NumberFieldPrimitiveProps
 } from 'react-aria-components'
-import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
-import {IcRoundKeyboardArrowUp} from '../icons/IcRoundKeyboardArrowUp.tsx'
+import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundKeyboardArrowUp} from '../stories/icons/IcRoundKeyboardArrowUp.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './NumberField.css'
 
