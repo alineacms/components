@@ -1,0 +1,8 @@
+@import "../theme.css";
+
+.alinea-rac-Form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}

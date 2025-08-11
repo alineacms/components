@@ -7,17 +7,17 @@ import type {
 import {
   Button,
   ComboBox as ComboBoxPrimitive,
+  ComboBoxStateContext,
   Input,
   ListBox,
-  ListBoxItem,
-  ComboBoxStateContext
+  ListBoxItem
 } from 'react-aria-components'
-import {IcRoundCheck} from '../icons/IcRoundCheck.tsx'
-import {IcRoundClose} from '../icons/IcRoundClose.tsx'
-import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundCheck} from '../stories/icons/IcRoundCheck.tsx'
+import {IcRoundClose} from '../stories/icons/IcRoundClose.tsx'
+import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import './ComboBox.css'
-import { Popover } from './Popover.tsx'
+import {Popover} from './Popover.tsx'
 
 export interface ComboBoxProps<T extends object>
   extends Omit<ComboBoxPrimitiveProps<T>, 'children'>,
@@ -67,8 +67,14 @@ function ComboBoxPopover<T extends object>(props: ComboBoxProps<T>) {
   const hasClear = Boolean(state?.inputValue)
 
   return (
-    <Popover className="alinea-rac-ComboboxPopover" data-clear={hasClear || undefined}>
-      <ListBox items={props.items} className="alinea-rac-ComboboxPopover-listbox">
+    <Popover
+      className="alinea-rac-ComboboxPopover"
+      data-clear={hasClear || undefined}
+    >
+      <ListBox
+        items={props.items}
+        className="alinea-rac-ComboboxPopover-listbox"
+      >
         {props.children}
       </ListBox>
     </Popover>
@@ -103,7 +109,9 @@ export function ComboBoxItem({children, ...props}: ComboBoxItemProps) {
       {({isSelected}) => (
         <>
           {children}
-          {isSelected && <IcRoundCheck className="alinea-rac-ComboBoxItem-check" />}
+          {isSelected && (
+            <IcRoundCheck className="alinea-rac-ComboBoxItem-check" />
+          )}
         </>
       )}
     </ListBoxItem>

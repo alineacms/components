@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "outDir": "dist/types",
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -11,14 +14,12 @@
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "allowImportingTsExtensions": true,
-    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "skipLibCheck": true,
-    "types": ["vite/client"],
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["."],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

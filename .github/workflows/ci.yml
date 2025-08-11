@@ -16,7 +16,6 @@ jobs:
         with:
           bun-version: latest
       - run: bun i
-      - run: bun tsc
       - run: bun prepublishOnly && bunx pkg-pr-new publish --comment=off
       - uses: nowsprinting/check-version-format-action@v3
         id: version

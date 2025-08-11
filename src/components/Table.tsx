@@ -17,8 +17,8 @@ import type {
   TableHeaderProps,
   TableProps as TablePrimitiveProps
 } from 'react-aria-components'
-import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
-import {IcRoundKeyboardArrowUp} from '../icons/IcRoundKeyboardArrowUp.tsx'
+import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundKeyboardArrowUp} from '../stories/icons/IcRoundKeyboardArrowUp.tsx'
 import {Checkbox} from './Checkbox.tsx'
 import './Table.css'
 import type {PropsWithChildren} from 'react'
