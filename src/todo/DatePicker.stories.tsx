@@ -2,7 +2,7 @@ import {endOfYear, getLocalTimeZone, today} from '@internationalized/date'
 import {useState} from 'react'
 import {I18nProvider} from 'react-aria-components'
 import {DatePicker} from './DatePicker.tsx'
-import {Stack} from '../../stories/Stack.tsx'
+import {Stack} from '../stories/Stack.tsx'
 
 export const Example = () => {
   const [error, setError] = useState(false)

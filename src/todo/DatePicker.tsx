@@ -13,9 +13,9 @@ import {
   Group,
   Heading
 } from 'react-aria-components'
-import {IcRoundKeyboardArrowDown} from '../icons/IcRoundKeyboardArrowDown.tsx'
-import {IcRoundKeyboardArrowLeft} from '../icons/IcRoundKeyboardArrowLeft.tsx'
-import {IcRoundKeyboardArrowRight} from '../icons/IcRoundKeyboardArrowRight.tsx'
+import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundKeyboardArrowLeft} from '../stories/icons/IcRoundKeyboardArrowLeft.tsx'
+import {IcRoundKeyboardArrowRight} from '../stories/icons/IcRoundKeyboardArrowRight.tsx'
 import {Icon} from '../components/Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from '../components/Label.tsx'
 import {Popover} from '../components/Popover.tsx'
