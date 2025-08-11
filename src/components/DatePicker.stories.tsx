@@ -40,4 +40,4 @@ export const Example = () => {
   )
 }
 
-export default {title: 'Todo / DatePicker'}
+export default {title: 'Components / DatePicker'}

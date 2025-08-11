@@ -16,9 +16,9 @@ import {
 import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
 import {IcRoundKeyboardArrowLeft} from '../stories/icons/IcRoundKeyboardArrowLeft.tsx'
 import {IcRoundKeyboardArrowRight} from '../stories/icons/IcRoundKeyboardArrowRight.tsx'
-import {Icon} from '../components/Icon.tsx'
-import {Label, type LabelSharedProps, labelProps} from '../components/Label.tsx'
-import {Popover} from '../components/Popover.tsx'
+import {Icon} from './Icon.tsx'
+import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
+import {Popover} from './Popover.tsx'
 import './DatePicker.css'
 
 export interface DatePickerProps<T extends DateValue>
