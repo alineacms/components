@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import {RangeCalendarComponent} from './Calendar.tsx'
 import {
   type DateRangePickerProps as AriaDateRangePickerProps,
   Button,
@@ -10,6 +9,7 @@ import {
   Dialog,
   Group
 } from 'react-aria-components'
+import {RangeCalendar} from './Calendar.tsx'
 import './DateRangePicker.css'
 import {IcRoundCalendarMonth} from '../stories/icons/IcRoundCalendarMonth.tsx'
 import {Icon} from './Icon.tsx'
@@ -62,7 +62,7 @@ export function DateRangePicker<T extends DateValue>({
       </Label>
       <Popover>
         <Dialog className="alinea-rac-DateRangePicker-dialog">
-          <RangeCalendarComponent />
+          <RangeCalendar />
         </Dialog>
       </Popover>
     </DateRangePickerPrimitive>

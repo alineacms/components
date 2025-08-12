@@ -6,7 +6,6 @@ import {
   type CalendarProps as CalendarPrimitiveProps,
   type DateValue,
   Heading,
-  RangeCalendar,
   type RangeCalendarProps
 } from 'react-aria-components'
 import {IcRoundKeyboardArrowLeft} from '../stories/icons/IcRoundKeyboardArrowLeft.tsx'
@@ -37,7 +36,7 @@ export function Calendar<T extends DateValue>(
   )
 }
 
-export function RangeCalendarComponent<T extends DateValue>(
+export function RangeCalendar<T extends DateValue>(
   props: RangeCalendarProps<T>
 ) {
   return (

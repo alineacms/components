@@ -66,8 +66,8 @@
   .alinea-rac-DateRangePicker-trigger {
     cursor: pointer;
     border: none;
-    width: 32px;
-    height: 32px;
+    width: 1.5em;
+    height: 1.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +76,7 @@
     margin-left: auto;
     transition: var(--transition);
     color: var(--icon-color-plain);
-    font-size: 1rem;
+    font-size: inherit;
 
     &[data-hovered],
     &[data-focus-within] {
@@ -85,5 +85,3 @@
     }
   }
 }
-
-
