@@ -56,4 +56,4 @@ export const CustomValidation = () => {
   )
 }
 
-export default { title: 'Todo / DateRangePicker' }
+export default {title: 'Components / DateRangePicker'}

@@ -1,0 +1,74 @@
+
+@import "../theme.css";
+
+.alinea-rac-Calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .alinea-rac-Calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 8px;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+  
+    .alinea-rac-Calendar-heading {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  
+    .alinea-rac-Calendar-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 4px;
+      color: var(--icon-color);
+      transition: var(--transition);
+    }
+  
+    .alinea-rac-Calendar-cell {
+      text-align: center;
+      padding: 6px;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      transition: var(--transition);
+      cursor: pointer;
+  
+      &[data-selected] {
+        background-color: var(--highlight-background);
+        color: var(--highlight-foreground);
+        font-weight: bold;
+      }
+  
+      &[data-disabled] {
+        color: var(--text-color-disabled);
+        cursor: not-allowed;
+      }
+
+      &[data-selection-start] {
+        background-color: var(--highlight-background);
+        border-start-start-radius: 6px;
+        border-end-start-radius: 6px;
+      }
+      &[data-selection-end] {
+        background-color: var(--highlight-background);
+        border-start-end-radius: 6px;
+        border-end-end-radius: 6px;
+      }
+    }
+
+    .alinea-rac-Calendar-grid {
+        border-spacing: 0px;
+        td {
+          padding: 0px;
+          padding-top: 4px;
+        }
+      }
+  }
+  

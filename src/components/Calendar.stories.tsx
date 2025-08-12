@@ -4,4 +4,4 @@ export const Example = (args: any) => (
   <Calendar aria-label="Event date" {...args} />
 )
 
-export default { title: 'Todo / Calendar' }
+export default {title: 'Components / Calendar'}

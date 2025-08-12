@@ -18,8 +18,7 @@
   &[data-hovered] {
     border-color: var(--border-color-hover);
   }
-  &[data-focus-within],
-  .react-aria-DateRangePicker[data-open="true"] & {
+  &[data-focus-within] {
     border-color: var(--highlight-background);
     border-color: var(--indigo-500);
     box-shadow: 0 0 0 4px var(--highlight-overlay);
@@ -87,70 +86,4 @@
   }
 }
 
-.alinea-rac-DateRangePicker-calendar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  .alinea-rac-DateRangePicker-calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 8px;
-    font-weight: bold;
-    color: var(--text-color);
-  }
-
-  .alinea-rac-DateRangePicker-calendar-heading {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-
-  .alinea-rac-DateRangePicker-calendar-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 4px;
-    color: var(--icon-color);
-    transition: var(--transition);
-  }
-
-  .alinea-rac-DateRangePicker-calendar-cell {
-    text-align: center;
-    padding: 6px;
-    font-size: 0.875rem;
-    transition: var(--transition);
-    cursor: pointer;
-  }
-  .alinea-rac-DateRangePicker-calendar-cell[data-selected] {
-    background-color: var(--indigo-300);
-    color: var(--highlight-foreground);
-    font-weight: bold;
-  }
-
-  .alinea-rac-DateRangePicker-calendar-cell[data-disabled] {
-    color: var(--text-color-disabled);
-    cursor: not-allowed;
-  }
-  .alinea-rac-DateRangePicker-calendar-cell[data-selection-start] {
-    background-color: var(--highlight-background);
-    border-start-start-radius: 6px;
-    border-end-start-radius: 6px;
-  }
-  .alinea-rac-DateRangePicker-calendar-cell[data-selection-end] {
-    background-color: var(--highlight-background);
-    border-start-end-radius: 6px;
-    border-end-end-radius: 6px;
-  }
-}
-
-.alinea-rac-DateRangePicker-calendar-grid {
-  border-spacing: 0px;
-  td {
-    padding: 0px;
-    padding-top: 4px;
-  }
-}

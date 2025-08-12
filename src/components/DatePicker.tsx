@@ -1,21 +1,16 @@
 import clsx from 'clsx'
+import {Calendar} from './Calendar.tsx'
 import {
   Button,
-  Calendar,
-  CalendarCell,
-  CalendarGrid,
   DateInput,
   DatePicker as DatePickerPrimitive,
   type DatePickerProps as DatePickerPrimitiveProps,
   DateSegment,
   type DateValue,
   Dialog,
-  Group,
-  Heading
+  Group
 } from 'react-aria-components'
 import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
-import {IcRoundKeyboardArrowLeft} from '../stories/icons/IcRoundKeyboardArrowLeft.tsx'
-import {IcRoundKeyboardArrowRight} from '../stories/icons/IcRoundKeyboardArrowRight.tsx'
 import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import {Popover} from './Popover.tsx'
@@ -48,31 +43,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
       </Label>
       <Popover>
         <Dialog>
-          <Calendar className="alinea-rac-DatePicker-calendar">
-            <header className="alinea-rac-DatePicker-calendar-header">
-              <Button
-                slot="previous"
-                className="alinea-rac-DatePicker-calendar-button"
-              >
-                <Icon icon={IcRoundKeyboardArrowLeft} />
-              </Button>
-              <Heading className="alinea-rac-DatePicker-calendar-heading" />
-              <Button
-                slot="next"
-                className="alinea-rac-DatePicker-calendar-button"
-              >
-                <Icon icon={IcRoundKeyboardArrowRight} />
-              </Button>
-            </header>
-            <CalendarGrid className="alinea-rac-DatePicker-calendar-grid">
-              {date => (
-                <CalendarCell
-                  date={date}
-                  className="alinea-rac-DatePicker-calendar-cell"
-                />
-              )}
-            </CalendarGrid>
-          </Calendar>
+          <Calendar />
         </Dialog>
       </Popover>
     </DatePickerPrimitive>

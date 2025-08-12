@@ -1,23 +1,17 @@
 import clsx from 'clsx'
+import {RangeCalendarComponent} from './Calendar.tsx'
 import {
   type DateRangePickerProps as AriaDateRangePickerProps,
   Button,
-  CalendarCell,
-  CalendarGrid,
   DateInput,
   DateRangePicker as DateRangePickerPrimitive,
   DateSegment,
   type DateValue,
   Dialog,
-  Group,
-  Heading,
-  RangeCalendar
+  Group
 } from 'react-aria-components'
-
 import './DateRangePicker.css'
 import {IcRoundCalendarMonth} from '../stories/icons/IcRoundCalendarMonth.tsx'
-import {IcRoundKeyboardArrowLeft} from '../stories/icons/IcRoundKeyboardArrowLeft.tsx'
-import {IcRoundKeyboardArrowRight} from '../stories/icons/IcRoundKeyboardArrowRight.tsx'
 import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import {Popover} from './Popover.tsx'
@@ -68,31 +62,7 @@ export function DateRangePicker<T extends DateValue>({
       </Label>
       <Popover>
         <Dialog className="alinea-rac-DateRangePicker-dialog">
-          <RangeCalendar className="alinea-rac-DateRangePicker-calendar">
-            <header className="alinea-rac-DateRangePicker-calendar-header">
-              <Button
-                slot="previous"
-                className="alinea-rac-DateRangePicker-calendar-button"
-              >
-                <Icon icon={IcRoundKeyboardArrowLeft} />
-              </Button>
-              <Heading className="alinea-rac-DateRangePicker-calendar-heading" />
-              <Button
-                slot="next"
-                className="alinea-rac-DateRangePicker-calendar-button"
-              >
-                <Icon icon={IcRoundKeyboardArrowRight} />
-              </Button>
-            </header>
-            <CalendarGrid className="alinea-rac-DateRangePicker-calendar-grid">
-              {date => (
-                <CalendarCell
-                  date={date}
-                  className="alinea-rac-DateRangePicker-calendar-cell"
-                />
-              )}
-            </CalendarGrid>
-          </RangeCalendar>
+          <RangeCalendarComponent />
         </Dialog>
       </Popover>
     </DateRangePickerPrimitive>
