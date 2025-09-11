@@ -77,7 +77,6 @@
       flex-shrink: 0;
       font-size: 18px;
       color: var(--icon-color);
-      transition: transform 0.3s ease-out;
 
       [aria-expanded="true"] & {
         transform: rotate(180deg);
