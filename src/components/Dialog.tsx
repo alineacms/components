@@ -21,3 +21,5 @@ export function DialogFooter(
 ) {
   return <div {...props} className="alinea-rac-DialogFooter" />
 }
+
+export {DialogTrigger} from 'react-aria-components'
