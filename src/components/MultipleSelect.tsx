@@ -14,6 +14,7 @@ import {
   Input,
   type Key,
   ListBox,
+  ListBoxItem,
   type ListBoxItemProps,
   TagGroup,
   TagList
@@ -21,7 +22,6 @@ import {
 import {type ListData, useListData} from 'react-stately'
 import {IcRoundCheck} from '../stories/icons/IcRoundCheck.tsx'
 import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
-import {ListBoxItem} from '../todo/ListBox.tsx'
 import {Icon} from './Icon.tsx'
 import {Label, type LabelSharedProps, labelProps} from './Label.tsx'
 import {Popover} from './Popover.tsx'
