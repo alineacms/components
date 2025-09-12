@@ -2,7 +2,7 @@ import {DialogTrigger, Heading, Text} from 'react-aria-components'
 import {Stack} from '../stories/Stack.tsx'
 import {Form} from '../todo/Form.tsx'
 import {Button} from './Button.tsx'
-import {Dialog, DialogFooter} from './Dialog.tsx'
+import {Dialog} from './Dialog.tsx'
 import {Modal} from './Modal.tsx'
 import {TextField} from './TextField.tsx'
 
@@ -30,14 +30,12 @@ export const Example = () => (
       <Modal isDismissable style={{width: 460}}>
         <Dialog>
           <Form>
-            <Heading slot="title">Sign up</Heading>
+            <h1>Sign up</h1>
             <TextField name="fname" isRequired label="First Name" autoFocus />
             <TextField name="lname" isRequired label="Last Name" />
-            <DialogFooter>
               <Button type="submit" slot="close">
                 Submit
               </Button>
-            </DialogFooter>
           </Form>
         </Dialog>
       </Modal>
@@ -57,7 +55,7 @@ export const Example = () => (
               isRequired
               label="To confirm, type 'DELETE' in the box below"
             />
-            <DialogFooter
+            <div
               style={{
                 display: 'flex',
                 justifyContent: 'flex-end',
@@ -70,7 +68,7 @@ export const Example = () => (
               <Button type="submit" slot="close" intent="danger" isDisabled>
                 Delete
               </Button>
-            </DialogFooter>
+            </div>
           </Form>
         </Dialog>
       </Modal>

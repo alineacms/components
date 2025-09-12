@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import type {HTMLAttributes, PropsWithChildren} from 'react'
 import {
   Dialog as DialogPrimitive,
   type DialogProps
@@ -14,12 +13,6 @@ export function Dialog(props: DialogProps) {
       className={clsx('alinea-rac-Dialog', props.className)}
     />
   )
-}
-
-export function DialogFooter(
-  props: PropsWithChildren<HTMLAttributes<HTMLDivElement>>
-) {
-  return <div {...props} className="alinea-rac-DialogFooter" />
 }
 
 export {DialogTrigger} from 'react-aria-components'
