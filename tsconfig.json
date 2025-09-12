@@ -18,7 +18,8 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "skipLibCheck": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "rootDir": "./src"
   },
   "include": ["src"],
   "exclude": ["node_modules"]
