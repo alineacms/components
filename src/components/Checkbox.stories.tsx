@@ -27,6 +27,12 @@ export const Example = () => (
 
     <Checkbox isDisabled label="Disabled" description="isDisabled" />
     <Checkbox
+      isSelected
+      isDisabled
+      label="Disabled & selected"
+      description="isDisabled"
+    />
+    <Checkbox
       isReadOnly
       isSelected
       label="Read-only & selected"

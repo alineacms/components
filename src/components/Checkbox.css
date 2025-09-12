@@ -104,11 +104,6 @@
 
   &[data-disabled] {
     opacity: 0.5;
-
-    .alinea-rac-Checkbox-box {
-      background-color: var(--field-background-disabled);
-      border-color: var(--border-color);
-    }
   }
 
   &[data-readonly] {
