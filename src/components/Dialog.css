@@ -1,9 +1,11 @@
 @import "../theme.css";
 
-.alinea-rac-Dialog {
-  outline: none;
-  padding: 22px;
-  max-height: inherit;
-  box-sizing: border-box;
-  overflow: auto;
+@layer alinea {
+  .alinea-rac-Dialog {
+    outline: none;
+    padding: 22px;
+    max-height: inherit;
+    box-sizing: border-box;
+    overflow: auto;
+  }
 }

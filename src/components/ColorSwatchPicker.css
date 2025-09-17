@@ -1,36 +1,38 @@
 @import "../theme.css";
 
-.alinea-rac-ColorSwatchPicker {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  &[data-layout="stack"] {
-    flex-direction: column;
-  }
-}
-
-.alinea-rac-ColorSwatchPicker-item {
-  position: relative;
-  outline: none;
-  border-radius: 4px;
-  forced-color-adjust: none;
-
-  &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
-    outline-offset: 2px;
+@layer alinea {
+  .alinea-rac-ColorSwatchPicker {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    &[data-layout="stack"] {
+      flex-direction: column;
+    }
   }
 
-  &[data-selected]::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 2px solid black;
-    outline: 2px solid white;
-    outline-offset: -4px;
-    border-radius: inherit;
-  }
+  .alinea-rac-ColorSwatchPicker-item {
+    position: relative;
+    outline: none;
+    border-radius: 4px;
+    forced-color-adjust: none;
 
-  &[data-disabled] {
-    opacity: 0.2;
+    &[data-focus-visible] {
+      outline: 2px solid var(--focus-ring-color);
+      outline-offset: 2px;
+    }
+
+    &[data-selected]::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 2px solid black;
+      outline: 2px solid white;
+      outline-offset: -4px;
+      border-radius: inherit;
+    }
+
+    &[data-disabled] {
+      opacity: 0.2;
+    }
   }
 }

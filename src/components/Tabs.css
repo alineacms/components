@@ -1,159 +1,161 @@
 @import "../theme.css";
 
-.alinea-rac-Tabs {
-  display: flex;
-  color: var(--text-color);
-
-  &[data-orientation="horizontal"] {
-    flex-direction: column;
-  }
-
-  &[data-variant="enclosed"] {
-    align-items: flex-start;
-  }
-
-  &[data-orientation="vertical"] {
-    flex-direction: row;
-  }
-}
-
-.alinea-rac-TabPanel {
-  margin-top: 4px;
-  padding: 10px;
-  border-radius: 4px;
-  outline: none;
-
-  [data-orientation="vertical"] & {
-    margin-top: 0;
-  }
-
-  &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
-  }
-}
-
-.alinea-rac-Tab {
-  outline: none;
-  position: relative;
-  color: var(--tab-color-base);
-  font-size: 14px;
-  line-height: 1.25rem;
-  font-weight: 600;
-  forced-color-adjust: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background var(--transition), color var(--transition);
-
-  [data-variant="line"] & {
-    padding: 12px 8px;
-
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: var(--border-color);
-      transform-origin: bottom right;
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-  }
-
-  [data-variant="subtle"] &,
-  [data-variant="enclosed"] & {
-    padding: 8px 12px;
-    border-radius: 8px;
-  }
-
-  &[data-hovered],
-  &[data-focused] {
-    color: var(--text-color-hover);
-
-    [data-variant="line"] &:before {
-      transform-origin: bottom left;
-      transform: scaleX(1);
-    }
-
-    [data-variant="subtle"] &,
-    [data-variant="enclosed"] & {
-      background-color: var(--background-color-hover);
-    }
-  }
-
-  &[data-selected] {
+@layer alinea {
+  .alinea-rac-Tabs {
+    display: flex;
     color: var(--text-color);
 
-    [data-variant="line"] &:before {
-      background-color: var(--highlight-background);
-      transform-origin: bottom left;
-      transform: scaleX(1);
-    }
-
-    [data-variant="subtle"] &,
-    [data-variant="enclosed"] & {
-      color: var(--tab-color-active);
-      background-color: var(--tab-background-color-active);
-    }
-  }
-
-  &[data-disabled] {
-    color: var(--text-color-disabled);
-    &[data-selected] {
-      --border-color: var(--border-color-disabled);
-    }
-  }
-
-  &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
-  }
-
-  &[href] {
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  &[data-selected] {
-    background-color: var(--primary-color);
-    color: var(--text-color-light);
-  }
-}
-.alinea-rac-Tablist {
-  overflow-x: auto;
-  max-width: 100%;
-  margin: -2px;
-  padding: 2px;
-  white-space: nowrap;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-color) transparent;
-
-  .alinea-rac-Tablist-list {
-    display: flex;
-    margin-bottom: 4px;
-
     &[data-orientation="horizontal"] {
-      border-bottom: 1px solid var(--border-color);
+      flex-direction: column;
     }
 
-    [data-variant="subtle"] &,
-    [data-variant="enclosed"] & {
-      border: none;
-      gap: 4px;
-    }
-
-    [data-variant="enclosed"] & {
-      background-color: var(--tab-background-color);
-      border-radius: 8px;
-      padding: 4px;
+    &[data-variant="enclosed"] {
+      align-items: flex-start;
     }
 
     &[data-orientation="vertical"] {
-      flex-direction: column;
+      flex-direction: row;
+    }
+  }
+
+  .alinea-rac-TabPanel {
+    margin-top: 4px;
+    padding: 10px;
+    border-radius: 4px;
+    outline: none;
+
+    [data-orientation="vertical"] & {
+      margin-top: 0;
+    }
+
+    &[data-focus-visible] {
+      outline: 2px solid var(--focus-ring-color);
+    }
+  }
+
+  .alinea-rac-Tab {
+    outline: none;
+    position: relative;
+    color: var(--tab-color-base);
+    font-size: 14px;
+    line-height: 1.25rem;
+    font-weight: 600;
+    forced-color-adjust: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background var(--transition), color var(--transition);
+
+    [data-variant="line"] & {
+      padding: 12px 8px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: var(--border-color);
+        transform-origin: bottom right;
+        transform: scaleX(0);
+        transition: var(--transition);
+      }
+    }
+
+    [data-variant="subtle"] &,
+    [data-variant="enclosed"] & {
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    &[data-hovered],
+    &[data-focused] {
+      color: var(--text-color-hover);
+
+      [data-variant="line"] &:before {
+        transform-origin: bottom left;
+        transform: scaleX(1);
+      }
+
+      [data-variant="subtle"] &,
+      [data-variant="enclosed"] & {
+        background-color: var(--background-color-hover);
+      }
+    }
+
+    &[data-selected] {
+      color: var(--text-color);
+
+      [data-variant="line"] &:before {
+        background-color: var(--highlight-background);
+        transform-origin: bottom left;
+        transform: scaleX(1);
+      }
+
+      [data-variant="subtle"] &,
+      [data-variant="enclosed"] & {
+        color: var(--tab-color-active);
+        background-color: var(--tab-background-color-active);
+      }
+    }
+
+    &[data-disabled] {
+      color: var(--text-color-disabled);
+      &[data-selected] {
+        --border-color: var(--border-color-disabled);
+      }
+    }
+
+    &[data-focus-visible] {
+      outline: 2px solid var(--focus-ring-color);
+    }
+
+    &[href] {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    &[data-selected] {
+      background-color: var(--primary-color);
+      color: var(--text-color-light);
+    }
+  }
+  .alinea-rac-Tablist {
+    overflow-x: auto;
+    max-width: 100%;
+    margin: -2px;
+    padding: 2px;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+
+    .alinea-rac-Tablist-list {
+      display: flex;
+      margin-bottom: 4px;
+
+      &[data-orientation="horizontal"] {
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      [data-variant="subtle"] &,
+      [data-variant="enclosed"] & {
+        border: none;
+        gap: 4px;
+      }
+
+      [data-variant="enclosed"] & {
+        background-color: var(--tab-background-color);
+        border-radius: 8px;
+        padding: 4px;
+      }
+
+      &[data-orientation="vertical"] {
+        flex-direction: column;
+      }
     }
   }
 }

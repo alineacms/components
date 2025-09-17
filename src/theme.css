@@ -1,146 +1,147 @@
-* {
-  box-sizing: border-box;
-}
+@layer alinea {
+  :root {
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5dc;
+    --gray-400: #99a1af;
+    --gray-500: #6a7282;
+    --gray-600: #4a5565;
+    --gray-700: #364153;
+    --gray-800: #1e2939;
+    --gray-900: #101828;
 
-:root {
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5dc;
-  --gray-400: #99a1af;
-  --gray-500: #6a7282;
-  --gray-600: #4a5565;
-  --gray-700: #364153;
-  --gray-800: #1e2939;
-  --gray-900: #101828;
+    --indigo-50: #eceffd;
+    --indigo-100: #d6ddfa;
+    --indigo-200: #c1ccf8;
+    --indigo-300: #abbaf5;
+    --indigo-400: #96a8f3;
+    --indigo-500: #8096f0;
+    --indigo-600: #6a84ed;
+    --indigo-700: #5573eb;
+    --indigo-800: #3f61e8;
+    --indigo-900: #3652c5;
+    --indigo-950: #203174;
 
-  --indigo-50: #eceffd;
-  --indigo-100: #d6ddfa;
-  --indigo-200: #c1ccf8;
-  --indigo-300: #abbaf5;
-  --indigo-400: #96a8f3;
-  --indigo-500: #8096f0;
-  --indigo-600: #6a84ed;
-  --indigo-700: #5573eb;
-  --indigo-800: #3f61e8;
-  --indigo-900: #3652c5;
-  --indigo-950: #203174;
+    --danger-50: #ffebee;
+    --danger-100: #ffcdd2;
+    --danger-200: #ef9a9a;
+    --danger-400: #ef5350;
+    --danger-500: #f44336;
+    --danger-600: #e53935;
 
-  --danger-50: #ffebee;
-  --danger-100: #ffcdd2;
-  --danger-200: #ef9a9a;
-  --danger-400: #ef5350;
-  --danger-500: #f44336;
-  --danger-600: #e53935;
+    --warning-50: #fff8e1;
+    --warning-100: #ffecb3;
+    --warning-200: #ffe082;
+    --warning-400: #ffca28;
+    --warning-500: #ffc107;
+    --warning-600: #ffb300;
 
-  --warning-50: #fff8e1;
-  --warning-100: #ffecb3;
-  --warning-200: #ffe082;
-  --warning-400: #ffca28;
-  --warning-500: #ffc107;
-  --warning-600: #ffb300;
+    --highlight-hover: rgb(0 0 0 / 0.07);
+    --highlight-pressed: rgb(0 0 0 / 0.15);
+  }
 
-  --highlight-hover: rgb(0 0 0 / 0.07);
-  --highlight-pressed: rgb(0 0 0 / 0.15);
-}
+  /*  
+    Shared -
+    these colors are the same between light and dark themes
+    to ensure contrast with the foreground color
+  */
+  :root {
+    --highlight-background: var(--indigo-800);
+    --highlight-background-hovered: var(--indigo-700);
+    --highlight-background-pressed: var(--indigo-900);
+    --highlight-background-disabled: var(--indigo-50);
+    --highlight-border: var(--indigo-500);
+    --highlight-background-invalid: #cc2000;
+    --highlight-foreground: white;
+    --highlight-foreground-pressed: #ddd;
+    --highlight-foreground-disabled: var(--indigo-400);
+    --highlight-overlay: rgb(from #3f61e8 r g b / 20%);
+    --selected-background: var(--indigo-50);
+    --selected-foreground: var(--indigo-700);
+    --invalid-color: var(--danger-500);
+    --invalid-color-pressed: var(--danger-600);
+    --invalid-overlay: rgb(from #f44336 r g b / 20%);
+    --transition: 0.2s ease-out;
+    --error-border-color-transparent: rgba(244, 67, 54, 0.5);
+    --calendar-highlight-overlay: rgb(from #3f61e8 r g b / 80%);
+  }
 
-/* Shared */
-:root {
-  /* these colors are the same between light and dark themes
-   * to ensure contrast with the foreground color */
-  --highlight-background: var(--indigo-800);
-  --highlight-background-hovered: var(--indigo-700);
-  --highlight-background-pressed: var(--indigo-900);
-  --highlight-background-disabled: var(--indigo-50);
-  --highlight-border: var(--indigo-500);
-  --highlight-background-invalid: #cc2000;
-  --highlight-foreground: white;
-  --highlight-foreground-pressed: #ddd;
-  --highlight-foreground-disabled: var(--indigo-400);
-  --highlight-overlay: rgb(from #3f61e8 r g b / 20%);
-  --selected-background: var(--indigo-50);
-  --selected-foreground: var(--indigo-700);
-  --invalid-color: var(--danger-500);
-  --invalid-color-pressed: var(--danger-600);
-  --invalid-overlay: rgb(from #f44336 r g b / 20%);
-  --transition: 0.2s ease-out;
-  --error-border-color-transparent: rgba(244, 67, 54, 0.5);
-  --calendar-highlight-overlay: rgb(from #3f61e8 r g b / 80%);
-}
+  /* Light */
+  :root {
+    --focus-ring-color: var(--indigo-500);
+    --text-color: var(--gray-800);
+    --text-color-base: var(--gray-500);
+    --text-color-hover: var(--gray-700);
+    --text-color-focused: var(--gray-900);
+    --text-color-disabled: var(--gray-500);
+    --text-color-placeholder: var(--gray-400);
+    --link-color: var(--indigo-500);
+    --link-color-hover: var(--indigo-600);
+    --link-color-pressed: var(--indigo-700);
+    --border-color: var(--gray-300);
+    --border-color-hover: var(--gray-400);
+    --border-color-pressed: var(--gray-500);
+    --field-background: white;
+    --field-background-disabled: var(--gray-50);
+    --field-text-color: var(--gray-700);
+    --overlay-background: var(--gray-50);
+    --background-color: var(--gray-200);
+    --header-background: var(--gray-100);
+    --background-color-hover: var(--gray-300);
+    --background-color-pressed: var(--gray-400);
+    --box-shadow-color: var(--gray-200);
+    --error-border-color: var(--danger-500);
+    --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
+    --icon-color: var(--gray-600);
+    --icon-color-plain: var(--gray-500);
+    --icon-color-active: var(--indigo-700);
+    --tag-color-disabled: var(--gray-500);
+    --tab-background-color: var(--gray-100);
+    --tab-background-color-active: rgb(from #abbaf5 r g b / 20%);
+    --tab-color-active: var(--indigo-800);
+    --tab-color-base: var(--gray-500);
+    --table-background-striped: var(--gray-50);
+    --table-color-selected: rgb(from #c1ccf8 r g b / 50%);
+  }
 
-/* Light */
-:root {
-  --focus-ring-color: var(--indigo-500);
-  --text-color: var(--gray-800);
-  --text-color-base: var(--gray-500);
-  --text-color-hover: var(--gray-700);
-  --text-color-focused: var(--gray-900);
-  --text-color-disabled: var(--gray-500);
-  --text-color-placeholder: var(--gray-400);
-  --link-color: var(--indigo-500);
-  --link-color-hover: var(--indigo-600);
-  --link-color-pressed: var(--indigo-700);
-  --border-color: var(--gray-300);
-  --border-color-hover: var(--gray-400);
-  --border-color-pressed: var(--gray-500);
-  --field-background: white;
-  --field-background-disabled: var(--gray-50);
-  --field-text-color: var(--gray-700);
-  --overlay-background: var(--gray-50);
-  --background-color: var(--gray-200);
-  --header-background: var(--gray-100);
-  --background-color-hover: var(--gray-300);
-  --background-color-pressed: var(--gray-400);
-  --box-shadow-color: var(--gray-200);
-  --error-border-color: var(--danger-500);
-  --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
-  --icon-color: var(--gray-600);
-  --icon-color-plain: var(--gray-500);
-  --icon-color-active: var(--indigo-700);
-  --tag-color-disabled: var(--gray-500);
-  --tab-background-color: var(--gray-100);
-  --tab-background-color-active: rgb(from #abbaf5 r g b / 20%);
-  --tab-color-active: var(--indigo-800);
-  --tab-color-base: var(--gray-500);
-  --table-background-striped: var(--gray-50);
-  --table-color-selected: rgb(from #c1ccf8 r g b / 50%);
-}
-
-/* Dark */
-:root[data-theme="dark"],
-.alinea-Viewport-is-dark {
-  --focus-ring-color: var(--indigo-500);
-  --text-color: var(--gray-200);
-  --text-color-base: var(--gray-500);
-  --text-color-hover: var(--gray-300);
-  --text-color-focused: var(--gray-100);
-  --text-color-disabled: var(--gray-600);
-  --text-color-placeholder: var(--gray-500);
-  --link-color: var(--indigo-500);
-  --link-color-hover: var(--indigo-400);
-  --link-color-pressed: var(--indigo-300);
-  --border-color: var(--gray-700);
-  --border-color-hover: var(--gray-500);
-  --border-color-pressed: var(--gray-400);
-  --border-color-disabled: var(--gray-800);
-  --field-background: var(--gray-900);
-  --field-text-color: var(--gray-50);
-  --overlay-background: var(--gray-900);
-  --background-color: var(--gray-900);
-  --header-background: var(--gray-800);
-  --background-color-hover: var(--gray-800);
-  --background-color-pressed: var(--gray-700);
-  --box-shadow-color: var(--gray-800);
-  --text-color-readonly: var(--gray-50);
-  --error-border-color: var(--danger-500);
-  --icon-color-active: var(--indigo-50);
-  --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
-  --icon-color-plain: var(--gray-500);
-  --tag-color-disabled: var(--gray-500);
-  --tab-background-color: var(--gray-800);
-  --tab-background-color-active: rgb(from #3f61e8 r g b / 20%);
-  --tab-color-active: var(--indigo-300);
-  --tab-color-base: var(--gray-300);
-  --table-background-striped: var(--gray-900);
-  --table-color-selected: rgb(from #3f61e8 r g b / 30%);
+  /* Dark */
+  :root[data-theme="dark"],
+  .alinea-Viewport-is-dark {
+    color-scheme: dark;
+    --focus-ring-color: var(--indigo-500);
+    --text-color: var(--gray-200);
+    --text-color-base: var(--gray-500);
+    --text-color-hover: var(--gray-300);
+    --text-color-focused: var(--gray-100);
+    --text-color-disabled: var(--gray-600);
+    --text-color-placeholder: var(--gray-500);
+    --link-color: var(--indigo-500);
+    --link-color-hover: var(--indigo-400);
+    --link-color-pressed: var(--indigo-300);
+    --border-color: var(--gray-700);
+    --border-color-hover: var(--gray-500);
+    --border-color-pressed: var(--gray-400);
+    --border-color-disabled: var(--gray-800);
+    --field-background: var(--gray-900);
+    --field-text-color: var(--gray-50);
+    --overlay-background: var(--gray-900);
+    --background-color: var(--gray-900);
+    --header-background: var(--gray-800);
+    --background-color-hover: var(--gray-800);
+    --background-color-pressed: var(--gray-700);
+    --box-shadow-color: var(--gray-800);
+    --text-color-readonly: var(--gray-50);
+    --error-border-color: var(--danger-500);
+    --icon-color-active: var(--indigo-50);
+    --icon-background-color-active: rgb(from #3f61e8 r g b / 20%);
+    --icon-color-plain: var(--gray-500);
+    --tag-color-disabled: var(--gray-500);
+    --tab-background-color: var(--gray-800);
+    --tab-background-color-active: rgb(from #3f61e8 r g b / 20%);
+    --tab-color-active: var(--indigo-300);
+    --tab-color-base: var(--gray-300);
+    --table-background-striped: var(--gray-900);
+    --table-color-selected: rgb(from #3f61e8 r g b / 30%);
+  }
 }

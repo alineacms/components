@@ -1,72 +1,74 @@
 @import "../theme.css";
 
-.alinea-rac-TextField {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+@layer alinea {
+  .alinea-rac-TextField {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-  .alinea-rac-TextField-input,
-  .alinea-rac-TextField-multiline-area,
-  .alinea-rac-TextField-multiline-shadow {
-    font: inherit;
-    outline: none;
-    width: 100%;
-    padding: 8px 10px;
-    background-color: var(--field-background);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    outline: 4px solid transparent;
-    color: var(--field-text-color);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    transition: var(--transition);
+    .alinea-rac-TextField-input,
+    .alinea-rac-TextField-multiline-area,
+    .alinea-rac-TextField-multiline-shadow {
+      font: inherit;
+      outline: none;
+      width: 100%;
+      padding: 8px 10px;
+      background-color: var(--field-background);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      outline: 4px solid transparent;
+      color: var(--field-text-color);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      transition: var(--transition);
 
-    &::placeholder {
-      color: var(--text-color-placeholder);
+      &::placeholder {
+        color: var(--text-color-placeholder);
+      }
+
+      &[data-hovered] {
+        border-color: var(--border-color-hover);
+        outline-color: var(--box-shadow-color);
+      }
+      &[data-focused] {
+        border-color: var(--highlight-border);
+        outline-color: var(--highlight-overlay);
+      }
+      &[data-invalid="true"] {
+        border-color: var(--invalid-color);
+        outline-color: var(--invalid-overlay);
+      }
+      &[disabled] {
+        pointer-events: none;
+        background-color: var(--field-background-disabled);
+        color: var(--text-color-disabled);
+        opacity: 0.5;
+      }
+      &[readonly] {
+        pointer-events: none;
+        background-color: var(--field-background-disabled);
+        color: var(--text-color-disabled);
+        opacity: 1;
+      }
     }
 
-    &[data-hovered] {
-      border-color: var(--border-color-hover);
-      outline-color: var(--box-shadow-color);
+    .alinea-rac-TextField-multiline {
+      display: grid;
+      width: 100%;
     }
-    &[data-focused] {
-      border-color: var(--highlight-border);
-      outline-color: var(--highlight-overlay);
-    }
-    &[data-invalid="true"] {
-      border-color: var(--invalid-color);
-      outline-color: var(--invalid-overlay);
-    }
-    &[disabled] {
-      pointer-events: none;
-      background-color: var(--field-background-disabled);
-      color: var(--text-color-disabled);
-      opacity: 0.5;
-    }
-    &[readonly] {
-      pointer-events: none;
-      background-color: var(--field-background-disabled);
-      color: var(--text-color-disabled);
-      opacity: 1;
-    }
-  }
 
-  .alinea-rac-TextField-multiline {
-    display: grid;
-    width: 100%;
-  }
+    .alinea-rac-TextField-multiline-area {
+      grid-area: 1 / 1 / 2 / 2;
+      overflow-x: auto;
+      resize: none;
+      white-space: pre-wrap;
+    }
 
-  .alinea-rac-TextField-multiline-area {
-    grid-area: 1 / 1 / 2 / 2;
-    overflow-x: auto;
-    resize: none;
-    white-space: pre-wrap;
-  }
-
-  .alinea-rac-TextField-multiline-shadow {
-    grid-area: 1 / 1 / 2 / 2;
-    overflow-x: auto;
-    visibility: hidden;
-    white-space: pre-wrap;
+    .alinea-rac-TextField-multiline-shadow {
+      grid-area: 1 / 1 / 2 / 2;
+      overflow-x: auto;
+      visibility: hidden;
+      white-space: pre-wrap;
+    }
   }
 }

@@ -1,115 +1,113 @@
 @import "../theme.css";
 
-.alinea-rac-ComboboxTrigger {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid var(--border-color);
-  outline: 4px solid transparent;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  text-align: left;
-  color: var(--field-text-color);
-  transition: var(--transition);
-
-  &:has(> .alinea-rac-ComboboxTrigger-input[data-hovered]),
-  &:has(> .alinea-rac-ComboboxTrigger-input[data-focused]),
-  &:has(> .alinea-rac-ComboboxTrigger-input[aria-expanded="true"]),
-  &:has(> .alinea-rac-ComboboxTrigger-button[data-hovered]),
-  &:has(> .alinea-rac-ComboboxTrigger-button[data-open]) {
-    border-color: var(--highlight-border);
-    outline-color: var(--highlight-overlay);
-  }
-
-  &:has(> .alinea-rac-ComboboxTrigger-input[data-disabled]) {
-    pointer-events: none;
-    background-color: var(--field-background);
-    opacity: 0.5;
-  }
-
-  .alinea-rac-Combobox[data-invalid="true"] & {
-    border-color: var(--invalid-color);
-    outline-color: var(--invalid-overlay);
-  }
-  .alinea-rac-ComboboxTrigger-input {
-    appearance: none;
-    background: none;
-    font: inherit;
-    outline: none;
-    border: none;
-    flex-grow: 1;
+@layer alinea {
+  .alinea-rac-ComboboxTrigger {
+    position: relative;
+    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    outline: 4px solid transparent;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    line-height: 1.5;
     text-align: left;
-    padding: 8px 10px 8px 10px;
-    gap: 20px;
+    color: var(--field-text-color);
+    transition: var(--transition);
 
-    &[data-clear] {
-      padding-right: 0;
+    &:has(> .alinea-rac-ComboboxTrigger-input[data-hovered]),
+    &:has(> .alinea-rac-ComboboxTrigger-input[data-focused]),
+    &:has(> .alinea-rac-ComboboxTrigger-input[aria-expanded="true"]),
+    &:has(> .alinea-rac-ComboboxTrigger-button[data-hovered]),
+    &:has(> .alinea-rac-ComboboxTrigger-button[data-open]) {
+      border-color: var(--highlight-border);
+      outline-color: var(--highlight-overlay);
     }
 
-    .alinea-rac-ComboboxTrigger-button-value {
-      flex-grow: 1;
-      color: var(--field-text-color);
+    &:has(> .alinea-rac-ComboboxTrigger-input[data-disabled]) {
+      pointer-events: none;
+      background-color: var(--field-background);
+      opacity: 0.5;
+    }
 
-      &[data-placeholder] {
-        color: var(--text-color-placeholder);
+    .alinea-rac-Combobox[data-invalid="true"] & {
+      border-color: var(--invalid-color);
+      outline-color: var(--invalid-overlay);
+    }
+    .alinea-rac-ComboboxTrigger-input {
+      appearance: none;
+      background: none;
+      font: inherit;
+      outline: none;
+      border: none;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      padding: 8px 10px 8px 10px;
+      gap: 20px;
+
+      &[data-clear] {
+        padding-right: 0;
+      }
+
+      .alinea-rac-ComboboxTrigger-button-value {
+        flex-grow: 1;
+        color: var(--field-text-color);
+
+        &[data-placeholder] {
+          color: var(--text-color-placeholder);
+        }
+      }
+
+      .alinea-rac-ComboboxTrigger-button-arrow {
+        font-size: 18px;
+        color: var(--icon-color);
+        transition: transform 0.3s ease-out;
+
+        [aria-expanded="true"] & {
+          transform: rotate(180deg);
+        }
       }
     }
 
-    .alinea-rac-ComboboxTrigger-button-arrow {
-      font-size: 18px;
-      color: var(--icon-color);
-      transition: transform 0.3s ease-out;
+    .alinea-rac-ComboboxTrigger-button {
+      appearance: none;
+      background: none;
+      font: inherit;
+      outline: none;
+      border: none;
 
-      [aria-expanded="true"] & {
-        transform: rotate(180deg);
+      display: flex;
+      align-items: center;
+      text-align: left;
+      padding: 8px 10px 8px 10px;
+      gap: 20px;
+
+      &[data-clear] {
+        padding-right: 0;
+      }
+
+      .alinea-rac-ComboboxTrigger-button-value {
+        flex-grow: 1;
+        color: var(--field-text-color);
+
+        &[data-placeholder] {
+          color: var(--text-color-placeholder);
+        }
+      }
+
+      .alinea-rac-ComboboxTrigger-button-arrow {
+        font-size: 18px;
+        color: var(--icon-color);
+        transition: transform 0.3s ease-out;
+
+        [aria-expanded="true"] & {
+          transform: rotate(180deg);
+        }
       }
     }
   }
-
-  .alinea-rac-ComboboxTrigger-button {
-    appearance: none;
-    background: none;
-    font: inherit;
-    outline: none;
-    border: none;
-
-    display: flex;
-    align-items: center;
-    text-align: left;
-    padding: 8px 10px 8px 10px;
-    gap: 20px;
-
-    &[data-clear] {
-      padding-right: 0;
-    }
-
-    .alinea-rac-ComboboxTrigger-button-value {
-      flex-grow: 1;
-      color: var(--field-text-color);
-
-      &[data-placeholder] {
-        color: var(--text-color-placeholder);
-      }
-    }
-
-    .alinea-rac-ComboboxTrigger-button-arrow {
-      font-size: 18px;
-      color: var(--icon-color);
-      transition: transform 0.3s ease-out;
-
-      [aria-expanded="true"] & {
-        transform: rotate(180deg);
-      }
-    }
-  }
-}
-
-
-
 
   .alinea-rac-ComboboxPopover-listbox {
     outline: none;
@@ -125,90 +123,90 @@
     background-color: var(--field-background);
   }
 
-
-.alinea-rac-ComboboxClear {
-  position: relative;
-  cursor: pointer;
-  background: none;
-  width: 40px;
-  flex-shrink: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 100%;
-  background-color: transparent;
-  color: var(--icon-color);
-  font-size: 18px;
-  font-size: 14px;
-  outline: none;
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
-    background-color: var(--background-color);
-    z-index: -1;
-    transition: var(--transition);
-    opacity: 0;
-    border: 1px solid transparent;
-    outline: 4px solid transparent;
-  }
-  &:hover:after {
-    opacity: 1;
-  }
-  &:focus:after {
-    background-color: transparent;
-    border-color: var(--highlight-border);
-    outline-color: var(--highlight-overlay);
-    opacity: 1;
-  }
-}
-
-.alinea-rac-ComboBoxItem {
-  cursor: pointer;
-  font-size: 0.875rem;
-  padding: 0.4rem;
-  padding-right: 2.4rem;
-  display: flex;
-  outline: none;
-  border-radius: 4px;
-  justify-content: space-between;
-  position: relative;
-
-  .alinea-rac-ComboBoxItem-check {
-    font-size: 1rem;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-  }
-
-  &[data-focus-visible] {
-    outline: none;
-  }
-
-  &[data-selected] {
-    font-weight: 600;
-    background: var(--border-color);
-    color: var(--text-color);
+  .alinea-rac-ComboboxClear {
     position: relative;
+    cursor: pointer;
+    background: none;
+    width: 40px;
+    flex-shrink: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 100%;
+    background-color: transparent;
+    color: var(--icon-color);
+    font-size: 18px;
+    font-size: 14px;
+    outline: none;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      background-color: var(--background-color);
+      z-index: -1;
+      transition: var(--transition);
+      opacity: 0;
+      border: 1px solid transparent;
+      outline: 4px solid transparent;
+    }
+    &:hover:after {
+      opacity: 1;
+    }
+    &:focus:after {
+      background-color: transparent;
+      border-color: var(--highlight-border);
+      outline-color: var(--highlight-overlay);
+      opacity: 1;
+    }
   }
 
-  &[data-focused],
-  &[data-pressed] {
-    background: var(--highlight-background);
-    color: var(--highlight-foreground);
-  }
+  .alinea-rac-ComboBoxItem {
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: 0.4rem;
+    padding-right: 2.4rem;
+    display: flex;
+    outline: none;
+    border-radius: 4px;
+    justify-content: space-between;
+    position: relative;
 
-  &[data-disabled] {
-    pointer-events: none;
-    opacity: 0.2;
+    .alinea-rac-ComboBoxItem-check {
+      font-size: 1rem;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+
+    &[data-focus-visible] {
+      outline: none;
+    }
+
+    &[data-selected] {
+      font-weight: 600;
+      background: var(--border-color);
+      color: var(--text-color);
+      position: relative;
+    }
+
+    &[data-focused],
+    &[data-pressed] {
+      background: var(--highlight-background);
+      color: var(--highlight-foreground);
+    }
+
+    &[data-disabled] {
+      pointer-events: none;
+      opacity: 0.2;
+    }
   }
 }

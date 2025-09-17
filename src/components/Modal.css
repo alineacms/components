@@ -1,60 +1,62 @@
 @import "../theme.css";
 
-.react-aria-ModalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: var(--visual-viewport-height);
-  padding: 20px;
-  background: rgba(0 0 0 / 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
+@layer alinea {
+  .react-aria-ModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--visual-viewport-height);
+    padding: 20px;
+    background: rgba(0 0 0 / 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
 
-  &[data-entering] {
-    animation: alinea-rac-Modal-fade 200ms;
+    &[data-entering] {
+      animation: alinea-rac-Modal-fade 200ms;
+    }
+
+    &[data-exiting] {
+      animation: alinea-rac-Modal-fade 150ms reverse ease-in;
+    }
   }
 
-  &[data-exiting] {
-    animation: alinea-rac-Modal-fade 150ms reverse ease-in;
-  }
-}
+  .alinea-rac-Modal {
+    outline: none;
+    overflow-y: auto;
+    max-height: 100%;
+    max-width: 460px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    background: var(--overlay-background);
+    box-shadow: 0px 2px 13px rgba(0, 0, 0, 0.11);
+    color: var(--text-color);
 
-.alinea-rac-Modal {
-  outline: none;
-  overflow-y: auto;
-  max-height: 100%;
-  max-width: 460px;
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
-  background: var(--overlay-background);
-  box-shadow: 0px 2px 13px rgba(0, 0, 0, 0.11);
-  color: var(--text-color);
-
-  &[data-entering] {
-    animation: alinea-rac-Modal-zoom 300ms
-      cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-}
-
-@keyframes alinea-rac-Modal-fade {
-  from {
-    opacity: 0;
+    &[data-entering] {
+      animation: alinea-rac-Modal-zoom 300ms
+        cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
   }
 
-  to {
-    opacity: 1;
-  }
-}
+  @keyframes alinea-rac-Modal-fade {
+    from {
+      opacity: 0;
+    }
 
-@keyframes alinea-rac-Modal-zoom {
-  from {
-    transform: scale(0.8);
+    to {
+      opacity: 1;
+    }
   }
 
-  to {
-    transform: scale(1);
+  @keyframes alinea-rac-Modal-zoom {
+    from {
+      transform: scale(0.8);
+    }
+
+    to {
+      transform: scale(1);
+    }
   }
 }

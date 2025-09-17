@@ -1,54 +1,56 @@
 @import "../theme.css";
 
-.alinea-rac-Toolbar {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  padding: 5px;
-
-  &[data-orientation="horizontal"] {
-    flex-direction: row;
-  }
-
-  .alinea-rac-Group {
-    display: contents;
-  }
-
-  .alinea-rac-ToggleButton {
-    width: 32px;
-  }
-
-  .alinea-rac-ToolbarGroup {
+@layer alinea {
+  .alinea-rac-Toolbar {
     display: flex;
-    gap: 8px;
-  }
-  &[data-orientation="vertical"] {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .alinea-rac-ToolbarButton {
-    padding: 5px;
-    border-radius: 5px;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    flex-direction: row;
+    gap: 5px;
     border: 1px solid var(--border-color);
-    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
 
-    &:hover {
-      background-color: var(--hover-color);
+    &[data-orientation="horizontal"] {
+      flex-direction: row;
     }
 
-    &[data-active="true"] {
-      background-color: var(--active-color);
+    .alinea-rac-Group {
+      display: contents;
+    }
+
+    .alinea-rac-ToggleButton {
+      width: 32px;
+    }
+
+    .alinea-rac-ToolbarGroup {
+      display: flex;
+      gap: 8px;
+    }
+    &[data-orientation="vertical"] {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .alinea-rac-ToolbarButton {
+      padding: 5px;
+      border-radius: 5px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--hover-color);
+      }
+
+      &[data-active="true"] {
+        background-color: var(--active-color);
+      }
     }
   }
-}
 
-.alinea-rac-ToolbarSeparator {
-  background-color: var(--border-color);
+  .alinea-rac-ToolbarSeparator {
+    background-color: var(--border-color);
 
-  width: 1px;
+    width: 1px;
+  }
 }

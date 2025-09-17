@@ -1,79 +1,79 @@
 @import "../theme.css";
 
-.alinea-rac-DatePicker {
-  gap: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background-color: transparent;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--field-text-color);
-  transition: var(--transition);
-
-  &[data-hovered] {
-    border-color: var(--border-color-hover);
-    box-shadow: 0 0 0 4px var(--highlight-overlay);
-  }
-  &[data-focus-within] {
-    border-color: var(--indigo-500);
-    box-shadow: 0 0 0 4px var(--highlight-overlay);
-  }
-  &[data-invalid="true"] {
-    border: 1px solid var(--invalid-color);
-    outline: 3px solid var(--invalid-overlay);
-  }
-  &[data-disabled] {
-    pointer-events: none;
-    background-color: var(--background-color);
-    opacity: 0.5;
-  }
-
-  .alinea-rac-DatePicker-input {
-    display: flex;
-
-    .alinea-rac-DatePicker-input-segment {
-      padding-inline: 1px;
-
-      &[data-placeholder] {
-        color: var(--text-color-placeholder);
-      }
-
-      &:focus {
-        outline: none;
-        caret-color: transparent;
-        color: var(--highlight-foreground);
-        border-radius: 4px;
-        background: var(--highlight-background);
-      }
-    }
-  }
-
-  .alinea-rac-DatePicker-trigger {
-    cursor: pointer;
-    border: none;
-    width: 1.5em;
-    height: 1.5em;
+@layer alinea {
+  .alinea-rac-DatePicker {
+    gap: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 4px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     background-color: transparent;
-    margin-left: auto;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--field-text-color);
     transition: var(--transition);
-    color: var(--icon-color-plain);
-    font-size: inherit;
 
-    &[data-hovered],
+    &[data-hovered] {
+      border-color: var(--border-color-hover);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
+    }
     &[data-focus-within] {
+      border-color: var(--indigo-500);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
+    }
+    &[data-invalid="true"] {
+      border: 1px solid var(--invalid-color);
+      outline: 3px solid var(--invalid-overlay);
+    }
+    &[data-disabled] {
+      pointer-events: none;
       background-color: var(--background-color);
-      color: var(--icon-color);
+      opacity: 0.5;
+    }
+
+    .alinea-rac-DatePicker-input {
+      display: flex;
+
+      .alinea-rac-DatePicker-input-segment {
+        padding-inline: 1px;
+
+        &[data-placeholder] {
+          color: var(--text-color-placeholder);
+        }
+
+        &:focus {
+          outline: none;
+          caret-color: transparent;
+          color: var(--highlight-foreground);
+          border-radius: 4px;
+          background: var(--highlight-background);
+        }
+      }
+    }
+
+    .alinea-rac-DatePicker-trigger {
+      cursor: pointer;
+      border: none;
+      width: 1.5em;
+      height: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background-color: transparent;
+      margin-left: auto;
+      transition: var(--transition);
+      color: var(--icon-color-plain);
+      font-size: inherit;
+
+      &[data-hovered],
+      &[data-focus-within] {
+        background-color: var(--background-color);
+        color: var(--icon-color);
+      }
     }
   }
 }
-
-

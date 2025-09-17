@@ -1,87 +1,89 @@
 @import "../theme.css";
 
-.alinea-rac-DateRangePicker {
-  gap: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background-color: transparent;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--field-text-color);
-  transition: var(--transition);
-
-  &[data-hovered] {
-    border-color: var(--border-color-hover);
-  }
-  &[data-focus-within] {
-    border-color: var(--highlight-background);
-    border-color: var(--indigo-500);
-    box-shadow: 0 0 0 4px var(--highlight-overlay);
-  }
-  &[data-invalid="true"] {
-    border: 1px solid var(--invalid-color);
-    outline: 3px solid var(--invalid-overlay);
-  }
-  &[data-disabled] {
-    pointer-events: none;
-    background-color: var(--background-color);
-    opacity: 0.5;
-  }
-
-  .alinea-rac-DateRangePicker-inputs {
-    gap: 4px;
+@layer alinea {
+  .alinea-rac-DateRangePicker {
+    gap: 8px;
     display: flex;
     align-items: center;
-  }
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: transparent;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--field-text-color);
+    transition: var(--transition);
 
-  .alinea-rac-DateRangePicker-input {
-    display: flex;
+    &[data-hovered] {
+      border-color: var(--border-color-hover);
+    }
+    &[data-focus-within] {
+      border-color: var(--highlight-background);
+      border-color: var(--indigo-500);
+      box-shadow: 0 0 0 4px var(--highlight-overlay);
+    }
+    &[data-invalid="true"] {
+      border: 1px solid var(--invalid-color);
+      outline: 3px solid var(--invalid-overlay);
+    }
+    &[data-disabled] {
+      pointer-events: none;
+      background-color: var(--background-color);
+      opacity: 0.5;
+    }
 
-    .alinea-rac-DateRangePicker-input-segment {
-      padding-inline: 1px;
+    .alinea-rac-DateRangePicker-inputs {
+      gap: 4px;
+      display: flex;
+      align-items: center;
+    }
 
-      &[data-placeholder] {
-        color: var(--text-color-placeholder);
-      }
+    .alinea-rac-DateRangePicker-input {
+      display: flex;
 
-      &:focus {
-        outline: none;
-        caret-color: transparent;
-        color: var(--highlight-foreground);
-        border-radius: 4px;
-        background: var(--highlight-background);
+      .alinea-rac-DateRangePicker-input-segment {
+        padding-inline: 1px;
+
+        &[data-placeholder] {
+          color: var(--text-color-placeholder);
+        }
+
+        &:focus {
+          outline: none;
+          caret-color: transparent;
+          color: var(--highlight-foreground);
+          border-radius: 4px;
+          background: var(--highlight-background);
+        }
       }
     }
-  }
 
-  .alinea-rac-DateRangePicker-separator {
-    padding-inline: 4px;
-  }
+    .alinea-rac-DateRangePicker-separator {
+      padding-inline: 4px;
+    }
 
-  .alinea-rac-DateRangePicker-trigger {
-    cursor: pointer;
-    border: none;
-    width: 1.5em;
-    height: 1.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    background-color: transparent;
-    margin-left: auto;
-    transition: var(--transition);
-    color: var(--icon-color-plain);
-    font-size: inherit;
+    .alinea-rac-DateRangePicker-trigger {
+      cursor: pointer;
+      border: none;
+      width: 1.5em;
+      height: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background-color: transparent;
+      margin-left: auto;
+      transition: var(--transition);
+      color: var(--icon-color-plain);
+      font-size: inherit;
 
-    &[data-hovered],
-    &[data-focus-within] {
-      background-color: var(--background-color);
-      color: var(--icon-color);
+      &[data-hovered],
+      &[data-focus-within] {
+        background-color: var(--background-color);
+        color: var(--icon-color);
+      }
     }
   }
 }

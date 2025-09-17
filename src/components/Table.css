@@ -1,102 +1,104 @@
 @import "../theme.css";
 
-.alinea-rac-Table {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-x: auto;
-  border-top: 1px solid var(--border-color);
-  border-right: none;
-  border-left: 1px solid var(--border-color);
-  max-width: 100%;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-
-  &[data-overflow] {
+@layer alinea {
+  .alinea-rac-Table {
     width: 100%;
+    display: flex;
+    flex-direction: column;
     overflow-x: auto;
-    display: block;
+    border-top: 1px solid var(--border-color);
+    border-right: none;
+    border-left: 1px solid var(--border-color);
     max-width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 
-    &::-webkit-scrollbar {
-      height: 8px;
+    &[data-overflow] {
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      max-width: 100%;
+
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--background-color);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 4px;
+      }
     }
 
-    &::-webkit-scrollbar-track {
-      background: var(--background-color);
+    &[data-striped] .alinea-rac-Table-row:nth-child(odd) {
+      background-color: var(--table-background-striped);
     }
 
-    &::-webkit-scrollbar-thumb {
-      background: var(--border-color);
-      border-radius: 4px;
+    .alinea-rac-Table-table {
+      width: 100%;
+      min-width: max-content;
+      border-collapse: collapse;
+      background: transparent;
+      outline: none;
+      border-radius: 6px;
     }
   }
 
-  &[data-striped] .alinea-rac-Table-row:nth-child(odd) {
-    background-color: var(--table-background-striped);
-  }
-
-  .alinea-rac-Table-table {
+  .alinea-rac-TableBody {
+    font-size: 14px;
+    color: var(--text-color);
     width: 100%;
-    min-width: max-content;
-    border-collapse: collapse;
-    background: transparent;
-    outline: none;
-    border-radius: 6px;
   }
-}
 
-.alinea-rac-TableBody {
-  font-size: 14px;
-  color: var(--text-color);
-  width: 100%;
-}
-
-.alinea-rac-Cell {
-  padding: 10px 12px;
-  white-space: normal;
-  word-wrap: break-word;
-  max-width: 200px;
-  border-right: solid 1px var(--border-color);
-  border-bottom: solid 1px var(--border-color);
-}
-
-.alinea-rac-Row {
-  &[data-selected] {
-    background-color: var(--table-color-selected) !important;
+  .alinea-rac-Cell {
+    padding: 10px 12px;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 200px;
+    border-right: solid 1px var(--border-color);
+    border-bottom: solid 1px var(--border-color);
   }
-}
 
-.alinea-rac-TableHeader {
-  background-color: var(--header-background);
-  color: var(--text-color);
-  text-align: left;
-  font-weight: bold;
-  border-bottom: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-}
-
-.alinea-rac-Column {
-  padding: 10px 12px;
-  text-align: left;
-  font-size: 14px;
-
-  .alinea-rac-Column-label {
-    display: inline-flex;
-
-    &[data-sortable] {
-      cursor: pointer;
+  .alinea-rac-Row {
+    &[data-selected] {
+      background-color: var(--table-color-selected) !important;
     }
   }
 
-  .alinea-rac-Column-sortIndicator {
-    font-size: 20px;
-    color: var(--icon-color);
-    margin-left: 6px;
-    width: 24px;
-    height: 24px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .alinea-rac-TableHeader {
+    background-color: var(--header-background);
+    color: var(--text-color);
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+  }
+
+  .alinea-rac-Column {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 14px;
+
+    .alinea-rac-Column-label {
+      display: inline-flex;
+
+      &[data-sortable] {
+        cursor: pointer;
+      }
+    }
+
+    .alinea-rac-Column-sortIndicator {
+      font-size: 20px;
+      color: var(--icon-color);
+      margin-left: 6px;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

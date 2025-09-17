@@ -1,43 +1,45 @@
 @import "../theme.css";
 
-.alinea-rac-Link {
-  outline: none;
-  cursor: pointer;
-  position: relative;
-  color: var(--link-color);
-  font-size: 14px;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 2px;
-  transition: var(--transition);
-
-  &[data-variant="underline"] {
-    text-decoration-color: currentColor;
-  }
-
-  &[data-hovered] {
-    color: var(--link-color-hover);
-    text-decoration-color: currentColor;
+@layer alinea {
+  .alinea-rac-Link {
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    color: var(--link-color);
+    font-size: 14px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 2px;
+    transition: var(--transition);
 
     &[data-variant="underline"] {
-      text-decoration-color: transparent;
+      text-decoration-color: currentColor;
     }
-  }
 
-  &[data-pressed] {
-    color: var(--link-color-pressed);
-  }
+    &[data-hovered] {
+      color: var(--link-color-hover);
+      text-decoration-color: currentColor;
 
-  &[data-focus-visible]:after {
-    content: "";
-    position: absolute;
-    inset: -3px -6px;
-    border-radius: 6px;
-    border: 2px solid var(--focus-ring-color);
-  }
+      &[data-variant="underline"] {
+        text-decoration-color: transparent;
+      }
+    }
 
-  &[data-disabled] {
-    cursor: default;
-    color: var(--text-color-disabled);
+    &[data-pressed] {
+      color: var(--link-color-pressed);
+    }
+
+    &[data-focus-visible]:after {
+      content: "";
+      position: absolute;
+      inset: -3px -6px;
+      border-radius: 6px;
+      border: 2px solid var(--focus-ring-color);
+    }
+
+    &[data-disabled] {
+      cursor: default;
+      color: var(--text-color-disabled);
+    }
   }
 }

@@ -1,207 +1,209 @@
 @import "../theme.css";
 
-.alinea-rac-SelectTrigger {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid var(--border-color);
-  outline: 4px solid transparent;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  min-width: 100px;
-  text-align: left;
-  color: var(--field-text-color);
-  transition: var(--transition);
-  background: var(--field-background);
-
-  &:has(> .alinea-rac-SelectTrigger-button[data-hovered]) {
-    border-color: var(--border-color-hover);
-    outline-color: var(--box-shadow-color);
-  }
-
-  &:has(> .alinea-rac-SelectTrigger-button[data-focus-visible]),
-  &:has(> .alinea-rac-SelectTrigger-button[aria-expanded="true"]) {
-    border-color: var(--highlight-border);
-    outline-color: var(--highlight-overlay);
-  }
-
-  &:has(> .alinea-rac-SelectTrigger-button[data-disabled]) {
-    pointer-events: none;
-    background-color: var(--field-background-disabled);
-    color: var(--text-color-disabled);
-    opacity: 0.5;
-  }
-
-  .alinea-rac-Select[data-invalid="true"] & {
-    border-color: var(--invalid-color);
-    outline-color: var(--invalid-overlay);
-  }
-
-  .alinea-rac-SelectTrigger-button {
-    appearance: none;
-    background: none;
-    font: inherit;
-    outline: none;
-    border: none;
-    flex-grow: 1;
+@layer alinea {
+  .alinea-rac-SelectTrigger {
+    position: relative;
+    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    outline: 4px solid transparent;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    min-width: 100px;
     text-align: left;
-    padding: 8px 10px 8px 10px;
-    gap: 8px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    color: var(--field-text-color);
+    transition: var(--transition);
+    background: var(--field-background);
 
-    &[data-clear] {
-      padding-right: 0;
+    &:has(> .alinea-rac-SelectTrigger-button[data-hovered]) {
+      border-color: var(--border-color-hover);
+      outline-color: var(--box-shadow-color);
     }
 
-    .alinea-rac-SelectTrigger-button-value {
+    &:has(> .alinea-rac-SelectTrigger-button[data-focus-visible]),
+    &:has(> .alinea-rac-SelectTrigger-button[aria-expanded="true"]) {
+      border-color: var(--highlight-border);
+      outline-color: var(--highlight-overlay);
+    }
+
+    &:has(> .alinea-rac-SelectTrigger-button[data-disabled]) {
+      pointer-events: none;
+      background-color: var(--field-background-disabled);
+      color: var(--text-color-disabled);
+      opacity: 0.5;
+    }
+
+    .alinea-rac-Select[data-invalid="true"] & {
+      border-color: var(--invalid-color);
+      outline-color: var(--invalid-overlay);
+    }
+
+    .alinea-rac-SelectTrigger-button {
+      appearance: none;
+      background: none;
+      font: inherit;
+      outline: none;
+      border: none;
       flex-grow: 1;
       display: flex;
       align-items: center;
-      color: var(--field-text-color);
+      text-align: left;
+      padding: 8px 10px 8px 10px;
+      gap: 8px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
 
-      &[data-placeholder] {
-        color: var(--text-color-placeholder);
+      &[data-clear] {
+        padding-right: 0;
+      }
+
+      .alinea-rac-SelectTrigger-button-value {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        color: var(--field-text-color);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &[data-placeholder] {
+          color: var(--text-color-placeholder);
+        }
+      }
+
+      .alinea-rac-SelectTrigger-button-arrow {
+        flex-shrink: 0;
+        font-size: 18px;
+        color: var(--icon-color);
+
+        [aria-expanded="true"] & {
+          transform: rotate(180deg);
+        }
       }
     }
+  }
 
-    .alinea-rac-SelectTrigger-button-arrow {
-      flex-shrink: 0;
-      font-size: 18px;
-      color: var(--icon-color);
+  .alinea-rac-SelectPopover {
+    width: var(--trigger-width);
 
-      [aria-expanded="true"] & {
-        transform: rotate(180deg);
-      }
+    &[data-clear] {
+      width: calc(var(--trigger-width) + 40px);
+    }
+
+    .alinea-rac-SelectPopover-listbox {
+      outline: none;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      width: 100%;
+      display: block;
+      min-height: unset;
+      max-height: inherit;
+      padding: 4px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background-color: var(--field-background);
     }
   }
-}
 
-.alinea-rac-SelectPopover {
-  width: var(--trigger-width);
-
-  &[data-clear] {
-    width: calc(var(--trigger-width) + 40px);
-  }
-
-  .alinea-rac-SelectPopover-listbox {
-    outline: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    width: 100%;
-    display: block;
-    min-height: unset;
-    max-height: inherit;
-    padding: 4px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background-color: var(--field-background);
-  }
-}
-
-.alinea-rac-SelectClear {
-  position: relative;
-  cursor: pointer;
-  background: none;
-  width: 40px;
-  flex-shrink: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 100%;
-  background-color: transparent;
-  color: var(--icon-color);
-  font-size: 18px;
-  font-size: 14px;
-  outline: none;
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
-    background-color: var(--background-color);
-    z-index: -1;
-    transition: var(--transition);
-    opacity: 0;
-    border: 1px solid transparent;
-    outline: 4px solid transparent;
-  }
-
-  &:hover:after {
-    opacity: 1;
-  }
-
-  &:focus:after {
-    background-color: transparent;
-    border-color: var(--highlight-border);
-    outline-color: var(--highlight-overlay);
-    opacity: 1;
-  }
-}
-
-.alinea-rac-SelectItem {
-  cursor: pointer;
-  font-size: 0.875rem;
-  padding: 0.4rem;
-
-  gap: 8px;
-  display: flex;
-  align-items: center;
-  outline: none;
-  border-radius: 4px;
-  position: relative;
-
-  &[data-selected] {
-    padding-right: 2.4rem;
-  }
-
-  .alinea-rac-Icon {
-    flex-shrink: 0;
-  }
-
-  .alinea-rac-SelectItem-check {
-    font-size: 1rem;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-  }
-
-  &[data-focus-visible] {
-    outline: none;
-  }
-
-  &[data-selected] {
-    font-weight: 600;
-    background: var(--border-color);
-    color: var(--text-color);
+  .alinea-rac-SelectClear {
     position: relative;
+    cursor: pointer;
+    background: none;
+    width: 40px;
+    flex-shrink: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 100%;
+    background-color: transparent;
+    color: var(--icon-color);
+    font-size: 18px;
+    font-size: 14px;
+    outline: none;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      background-color: var(--background-color);
+      z-index: -1;
+      transition: var(--transition);
+      opacity: 0;
+      border: 1px solid transparent;
+      outline: 4px solid transparent;
+    }
+
+    &:hover:after {
+      opacity: 1;
+    }
+
+    &:focus:after {
+      background-color: transparent;
+      border-color: var(--highlight-border);
+      outline-color: var(--highlight-overlay);
+      opacity: 1;
+    }
   }
 
-  &[data-focused],
-  &[data-pressed] {
-    background: var(--highlight-background);
-    color: var(--highlight-foreground);
-  }
+  .alinea-rac-SelectItem {
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: 0.4rem;
 
-  &[data-disabled] {
-    pointer-events: none;
-    opacity: 0.2;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border-radius: 4px;
+    position: relative;
+
+    &[data-selected] {
+      padding-right: 2.4rem;
+    }
+
+    .alinea-rac-Icon {
+      flex-shrink: 0;
+    }
+
+    .alinea-rac-SelectItem-check {
+      font-size: 1rem;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+
+    &[data-focus-visible] {
+      outline: none;
+    }
+
+    &[data-selected] {
+      font-weight: 600;
+      background: var(--border-color);
+      color: var(--text-color);
+      position: relative;
+    }
+
+    &[data-focused],
+    &[data-pressed] {
+      background: var(--highlight-background);
+      color: var(--highlight-foreground);
+    }
+
+    &[data-disabled] {
+      pointer-events: none;
+      opacity: 0.2;
+    }
   }
 }

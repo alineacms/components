@@ -1,125 +1,127 @@
 @import "../theme.css";
 
-.alinea-rac-Checkbox {
-  --selected-color: var(--highlight-background);
-  --checkmark-color: var(--highlight-foreground);
+@layer alinea {
+  .alinea-rac-Checkbox {
+    --selected-color: var(--highlight-background);
+    --checkmark-color: var(--highlight-foreground);
 
-  cursor: pointer;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.571rem;
-  font-size: 0.875rem;
-  line-height: 1;
-  color: var(--text-color);
-  forced-color-adjust: none;
-
-  .alinea-rac-Checkbox-box {
-    width: 16px;
-    height: 16px;
+    cursor: pointer;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    background-color: var(--field-background);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    transition: var(--transition);
-    transition-property: background, border, box-shadow;
-  }
+    gap: 0.571rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    color: var(--text-color);
+    forced-color-adjust: none;
 
-  .alinea-rac-Checkbox-mark {
-    width: 1rem;
-    height: 1rem;
-    fill: none;
-    stroke: var(--checkmark-color);
-    stroke-width: 3px;
-    stroke-dasharray: 22px;
-    stroke-dashoffset: 66;
-    transition: var(--transition);
-  }
-
-  &[data-hovered] .alinea-rac-Checkbox-box {
-    border-color: var(--border-color-hover);
-    box-shadow: 0 0 0 4px var(--box-shadow-color);
-  }
-
-  &[data-focus-visible] .alinea-rac-Checkbox-box {
-    outline: 2px solid var(--border-color);
-    outline-offset: 2px;
-  }
-
-  &[data-selected],
-  &[data-indeterminate] {
     .alinea-rac-Checkbox-box {
-      background-color: var(--selected-color);
-      border-color: var(--selected-color);
-    }
-
-    &[data-hovered] .alinea-rac-Checkbox-box {
-      box-shadow: 0 0 0 4px var(--highlight-overlay);
-    }
-
-    &[data-focus-visible] .alinea-rac-Checkbox-box {
-      outline-color: var(--selected-color);
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--field-background);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      transition: var(--transition);
+      transition-property: background, border, box-shadow;
     }
 
     .alinea-rac-Checkbox-mark {
-      stroke-dashoffset: 44;
-    }
-  }
-
-  &[data-indeterminate] {
-    & .alinea-rac-Checkbox-mark {
-      stroke: none;
-      fill: var(--checkmark-color);
-    }
-  }
-
-  &[data-invalid] {
-    .alinea-rac-Checkbox-box {
-      border-color: var(--invalid-color);
+      width: 1rem;
+      height: 1rem;
+      fill: none;
+      stroke: var(--checkmark-color);
+      stroke-width: 3px;
+      stroke-dasharray: 22px;
+      stroke-dashoffset: 66;
+      transition: var(--transition);
     }
 
     &[data-hovered] .alinea-rac-Checkbox-box {
-      box-shadow: 0 0 0 4px var(--invalid-overlay);
+      border-color: var(--border-color-hover);
+      box-shadow: 0 0 0 4px var(--box-shadow-color);
     }
 
     &[data-focus-visible] .alinea-rac-Checkbox-box {
-      outline-color: var(--invalid-color);
+      outline: 2px solid var(--border-color);
+      outline-offset: 2px;
     }
 
     &[data-selected],
     &[data-indeterminate] {
       .alinea-rac-Checkbox-box {
-        background-color: var(--invalid-color);
+        background-color: var(--selected-color);
+        border-color: var(--selected-color);
+      }
+
+      &[data-hovered] .alinea-rac-Checkbox-box {
+        box-shadow: 0 0 0 4px var(--highlight-overlay);
+      }
+
+      &[data-focus-visible] .alinea-rac-Checkbox-box {
+        outline-color: var(--selected-color);
+      }
+
+      .alinea-rac-Checkbox-mark {
+        stroke-dashoffset: 44;
       }
     }
-  }
 
-  &[data-disabled],
-  &[data-readonly] {
-    pointer-events: none;
-    color: var(--text-color-disabled);
-  }
-
-  &[data-disabled] {
-    opacity: 0.5;
-  }
-
-  &[data-readonly] {
-    .alinea-rac-Checkbox-box {
-      background-color: var(--border-color);
-      border-color: var(--border-color);
+    &[data-indeterminate] {
+      & .alinea-rac-Checkbox-mark {
+        stroke: none;
+        fill: var(--checkmark-color);
+      }
     }
-  }
 
-  .alinea-rac-Label-description {
-    color: var(--text-color-base);
-    font-size: 12px;
-    line-height: normal;
-    font-weight: 400;
-    font-style: italic;
-    white-space: normal;
-    word-wrap: break-word;
+    &[data-invalid] {
+      .alinea-rac-Checkbox-box {
+        border-color: var(--invalid-color);
+      }
+
+      &[data-hovered] .alinea-rac-Checkbox-box {
+        box-shadow: 0 0 0 4px var(--invalid-overlay);
+      }
+
+      &[data-focus-visible] .alinea-rac-Checkbox-box {
+        outline-color: var(--invalid-color);
+      }
+
+      &[data-selected],
+      &[data-indeterminate] {
+        .alinea-rac-Checkbox-box {
+          background-color: var(--invalid-color);
+        }
+      }
+    }
+
+    &[data-disabled],
+    &[data-readonly] {
+      pointer-events: none;
+      color: var(--text-color-disabled);
+    }
+
+    &[data-disabled] {
+      opacity: 0.5;
+    }
+
+    &[data-readonly] {
+      .alinea-rac-Checkbox-box {
+        background-color: var(--border-color);
+        border-color: var(--border-color);
+      }
+    }
+
+    .alinea-rac-Label-description {
+      color: var(--text-color-base);
+      font-size: 12px;
+      line-height: normal;
+      font-weight: 400;
+      font-style: italic;
+      white-space: normal;
+      word-wrap: break-word;
+    }
   }
 }

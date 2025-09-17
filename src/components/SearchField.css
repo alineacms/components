@@ -1,105 +1,107 @@
 @import "../theme.css";
 
-.alinea-rac-SearchField {
-  .alinea-rac-SearchField-field {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    background-color: var(--field-background);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    outline: 4px solid transparent;
-    transition: var(--transition);
-
-    &:has(.alinea-rac-SearchField-field-input[data-hovered]) {
-      border-color: var(--border-color-hover);
-      outline-color: var(--box-shadow-color);
-    }
-    &:has(.alinea-rac-SearchField-field-input[data-focused]) {
-      border-color: var(--highlight-border);
-      outline-color: var(--highlight-overlay);
-    }
-    &:has(.alinea-rac-SearchField-field-input[data-invalid="true"]) {
-      border-color: var(--invalid-color);
-      outline-color: var(--invalid-overlay);
-    }
-    &:has(.alinea-rac-SearchField-field-input[disabled]),
-    &:has(.alinea-rac-SearchField-field-input[readonly]) {
-      pointer-events: none;
-      background-color: var(--field-background-disabled);
-      color: var(--text-color-disabled);
-    }
-    &:has(.alinea-rac-SearchField-field-input[disabled]) {
-      opacity: 0.5;
-    }
-
-    .alinea-rac-SearchField-field-icon {
-      color: var(--text-color-placeholder);
-      font-size: 20px;
-      margin-left: 8px;
-      margin-right: -4px;
-    }
-
-    .alinea-rac-SearchField-field-pending {
-      margin-left: 8px;
-    }
-
-    .alinea-rac-SearchField-field-input {
-      background: none;
-      border: none;
-      outline: none;
-      width: 100%;
-      padding: 8px 10px;
-      color: var(--field-text-color);
-      font: inherit;
-      font-size: 0.875rem;
-      line-height: 1.5;
-
-      &::placeholder {
-        color: var(--text-color-placeholder);
-      }
-
-      &::-webkit-search-cancel-button,
-      &::-webkit-search-decoration {
-        -webkit-appearance: none;
-      }
-
-      &[value=""] + .alinea-rac-SearchField-field-clear {
-        visibility: hidden;
-      }
-    }
-
-    .alinea-rac-SearchField-field-clear {
-      position: relative;
-      cursor: pointer;
-      background: none;
-      border: none;
-      outline: none;
+@layer alinea {
+  .alinea-rac-SearchField {
+    .alinea-rac-SearchField-field {
+      overflow: hidden;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 0px 8px;
-      color: var(--icon-color);
-      font: inherit;
+      background-color: var(--field-background);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      outline: 4px solid transparent;
+      transition: var(--transition);
 
-      &:before {
-        content: "";
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        border-radius: 100%;
-        background-color: transparent;
-        transition: var(--transition);
-        transition-property: background-color;
+      &:has(.alinea-rac-SearchField-field-input[data-hovered]) {
+        border-color: var(--border-color-hover);
+        outline-color: var(--box-shadow-color);
+      }
+      &:has(.alinea-rac-SearchField-field-input[data-focused]) {
+        border-color: var(--highlight-border);
+        outline-color: var(--highlight-overlay);
+      }
+      &:has(.alinea-rac-SearchField-field-input[data-invalid="true"]) {
+        border-color: var(--invalid-color);
+        outline-color: var(--invalid-overlay);
+      }
+      &:has(.alinea-rac-SearchField-field-input[disabled]),
+      &:has(.alinea-rac-SearchField-field-input[readonly]) {
+        pointer-events: none;
+        background-color: var(--field-background-disabled);
+        color: var(--text-color-disabled);
+      }
+      &:has(.alinea-rac-SearchField-field-input[disabled]) {
+        opacity: 0.5;
       }
 
-      &:hover:before,
-      &:focus:before {
-        background-color: var(--background-color);
+      .alinea-rac-SearchField-field-icon {
+        color: var(--text-color-placeholder);
+        font-size: 20px;
+        margin-left: 8px;
+        margin-right: -4px;
       }
 
-      .alinea-rac-SearchField-field-clear-icon {
+      .alinea-rac-SearchField-field-pending {
+        margin-left: 8px;
+      }
+
+      .alinea-rac-SearchField-field-input {
+        background: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 8px 10px;
+        color: var(--field-text-color);
+        font: inherit;
+        font-size: 0.875rem;
+        line-height: 1.5;
+
+        &::placeholder {
+          color: var(--text-color-placeholder);
+        }
+
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-decoration {
+          -webkit-appearance: none;
+        }
+
+        &[value=""] + .alinea-rac-SearchField-field-clear {
+          visibility: hidden;
+        }
+      }
+
+      .alinea-rac-SearchField-field-clear {
         position: relative;
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 8px;
+        color: var(--icon-color);
+        font: inherit;
+
+        &:before {
+          content: "";
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border-radius: 100%;
+          background-color: transparent;
+          transition: var(--transition);
+          transition-property: background-color;
+        }
+
+        &:hover:before,
+        &:focus:before {
+          background-color: var(--background-color);
+        }
+
+        .alinea-rac-SearchField-field-clear-icon {
+          position: relative;
+        }
       }
     }
   }
