@@ -5,14 +5,14 @@
   align-items: center;
   gap: 0.571rem;
   font-size: 1.143rem;
-  color: var(--text-color);
+  color: var(--alinea-text-color);
   forced-color-adjust: none;
 
   .indicator {
     width: 2rem;
     height: 1.143rem;
-    border: 2px solid var(--border-color);
-    background: var(--background-color);
+    border: 2px solid var(--alinea-border-color);
+    background: var(--alinea-background-color);
     border-radius: 1.143rem;
     transition: all 200ms;
 
@@ -22,52 +22,52 @@
       margin: 0.143rem;
       width: 0.857rem;
       height: 0.857rem;
-      background: var(--highlight-background);
+      background: var(--alinea-highlight-background);
       border-radius: 16px;
       transition: all 200ms;
     }
   }
 
   &[data-pressed] .indicator {
-    border-color: var(--border-color-pressed);
+    border-color: var(--alinea-border-color-pressed);
 
     &:before {
-      background: var(--highlight-background-pressed);
+      background: var(--alinea-highlight-background-pressed);
     }
   }
 
   &[data-selected] {
     .indicator {
-      border-color: var(--highlight-background);
-      background: var(--highlight-background);
+      border-color: var(--alinea-highlight-background);
+      background: var(--alinea-highlight-background);
 
       &:before {
-        background: var(--field-background);
+        background: var(--alinea-field-background);
         transform: translateX(100%);
       }
     }
 
     &[data-pressed] {
       .indicator {
-        border-color: var(--highlight-background-pressed);
-        background: var(--highlight-background-pressed);
+        border-color: var(--alinea-highlight-background-pressed);
+        background: var(--alinea-highlight-background-pressed);
       }
     }
   }
 
   &[data-focus-visible] .indicator {
-    outline: 2px solid var(--focus-ring-color);
+    outline: 2px solid var(--alinea-focus-ring-color);
     outline-offset: 2px;
   }
 
   &[data-disabled] {
-    color: var(--text-color-disabled);
+    color: var(--alinea-text-color-disabled);
 
     .indicator {
-      border-color: var(--border-color-disabled);
+      border-color: var(--alinea-border-color-disabled);
 
       &:before {
-        background: var(--border-color-disabled);
+        background: var(--alinea-border-color-disabled);
       }
     }
   }

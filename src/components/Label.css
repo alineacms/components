@@ -21,21 +21,21 @@
 
     .alinea-rac-Label-icon {
       font-size: 14px;
-      color: var(--text-color);
+      color: var(--alinea-text-color);
     }
 
     .alinea-rac-Label-label {
-      color: var(--text-color);
+      color: var(--alinea-text-color);
       font-size: 13px;
       font-weight: 600;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
       transition-property: color;
     }
 
     .alinea-rac-Label-description {
       display: block;
       max-width: 100%;
-      color: var(--text-color-base);
+      color: var(--alinea-text-color-base);
       font-size: 12px;
       line-height: 1.1;
       font-weight: 400;
@@ -45,13 +45,13 @@
     }
 
     .alinea-rac-Label-error {
-      color: var(--danger-500);
+      color: var(--alinea-danger-500);
       font-size: 12px;
       padding-top: 4px;
     }
 
     .alinea-rac-Label-required {
-      color: var(--danger-500);
+      color: var(--alinea-danger-500);
       font-size: 12px;
     }
   }

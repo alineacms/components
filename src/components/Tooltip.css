@@ -4,8 +4,8 @@
   .alinea-rac-Tooltip {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    background: var(--highlight-background);
-    color: var(--highlight-foreground);
+    background: var(--alinea-highlight-background);
+    color: var(--alinea-highlight-foreground);
     forced-color-adjust: none;
     outline: none;
     padding: 4px 8px;
@@ -15,12 +15,12 @@
 
     &[data-placement="top"] {
       margin-bottom: 8px;
-      --origin: translateY(4px);
+      --alinea-origin: translateY(4px);
     }
 
     &[data-placement="bottom"] {
       margin-top: 8px;
-      --origin: translateY(-4px);
+      --alinea-origin: translateY(-4px);
       .alinea-rac-Tooltip-arrow svg {
         transform: rotate(180deg);
       }
@@ -28,7 +28,7 @@
 
     &[data-placement="right"] {
       margin-left: 8px;
-      --origin: translateX(-4px);
+      --alinea-origin: translateX(-4px);
       .alinea-rac-Tooltip-arrow svg {
         transform: rotate(90deg);
       }
@@ -36,7 +36,7 @@
 
     &[data-placement="left"] {
       margin-right: 8px;
-      --origin: translateX(4px);
+      --alinea-origin: translateX(4px);
       .alinea-rac-Tooltip-arrow svg {
         transform: rotate(-90deg);
       }
@@ -44,7 +44,7 @@
 
     .alinea-rac-Tooltip-arrow svg {
       display: block;
-      fill: var(--highlight-background);
+      fill: var(--alinea-highlight-background);
     }
 
     &[data-entering] {
@@ -58,7 +58,7 @@
 
   @keyframes slide-in {
     from {
-      transform: var(--origin);
+      transform: var(--alinea-origin);
       opacity: 0;
     }
     to {

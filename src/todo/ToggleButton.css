@@ -1,9 +1,9 @@
 @import "../theme.css";
 
 .react-aria-ToggleButton {
-  color: var(--text-color);
-  background: var(--highlight-background);
-  border: 1px solid var(--border-color);
+  color: var(--alinea-text-color);
+  background: var(--alinea-highlight-background);
+  border: 1px solid var(--alinea-border-color);
   forced-color-adjust: none;
   border-radius: 4px;
   appearance: none;
@@ -16,29 +16,29 @@
 
   &[data-pressed] {
     box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.1);
-    background: var(--highlight-background-pressed);
-    border-color: var(--highlight-background-pressed);
+    background: var(--alinea-highlight-background-pressed);
+    border-color: var(--alinea-highlight-background-pressed);
   }
 
   &[data-selected] {
-    background: var(--highlight-background);
-    border-color: var(--highlight-background);
-    color: var(--highlight-foreground);
+    background: var(--alinea-highlight-background);
+    border-color: var(--alinea-highlight-background);
+    color: var(--alinea-highlight-foreground);
 
     &[data-pressed] {
-      background: var(--highlight-background-pressed);
-      border-color: var(--highlight-background-pressed);
+      background: var(--alinea-highlight-background-pressed);
+      border-color: var(--alinea-highlight-background-pressed);
     }
   }
 
   &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
+    outline: 2px solid var(--alinea-focus-ring-color);
     outline-offset: 2px;
   }
 
   &[data-disabled] {
-    border-color: var(--border-color-disabled);
-    background: var(--highlight-background);
-    color: var(--text-color-disabled);
+    border-color: var(--alinea-border-color-disabled);
+    background: var(--alinea-highlight-background);
+    color: var(--alinea-text-color-disabled);
   }
 }

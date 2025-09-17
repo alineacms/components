@@ -3,35 +3,35 @@
 .react-aria-ColorField {
   display: flex;
   flex-direction: column;
-  color: var(--text-color);
+  color: var(--alinea-text-color);
 
   .react-aria-Input {
     padding: 0.286rem;
     margin: 0;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--alinea-border-color);
     border-radius: 6px;
-    background: var(--field-background);
+    background: var(--alinea-field-background);
     font-size: 1.143rem;
-    color: var(--field-text-color);
+    color: var(--alinea-field-text-color);
     width: 100%;
     max-width: 12ch;
     box-sizing: border-box;
 
     &[data-focused] {
-      outline: 2px solid var(--focus-ring-color);
+      outline: 2px solid var(--alinea-focus-ring-color);
       outline-offset: -1px;
     }
   }
 
   &[data-invalid] {
     .react-aria-Input {
-      border-color: var(--invalid-color);
+      border-color: var(--alinea-invalid-color);
     }
   }
 
   .react-aria-FieldError {
     font-size: 12px;
-    color: var(--invalid-color);
+    color: var(--alinea-invalid-color);
   }
 
   [slot="description"] {
@@ -40,8 +40,8 @@
 
   .react-aria-Input {
     &[data-disabled] {
-      border-color: var(--border-color-disabled);
-      color: var(--text-color-disabled);
+      border-color: var(--alinea-border-color-disabled);
+      color: var(--alinea-text-color-disabled);
     }
   }
 }

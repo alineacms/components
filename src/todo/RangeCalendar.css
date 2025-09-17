@@ -3,7 +3,7 @@
 .react-aria-RangeCalendar {
   width: fit-content;
   max-width: 100%;
-  color: var(--text-color);
+  color: var(--alinea-text-color);
 
   & header {
     display: flex;
@@ -46,21 +46,21 @@
     }
 
     &[data-pressed] {
-      background: var(--gray-100);
+      background: var(--alinea-gray-100);
     }
 
     &[data-focus-visible] {
-      outline: 2px solid var(--highlight-background);
+      outline: 2px solid var(--alinea-highlight-background);
       outline-offset: -2px;
     }
 
     &[data-selected] {
-      background: var(--highlight-background);
-      color: var(--highlight-foreground);
+      background: var(--alinea-highlight-background);
+      color: var(--alinea-highlight-foreground);
       border-radius: 0;
 
       &[data-focus-visible] {
-        outline-color: var(--highlight-foreground);
+        outline-color: var(--alinea-highlight-foreground);
         outline-offset: -3px;
       }
     }
@@ -78,24 +78,24 @@
 
   .react-aria-CalendarCell {
     &[data-disabled] {
-      color: var(--text-color-disabled);
+      color: var(--alinea-text-color-disabled);
     }
   }
 
   .react-aria-CalendarCell {
     &[data-unavailable] {
       text-decoration: line-through;
-      color: var(--invalid-color);
+      color: var(--alinea-invalid-color);
     }
 
     &[data-invalid] {
-      background: var(--invalid-color);
-      color: var(--highlight-foreground);
+      background: var(--alinea-invalid-color);
+      color: var(--alinea-highlight-foreground);
     }
   }
 
   [slot="errorMessage"] {
     font-size: 12px;
-    color: var(--invalid-color);
+    color: var(--alinea-invalid-color);
   }
 }

@@ -2,65 +2,65 @@
 
 @layer alinea {
   .alinea-rac-Button {
-    --button-color: var(--highlight-foreground);
-    --button-bg: var(--highlight-background);
-    --button-border: transparent;
-    --button-hovered: var(--highlight-background-hovered);
-    --button-pressed: var(--highlight-background-pressed);
+    --alinea-button-color: var(--alinea-highlight-foreground);
+    --alinea-button-bg: var(--alinea-highlight-background);
+    --alinea-button-border: transparent;
+    --alinea-button-hovered: var(--alinea-highlight-background-hovered);
+    --alinea-button-pressed: var(--alinea-highlight-background-pressed);
 
     &[data-intent="secondary"] {
-      --button-color: var(--text-color);
-      --button-bg: var(--background-color);
-      --button-hovered: var(--background-color-hover);
-      --button-pressed: var(--background-color-pressed);
+      --alinea-button-color: var(--alinea-text-color);
+      --alinea-button-bg: var(--alinea-background-color);
+      --alinea-button-hovered: var(--alinea-background-color-hover);
+      --alinea-button-pressed: var(--alinea-background-color-pressed);
     }
 
     &[data-intent="danger"] {
-      --button-color: var(--gray-50);
-      --button-bg: var(--danger-400);
-      --button-hovered: var(--danger-500);
-      --button-pressed: var(--danger-600);
+      --alinea-button-color: var(--alinea-gray-50);
+      --alinea-button-bg: var(--alinea-danger-400);
+      --alinea-button-hovered: var(--alinea-danger-500);
+      --alinea-button-pressed: var(--alinea-danger-600);
     }
 
     &[data-intent="warning"] {
-      --button-color: var(--gray-900);
-      --button-bg: var(--warning-400);
-      --button-hovered: var(--warning-500);
-      --button-pressed: var(--warning-600);
+      --alinea-button-color: var(--alinea-gray-900);
+      --alinea-button-bg: var(--alinea-warning-400);
+      --alinea-button-hovered: var(--alinea-warning-500);
+      --alinea-button-pressed: var(--alinea-warning-600);
     }
 
     &[data-appearance="outline"] {
-      --button-color: var(--highlight-background);
-      --button-bg: transparent;
-      --button-border: var(--highlight-background);
+      --alinea-button-color: var(--alinea-highlight-background);
+      --alinea-button-bg: transparent;
+      --alinea-button-border: var(--alinea-highlight-background);
     }
 
     &[data-appearance="outline"][data-intent="secondary"] {
-      --button-color: var(--text-color);
-      --button-border: var(--border-color);
-      --button-hovered: var(--background-color-hover);
+      --alinea-button-color: var(--alinea-text-color);
+      --alinea-button-border: var(--alinea-border-color);
+      --alinea-button-hovered: var(--alinea-background-color-hover);
     }
 
     &[data-appearance="outline"][data-intent="danger"] {
-      --button-color: var(--danger-400);
-      --button-border: var(--danger-400);
-      --button-hovered: var(--danger-50);
+      --alinea-button-color: var(--alinea-danger-400);
+      --alinea-button-border: var(--alinea-danger-400);
+      --alinea-button-hovered: var(--alinea-danger-50);
     }
 
     &[data-appearance="outline"][data-intent="warning"] {
-      --button-color: var(--warning-500);
-      --button-border: var(--warning-400);
-      --button-hovered: var(--warning-50);
+      --alinea-button-color: var(--alinea-warning-500);
+      --alinea-button-border: var(--alinea-warning-400);
+      --alinea-button-hovered: var(--alinea-warning-50);
     }
 
     &[data-appearance="plain"] {
-      --button-color: var(--text-color);
-      --button-bg: transparent;
-      --button-hovered: var(--background-color);
-      --button-pressed: var(--background-color-hover);
+      --alinea-button-color: var(--alinea-text-color);
+      --alinea-button-bg: transparent;
+      --alinea-button-hovered: var(--alinea-background-color);
+      --alinea-button-pressed: var(--alinea-background-color-hover);
     }
 
-    color: var(--button-color);
+    color: var(--alinea-button-color);
     font: inherit;
     font-size: 14px;
     line-height: 24px;
@@ -71,11 +71,11 @@
     outline: none;
     position: relative;
     vertical-align: middle;
-    background-color: var(--button-bg);
+    background-color: var(--alinea-button-bg);
     padding: 4px 12px;
     border-radius: 8px;
-    border: 1px solid var(--button-border);
-    transition: var(--transition);
+    border: 1px solid var(--alinea-button-border);
+    transition: var(--alinea-transition);
     transition-property: background-color, border-color, color;
     display: inline-flex;
     align-items: center;
@@ -100,12 +100,12 @@
       justify-content: center;
 
       &[data-appearance="plain"] {
-        color: var(--icon-color-plain);
+        color: var(--alinea-icon-color-plain);
       }
 
       &[data-appearance="active"] {
-        background-color: var(--highlight-overlay);
-        color: var(--highlight-background);
+        background-color: var(--alinea-highlight-overlay);
+        color: var(--alinea-highlight-background);
       }
     }
 
@@ -116,72 +116,72 @@
     }
 
     &[data-hovered] {
-      background-color: var(--button-hovered);
+      background-color: var(--alinea-button-hovered);
 
       &[data-appearance="outline"] {
-        color: var(--highlight-foreground);
-        background-color: var(--highlight-background);
+        color: var(--alinea-highlight-foreground);
+        background-color: var(--alinea-highlight-background);
       }
 
       &[data-appearance="outline"][data-intent="secondary"] {
-        color: var(--text-color);
-        border-color: var(--button-border);
-        background-color: var(--button-hovered);
+        color: var(--alinea-text-color);
+        border-color: var(--alinea-button-border);
+        background-color: var(--alinea-button-hovered);
       }
     }
 
     &[data-size="square-petite"][data-hovered] {
-      background-color: var(--button-hovered);
-      color: var(--button-color);
+      background-color: var(--alinea-button-hovered);
+      color: var(--alinea-button-color);
     }
 
     &[data-size="square-petite"][data-hovered][data-appearance="plain"] {
-      background-color: var(--background-color);
-      color: var(--text-color-hover);
+      background-color: var(--alinea-background-color);
+      color: var(--alinea-text-color-hover);
     }
 
     &[data-size="square-petite"][data-hovered][data-appearance="outline"] {
-      color: var(--highlight-foreground);
-      background-color: var(--highlight-background-hovered);
+      color: var(--alinea-highlight-foreground);
+      background-color: var(--alinea-highlight-background-hovered);
     }
 
     &[data-focus-visible] {
-      outline: 2px solid var(--button-bg);
+      outline: 2px solid var(--alinea-button-bg);
       outline-offset: 2px;
 
       &[data-appearance="outline"] {
-        outline-color: var(--highlight-background);
+        outline-color: var(--alinea-highlight-background);
       }
 
       &[data-appearance="plain"] {
-        outline-color: var(--background-color);
+        outline-color: var(--alinea-background-color);
       }
 
       &[data-intent="secondary"] {
-        outline-color: var(--background-color);
+        outline-color: var(--alinea-background-color);
       }
     }
 
     &[data-pressed] {
-      background-color: var(--button-pressed) !important;
+      background-color: var(--alinea-button-pressed) !important;
       box-shadow: inset 0 -2px 2px -1px rgb(0 0 0 / 0.1);
     }
 
     &[data-disabled] {
       pointer-events: none;
-      color: var(--highlight-foreground-disabled);
-      background-color: var(--highlight-background-disabled);
+      color: var(--alinea-highlight-foreground-disabled);
+      background-color: var(--alinea-highlight-background-disabled);
 
       &[data-intent="danger"] {
         cursor: not-allowed;
         pointer-events: initial;
-        color: var(--danger-400);
-        background-color: var(--danger-50);
+        color: var(--alinea-danger-400);
+        background-color: var(--alinea-danger-50);
       }
 
       &[data-appearance="outline"] {
-        color: var(--indigo-200);
-        border-color: var(--indigo-200);
+        color: var(--alinea-primary-200);
+        border-color: var(--alinea-primary-200);
         background-color: transparent;
       }
     }

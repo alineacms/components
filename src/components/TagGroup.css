@@ -6,7 +6,7 @@
     flex-direction: column;
     gap: 2px;
     font-size: small;
-    color: var(--text-color);
+    color: var(--alinea-text-color);
 
     .alinea-rac-TagGroup-list {
       display: flex;
@@ -22,15 +22,15 @@
     align-items: center;
     padding: 4px 8px;
     border-radius: 4px;
-    background-color: var(--indigo-50);
-    color: var(--indigo-700);
+    background-color: var(--alinea-primary-50);
+    color: var(--alinea-primary-700);
     font-size: 14px;
-    transition: var(--transition);
+    transition: var(--alinea-transition);
     transition-property: background-color, border-color, color;
 
     .alinea-rac-TagGroup[data-intent="secondary"] & {
-      background-color: var(--background-color);
-      color: var(--text-color);
+      background-color: var(--alinea-background-color);
+      color: var(--alinea-text-color);
     }
 
     .alinea-rac-TagGroup[data-shape="circle"] & {
@@ -41,28 +41,28 @@
     &[data-selection-mode] {
       cursor: pointer;
       padding-block: 2px;
-      border: 1px solid var(--border-color);
-      background-color: var(--background-color);
-      color: var(--text-color);
+      border: 1px solid var(--alinea-border-color);
+      background-color: var(--alinea-background-color);
+      color: var(--alinea-text-color);
     }
 
     &[data-hovered] {
-      border-color: var(--border-color-hover);
+      border-color: var(--alinea-border-color-hover);
     }
 
     &[data-focus-visible] {
-      outline: 2px solid var(--focus-ring-color);
+      outline: 2px solid var(--alinea-focus-ring-color);
       outline-offset: 2px;
     }
 
     &[data-selected] {
-      border-color: var(--highlight-background);
-      background: var(--highlight-background);
-      color: var(--highlight-foreground);
+      border-color: var(--alinea-highlight-background);
+      background: var(--alinea-highlight-background);
+      color: var(--alinea-highlight-foreground);
     }
 
     &[data-disabled] {
-      color: var(--tag-color-disabled);
+      color: var(--alinea-tag-color-disabled);
       pointer-events: none;
     }
 
@@ -72,7 +72,7 @@
       border: none;
       padding: 0;
       margin-left: 8px;
-      color: var(--text-color-base);
+      color: var(--alinea-text-color-base);
       transition: color 200ms;
       outline: none;
       font-size: 0.95em;
@@ -80,7 +80,7 @@
       align-items: center;
 
       &[data-hovered] {
-        color: var(--text-color-hover);
+        color: var(--alinea-text-color-hover);
       }
     }
 

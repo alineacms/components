@@ -6,36 +6,36 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      background-color: var(--field-background);
-      border: 1px solid var(--border-color);
+      background-color: var(--alinea-field-background);
+      border: 1px solid var(--alinea-border-color);
       border-radius: 6px;
       outline: 4px solid transparent;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
 
       &:has(.alinea-rac-SearchField-field-input[data-hovered]) {
-        border-color: var(--border-color-hover);
-        outline-color: var(--box-shadow-color);
+        border-color: var(--alinea-border-color-hover);
+        outline-color: var(--alinea-box-shadow-color);
       }
       &:has(.alinea-rac-SearchField-field-input[data-focused]) {
-        border-color: var(--highlight-border);
-        outline-color: var(--highlight-overlay);
+        border-color: var(--alinea-highlight-border);
+        outline-color: var(--alinea-highlight-overlay);
       }
       &:has(.alinea-rac-SearchField-field-input[data-invalid="true"]) {
-        border-color: var(--invalid-color);
-        outline-color: var(--invalid-overlay);
+        border-color: var(--alinea-invalid-color);
+        outline-color: var(--alinea-invalid-overlay);
       }
       &:has(.alinea-rac-SearchField-field-input[disabled]),
       &:has(.alinea-rac-SearchField-field-input[readonly]) {
         pointer-events: none;
-        background-color: var(--field-background-disabled);
-        color: var(--text-color-disabled);
+        background-color: var(--alinea-field-background-disabled);
+        color: var(--alinea-text-color-disabled);
       }
       &:has(.alinea-rac-SearchField-field-input[disabled]) {
         opacity: 0.5;
       }
 
       .alinea-rac-SearchField-field-icon {
-        color: var(--text-color-placeholder);
+        color: var(--alinea-text-color-placeholder);
         font-size: 20px;
         margin-left: 8px;
         margin-right: -4px;
@@ -51,13 +51,13 @@
         outline: none;
         width: 100%;
         padding: 8px 10px;
-        color: var(--field-text-color);
+        color: var(--alinea-field-text-color);
         font: inherit;
         font-size: 0.875rem;
         line-height: 1.5;
 
         &::placeholder {
-          color: var(--text-color-placeholder);
+          color: var(--alinea-text-color-placeholder);
         }
 
         &::-webkit-search-cancel-button,
@@ -80,7 +80,7 @@
         align-items: center;
         justify-content: center;
         padding: 0px 8px;
-        color: var(--icon-color);
+        color: var(--alinea-icon-color);
         font: inherit;
 
         &:before {
@@ -90,13 +90,13 @@
           height: 24px;
           border-radius: 100%;
           background-color: transparent;
-          transition: var(--transition);
+          transition: var(--alinea-transition);
           transition-property: background-color;
         }
 
         &:hover:before,
         &:focus:before {
-          background-color: var(--background-color);
+          background-color: var(--alinea-background-color);
         }
 
         .alinea-rac-SearchField-field-clear-icon {

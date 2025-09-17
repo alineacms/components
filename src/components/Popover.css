@@ -2,9 +2,9 @@
 
 @layer alinea {
   .alinea-rac-Popover {
-    width: var(--trigger-width);
+    width: var(--alinea-trigger-width);
     &[data-clear] {
-      width: calc(var(--trigger-width) + 40px);
+      width: calc(var(--alinea-trigger-width) + 40px);
     }
     outline: none;
     overflow-y: auto;
@@ -16,7 +16,7 @@
     max-height: inherit;
     padding: 4px;
     border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background-color: var(--field-background);
+    border: 1px solid var(--alinea-border-color);
+    background-color: var(--alinea-field-background);
   }
 }

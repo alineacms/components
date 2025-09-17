@@ -5,11 +5,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    color: var(--text-color);
+    color: var(--alinea-text-color);
 
     .alinea-rac-FieldError {
       font-size: 12px;
-      color: var(--invalid-color);
+      color: var(--alinea-invalid-color);
     }
 
     [slot="description"] {
@@ -28,7 +28,7 @@
     align-items: center;
     gap: 0.571rem;
     font-size: 0.875rem;
-    color: var(--text-color);
+    color: var(--alinea-text-color);
     forced-color-adjust: none;
 
     &:before {
@@ -38,54 +38,54 @@
       width: 18px;
       height: 18px;
       box-sizing: border-box;
-      border: 1px solid var(--border-color);
-      background: var(--field-background);
+      border: 1px solid var(--alinea-border-color);
+      background: var(--alinea-field-background);
       border-radius: 100%;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
     }
 
     &[data-hovered]:before {
-      border-color: var(--border-color-hover);
-      box-shadow: 0 0 0 4px var(--box-shadow-color);
+      border-color: var(--alinea-border-color-hover);
+      box-shadow: 0 0 0 4px var(--alinea-box-shadow-color);
     }
 
     &[data-pressed]:before {
-      border-color: var(--border-color-pressed);
+      border-color: var(--alinea-border-color-pressed);
     }
 
     &[data-selected] {
       &:before {
-        border-color: var(--highlight-background);
+        border-color: var(--alinea-highlight-background);
         border-width: 6px;
       }
 
       &[data-hovered]:before {
-        box-shadow: 0 0 0 4px var(--highlight-overlay);
+        box-shadow: 0 0 0 4px var(--alinea-highlight-overlay);
       }
 
       &[data-pressed]:before {
-        border-color: var(--highlight-background-pressed);
+        border-color: var(--alinea-highlight-background-pressed);
       }
     }
 
     &[data-focus-visible]:before {
-      outline: 2px solid var(--focus-ring-color);
+      outline: 2px solid var(--alinea-focus-ring-color);
       outline-offset: 2px;
     }
 
     &[data-invalid] {
       &:before {
-        border-color: var(--invalid-color);
+        border-color: var(--alinea-invalid-color);
       }
 
       &[data-pressed]:before {
-        border-color: var(--invalid-color-pressed);
+        border-color: var(--alinea-invalid-color-pressed);
       }
     }
 
     &[data-disabled] {
       pointer-events: none;
-      color: var(--text-color-disabled);
+      color: var(--alinea-text-color-disabled);
     }
   }
 }

@@ -8,9 +8,9 @@
   max-height: inherit;
   overflow: auto;
   padding: 4px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--alinea-border-color);
   border-radius: 6px;
-  background: var(--overlay-background);
+  background: var(--alinea-overlay-background);
   forced-color-adjust: none;
   outline: none;
   width: 250px;
@@ -19,7 +19,7 @@
   box-sizing: border-box;
 
   &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
+    outline: 2px solid var(--alinea-focus-ring-color);
     outline-offset: -1px;
   }
 
@@ -32,39 +32,39 @@
     border-radius: 6px;
     outline: none;
     cursor: default;
-    color: var(--text-color);
+    color: var(--alinea-text-color);
     font-size: 1.072rem;
     position: relative;
     transform: translateZ(0);
 
     &[data-focus-visible] {
-      outline: 2px solid var(--focus-ring-color);
+      outline: 2px solid var(--alinea-focus-ring-color);
       outline-offset: -2px;
     }
 
     &[data-pressed] {
-      background: var(--gray-100);
+      background: var(--alinea-gray-100);
     }
 
     &[data-selected] {
-      background: var(--highlight-background);
-      color: var(--highlight-foreground);
-      --focus-ring-color: var(--highlight-foreground);
+      background: var(--alinea-highlight-background);
+      color: var(--alinea-highlight-foreground);
+      --alinea-focus-ring-color: var(--alinea-highlight-foreground);
 
       &[data-focus-visible] {
-        outline-color: var(--highlight-foreground);
+        outline-color: var(--alinea-highlight-foreground);
         outline-offset: -4px;
       }
 
       .react-aria-Button {
-        color: var(--highlight-foreground);
-        --highlight-hover: rgb(255 255 255 / 0.1);
-        --highlight-pressed: rgb(255 255 255 / 0.2);
+        color: var(--alinea-highlight-foreground);
+        --alinea-highlight-hover: rgb(255 255 255 / 0.1);
+        --alinea-highlight-pressed: rgb(255 255 255 / 0.2);
       }
     }
 
     &[data-disabled] {
-      color: var(--text-color-disabled);
+      color: var(--alinea-text-color-disabled);
     }
 
     .react-aria-Button:not([slot]) {
@@ -80,11 +80,11 @@
       transition: background 200ms;
 
       &[data-hovered] {
-        background: var(--highlight-hover);
+        background: var(--alinea-highlight-hover);
       }
 
       &[data-pressed] {
-        background: var(--highlight-pressed);
+        background: var(--alinea-highlight-pressed);
         box-shadow: none;
       }
     }
@@ -112,10 +112,10 @@
   }
 
   :where(.react-aria-GridListItem) .react-aria-Checkbox {
-    --selected-color: var(--highlight-foreground);
-    --selected-color-pressed: var(--highlight-foreground-pressed);
-    --checkmark-color: var(--highlight-background);
-    --background-color: var(--highlight-background);
+    --alinea-selected-color: var(--alinea-highlight-foreground);
+    --alinea-selected-color-pressed: var(--alinea-highlight-foreground-pressed);
+    --alinea-checkmark-color: var(--alinea-highlight-background);
+    --alinea-background-color: var(--alinea-highlight-background);
   }
 }
 
@@ -147,14 +147,14 @@
 
     &[data-focus-visible] {
       border-radius: 4px;
-      outline: 2px solid var(--focus-ring-color);
+      outline: 2px solid var(--alinea-focus-ring-color);
     }
   }
 }
 
 .react-aria-DropIndicator {
   &[data-drop-target] {
-    outline: 1px solid var(--highlight-background);
+    outline: 1px solid var(--alinea-highlight-background);
   }
 
   @supports not selector(:has(.foo)) {
@@ -164,19 +164,19 @@
 }
 
 .react-aria-GridList[data-drop-target] {
-  outline: 2px solid var(--highlight-background);
+  outline: 2px solid var(--alinea-highlight-background);
   outline-offset: -1px;
-  background: var(--highlight-overlay);
+  background: var(--alinea-highlight-overlay);
 }
 
 .react-aria-GridListItem[data-drop-target] {
-  outline: 2px solid var(--highlight-background);
-  background: var(--highlight-overlay);
+  outline: 2px solid var(--alinea-highlight-background);
+  background: var(--alinea-highlight-overlay);
 }
 
 .react-aria-DropIndicator {
   &[data-drop-target] {
-    outline: 1px solid var(--highlight-background);
+    outline: 1px solid var(--alinea-highlight-background);
   }
 
   @supports not selector(:has(.foo)) {

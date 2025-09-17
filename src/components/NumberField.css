@@ -2,7 +2,7 @@
 
 @layer alinea {
   .alinea-rac-NumberField {
-    color: var(--text-color);
+    color: var(--alinea-text-color);
 
     &[data-disabled] {
       pointer-events: none;
@@ -12,19 +12,19 @@
     .alinea-rac-NumberField-wrapper {
       display: flex;
       position: relative;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--alinea-border-color);
       border-radius: 6px;
-      background-color: var(--field-background);
-      transition: var(--transition);
+      background-color: var(--alinea-field-background);
+      transition: var(--alinea-transition);
 
       &:focus-within {
-        border-color: var(--highlight-background);
-        box-shadow: 0 0 0 4px var(--highlight-overlay);
+        border-color: var(--alinea-highlight-background);
+        box-shadow: 0 0 0 4px var(--alinea-highlight-overlay);
       }
 
       &[data-invalid] {
-        border: 1px solid var(--invalid-color);
-        box-shadow: 0 0 0 4px var(--invalid-overlay);
+        border: 1px solid var(--alinea-invalid-color);
+        box-shadow: 0 0 0 4px var(--alinea-invalid-overlay);
       }
 
       .alinea-rac-NumberField-input {
@@ -37,29 +37,29 @@
         background: transparent;
         font-size: 0.875rem;
         line-height: 1.5;
-        color: var(--field-text-color);
+        color: var(--alinea-field-text-color);
         text-align: left;
 
         &::placeholder {
-          color: var(--text-color-placeholder);
+          color: var(--alinea-text-color-placeholder);
         }
 
         &[data-disabled] {
           pointer-events: none;
-          background-color: var(--background-color);
+          background-color: var(--alinea-background-color);
           opacity: 0.5;
         }
 
         &[data-readonly] {
           pointer-events: none;
-          color: var(--text-color-disabled);
+          color: var(--alinea-text-color-disabled);
         }
       }
 
       .alinea-rac-NumberField-buttons {
         display: flex;
         flex-direction: column;
-        border-left: 1px solid var(--border-color);
+        border-left: 1px solid var(--alinea-border-color);
 
         .alinea-rac-NumberField-button {
           flex-grow: 1;
@@ -71,8 +71,8 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          color: var(--icon-color);
-          transition: var(--transition);
+          color: var(--alinea-icon-color);
+          transition: var(--alinea-transition);
           cursor: pointer;
 
           &[data-slot="increment"] {
@@ -83,12 +83,12 @@
           }
 
           &:hover {
-            background-color: var(--background-color-hover);
-            color: var(--icon-color-active);
+            background-color: var(--alinea-background-color-hover);
+            color: var(--alinea-icon-color-active);
           }
 
           &:active {
-            background-color: var(--background-color-pressed);
+            background-color: var(--alinea-background-color-pressed);
           }
         }
       }

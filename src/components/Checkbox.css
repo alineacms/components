@@ -2,8 +2,8 @@
 
 @layer alinea {
   .alinea-rac-Checkbox {
-    --selected-color: var(--highlight-background);
-    --checkmark-color: var(--highlight-foreground);
+    --alinea-selected-color: var(--alinea-highlight-background);
+    --alinea-checkmark-color: var(--alinea-highlight-foreground);
 
     cursor: pointer;
     display: flex;
@@ -12,7 +12,7 @@
     gap: 0.571rem;
     font-size: 0.875rem;
     line-height: 1;
-    color: var(--text-color);
+    color: var(--alinea-text-color);
     forced-color-adjust: none;
 
     .alinea-rac-Checkbox-box {
@@ -21,10 +21,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--field-background);
-      border: 1px solid var(--border-color);
+      background-color: var(--alinea-field-background);
+      border: 1px solid var(--alinea-border-color);
       border-radius: 4px;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
       transition-property: background, border, box-shadow;
     }
 
@@ -32,36 +32,36 @@
       width: 1rem;
       height: 1rem;
       fill: none;
-      stroke: var(--checkmark-color);
+      stroke: var(--alinea-checkmark-color);
       stroke-width: 3px;
       stroke-dasharray: 22px;
       stroke-dashoffset: 66;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
     }
 
     &[data-hovered] .alinea-rac-Checkbox-box {
-      border-color: var(--border-color-hover);
-      box-shadow: 0 0 0 4px var(--box-shadow-color);
+      border-color: var(--alinea-border-color-hover);
+      box-shadow: 0 0 0 4px var(--alinea-box-shadow-color);
     }
 
     &[data-focus-visible] .alinea-rac-Checkbox-box {
-      outline: 2px solid var(--border-color);
+      outline: 2px solid var(--alinea-border-color);
       outline-offset: 2px;
     }
 
     &[data-selected],
     &[data-indeterminate] {
       .alinea-rac-Checkbox-box {
-        background-color: var(--selected-color);
-        border-color: var(--selected-color);
+        background-color: var(--alinea-selected-color);
+        border-color: var(--alinea-selected-color);
       }
 
       &[data-hovered] .alinea-rac-Checkbox-box {
-        box-shadow: 0 0 0 4px var(--highlight-overlay);
+        box-shadow: 0 0 0 4px var(--alinea-highlight-overlay);
       }
 
       &[data-focus-visible] .alinea-rac-Checkbox-box {
-        outline-color: var(--selected-color);
+        outline-color: var(--alinea-selected-color);
       }
 
       .alinea-rac-Checkbox-mark {
@@ -72,27 +72,27 @@
     &[data-indeterminate] {
       & .alinea-rac-Checkbox-mark {
         stroke: none;
-        fill: var(--checkmark-color);
+        fill: var(--alinea-checkmark-color);
       }
     }
 
     &[data-invalid] {
       .alinea-rac-Checkbox-box {
-        border-color: var(--invalid-color);
+        border-color: var(--alinea-invalid-color);
       }
 
       &[data-hovered] .alinea-rac-Checkbox-box {
-        box-shadow: 0 0 0 4px var(--invalid-overlay);
+        box-shadow: 0 0 0 4px var(--alinea-invalid-overlay);
       }
 
       &[data-focus-visible] .alinea-rac-Checkbox-box {
-        outline-color: var(--invalid-color);
+        outline-color: var(--alinea-invalid-color);
       }
 
       &[data-selected],
       &[data-indeterminate] {
         .alinea-rac-Checkbox-box {
-          background-color: var(--invalid-color);
+          background-color: var(--alinea-invalid-color);
         }
       }
     }
@@ -100,7 +100,7 @@
     &[data-disabled],
     &[data-readonly] {
       pointer-events: none;
-      color: var(--text-color-disabled);
+      color: var(--alinea-text-color-disabled);
     }
 
     &[data-disabled] {
@@ -109,13 +109,13 @@
 
     &[data-readonly] {
       .alinea-rac-Checkbox-box {
-        background-color: var(--border-color);
-        border-color: var(--border-color);
+        background-color: var(--alinea-border-color);
+        border-color: var(--alinea-border-color);
       }
     }
 
     .alinea-rac-Label-description {
-      color: var(--text-color-base);
+      color: var(--alinea-text-color-base);
       font-size: 12px;
       line-height: normal;
       font-weight: 400;

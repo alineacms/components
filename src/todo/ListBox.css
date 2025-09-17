@@ -6,9 +6,9 @@
   max-height: inherit;
   overflow: auto;
   padding: 2px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--alinea-border-color);
   border-radius: 6px;
-  background: var(--overlay-background);
+  background: var(--alinea-overlay-background);
   forced-color-adjust: none;
   outline: none;
   width: 250px;
@@ -17,7 +17,7 @@
   box-sizing: border-box;
 
   &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
+    outline: 2px solid var(--alinea-focus-ring-color);
     outline-offset: -1px;
   }
 }
@@ -28,23 +28,23 @@
   border-radius: 6px;
   outline: none;
   cursor: default;
-  color: var(--text-color);
+  color: var(--alinea-text-color);
   font-size: 1.072rem;
   position: relative;
   display: flex;
   flex-direction: column;
 
   &[data-focus-visible] {
-    outline: 2px solid var(--focus-ring-color);
+    outline: 2px solid var(--alinea-focus-ring-color);
     outline-offset: -2px;
   }
 
   &[data-selected] {
-    background: var(--highlight-background);
-    color: var(--highlight-foreground);
+    background: var(--alinea-highlight-background);
+    color: var(--alinea-highlight-foreground);
 
     &[data-focus-visible] {
-      outline-color: var(--highlight-foreground);
+      outline-color: var(--alinea-highlight-foreground);
       outline-offset: -4px;
     }
   }
@@ -120,9 +120,9 @@
         position: absolute;
         top: 8px;
         right: 8px;
-        background: var(--highlight-background);
-        border: 2px solid var(--highlight-foreground);
-        color: var(--highlight-foreground);
+        background: var(--alinea-highlight-background);
+        border: 2px solid var(--alinea-highlight-foreground);
+        color: var(--alinea-highlight-foreground);
         width: 22px;
         height: 22px;
         border-radius: 22px;
@@ -185,7 +185,7 @@
 
 .react-aria-ListBoxItem {
   &[data-disabled] {
-    color: var(--text-color-disabled);
+    color: var(--alinea-text-color-disabled);
   }
 }
 
@@ -204,20 +204,20 @@
 }
 
 .react-aria-DropIndicator[data-drop-target] {
-  outline: 1px solid var(--highlight-background);
+  outline: 1px solid var(--alinea-highlight-background);
 }
 
 .react-aria-ListBox[data-drop-target] {
-  outline: 2px solid var(--highlight-background);
+  outline: 2px solid var(--alinea-highlight-background);
   outline-offset: -1px;
-  background: var(--highlight-overlay);
+  background: var(--alinea-highlight-overlay);
 }
 
 .react-aria-ListBoxItem[data-drop-target] {
-  outline: 2px solid var(--highlight-background);
-  background: var(--highlight-overlay);
+  outline: 2px solid var(--alinea-highlight-background);
+  background: var(--alinea-highlight-overlay);
 }
 
 .react-aria-DropIndicator[data-drop-target] {
-  outline: 1px solid var(--highlight-background);
+  outline: 1px solid var(--alinea-highlight-background);
 }

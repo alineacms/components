@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: row;
     gap: 5px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--alinea-border-color);
     border-radius: 5px;
     padding: 5px;
 
@@ -33,23 +33,23 @@
     .alinea-rac-ToolbarButton {
       padding: 5px;
       border-radius: 5px;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      border: 1px solid var(--border-color);
+      background-color: var(--alinea-background-color);
+      color: var(--alinea-text-color);
+      border: 1px solid var(--alinea-border-color);
       cursor: pointer;
 
       &:hover {
-        background-color: var(--hover-color);
+        background-color: var(--alinea-hover-color);
       }
 
       &[data-active="true"] {
-        background-color: var(--active-color);
+        background-color: var(--alinea-active-color);
       }
     }
   }
 
   .alinea-rac-ToolbarSeparator {
-    background-color: var(--border-color);
+    background-color: var(--alinea-border-color);
 
     width: 1px;
   }

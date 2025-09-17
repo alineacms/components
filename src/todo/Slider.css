@@ -7,7 +7,7 @@
     "track track";
   grid-template-columns: 1fr auto;
   max-width: 300px;
-  color: var(--text-color);
+  color: var(--alinea-text-color);
 
   .react-aria-Label {
     grid-area: label;
@@ -26,7 +26,7 @@
       content: "";
       display: block;
       position: absolute;
-      background: var(--border-color);
+      background: var(--alinea-border-color);
     }
   }
 
@@ -34,16 +34,16 @@
     width: 1.429rem;
     height: 1.429rem;
     border-radius: 50%;
-    background: var(--highlight-background);
-    border: 2px solid var(--background-color);
+    background: var(--alinea-highlight-background);
+    border: 2px solid var(--alinea-background-color);
     forced-color-adjust: none;
 
     &[data-dragging] {
-      background: var(--highlight-background-pressed);
+      background: var(--alinea-highlight-background-pressed);
     }
 
     &[data-focus-visible] {
-      outline: 2px solid var(--focus-ring-color);
+      outline: 2px solid var(--alinea-focus-ring-color);
     }
   }
 
@@ -96,11 +96,11 @@
 
   &[data-disabled] {
     .react-aria-SliderTrack:before {
-      background: var(--border-color-disabled);
+      background: var(--alinea-border-color-disabled);
     }
 
     .react-aria-SliderThumb {
-      background: var(--border-color-disabled);
+      background: var(--alinea-border-color-disabled);
     }
   }
 }

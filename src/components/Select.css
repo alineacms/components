@@ -6,38 +6,38 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--alinea-border-color);
     outline: 4px solid transparent;
     border-radius: 6px;
     font-size: 0.875rem;
     line-height: 1.5;
     min-width: 100px;
     text-align: left;
-    color: var(--field-text-color);
-    transition: var(--transition);
-    background: var(--field-background);
+    color: var(--alinea-field-text-color);
+    transition: var(--alinea-transition);
+    background: var(--alinea-field-background);
 
     &:has(> .alinea-rac-SelectTrigger-button[data-hovered]) {
-      border-color: var(--border-color-hover);
-      outline-color: var(--box-shadow-color);
+      border-color: var(--alinea-border-color-hover);
+      outline-color: var(--alinea-box-shadow-color);
     }
 
     &:has(> .alinea-rac-SelectTrigger-button[data-focus-visible]),
     &:has(> .alinea-rac-SelectTrigger-button[aria-expanded="true"]) {
-      border-color: var(--highlight-border);
-      outline-color: var(--highlight-overlay);
+      border-color: var(--alinea-highlight-border);
+      outline-color: var(--alinea-highlight-overlay);
     }
 
     &:has(> .alinea-rac-SelectTrigger-button[data-disabled]) {
       pointer-events: none;
-      background-color: var(--field-background-disabled);
-      color: var(--text-color-disabled);
+      background-color: var(--alinea-field-background-disabled);
+      color: var(--alinea-text-color-disabled);
       opacity: 0.5;
     }
 
     .alinea-rac-Select[data-invalid="true"] & {
-      border-color: var(--invalid-color);
-      outline-color: var(--invalid-overlay);
+      border-color: var(--alinea-invalid-color);
+      outline-color: var(--alinea-invalid-overlay);
     }
 
     .alinea-rac-SelectTrigger-button {
@@ -64,20 +64,20 @@
         flex-grow: 1;
         display: flex;
         align-items: center;
-        color: var(--field-text-color);
+        color: var(--alinea-field-text-color);
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
 
         &[data-placeholder] {
-          color: var(--text-color-placeholder);
+          color: var(--alinea-text-color-placeholder);
         }
       }
 
       .alinea-rac-SelectTrigger-button-arrow {
         flex-shrink: 0;
         font-size: 18px;
-        color: var(--icon-color);
+        color: var(--alinea-icon-color);
 
         [aria-expanded="true"] & {
           transform: rotate(180deg);
@@ -87,10 +87,10 @@
   }
 
   .alinea-rac-SelectPopover {
-    width: var(--trigger-width);
+    width: var(--alinea-trigger-width);
 
     &[data-clear] {
-      width: calc(var(--trigger-width) + 40px);
+      width: calc(var(--alinea-trigger-width) + 40px);
     }
 
     .alinea-rac-SelectPopover-listbox {
@@ -104,8 +104,8 @@
       max-height: inherit;
       padding: 4px;
       border-radius: 6px;
-      border: 1px solid var(--border-color);
-      background-color: var(--field-background);
+      border: 1px solid var(--alinea-border-color);
+      background-color: var(--alinea-field-background);
     }
   }
 
@@ -122,7 +122,7 @@
     border: none;
     border-radius: 100%;
     background-color: transparent;
-    color: var(--icon-color);
+    color: var(--alinea-icon-color);
     font-size: 18px;
     font-size: 14px;
     outline: none;
@@ -136,9 +136,9 @@
       width: 24px;
       height: 24px;
       border-radius: 100%;
-      background-color: var(--background-color);
+      background-color: var(--alinea-background-color);
       z-index: -1;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
       opacity: 0;
       border: 1px solid transparent;
       outline: 4px solid transparent;
@@ -150,8 +150,8 @@
 
     &:focus:after {
       background-color: transparent;
-      border-color: var(--highlight-border);
-      outline-color: var(--highlight-overlay);
+      border-color: var(--alinea-highlight-border);
+      outline-color: var(--alinea-highlight-overlay);
       opacity: 1;
     }
   }
@@ -190,15 +190,15 @@
 
     &[data-selected] {
       font-weight: 600;
-      background: var(--border-color);
-      color: var(--text-color);
+      background: var(--alinea-border-color);
+      color: var(--alinea-text-color);
       position: relative;
     }
 
     &[data-focused],
     &[data-pressed] {
-      background: var(--highlight-background);
-      color: var(--highlight-foreground);
+      background: var(--alinea-highlight-background);
+      color: var(--alinea-highlight-foreground);
     }
 
     &[data-disabled] {

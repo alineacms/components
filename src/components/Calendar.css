@@ -13,7 +13,7 @@
       width: 100%;
       padding-bottom: 8px;
       font-weight: bold;
-      color: var(--text-color);
+      color: var(--alinea-text-color);
     }
 
     .alinea-rac-Calendar-heading {
@@ -28,8 +28,8 @@
       cursor: pointer;
       font-size: 1rem;
       padding: 4px;
-      color: var(--icon-color);
-      transition: var(--transition);
+      color: var(--alinea-icon-color);
+      transition: var(--alinea-transition);
     }
 
     .alinea-rac-Calendar-cell {
@@ -37,27 +37,27 @@
       padding: 6px;
       border-radius: 4px;
       font-size: 0.875rem;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
       cursor: pointer;
 
       &[data-selected] {
-        background-color: var(--highlight-background);
-        color: var(--highlight-foreground);
+        background-color: var(--alinea-highlight-background);
+        color: var(--alinea-highlight-foreground);
         font-weight: bold;
       }
 
       &[data-disabled] {
-        color: var(--text-color-disabled);
+        color: var(--alinea-text-color-disabled);
         cursor: not-allowed;
       }
 
       &[data-selection-start] {
-        background-color: var(--highlight-background);
+        background-color: var(--alinea-highlight-background);
         border-start-start-radius: 6px;
         border-end-start-radius: 6px;
       }
       &[data-selection-end] {
-        background-color: var(--highlight-background);
+        background-color: var(--alinea-highlight-background);
         border-start-end-radius: 6px;
         border-end-end-radius: 6px;
       }

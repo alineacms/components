@@ -6,33 +6,33 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--alinea-border-color);
     outline: 4px solid transparent;
     border-radius: 6px;
     font-size: 0.875rem;
     line-height: 1.5;
     text-align: left;
-    color: var(--field-text-color);
-    transition: var(--transition);
+    color: var(--alinea-field-text-color);
+    transition: var(--alinea-transition);
 
     &:has(> .alinea-rac-ComboboxTrigger-input[data-hovered]),
     &:has(> .alinea-rac-ComboboxTrigger-input[data-focused]),
     &:has(> .alinea-rac-ComboboxTrigger-input[aria-expanded="true"]),
     &:has(> .alinea-rac-ComboboxTrigger-button[data-hovered]),
     &:has(> .alinea-rac-ComboboxTrigger-button[data-open]) {
-      border-color: var(--highlight-border);
-      outline-color: var(--highlight-overlay);
+      border-color: var(--alinea-highlight-border);
+      outline-color: var(--alinea-highlight-overlay);
     }
 
     &:has(> .alinea-rac-ComboboxTrigger-input[data-disabled]) {
       pointer-events: none;
-      background-color: var(--field-background);
+      background-color: var(--alinea-field-background);
       opacity: 0.5;
     }
 
     .alinea-rac-Combobox[data-invalid="true"] & {
-      border-color: var(--invalid-color);
-      outline-color: var(--invalid-overlay);
+      border-color: var(--alinea-invalid-color);
+      outline-color: var(--alinea-invalid-overlay);
     }
     .alinea-rac-ComboboxTrigger-input {
       appearance: none;
@@ -53,16 +53,16 @@
 
       .alinea-rac-ComboboxTrigger-button-value {
         flex-grow: 1;
-        color: var(--field-text-color);
+        color: var(--alinea-field-text-color);
 
         &[data-placeholder] {
-          color: var(--text-color-placeholder);
+          color: var(--alinea-text-color-placeholder);
         }
       }
 
       .alinea-rac-ComboboxTrigger-button-arrow {
         font-size: 18px;
-        color: var(--icon-color);
+        color: var(--alinea-icon-color);
         transition: transform 0.3s ease-out;
 
         [aria-expanded="true"] & {
@@ -90,16 +90,16 @@
 
       .alinea-rac-ComboboxTrigger-button-value {
         flex-grow: 1;
-        color: var(--field-text-color);
+        color: var(--alinea-field-text-color);
 
         &[data-placeholder] {
-          color: var(--text-color-placeholder);
+          color: var(--alinea-text-color-placeholder);
         }
       }
 
       .alinea-rac-ComboboxTrigger-button-arrow {
         font-size: 18px;
-        color: var(--icon-color);
+        color: var(--alinea-icon-color);
         transition: transform 0.3s ease-out;
 
         [aria-expanded="true"] & {
@@ -119,8 +119,8 @@
     max-height: inherit;
     padding: 4px;
     border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background-color: var(--field-background);
+    border: 1px solid var(--alinea-border-color);
+    background-color: var(--alinea-field-background);
   }
 
   .alinea-rac-ComboboxClear {
@@ -136,7 +136,7 @@
     border: none;
     border-radius: 100%;
     background-color: transparent;
-    color: var(--icon-color);
+    color: var(--alinea-icon-color);
     font-size: 18px;
     font-size: 14px;
     outline: none;
@@ -150,9 +150,9 @@
       width: 24px;
       height: 24px;
       border-radius: 100%;
-      background-color: var(--background-color);
+      background-color: var(--alinea-background-color);
       z-index: -1;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
       opacity: 0;
       border: 1px solid transparent;
       outline: 4px solid transparent;
@@ -162,8 +162,8 @@
     }
     &:focus:after {
       background-color: transparent;
-      border-color: var(--highlight-border);
-      outline-color: var(--highlight-overlay);
+      border-color: var(--alinea-highlight-border);
+      outline-color: var(--alinea-highlight-overlay);
       opacity: 1;
     }
   }
@@ -193,15 +193,15 @@
 
     &[data-selected] {
       font-weight: 600;
-      background: var(--border-color);
-      color: var(--text-color);
+      background: var(--alinea-border-color);
+      color: var(--alinea-text-color);
       position: relative;
     }
 
     &[data-focused],
     &[data-pressed] {
-      background: var(--highlight-background);
-      color: var(--highlight-foreground);
+      background: var(--alinea-highlight-background);
+      color: var(--alinea-highlight-foreground);
     }
 
     &[data-disabled] {

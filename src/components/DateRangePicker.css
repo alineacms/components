@@ -8,29 +8,29 @@
     justify-content: space-between;
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--alinea-border-color);
     border-radius: 6px;
     background-color: transparent;
     font-size: 0.875rem;
     line-height: 1.5;
-    color: var(--field-text-color);
-    transition: var(--transition);
+    color: var(--alinea-field-text-color);
+    transition: var(--alinea-transition);
 
     &[data-hovered] {
-      border-color: var(--border-color-hover);
+      border-color: var(--alinea-border-color-hover);
     }
     &[data-focus-within] {
-      border-color: var(--highlight-background);
-      border-color: var(--indigo-500);
-      box-shadow: 0 0 0 4px var(--highlight-overlay);
+      border-color: var(--alinea-highlight-background);
+      border-color: var(--alinea-primary-500);
+      box-shadow: 0 0 0 4px var(--alinea-highlight-overlay);
     }
     &[data-invalid="true"] {
-      border: 1px solid var(--invalid-color);
-      outline: 3px solid var(--invalid-overlay);
+      border: 1px solid var(--alinea-invalid-color);
+      outline: 3px solid var(--alinea-invalid-overlay);
     }
     &[data-disabled] {
       pointer-events: none;
-      background-color: var(--background-color);
+      background-color: var(--alinea-background-color);
       opacity: 0.5;
     }
 
@@ -47,15 +47,15 @@
         padding-inline: 1px;
 
         &[data-placeholder] {
-          color: var(--text-color-placeholder);
+          color: var(--alinea-text-color-placeholder);
         }
 
         &:focus {
           outline: none;
           caret-color: transparent;
-          color: var(--highlight-foreground);
+          color: var(--alinea-highlight-foreground);
           border-radius: 4px;
-          background: var(--highlight-background);
+          background: var(--alinea-highlight-background);
         }
       }
     }
@@ -75,14 +75,14 @@
       border-radius: 4px;
       background-color: transparent;
       margin-left: auto;
-      transition: var(--transition);
-      color: var(--icon-color-plain);
+      transition: var(--alinea-transition);
+      color: var(--alinea-icon-color-plain);
       font-size: inherit;
 
       &[data-hovered],
       &[data-focus-within] {
-        background-color: var(--background-color);
-        color: var(--icon-color);
+        background-color: var(--alinea-background-color);
+        color: var(--alinea-icon-color);
       }
     }
   }

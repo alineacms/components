@@ -13,41 +13,41 @@
       outline: none;
       width: 100%;
       padding: 8px 10px;
-      background-color: var(--field-background);
-      border: 1px solid var(--border-color);
+      background-color: var(--alinea-field-background);
+      border: 1px solid var(--alinea-border-color);
       border-radius: 6px;
       outline: 4px solid transparent;
-      color: var(--field-text-color);
+      color: var(--alinea-field-text-color);
       font-size: 0.875rem;
       line-height: 1.5;
-      transition: var(--transition);
+      transition: var(--alinea-transition);
 
       &::placeholder {
-        color: var(--text-color-placeholder);
+        color: var(--alinea-text-color-placeholder);
       }
 
       &[data-hovered] {
-        border-color: var(--border-color-hover);
-        outline-color: var(--box-shadow-color);
+        border-color: var(--alinea-border-color-hover);
+        outline-color: var(--alinea-box-shadow-color);
       }
       &[data-focused] {
-        border-color: var(--highlight-border);
-        outline-color: var(--highlight-overlay);
+        border-color: var(--alinea-highlight-border);
+        outline-color: var(--alinea-highlight-overlay);
       }
       &[data-invalid="true"] {
-        border-color: var(--invalid-color);
-        outline-color: var(--invalid-overlay);
+        border-color: var(--alinea-invalid-color);
+        outline-color: var(--alinea-invalid-overlay);
       }
       &[disabled] {
         pointer-events: none;
-        background-color: var(--field-background-disabled);
-        color: var(--text-color-disabled);
+        background-color: var(--alinea-field-background-disabled);
+        color: var(--alinea-text-color-disabled);
         opacity: 0.5;
       }
       &[readonly] {
         pointer-events: none;
-        background-color: var(--field-background-disabled);
-        color: var(--text-color-disabled);
+        background-color: var(--alinea-field-background-disabled);
+        color: var(--alinea-text-color-disabled);
         opacity: 1;
       }
     }

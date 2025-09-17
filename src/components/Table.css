@@ -6,9 +6,9 @@
     display: flex;
     flex-direction: column;
     overflow-x: auto;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--alinea-border-color);
     border-right: none;
-    border-left: 1px solid var(--border-color);
+    border-left: 1px solid var(--alinea-border-color);
     max-width: 100%;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -24,17 +24,17 @@
       }
 
       &::-webkit-scrollbar-track {
-        background: var(--background-color);
+        background: var(--alinea-background-color);
       }
 
       &::-webkit-scrollbar-thumb {
-        background: var(--border-color);
+        background: var(--alinea-border-color);
         border-radius: 4px;
       }
     }
 
     &[data-striped] .alinea-rac-Table-row:nth-child(odd) {
-      background-color: var(--table-background-striped);
+      background-color: var(--alinea-table-background-striped);
     }
 
     .alinea-rac-Table-table {
@@ -49,7 +49,7 @@
 
   .alinea-rac-TableBody {
     font-size: 14px;
-    color: var(--text-color);
+    color: var(--alinea-text-color);
     width: 100%;
   }
 
@@ -58,23 +58,23 @@
     white-space: normal;
     word-wrap: break-word;
     max-width: 200px;
-    border-right: solid 1px var(--border-color);
-    border-bottom: solid 1px var(--border-color);
+    border-right: solid 1px var(--alinea-border-color);
+    border-bottom: solid 1px var(--alinea-border-color);
   }
 
   .alinea-rac-Row {
     &[data-selected] {
-      background-color: var(--table-color-selected) !important;
+      background-color: var(--alinea-table-color-selected) !important;
     }
   }
 
   .alinea-rac-TableHeader {
-    background-color: var(--header-background);
-    color: var(--text-color);
+    background-color: var(--alinea-header-background);
+    color: var(--alinea-text-color);
     text-align: left;
     font-weight: bold;
-    border-bottom: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--alinea-border-color);
+    border-right: 1px solid var(--alinea-border-color);
   }
 
   .alinea-rac-Column {
@@ -92,7 +92,7 @@
 
     .alinea-rac-Column-sortIndicator {
       font-size: 20px;
-      color: var(--icon-color);
+      color: var(--alinea-icon-color);
       margin-left: 6px;
       width: 24px;
       height: 24px;

@@ -27,14 +27,14 @@
 
     &[data-selected] {
       font-weight: 600;
-      background: var(--gray-200);
-      color: var(--text-color);
+      background: var(--alinea-gray-200);
+      color: var(--alinea-text-color);
       position: relative;
     }
 
     &[data-focused] {
-      background: var(--highlight-background);
-      color: var(--highlight-foreground);
+      background: var(--alinea-highlight-background);
+      color: var(--alinea-highlight-foreground);
     }
 
     &[data-disabled] {
@@ -46,13 +46,13 @@
   .alinea-rac-MenuHeader {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--text-color-base);
+    color: var(--alinea-text-color-base);
     padding: 4px 6px;
   }
 
   .alinea-rac-MenuSeparator {
     height: 1px;
     margin: 4px 8px;
-    background-color: var(--border-color);
+    background-color: var(--alinea-border-color);
   }
 }
