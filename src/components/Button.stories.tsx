@@ -51,22 +51,52 @@ export function Appearance() {
 export function Intents({isDisabled}: {isDisabled: boolean}) {
   return (
     <Stack>
-      <Button isDisabled={isDisabled}>Primary</Button>
-      <Button intent="secondary" isDisabled={isDisabled}>
-        Secondary
-      </Button>
-      <Button intent="danger" isDisabled={isDisabled}>
-        Danger
-      </Button>
-      <Button intent="warning" isDisabled={isDisabled}>
-        Warning
-      </Button>
+      <HStack>
+        <Button>Primary</Button>
+        <Button appearance="outline">Primary</Button>
+        <Button isDisabled>Primary</Button>
+        <Button appearance="outline" isDisabled>
+          Primary
+        </Button>
+      </HStack>
+      <HStack>
+        <Button intent="secondary">Secondary</Button>
+        <Button intent="secondary" appearance="outline">
+          Secondary
+        </Button>
+        <Button intent="secondary" isDisabled>
+          Secondary
+        </Button>
+        <Button intent="secondary" appearance="outline" isDisabled>
+          Secondary
+        </Button>
+      </HStack>
+      <HStack>
+        <Button intent="danger">Danger</Button>
+        <Button intent="danger" appearance="outline">
+          Danger
+        </Button>
+        <Button intent="danger" isDisabled>
+          Danger
+        </Button>
+        <Button intent="danger" appearance="outline" isDisabled>
+          Danger
+        </Button>
+      </HStack>
+      <HStack>
+        <Button intent="warning">Warning</Button>
+        <Button intent="warning" appearance="outline">
+          Warning
+        </Button>
+        <Button intent="warning" isDisabled>
+          Warning
+        </Button>
+        <Button intent="warning" appearance="outline" isDisabled>
+          Warning
+        </Button>
+      </HStack>
     </Stack>
   )
-}
-
-Intents.args = {
-  isDisabled: false
 }
 
 export function Sizes() {

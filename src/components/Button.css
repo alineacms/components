@@ -7,11 +7,23 @@
   --alinea-button-hovered: var(--alinea-highlight-background-hovered);
   --alinea-button-pressed: var(--alinea-highlight-background-pressed);
 
+  &[data-disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: var(--alinea-highlight-foreground-disabled);
+    background-color: var(--alinea-highlight-background-disabled);
+  }
+
   &[data-intent="secondary"] {
     --alinea-button-color: var(--alinea-text-color);
     --alinea-button-bg: var(--alinea-background-color);
     --alinea-button-hovered: var(--alinea-background-color-hover);
     --alinea-button-pressed: var(--alinea-background-color-pressed);
+
+    &[data-disabled] {
+      color: var(--alinea-gray-400);
+      background-color: var(--alinea-gray-50);
+    }
   }
 
   &[data-intent="danger"] {
@@ -19,6 +31,11 @@
     --alinea-button-bg: var(--alinea-danger-400);
     --alinea-button-hovered: var(--alinea-danger-500);
     --alinea-button-pressed: var(--alinea-danger-600);
+
+    &[data-disabled] {
+      color: var(--alinea-danger-400);
+      background-color: var(--alinea-danger-50);
+    }
   }
 
   &[data-intent="warning"] {
@@ -26,18 +43,29 @@
     --alinea-button-bg: var(--alinea-warning-400);
     --alinea-button-hovered: var(--alinea-warning-500);
     --alinea-button-pressed: var(--alinea-warning-600);
+
+    &[data-disabled] {
+      color: var(--alinea-warning-400);
+      background-color: var(--alinea-warning-50);
+    }
   }
 
   &[data-appearance="outline"] {
     --alinea-button-color: var(--alinea-highlight-background);
     --alinea-button-bg: transparent;
     --alinea-button-border: var(--alinea-highlight-background);
-  }
 
-  &[data-appearance="outline"][data-intent="secondary"] {
-    --alinea-button-color: var(--alinea-text-color);
-    --alinea-button-border: var(--alinea-border-color);
-    --alinea-button-hovered: var(--alinea-background-color-hover);
+    &[data-intent="secondary"] {
+      --alinea-button-color: var(--alinea-text-color);
+      --alinea-button-border: var(--alinea-border-color);
+      --alinea-button-hovered: var(--alinea-background-color-hover);
+    }
+
+    &[data-disabled] {
+      color: var(--alinea-primary-200);
+      border-color: var(--alinea-primary-200);
+      background-color: transparent;
+    }
   }
 
   &[data-appearance="outline"][data-intent="danger"] {
@@ -164,24 +192,5 @@
   &[data-pressed] {
     background-color: var(--alinea-button-pressed) !important;
     box-shadow: inset 0 -2px 2px -1px rgb(0 0 0 / 0.1);
-  }
-
-  &[data-disabled] {
-    pointer-events: none;
-    color: var(--alinea-highlight-foreground-disabled);
-    background-color: var(--alinea-highlight-background-disabled);
-
-    &[data-intent="danger"] {
-      cursor: not-allowed;
-      pointer-events: initial;
-      color: var(--alinea-danger-400);
-      background-color: var(--alinea-danger-50);
-    }
-
-    &[data-appearance="outline"] {
-      color: var(--alinea-primary-200);
-      border-color: var(--alinea-primary-200);
-      background-color: transparent;
-    }
   }
 }
