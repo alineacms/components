@@ -1,5 +1,5 @@
 import * as path from 'node:path'
-import {type BunPlugin, Glob, build} from 'bun'
+import {type BunPlugin, Glob, build, serve} from 'bun'
 
 const glob = new Glob('./src/**/*.stories.{js,cjs,mjs,ts,mts,cts,jsx,tsx}')
 
@@ -8,16 +8,17 @@ const findEntries: BunPlugin = {
   async setup(build) {
     const cwd = build.config.root ?? process.cwd()
 
-    build.onResolve({filter: new RegExp(this.name)}, args => {
-      return {path: args.path, namespace: this.name}
+    build.onResolve({filter: new RegExp(findEntries.name)}, args => {
+      return {path: args.path, namespace: findEntries.name}
     })
 
     build.onLoad(
-      {filter: new RegExp(this.name), namespace: this.name},
+      {filter: new RegExp(findEntries.name), namespace: findEntries.name},
       async () => {
         let contents = 'let stories = []'
         for await (const file of glob.scan({cwd})) {
           const relative = path.relative(cwd, file).replace(/\\/g, '/')
+          await import(`./${relative}`, {with: {type: 'text'}})
           contents += `
           stories.push({
             meta: (await import('./${relative}')).default ?? {}, 
@@ -45,7 +46,21 @@ async function loadStories() {
   return exports
 }
 
-const stories: BunPlugin = {
-  name: '@stories',
-  async setup(build) {}
-}
+const stories = loadStories()
+
+const index = URL.createObjectURL(
+  new Blob(['<html><body><div id="root">test</div>/body></html>'], {
+    type: 'text/html'
+  })
+)
+
+serve({
+  routes: {
+    '/': {
+      index: index,
+      files: []
+    }
+  },
+  port: 3000,
+  development: true
+})
