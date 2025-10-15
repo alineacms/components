@@ -57,13 +57,5 @@
     "enabled": true,
     "clientKind": "git",
     "useIgnoreFile": true
-  },
-  "files": {
-    "ignore": [
-      "packages/hl7v2/**/*.js",
-      "apps/native/android",
-      "apps/native/ios",
-      "**/*.d.ts"
-    ]
   }
 }
