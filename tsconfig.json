@@ -19,7 +19,8 @@
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "types": ["vite/client"]
   },
   "include": ["src"],
   "exclude": ["node_modules"]

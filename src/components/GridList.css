@@ -1,23 +1,18 @@
-@import "./ToggleButton.css";
 @import "../theme.css";
 
-.react-aria-GridList {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  max-height: inherit;
-  overflow: auto;
-  padding: 4px;
-  border: 1px solid var(--alinea-border-color);
+.alinea-rac-Card {
   border-radius: 6px;
-  background: var(--alinea-overlay-background);
-  forced-color-adjust: none;
-  outline: none;
-  width: 250px;
-  max-height: 300px;
-  min-height: 100px;
-  box-sizing: border-box;
+  background: #f6f6f8;
+  box-shadow: var(--alinea-shadow-sm);
+  padding: 16px;
+  color: var(--alinea-text-color);
 
+  &[data-elevated] {
+    background: white;
+  }
+}
+
+.react-aria-GridList {
   &[data-focus-visible] {
     outline: 2px solid var(--alinea-focus-ring-color);
     outline-offset: -1px;
