@@ -62,6 +62,26 @@
     }
   }
 
+  &:has(.alinea-rac-Calendar-cell[data-selection-start]) {
+    .alinea-rac-Calendar-cell {
+      &[data-selected] {
+        background-color: var(--alinea-calendar-highlight-overlay);
+        border-radius: 0;
+
+        &[data-selection-start] {
+          background-color: var(--alinea-highlight-background);
+          border-start-start-radius: 6px;
+          border-end-start-radius: 6px;
+        }
+        &[data-selection-end] {
+          background-color: var(--alinea-highlight-background);
+          border-start-end-radius: 6px;
+          border-end-end-radius: 6px;
+        }
+      }
+    }
+  }
+
   .alinea-rac-Calendar-grid {
     border-spacing: 0px;
     td {

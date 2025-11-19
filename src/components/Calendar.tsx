@@ -6,6 +6,7 @@ import {
   type CalendarProps as CalendarPrimitiveProps,
   type DateValue,
   Heading,
+  RangeCalendar as RangeCalendarPrimitive,
   type RangeCalendarProps
 } from 'react-aria-components'
 import {IcRoundKeyboardArrowLeft} from '../stories/icons/IcRoundKeyboardArrowLeft.tsx'
@@ -40,7 +41,7 @@ export function RangeCalendar<T extends DateValue>(
   props: RangeCalendarProps<T>
 ) {
   return (
-    <RangeCalendar {...props} className="alinea-rac-Calendar">
+    <RangeCalendarPrimitive {...props} className="alinea-rac-Calendar">
       <header className="alinea-rac-Calendar-header">
         <Button slot="previous" className="alinea-rac-Calendar-button">
           <Icon icon={IcRoundKeyboardArrowLeft} />
@@ -55,6 +56,6 @@ export function RangeCalendar<T extends DateValue>(
           <CalendarCell date={date} className="alinea-rac-Calendar-cell" />
         )}
       </CalendarGrid>
-    </RangeCalendar>
+    </RangeCalendarPrimitive>
   )
 }
