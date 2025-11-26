@@ -1,28 +1,26 @@
+import {} from '@internationalized/date'
+import {I18nProvider} from 'react-aria-components'
 import {Stack} from '../stories/Stack.tsx'
-import {Button} from './Button.tsx'
 import {DateField} from './DateField.tsx'
 
 export const Example = () => {
   return (
-    <Stack align="normal">
-      <DateField label="Event date" />
-
-      <form
-        onSubmit={e => {
-          e.preventDefault()
-        }}
-      >
-        <Stack align="normal">
-          <DateField
-            isRequired
-            label="Event date with error"
-            errorMessage="Date is required"
-          />
-          <Button type="submit">Submit</Button>
-        </Stack>
-      </form>
-      <DateField label="Event date" description="Select a date for the event" />
-    </Stack>
+    <I18nProvider locale="en-UK">
+      <Stack gap={32}>
+        <DateField label="Default" />
+        <DateField
+          label="With Description"
+          description="Please enter a valid date (dd/mm/yyyy)"
+        />
+        <DateField
+          isRequired
+          isInvalid
+          label="With Error"
+          errorMessage="Date is required"
+        />
+        <DateField label="Disabled" isDisabled />
+      </Stack>
+    </I18nProvider>
   )
 }
 
