@@ -39,6 +39,17 @@
         border-bottom-right-radius: 6px;
       }
     }
+    &[data-empty="true"] {
+      tr td:first-child {
+        border: 1px solid var(--alinea-border-color);
+        border-top: none;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        padding: 10px 12px;
+        text-align: center;
+        font-style: italic;
+      }
+    }
   }
 }
 

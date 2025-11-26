@@ -14,6 +14,18 @@ const exampleStories = [
 ]
 export const Example = () => (
   <Stack gap={32}>
+    <Table>
+      {columns?.length > 0 && (
+        <TableHeader>
+          {columns.map(column => (
+            <Column isRowHeader key={column.id}>
+              {column.title}
+            </Column>
+          ))}
+        </TableHeader>
+      )}
+      <TableBody renderEmptyState={() => 'No rows found.'}>[]</TableBody>
+    </Table>
     {exampleStories.map((item, index) => (
       <div key={index} style={{width: '100%'}}>
         <h3>{item.label}</h3>
