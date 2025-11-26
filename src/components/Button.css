@@ -54,6 +54,7 @@
     --alinea-button-color: var(--alinea-highlight-background);
     --alinea-button-bg: transparent;
     --alinea-button-border: var(--alinea-highlight-background);
+    --alinea-button-hovered: var(--alinea-highlight-background);
 
     &[data-intent="secondary"] {
       --alinea-button-color: var(--alinea-text-color);
@@ -71,13 +72,13 @@
   &[data-appearance="outline"][data-intent="danger"] {
     --alinea-button-color: var(--alinea-danger-400);
     --alinea-button-border: var(--alinea-danger-400);
-    --alinea-button-hovered: var(--alinea-danger-50);
+    --alinea-button-hovered: var(--alinea-danger-400);
   }
 
   &[data-appearance="outline"][data-intent="warning"] {
-    --alinea-button-color: var(--alinea-warning-500);
+    --alinea-button-color: var(--alinea-warning-400);
     --alinea-button-border: var(--alinea-warning-400);
-    --alinea-button-hovered: var(--alinea-warning-50);
+    --alinea-button-hovered: var(--alinea-warning-400);
   }
 
   &[data-appearance="plain"] {
@@ -147,13 +148,17 @@
 
     &[data-appearance="outline"] {
       color: var(--alinea-highlight-foreground);
-      background-color: var(--alinea-highlight-background);
+      background-color: var(--alinea-button-hovered);
     }
 
     &[data-appearance="outline"][data-intent="secondary"] {
       color: var(--alinea-text-color);
       border-color: var(--alinea-button-border);
       background-color: var(--alinea-button-hovered);
+    }
+
+    &[data-appearance="outline"][data-intent="warning"] {
+      color: var(--alinea-gray-900);
     }
   }
 
