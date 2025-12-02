@@ -3,7 +3,8 @@ import {
   Button,
   Input,
   NumberField as NumberFieldPrimitive,
-  type NumberFieldProps as NumberFieldPrimitiveProps
+  type NumberFieldProps as NumberFieldPrimitiveProps,
+  Group
 } from 'react-aria-components'
 import {IcRoundKeyboardArrowDown} from '../stories/icons/IcRoundKeyboardArrowDown.tsx'
 import {IcRoundKeyboardArrowUp} from '../stories/icons/IcRoundKeyboardArrowUp.tsx'
@@ -24,7 +25,7 @@ export function NumberField({steppers = true, ...props}: NumberFieldProps) {
       data-invalid={props.errorMessage ? true : undefined}
     >
       <Label {...labelProps(props)}>
-        <div
+        <Group
           className={clsx('alinea-rac-NumberField-wrapper')}
           data-invalid={props.errorMessage ? true : undefined}
           data-steppers={steppers}
@@ -48,7 +49,7 @@ export function NumberField({steppers = true, ...props}: NumberFieldProps) {
               </Button>
             </div>
           )}
-        </div>
+        </Group>
       </Label>
     </NumberFieldPrimitive>
   )

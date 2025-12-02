@@ -16,6 +16,11 @@
     background-color: var(--alinea-field-background);
     transition: var(--alinea-transition);
 
+    &[data-hovered] {
+      border-color: var(--alinea-border-color-hover);
+      box-shadow: 0 0 0 4px var(--alinea-box-shadow-color);
+    }
+
     &:focus-within {
       border-color: var(--alinea-highlight-background);
       box-shadow: 0 0 0 4px var(--alinea-highlight-overlay);
