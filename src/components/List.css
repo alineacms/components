@@ -1,22 +1,32 @@
 @import "../theme.css";
 
 .alinea-rac-List {
-  --alinea-list-border-radius: 6px;
-  background: var(--alinea-list-background);
-  border-radius: var(--alinea-list-border-radius);
   color: var(--alinea-text-color);
   cursor: default;
   overflow: hidden;
   position: relative;
+  font-size: 14px;
 }
 
 .alinea-rac-ListItem {
   display: flex;
   flex-direction: column;
   position: relative;
+  background: var(--alinea-list-background);
+  border-radius: 3px;
+
+  &:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
 
   & + & {
-    box-shadow: var(--alinea-divider-top);
+    margin-top: 1px;
   }
 }
 
@@ -25,32 +35,30 @@
   display: flex;
   gap: 8px;
   padding: 6px 8px;
-}
-
-.alinea-rac-ListItem-title {
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  font-size: 13px;
-  font-weight: 600;
   height: 26px;
-  min-width: 0;
 }
 
 .alinea-rac-ListItem-content {
+  align-items: center;
+  display: flex;
   flex-grow: 1;
-  font-size: 14px;
-  padding: 10px;
+  min-width: 0;
 }
 
-.alinea-rac-ListItem-header + .alinea-rac-ListItem-content {
-  padding-top: 4px;
-}
-
-.alinea-rac-ListItem-options {
+.alinea-rac-ListItem-leading,
+.alinea-rac-ListItem-trailing {
   align-items: center;
   display: flex;
   gap: 8px;
   padding: 0;
   position: relative;
+}
+
+.alinea-rac-ListItem-inner {
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.alinea-rac-ListItem-header + .alinea-rac-ListItem-inner {
+  padding-top: 4px;
 }

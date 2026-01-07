@@ -1,0 +1,32 @@
+@import "../theme.css";
+
+.alinea-rac-Elevation {
+  --alinea-elevation-background: var(--alinea-field-background);
+  --alinea-elevation-shadow: var(--alinea-box-shadow-color);
+  --alinea-elevation-radius: 6px;
+  background: var(--alinea-elevation-background);
+  box-shadow: 0 0 1.4px var(--alinea-elevation-shadow),
+    0 2px 3.5px var(--alinea-elevation-shadow);
+  transition: box-shadow var(--alinea-transition);
+  padding: 6px 10px 10px 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+
+  &:empty {
+    display: none;
+  }
+
+  & .alinea-rac-ElevationHeader {
+    padding: 0 3px;
+  }
+
+  &:first-child {
+    border-top-left-radius: var(--alinea-elevation-radius);
+    border-top-right-radius: var(--alinea-elevation-radius);
+  }
+
+  &:last-child {
+    border-bottom-left-radius: var(--alinea-elevation-radius);
+    border-bottom-right-radius: var(--alinea-elevation-radius);
+  }
+}

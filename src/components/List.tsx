@@ -14,32 +14,34 @@ export function List(props: ListProps) {
   )
 }
 
-export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
-  title?: ReactNode
-  options?: ReactNode
+export interface ListItemProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
+  leading?: ReactNode
+  trailing?: ReactNode
+  inner?: ReactNode
 }
 
-export function ListItem({title, options, children, ...props}: ListItemProps) {
-  const hasHeader = Boolean(title || options)
-  const hasContent = children !== undefined && children !== null
-
+export function ListItem({
+  leading,
+  trailing,
+  inner,
+  children,
+  ...props
+}: ListItemProps) {
   return (
-    <div
-      role="listitem"
-      {...props}
-      className={clsx('alinea-rac-ListItem', props.className)}
-    >
-      {hasHeader && (
-        <header className="alinea-rac-ListItem-header">
-          {title && <div className="alinea-rac-ListItem-title">{title}</div>}
-          {options && (
-            <div className="alinea-rac-ListItem-options">{options}</div>
-          )}
-        </header>
-      )}
-      {hasContent && (
-        <div className="alinea-rac-ListItem-content">{children}</div>
-      )}
+    <div {...props} className={clsx('alinea-rac-ListItem', props.className)}>
+      <header className="alinea-rac-ListItem-header">
+        {leading && (
+          <div className="alinea-rac-ListItem-leading">{leading}</div>
+        )}
+        {children && (
+          <div className="alinea-rac-ListItem-content">{children}</div>
+        )}
+        {trailing && (
+          <div className="alinea-rac-ListItem-trailing">{trailing}</div>
+        )}
+      </header>
+      {inner && <div className="alinea-rac-ListItem-inner">{inner}</div>}
     </div>
   )
 }

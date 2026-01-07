@@ -1,55 +1,72 @@
-import {Button} from './Button.tsx'
-import {List, ListItem} from './List.tsx'
+import {Group} from 'react-aria-components'
 import {Stack} from '../stories/Stack.tsx'
+import {IcRoundClose} from '../stories/icons/IcRoundClose.tsx'
+import {IcRoundEdit} from '../stories/icons/IcRoundEdit.tsx'
 import {IcRoundSettings} from '../stories/icons/IcRoundSettings.tsx'
-import {IcRoundHistory} from '../stories/icons/IcRoundHistory.tsx'
+import {Button} from './Button.tsx'
+import {Elevation} from './Elevation.tsx'
+import {Icon} from './Icon.tsx'
+import {List, ListItem} from './List.tsx'
+import {TextField} from './TextField.tsx'
+
+const itemControls = (
+  <Group>
+    <Button size="icon" appearance="plain">
+      <IcRoundEdit data-slot="icon" />
+    </Button>
+    <Button size="icon" appearance="plain">
+      <IcRoundClose data-slot="icon" />
+    </Button>
+  </Group>
+)
 
 export function Basic() {
   return (
-    <List>
-      <ListItem title="Welcome">
-        This is a simple list item with a short description.
-      </ListItem>
-      <ListItem title="Recent activity">
-        Drafts updated by your team show up here.
-      </ListItem>
-      <ListItem title="Notes">
-        <div>
-          You can put more complex content in the body, including links and
-          controls.
-        </div>
-      </ListItem>
-    </List>
-  )
-}
-
-export function WithOptions() {
-  return (
-    <Stack gap={12}>
+    <>
+      <style>{`
+        strong{font-weight:500}
+      `}</style>
       <List>
         <ListItem
-          title="Preferences"
-          options={
-            <Button appearance="plain">
-              <IcRoundSettings data-slot="icon" />
-            </Button>
-          }
+          inner="This is a simple list item with a short description."
+          trailing={itemControls}
         >
-          Configure default behavior for your workspace.
+          <strong>Welcome</strong>
         </ListItem>
         <ListItem
-          title="Activity log"
-          options={
-            <Button appearance="plain">
-              <IcRoundHistory data-slot="icon" />
-            </Button>
+          inner="Drafts updated by your team show up here."
+          trailing={itemControls}
+        >
+          <strong>Recent activity</strong>
+        </ListItem>
+        <ListItem
+          leading={<Icon icon={IcRoundSettings} />}
+          trailing={itemControls}
+          inner={
+            <Elevation>
+              <Stack align="normal">
+                You can put more complex content in the body, including links
+                and controls.
+                <TextField
+                  placeholder="Type something..."
+                  label="Inner field"
+                />
+                <List>
+                  <ListItem trailing={itemControls}>
+                    <strong>Inner list</strong>
+                  </ListItem>
+                  <ListItem trailing={itemControls}>
+                    <strong>Is possible</strong>
+                  </ListItem>
+                </List>
+              </Stack>
+            </Elevation>
           }
         >
-          Track changes across content and releases.
+          <strong>About this workspace</strong>
         </ListItem>
       </List>
-    </Stack>
+    </>
   )
 }
-
 export default {title: 'Components / List'}
