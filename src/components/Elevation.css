@@ -9,7 +9,7 @@
     0 2px 3.5px var(--alinea-elevation-shadow);
   transition: box-shadow var(--alinea-transition);
   padding: 6px 10px 10px 10px;
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
 
   &:empty {
