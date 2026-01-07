@@ -98,6 +98,9 @@
   --alinea-tab-color-base: var(--alinea-gray-500);
   --alinea-table-background-striped: var(--alinea-gray-50);
   --alinea-table-color-selected: rgb(from #c1ccf8 r g b / 50%);
+  --alinea-list-background: var(--alinea-gray-100);
+  --alinea-divider-top: 0 -1px 0 rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Dark */
@@ -138,4 +141,8 @@
   --alinea-tab-color-base: var(--alinea-gray-300);
   --alinea-table-background-striped: var(--alinea-gray-900);
   --alinea-table-color-selected: rgb(from #3f61e8 r g b / 30%);
+  --alinea-list-background: var(--alinea-gray-800);
+  --alinea-list-divider: var(--alinea-border-color);
+  --alinea-divider-top: 0 -1px 0 rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
