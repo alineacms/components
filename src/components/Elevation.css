@@ -5,8 +5,8 @@
   --alinea-elevation-shadow: var(--alinea-box-shadow-color);
   --alinea-elevation-radius: 6px;
   background: var(--alinea-elevation-background);
-  box-shadow: 0 0 1.4px var(--alinea-elevation-shadow),
-    0 2px 3.5px var(--alinea-elevation-shadow);
+  border: 1px solid var(--alinea-border-color);
+  border-radius: 8px;
   transition: box-shadow var(--alinea-transition);
   padding: 6px 10px 10px 10px;
   font-size: 13px;
