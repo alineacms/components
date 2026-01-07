@@ -7,7 +7,6 @@ import {List, ListItem} from '../components/List.tsx'
 import {SearchField} from '../components/SearchField.tsx'
 import {
   Sidebar,
-  SidebarCaption,
   SidebarHeader,
   SidebarRow,
   SidebarSection,
@@ -15,13 +14,13 @@ import {
 } from '../components/Sidebar.tsx'
 import {Tab, TabList, Tabs} from '../components/Tabs.tsx'
 import {TextField} from '../components/TextField.tsx'
+import {Tree, TreeItem} from '../todo/Tree.tsx'
 import {IcRoundArrowBack} from './icons/IcRoundArrowBack.tsx'
 import {IcRoundContentCopy} from './icons/IcRoundContentCopy.tsx'
 import {IcRoundDelete} from './icons/IcRoundDelete.tsx'
 import {IcRoundDescription} from './icons/IcRoundDescription.tsx'
 import {IcRoundHome} from './icons/IcRoundHome.tsx'
 import {IcRoundKeyboardArrowDown} from './icons/IcRoundKeyboardArrowDown.tsx'
-import {IcRoundKeyboardArrowRight} from './icons/IcRoundKeyboardArrowRight.tsx'
 import {IcRoundMoreVert} from './icons/IcRoundMoreVert.tsx'
 import {IcRoundPermMedia} from './icons/IcRoundPermMedia.tsx'
 import {IcRoundSettings} from './icons/IcRoundSettings.tsx'
@@ -30,17 +29,37 @@ import {IcRoundUnfoldMore} from './icons/IcRoundUnfoldMore.tsx'
 import {IcRoundViewList} from './icons/IcRoundViewList.tsx'
 import {IcRoundVisibility} from './icons/IcRoundVisibility.tsx'
 
+const TreeRow = ({
+  icon,
+  label,
+  meta
+}: {
+  icon: React.ReactNode
+  label: string
+  meta?: React.ReactNode
+}) => (
+  <span className="alinea-rac-TreeItemRow">
+    <span className="alinea-rac-TreeItemIcon">{icon}</span>
+    <span className="alinea-rac-TreeItemLabel">{label}</span>
+    {meta ? <span className="alinea-rac-TreeItemMeta">{meta}</span> : null}
+  </span>
+)
+
+const Status = ({children}: {children: React.ReactNode}) => (
+  <span className="alinea-rac-TreeItemStatus">{children}</span>
+)
+
 export function Dashboard() {
   return (
     <div className="alinea-dashboard">
       <div className="alinea-dashboard-rail">
-        <Button appearance="plain" size="square-petite" aria-label="Home">
+        <Button appearance="plain" size="icon" aria-label="Home">
           <IcRoundHome data-slot="icon" />
         </Button>
-        <Button appearance="plain" size="square-petite" aria-label="Content">
+        <Button appearance="plain" size="icon" aria-label="Content">
           <IcRoundViewList data-slot="icon" />
         </Button>
-        <Button appearance="plain" size="square-petite" aria-label="Settings">
+        <Button appearance="plain" size="icon" aria-label="Settings">
           <IcRoundSettings data-slot="icon" />
         </Button>
       </div>
@@ -53,38 +72,107 @@ export function Dashboard() {
               </span>
               Primary workspace
             </SidebarTitle>
-            <Button appearance="plain" size="square-petite" aria-label="Switch">
+            <Button appearance="plain" size="icon" aria-label="Switch">
               <IcRoundKeyboardArrowDown data-slot="icon" />
             </Button>
           </SidebarRow>
-          <SidebarCaption>
-            <Icon icon={IcRoundVisibility} />
-            Published
-          </SidebarCaption>
           <SearchField aria-label="Search" placeholder="Search" hasIcon />
         </SidebarHeader>
         <SidebarSection>
-          <List className="alinea-dashboard-nav">
-            <ListItem
-              leading={<Icon icon={IcRoundDescription} />}
-              trailing={<Icon icon={IcRoundKeyboardArrowRight} />}
-              inner={
-                <List className="alinea-dashboard-nav-children">
-                  <ListItem>Extra root tab</ListItem>
-                  <ListItem>Rich text fields</ListItem>
-                  <ListItem>Custom view</ListItem>
-                  <ListItem className="alinea-dashboard-nav-active">
-                    List fields
-                  </ListItem>
-                </List>
+          <Tree
+            aria-label="Content navigation"
+            selectionMode="single"
+            selectionBehavior="replace"
+            defaultSelectedKeys={['list-fields']}
+            defaultExpandedKeys={['examples', 'status']}
+          >
+            <TreeItem
+              key="examples"
+              title="Examples"
+              content={
+                <TreeRow
+                  icon={<Icon icon={IcRoundDescription} />}
+                  label="Examples"
+                />
               }
             >
-              Examples
-            </ListItem>
-            <ListItem leading={<Icon icon={IcRoundSettings} />}>
-              Status
-            </ListItem>
-          </List>
+              <TreeItem
+                key="extra-root-tab"
+                title="Extra root tab"
+                content={
+                  <TreeRow
+                    icon={<Icon icon={IcRoundDescription} />}
+                    label="Extra root tab"
+                  />
+                }
+              />
+              <TreeItem
+                key="rich-text-fields"
+                title="Rich text fields"
+                content={
+                  <TreeRow
+                    icon={<Icon icon={IcRoundDescription} />}
+                    label="Rich text fields"
+                    meta={<Status>Published</Status>}
+                  />
+                }
+              />
+              <TreeItem
+                key="custom-view"
+                title="Custom view"
+                content={
+                  <TreeRow
+                    icon={<Icon icon={IcRoundDescription} />}
+                    label="Custom view"
+                  />
+                }
+              />
+              <TreeItem
+                key="list-fields"
+                title="List fields"
+                content={
+                  <TreeRow
+                    icon={<Icon icon={IcRoundViewList} />}
+                    label="List fields"
+                    meta={<Status>Draft</Status>}
+                  />
+                }
+              />
+            </TreeItem>
+            <TreeItem
+              key="status"
+              title="Status"
+              content={
+                <TreeRow
+                  icon={<Icon icon={IcRoundSettings} />}
+                  label="Status"
+                />
+              }
+            >
+              <TreeItem
+                key="published"
+                title="Published"
+                content={
+                  <TreeRow
+                    icon={<Icon icon={IcRoundVisibility} />}
+                    label="Published"
+                    meta={<Status>Live</Status>}
+                  />
+                }
+              />
+              <TreeItem
+                key="unpublished"
+                title="Unpublished"
+                content={
+                  <TreeRow
+                    icon={<Icon icon={IcRoundVisibility} />}
+                    label="Unpublished"
+                    meta={<Status>Offline</Status>}
+                  />
+                }
+              />
+            </TreeItem>
+          </Tree>
         </SidebarSection>
       </Sidebar>
       <main className="alinea-dashboard-main">
@@ -94,13 +182,13 @@ export function Dashboard() {
             Published
           </div>
           <div className="alinea-dashboard-top-actions">
-            <Button appearance="plain" size="square-petite" aria-label="More">
+            <Button appearance="plain" size="icon" aria-label="More">
               <IcRoundMoreVert data-slot="icon" />
             </Button>
           </div>
         </div>
         <div className="alinea-dashboard-titlebar">
-          <Button appearance="plain" size="square-petite" aria-label="Back">
+          <Button appearance="plain" size="icon" aria-label="Back">
             <IcRoundArrowBack data-slot="icon" />
           </Button>
           <h1>List fields</h1>
@@ -114,77 +202,75 @@ export function Dashboard() {
             <Tab id="metadata">Metadata</Tab>
           </TabList>
         </Tabs>
-        <Elevation className="alinea-dashboard-panel">
-          <div className="alinea-dashboard-grid">
-            <TextField label="Title" defaultValue="List fields" />
-            <TextField label="Path" defaultValue="list-fields" />
-          </div>
-          <Label label="My list field">
-            <List className="alinea-dashboard-blocks">
-              <ListItem
-                leading={<Icon icon={IcRoundUnfoldMore} />}
-                trailing={
-                  <div className="alinea-dashboard-block-controls">
-                    <Button appearance="plain" size="square-petite">
-                      <IcRoundContentCopy data-slot="icon" />
-                    </Button>
-                    <Button appearance="plain" size="square-petite">
-                      <IcRoundDelete data-slot="icon" />
-                    </Button>
-                  </div>
-                }
-                inner={
-                  <Elevation>
-                    <TextField label="Item title" placeholder="Item title" />
-                    <TextField
-                      label="Item body text"
-                      placeholder="Item body text"
-                    />
-                  </Elevation>
-                }
-              >
-                Text
-              </ListItem>
-              <ListItem
-                leading={<Icon icon={IcRoundUnfoldMore} />}
-                trailing={
-                  <div className="alinea-dashboard-block-controls">
-                    <Button appearance="plain" size="square-petite">
-                      <IcRoundContentCopy data-slot="icon" />
-                    </Button>
-                    <Button appearance="plain" size="square-petite">
-                      <IcRoundDelete data-slot="icon" />
-                    </Button>
-                  </div>
-                }
-                inner={
-                  <Elevation>
-                    <TextField label="Item title" placeholder="Item title" />
-                    <TextField
-                      label="Item body text"
-                      placeholder="Item body text"
-                    />
-                  </Elevation>
-                }
-              >
-                Text
-              </ListItem>
-              <ListItem>
-                <div className="alinea-dashboard-chip">
-                  <Icon icon={IcRoundTextFields} />
-                  Text
+        <div className="alinea-dashboard-grid">
+          <TextField label="Title" defaultValue="List fields" />
+          <TextField label="Path" defaultValue="list-fields" />
+        </div>
+        <Label label="My list field">
+          <List className="alinea-dashboard-blocks">
+            <ListItem
+              leading={<Icon icon={IcRoundUnfoldMore} />}
+              trailing={
+                <div className="alinea-dashboard-block-controls">
+                  <Button appearance="plain" size="icon">
+                    <IcRoundContentCopy data-slot="icon" />
+                  </Button>
+                  <Button appearance="plain" size="icon">
+                    <IcRoundDelete data-slot="icon" />
+                  </Button>
                 </div>
-                <div className="alinea-dashboard-chip">
-                  <Icon icon={IcRoundPermMedia} />
-                  Image
+              }
+              inner={
+                <Elevation>
+                  <TextField label="Item title" placeholder="Item title" />
+                  <TextField
+                    label="Item body text"
+                    placeholder="Item body text"
+                  />
+                </Elevation>
+              }
+            >
+              Text
+            </ListItem>
+            <ListItem
+              leading={<Icon icon={IcRoundUnfoldMore} />}
+              trailing={
+                <div className="alinea-dashboard-block-controls">
+                  <Button appearance="plain" size="icon">
+                    <IcRoundContentCopy data-slot="icon" />
+                  </Button>
+                  <Button appearance="plain" size="icon">
+                    <IcRoundDelete data-slot="icon" />
+                  </Button>
                 </div>
-                <Button appearance="outline" intent="secondary" size="small">
-                  Paste block
-                </Button>
-              </ListItem>
-            </List>
-          </Label>
-        </Elevation>
+              }
+              inner={
+                <Elevation>
+                  <TextField label="Item title" placeholder="Item title" />
+                  <TextField
+                    label="Item body text"
+                    placeholder="Item body text"
+                  />
+                </Elevation>
+              }
+            >
+              Text
+            </ListItem>
+            <ListItem>
+              <Button appearance="outline" intent="secondary" size="small">
+                <Icon icon={IcRoundTextFields} data-slot="icon" />
+                Text
+              </Button>
+              <Button appearance="outline" intent="secondary" size="small">
+                <Icon icon={IcRoundPermMedia} data-slot="icon" />
+                Image
+              </Button>
+              <Button appearance="outline" intent="secondary" size="small">
+                Paste block
+              </Button>
+            </ListItem>
+          </List>
+        </Label>
       </main>
     </div>
   )

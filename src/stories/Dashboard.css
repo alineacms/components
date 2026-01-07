@@ -39,24 +39,6 @@
   width: 24px;
 }
 
-.alinea-dashboard-nav .alinea-rac-ListItem {
-  background: transparent;
-}
-
-.alinea-dashboard-nav .alinea-rac-ListItem-header {
-  padding: 6px 8px;
-}
-
-.alinea-dashboard-nav-children {
-  margin-left: 12px;
-}
-
-.alinea-dashboard-nav-active .alinea-rac-ListItem-header {
-  background: var(--alinea-selected-background);
-  border-radius: 8px;
-  color: var(--alinea-selected-foreground);
-}
-
 .alinea-dashboard-main {
   display: flex;
   flex-direction: column;
