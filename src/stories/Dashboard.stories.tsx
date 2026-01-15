@@ -4,13 +4,13 @@ import {Elevation} from '../components/Elevation.tsx'
 import {Icon} from '../components/Icon.tsx'
 import {Label} from '../components/Label.tsx'
 import {List, ListItem} from '../components/List.tsx'
+import {Menu, MenuItem} from '../components/Menu.tsx'
 import {SearchField} from '../components/SearchField.tsx'
 import {
   Sidebar,
   SidebarHeader,
   SidebarRow,
-  SidebarSection,
-  SidebarTitle
+  SidebarSection
 } from '../components/Sidebar.tsx'
 import {Tab, TabList, Tabs} from '../components/Tabs.tsx'
 import {TextField} from '../components/TextField.tsx'
@@ -66,15 +66,32 @@ export function Dashboard() {
       <Sidebar className="alinea-dashboard-sidebar">
         <SidebarHeader>
           <SidebarRow>
-            <SidebarTitle>
-              <span className="alinea-dashboard-avatar" aria-hidden="true">
-                a
-              </span>
-              Primary workspace
-            </SidebarTitle>
-            <Button appearance="plain" size="icon" aria-label="Switch">
-              <IcRoundKeyboardArrowDown data-slot="icon" />
-            </Button>
+            <Menu
+              selectionMode="single"
+              defaultSelectedKeys={['primary']}
+              label={
+                <Button
+                  appearance="plain"
+                  className="alinea-dashboard-workspace-trigger"
+                >
+                  <span className="alinea-dashboard-workspace-title">
+                    <span
+                      className="alinea-dashboard-avatar"
+                      aria-hidden="true"
+                    >
+                      a
+                    </span>
+                    Primary workspace
+                  </span>
+                  <IcRoundKeyboardArrowDown data-slot="icon" />
+                </Button>
+              }
+            >
+              <MenuItem id="primary">Primary workspace</MenuItem>
+              <MenuItem id="marketing">Marketing site</MenuItem>
+              <MenuItem id="docs">Docs</MenuItem>
+              <MenuItem id="demo">Demo space</MenuItem>
+            </Menu>
           </SidebarRow>
           <SearchField aria-label="Search" placeholder="Search" hasIcon />
         </SidebarHeader>
@@ -177,10 +194,6 @@ export function Dashboard() {
       </Sidebar>
       <main className="alinea-dashboard-main">
         <div className="alinea-dashboard-topbar">
-          <div className="alinea-dashboard-status">
-            <Icon icon={IcRoundVisibility} />
-            Published
-          </div>
           <div className="alinea-dashboard-top-actions">
             <Button appearance="plain" size="icon" aria-label="More">
               <IcRoundMoreVert data-slot="icon" />
@@ -188,13 +201,19 @@ export function Dashboard() {
           </div>
         </div>
         <div className="alinea-dashboard-titlebar">
-          <Button appearance="plain" size="icon" aria-label="Back">
-            <IcRoundArrowBack data-slot="icon" />
-          </Button>
-          <h1>List fields</h1>
-          <Button appearance="outline" intent="secondary" size="small">
-            List fields
-          </Button>
+          <div className="alinea-dashboard-titlebar-main">
+            <Button appearance="plain" size="icon" aria-label="Back">
+              <IcRoundArrowBack data-slot="icon" />
+            </Button>
+            <h1>List fields</h1>
+            <Button appearance="outline" intent="secondary" size="small">
+              List fields
+            </Button>
+          </div>
+          <div className="alinea-dashboard-status">
+            <Icon icon={IcRoundVisibility} />
+            Published
+          </div>
         </div>
         <Tabs defaultSelectedKey="document">
           <TabList>
