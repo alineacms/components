@@ -118,6 +118,31 @@
     padding: 8px 14px;
   }
 
+  [data-slot="icon"] {
+    flex-shrink: 0;
+    display: block;
+    font-size: 20px;
+  }
+
+  &[data-size="icon"] {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    [data-slot="icon"] {
+      font-size: 14px;
+    }
+
+    &[data-appearance="active"] {
+      background-color: var(--alinea-highlight-overlay);
+      color: var(--alinea-highlight-background);
+    }
+  }
+
   &[data-size="square-petite"] {
     width: 2rem;
     height: 2rem;
@@ -135,12 +160,6 @@
       background-color: var(--alinea-highlight-overlay);
       color: var(--alinea-highlight-background);
     }
-  }
-
-  [data-slot="icon"] {
-    flex-shrink: 0;
-    display: block;
-    font-size: 20px;
   }
 
   &[data-hovered] {

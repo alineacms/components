@@ -9,7 +9,7 @@ import './Button.css'
 export interface ButtonProps extends ButtonPrimitiveProps {
   appearance?: 'solid' | 'outline' | 'plain' | 'active'
   intent?: 'primary' | 'secondary' | 'danger' | 'warning'
-  size?: 'small' | 'medium' | 'large' | 'square-petite'
+  size?: 'small' | 'medium' | 'large' | 'square-petite' | 'icon'
 }
 
 export function Button({intent, size, appearance, ...props}: ButtonProps) {

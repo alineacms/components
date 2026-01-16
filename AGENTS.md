@@ -12,6 +12,7 @@ Local development uses Bun and Ladle:
 - Run stories: `bun dev`
 - Build: `bun build`
 - Package: `bun package`
+- Check types: `bunx tsc --noEmit`
 
 Formatting uses Biome. Prefer the VSCode extension or run `bunx biome check --write`.
 
@@ -19,3 +20,13 @@ Component structure conventions:
 - Co-locate `<Component>.tsx`, `<Component>.css`, and `<Component>.stories.tsx` in the same folder.
 - Components import their CSS file directly.
 - Use `alinea-rac-<Component>` class prefixes and theme variables from `src/theme.css`.
+- Use `clsx` to combine class names.
+
+Playwright component tests:
+- Tests live in `src/components` as `<Component>.spec.tsx`.
+- Run tests with `bunx playwright test` (or `bunx playwright test <Component>`).
+- Test harness uses `playwright/index.html` and `playwright/index.tsx`.
+
+TypeScript and code style:
+- Prefer `interface` over `type` when possible.
+- Prefer `function name()` declarations over `const name = () =>` for functions.

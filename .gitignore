@@ -2,3 +2,5 @@
 /build
 /dist
 .DS_Store
+/playwright/.cache
+/test-results

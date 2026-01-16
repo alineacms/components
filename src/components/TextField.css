@@ -8,6 +8,7 @@
   .alinea-rac-TextField-input,
   .alinea-rac-TextField-multiline-area,
   .alinea-rac-TextField-multiline-shadow {
+    box-sizing: border-box;
     font: inherit;
     outline: none;
     width: 100%;
