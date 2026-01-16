@@ -29,6 +29,9 @@ test.describe('EditableTable', () => {
     await firstCell.press('ArrowRight')
     await expect(secondCell).toBeFocused()
 
+    await secondCell.press('ArrowDown')
+    await expect(cells.nth(3)).toBeFocused()
+
     await secondCell.press('Enter')
     await expect(editor).toBeFocused()
     await expect(secondCell).toHaveAttribute('data-editing', 'true')

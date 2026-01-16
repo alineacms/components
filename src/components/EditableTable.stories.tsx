@@ -1,9 +1,6 @@
 import {useState} from 'react'
 import {Stack} from '../stories/Stack.tsx'
-import {
-  EditableTable,
-  type EditableTableValue
-} from './EditableTable.tsx'
+import {EditableTable, type EditableTableValue} from './EditableTable.tsx'
 
 const initialValue: EditableTableValue = {
   columns: [
@@ -42,6 +39,35 @@ export const Controlled = () => {
       <pre style={{margin: 0, fontSize: 12}}>
         {JSON.stringify(value, null, 2)}
       </pre>
+    </Stack>
+  )
+}
+
+export const ManyRows = () => {
+  const value: EditableTableValue = {
+    columns: [
+      {id: 'sku', label: 'SKU'},
+      {id: 'name', label: 'Name'},
+      {id: 'qty', label: 'Qty'},
+      {id: 'location', label: 'Location'}
+    ],
+    rows: Array.from({length: 300}, (_, index) => ({
+      id: `row-${index + 1}`,
+      cells: [
+        `SKU-${(index + 1).toString().padStart(3, '0')}`,
+        `Item ${index + 1}`,
+        `${(index + 1) * 2}`,
+        `Aisle ${((index % 5) + 1).toString()}`
+      ]
+    }))
+  }
+  return (
+    <Stack gap={16}>
+      <EditableTable
+        aria-label="Editable table with many rows"
+        label="Many rows"
+        value={value}
+      />
     </Stack>
   )
 }

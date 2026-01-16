@@ -9,7 +9,15 @@ import type {GridState} from '@react-stately/grid'
 import type {GridNode, GridRow} from '@react-types/grid'
 import type {Key} from '@react-types/shared'
 import clsx from 'clsx'
-import {useEffect, useId, useMemo, useRef, useState} from 'react'
+import {
+  memo,
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState
+} from 'react'
 import type {CSSProperties, KeyboardEvent, MutableRefObject} from 'react'
 import {IcRoundAddCircle} from '../stories/icons/IcRoundAddCircle.tsx'
 import {IcRoundDelete} from '../stories/icons/IcRoundDelete.tsx'
@@ -104,12 +112,14 @@ type EditableTableRowItemProps = {
   row: EditableTableRow
   rowIndex: number
   cellMetaMap: Map<Key, CellMeta>
+  cellIndexMap: Map<string, Key>
   gridState: GridState<EditableTableRow, GridCollection<EditableTableRow>>
   cellRefs: MutableRefObject<Map<Key, HTMLTableCellElement>>
   focusedKey: Key | null
   activeCellKey: Key | null
   isEditing: boolean
   canRemoveRow: boolean
+  moveFocusToKey: (key: Key) => void
   startEditing: () => void
   onGridCellKeyDown: (event: KeyboardEvent<HTMLElement>, meta: CellMeta) => void
   setActiveCellKey: (key: Key) => void
@@ -119,31 +129,35 @@ type EditableTableRowItemProps = {
 type EditableTableCellItemProps = {
   cellNode: GridNode<EditableTableRow>
   meta: CellMeta
-  row: EditableTableRow
   rowIndex: number
+  rowId: string
+  cellValue: string
+  cellIndexMap: Map<string, Key>
   gridState: GridState<EditableTableRow, GridCollection<EditableTableRow>>
   cellRefs: MutableRefObject<Map<Key, HTMLTableCellElement>>
-  focusedKey: Key | null
-  activeCellKey: Key | null
+  isFocused: boolean
   isEditing: boolean
   canRemoveRow: boolean
+  moveFocusToKey: (key: Key) => void
   startEditing: () => void
   onGridCellKeyDown: (event: KeyboardEvent<HTMLElement>, meta: CellMeta) => void
   setActiveCellKey: (key: Key) => void
   removeRow: (rowId: string) => void
 }
 
-function EditableTableCellItem({
+const EditableTableCellItem = memo(function EditableTableCellItem({
   cellNode,
   meta,
-  row,
   rowIndex,
+  rowId,
+  cellValue,
+  cellIndexMap,
   gridState,
   cellRefs,
-  focusedKey,
-  activeCellKey,
+  isFocused,
   isEditing,
   canRemoveRow,
+  moveFocusToKey,
   startEditing,
   onGridCellKeyDown,
   setActiveCellKey,
@@ -166,16 +180,28 @@ function EditableTableCellItem({
     gridState,
     cellRef
   )
-  const isFocused = focusedKey === cellNode.key
-  const isEditingCell = isEditing && activeCellKey === cellNode.key
-  const cellValue = meta.isRowHeader
-    ? `${rowIndex + 1}`
-    : (row.cells[meta.columnIndex - 1] ?? '')
   const CellTag = meta.isRowHeader ? 'th' : 'td'
+  const handleKeyDownCapture = (event: KeyboardEvent<HTMLElement>) => {
+    if (!meta.isRowHeader && (event.key === 'ArrowUp' || event.key === 'ArrowDown')) {
+      event.preventDefault()
+      event.stopPropagation()
+      const nextRowIndex =
+        meta.rowIndex + (event.key === 'ArrowDown' ? 1 : -1)
+      const nextKey = cellIndexMap.get(
+        `${nextRowIndex}-${meta.columnIndex}`
+      )
+      if (nextKey) {
+        moveFocusToKey(nextKey)
+      }
+      return
+    }
+    gridCellProps.onKeyDownCapture?.(event)
+  }
   return (
     <CellTag
       ref={cellRef}
       {...gridCellProps}
+      onKeyDownCapture={handleKeyDownCapture}
       role={meta.isRowHeader ? 'rowheader' : 'gridcell'}
       className={clsx(
         meta.isRowHeader
@@ -183,7 +209,7 @@ function EditableTableCellItem({
           : 'alinea-rac-EditableTable-cell'
       )}
       data-focused={isFocused}
-      data-editing={isEditingCell}
+      data-editing={isEditing}
       onDoubleClick={() => startEditing()}
       onKeyDown={event => onGridCellKeyDown(event, meta)}
       onFocus={event => {
@@ -198,7 +224,7 @@ function EditableTableCellItem({
             type="button"
             className="alinea-rac-EditableTable-iconButton"
             data-intent="danger"
-            onClick={() => removeRow(row.id)}
+            onClick={() => removeRow(rowId)}
             disabled={!canRemoveRow}
             aria-label={`Remove row ${rowIndex + 1}`}
           >
@@ -210,19 +236,31 @@ function EditableTableCellItem({
       )}
     </CellTag>
   )
-}
+}, (prev, next) => {
+  return (
+    prev.cellNode.key === next.cellNode.key &&
+    prev.cellValue === next.cellValue &&
+    prev.isFocused === next.isFocused &&
+    prev.isEditing === next.isEditing &&
+    prev.canRemoveRow === next.canRemoveRow &&
+    prev.rowIndex === next.rowIndex &&
+    prev.meta === next.meta
+  )
+})
 
-function EditableTableRowItem({
+const EditableTableRowItem = memo(function EditableTableRowItem({
   rowNode,
   row,
   rowIndex,
   cellMetaMap,
+  cellIndexMap,
   gridState,
   cellRefs,
   focusedKey,
   activeCellKey,
   isEditing,
   canRemoveRow,
+  moveFocusToKey,
   startEditing,
   onGridCellKeyDown,
   setActiveCellKey,
@@ -236,19 +274,26 @@ function EditableTableRowItem({
       {[...rowNode.childNodes].map(cellNode => {
         const meta = cellMetaMap.get(cellNode.key)
         if (!meta) return null
+        const isFocused = focusedKey === cellNode.key
+        const isEditingCell = isEditing && activeCellKey === cellNode.key
+        const cellValue = meta.isRowHeader
+          ? `${rowIndex + 1}`
+          : (row.cells[meta.columnIndex - 1] ?? '')
         return (
           <EditableTableCellItem
             key={String(cellNode.key)}
             cellNode={cellNode as GridNode<EditableTableRow>}
             meta={meta}
-            row={row}
             rowIndex={rowIndex}
+            rowId={row.id}
+            cellValue={cellValue}
+            cellIndexMap={cellIndexMap}
             gridState={gridState}
             cellRefs={cellRefs}
-            focusedKey={focusedKey}
-            activeCellKey={activeCellKey}
-            isEditing={isEditing}
+            isFocused={isFocused}
+            isEditing={isEditingCell}
             canRemoveRow={canRemoveRow}
+            moveFocusToKey={moveFocusToKey}
             startEditing={startEditing}
             onGridCellKeyDown={onGridCellKeyDown}
             setActiveCellKey={setActiveCellKey}
@@ -258,7 +303,27 @@ function EditableTableRowItem({
       })}
     </tr>
   )
-}
+}, (prev, next) => {
+  if (prev.row !== next.row) return false
+  if (prev.rowIndex !== next.rowIndex) return false
+  if (prev.canRemoveRow !== next.canRemoveRow) return false
+  const prefix = `${prev.row.id}-`
+  const prevFocused = prev.focusedKey
+    ? String(prev.focusedKey).startsWith(prefix)
+    : false
+  const nextFocused = next.focusedKey
+    ? String(next.focusedKey).startsWith(prefix)
+    : false
+  if (prevFocused !== nextFocused) return false
+  const prevEditing = prev.activeCellKey
+    ? String(prev.activeCellKey).startsWith(prefix) && prev.isEditing
+    : false
+  const nextEditing = next.activeCellKey
+    ? String(next.activeCellKey).startsWith(prefix) && next.isEditing
+    : false
+  if (prevEditing !== nextEditing) return false
+  return true
+})
 
 export function EditableTable({
   value,
@@ -315,10 +380,11 @@ export function EditableTable({
   const canRemoveColumn = columns.length > minColumns
   const canRemoveRow = rows.length > minRows
 
-  const {collection, cellMetaMap, rowMap} = useMemo(() => {
+  const {collection, cellMetaMap, cellIndexMap, rowMap} = useMemo(() => {
     const rowLookup = new Map<string, EditableTableRow>()
     rows.forEach(row => rowLookup.set(row.id, row))
     const cellLookup = new Map<Key, CellMeta>()
+    const cellIndexLookup = new Map<string, Key>()
     const items: GridRow<EditableTableRow>[] = rows.map((row, rowIndex) => ({
       key: row.id,
       type: 'row',
@@ -341,6 +407,7 @@ export function EditableTable({
           columnIndex,
           isRowHeader
         })
+        cellIndexLookup.set(`${rowIndex}-${columnIndex}`, cellKey)
         return {
           key: cellKey,
           type: 'cell',
@@ -360,6 +427,7 @@ export function EditableTable({
         items
       }),
       cellMetaMap: cellLookup,
+      cellIndexMap: cellIndexLookup,
       rowMap: rowLookup
     }
   }, [rows, gridColumns])
@@ -383,6 +451,15 @@ export function EditableTable({
   const {rowGroupProps: bodyRowGroupProps} = useGridRowGroup()
   const focusedKey = gridState.selectionManager.focusedKey
   const activeCell = activeCellKey ? cellMetaMap.get(activeCellKey) : null
+  const moveFocusToKey = useCallback(
+    (key: Key) => {
+      gridState.selectionManager.setFocusedKey(key)
+      requestAnimationFrame(() => {
+        cellRefs.current.get(key)?.focus()
+      })
+    },
+    [gridState.selectionManager]
+  )
 
   useEffect(() => {
     if (focusedKey !== activeCellKey) {
@@ -674,12 +751,14 @@ export function EditableTable({
                     row={row}
                     rowIndex={rowIndex}
                     cellMetaMap={cellMetaMap}
+                    cellIndexMap={cellIndexMap}
                     gridState={gridState}
                     cellRefs={cellRefs}
                     focusedKey={focusedKey}
                     activeCellKey={activeCellKey}
                     isEditing={isEditing}
                     canRemoveRow={canRemoveRow}
+                    moveFocusToKey={moveFocusToKey}
                     startEditing={startEditing}
                     onGridCellKeyDown={onGridCellKeyDown}
                     setActiveCellKey={setActiveCellKey}
