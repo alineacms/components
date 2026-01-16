@@ -25,24 +25,19 @@
   "peerDependencies": {
     "react-aria-components": "^1.14.0"
   },
-  "dependencies": {
-    "clsx": "^2.1.1"
-  },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@ladle/react": "^5.0.3",
     "@types/bun": "^1.1.14",
     "@playwright/experimental-ct-react": "^1.55.0",
     "@playwright/test": "^1.55.0",
-    "@vitejs/plugin-react": "^4.2.1",
     "dtsroll": "^1.4.1",
     "esbuild": "^0.25.5",
     "typescript": "^5.7.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "rolldown-vite": "^7.3.1"
+    "react-dom": "^19.1.0"
   },
   "overrides": {
     "vite": "npm:rolldown-vite@latest"
