@@ -1,0 +1,248 @@
+@import "../theme.css";
+
+.alinea-rac-EditableTable {
+  color: var(--alinea-text-color);
+  font-size: 14px;
+}
+
+.alinea-rac-EditableTable-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.alinea-rac-EditableTable[data-has-label="true"]
+  .alinea-rac-EditableTable-toolbar {
+  justify-content: space-between;
+}
+
+.alinea-rac-EditableTable-toolbarLabel {
+  font-weight: 600;
+  color: var(--alinea-text-color);
+}
+
+.alinea-rac-EditableTable-toolbarActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.alinea-rac-EditableTable-editor {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 16px;
+  max-width: 420px;
+}
+
+.alinea-rac-EditableTable-editor label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--alinea-text-color-base);
+}
+
+.alinea-rac-EditableTable-editorInput {
+  border: 1px solid var(--alinea-border-color);
+  background-color: var(--alinea-field-background);
+  color: var(--alinea-field-text-color);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+  outline: none;
+  transition: var(--alinea-transition);
+  transition-property: border-color, box-shadow;
+}
+
+.alinea-rac-EditableTable-editorInput:focus-visible {
+  border-color: var(--alinea-focus-ring-color);
+  box-shadow: 0 0 0 2px var(--alinea-highlight-overlay);
+}
+
+.alinea-rac-EditableTable-editorInput:disabled {
+  background-color: var(--alinea-field-background-disabled);
+  color: var(--alinea-text-color-disabled);
+}
+
+.alinea-rac-EditableTable-editorHint {
+  font-size: 12px;
+  color: var(--alinea-text-color-base);
+}
+
+.alinea-rac-EditableTable-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--alinea-border-color) transparent;
+}
+
+.alinea-rac-EditableTable-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  min-width: 480px;
+
+  tr th:first-child,
+  tr td:first-child {
+    border-left: 1px solid var(--alinea-border-color);
+  }
+
+  tr th {
+    border-top: solid 1px var(--alinea-border-color);
+  }
+
+  tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+  }
+
+  tr:first-child th:last-child {
+    border-top-right-radius: 6px;
+  }
+}
+
+.alinea-rac-EditableTable-table caption {
+  text-align: left;
+  padding: 0 0 8px;
+  color: var(--alinea-text-color-base);
+}
+
+.alinea-rac-EditableTable-header {
+  background-color: var(--alinea-header-background);
+  font-weight: 600;
+}
+
+.alinea-rac-EditableTable-headerCell,
+.alinea-rac-EditableTable-cell,
+.alinea-rac-EditableTable-rowHeader {
+  border-right: 1px solid var(--alinea-border-color);
+  border-bottom: 1px solid var(--alinea-border-color);
+  text-align: left;
+}
+
+.alinea-rac-EditableTable-headerCell {
+  padding: 8px 10px;
+  vertical-align: middle;
+}
+
+.alinea-rac-EditableTable-headerCellInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.alinea-rac-EditableTable-headerLabel {
+  font-weight: 600;
+}
+
+.alinea-rac-EditableTable-rowHeader {
+  padding: 6px 8px;
+  background-color: var(--alinea-background-color);
+  color: var(--alinea-text-color-base);
+  width: 70px;
+}
+
+.alinea-rac-EditableTable-header .alinea-rac-EditableTable-rowHeader {
+  background-color: var(--alinea-header-background);
+  color: var(--alinea-text-color);
+}
+
+.alinea-rac-EditableTable-rowHeaderInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.alinea-rac-EditableTable-rowLabel {
+  font-variant-numeric: tabular-nums;
+}
+
+.alinea-rac-EditableTable-cell {
+  padding: 0;
+  background-color: var(--alinea-field-background);
+}
+
+.alinea-rac-EditableTable-cellContent {
+  padding: 8px 10px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.alinea-rac-EditableTable[data-striped]
+  .alinea-rac-EditableTable-body
+  tr:nth-child(odd)
+  .alinea-rac-EditableTable-cell {
+  background-color: var(--alinea-table-background-striped);
+}
+
+.alinea-rac-EditableTable-cell[data-focused="true"],
+.alinea-rac-EditableTable-rowHeader[data-focused="true"] {
+  background-color: var(--alinea-selected-background);
+  box-shadow: inset 0 0 0 2px var(--alinea-highlight-border);
+}
+
+.alinea-rac-EditableTable-cell[data-editing="true"],
+.alinea-rac-EditableTable-rowHeader[data-editing="true"] {
+  background-color: var(--alinea-highlight-overlay);
+  box-shadow: inset 0 0 0 2px var(--alinea-highlight-background);
+}
+
+.alinea-rac-EditableTable-body tr:last-child {
+  .alinea-rac-EditableTable-rowHeader {
+    border-bottom-left-radius: 6px;
+  }
+
+  .alinea-rac-EditableTable-cell:last-child {
+    border-bottom-right-radius: 6px;
+  }
+}
+
+.alinea-rac-EditableTable-iconButton {
+  border: none;
+  background: transparent;
+  color: var(--alinea-icon-color-plain);
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--alinea-transition);
+  transition-property: background-color, color;
+
+  &[data-intent="danger"] {
+    color: var(--alinea-danger-400);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--alinea-background-color);
+    color: var(--alinea-text-color-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--alinea-focus-ring-color);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.alinea-rac-EditableTable-empty {
+  border: 1px solid var(--alinea-border-color);
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  font-style: italic;
+  color: var(--alinea-text-color-base);
+}
