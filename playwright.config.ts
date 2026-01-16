@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   testDir: './src/components',
+  testMatch: '**/*.spec.tsx',
   use: {
     ctViteConfig: {
       plugins: [react()]

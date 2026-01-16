@@ -1,3 +1,4 @@
+/** @jsxImportSource ../playwright */
 import {expect, test} from '@playwright/experimental-ct-react'
 import {EditableTable, type EditableTableValue} from './EditableTable.tsx'
 

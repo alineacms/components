@@ -355,7 +355,9 @@ export function EditableTable({
           parentKey: row.id,
           value: row,
           rendered: cellText,
-          textValue: cellText
+          textValue: cellText,
+          hasChildNodes: false,
+          childNodes: []
         }
       })
     }))
