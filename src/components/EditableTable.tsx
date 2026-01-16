@@ -1,17 +1,16 @@
-import clsx from 'clsx'
 import {
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState
-} from 'react'
-import type {CSSProperties, KeyboardEvent, MutableRefObject} from 'react'
-import {useGrid, useGridCell, useGridRow, useGridRowGroup} from '@react-aria/grid'
+  useGrid,
+  useGridCell,
+  useGridRow,
+  useGridRowGroup
+} from '@react-aria/grid'
 import {GridCollection, useGridState} from '@react-stately/grid'
 import type {GridState} from '@react-stately/grid'
 import type {GridNode, GridRow} from '@react-types/grid'
 import type {Key} from '@react-types/shared'
+import clsx from 'clsx'
+import {useEffect, useId, useMemo, useRef, useState} from 'react'
+import type {CSSProperties, KeyboardEvent, MutableRefObject} from 'react'
 import {IcRoundAddCircle} from '../stories/icons/IcRoundAddCircle.tsx'
 import {IcRoundDelete} from '../stories/icons/IcRoundDelete.tsx'
 import {Button} from './Button.tsx'
@@ -112,10 +111,7 @@ type EditableTableRowItemProps = {
   isEditing: boolean
   canRemoveRow: boolean
   startEditing: () => void
-  onGridCellKeyDown: (
-    event: KeyboardEvent<HTMLElement>,
-    meta: CellMeta
-  ) => void
+  onGridCellKeyDown: (event: KeyboardEvent<HTMLElement>, meta: CellMeta) => void
   setActiveCellKey: (key: Key) => void
   removeRow: (rowId: string) => void
 }
@@ -132,10 +128,7 @@ type EditableTableCellItemProps = {
   isEditing: boolean
   canRemoveRow: boolean
   startEditing: () => void
-  onGridCellKeyDown: (
-    event: KeyboardEvent<HTMLElement>,
-    meta: CellMeta
-  ) => void
+  onGridCellKeyDown: (event: KeyboardEvent<HTMLElement>, meta: CellMeta) => void
   setActiveCellKey: (key: Key) => void
   removeRow: (rowId: string) => void
 }
@@ -177,7 +170,7 @@ function EditableTableCellItem({
   const isEditingCell = isEditing && activeCellKey === cellNode.key
   const cellValue = meta.isRowHeader
     ? `${rowIndex + 1}`
-    : row.cells[meta.columnIndex - 1] ?? ''
+    : (row.cells[meta.columnIndex - 1] ?? '')
   const CellTag = meta.isRowHeader ? 'th' : 'td'
   return (
     <CellTag
@@ -339,7 +332,7 @@ export function EditableTable({
         const isRowHeader = column.id === ROW_HEADER_COLUMN_ID
         const cellText = isRowHeader
           ? `${rowIndex + 1}`
-          : row.cells[columnIndex - 1] ?? ''
+          : (row.cells[columnIndex - 1] ?? '')
         cellLookup.set(cellKey, {
           key: cellKey,
           rowId: row.id,
@@ -565,9 +558,7 @@ export function EditableTable({
     >
       <div className="alinea-rac-EditableTable-toolbar">
         {label && (
-          <span className="alinea-rac-EditableTable-toolbarLabel">
-            {label}
-          </span>
+          <span className="alinea-rac-EditableTable-toolbarLabel">{label}</span>
         )}
         <div className="alinea-rac-EditableTable-toolbarActions">
           <Button
@@ -659,7 +650,10 @@ export function EditableTable({
               ))}
             </tr>
           </thead>
-          <tbody className="alinea-rac-EditableTable-body" {...bodyRowGroupProps}>
+          <tbody
+            className="alinea-rac-EditableTable-body"
+            {...bodyRowGroupProps}
+          >
             {rows.length === 0 ? (
               <tr>
                 <td

@@ -1,4 +1,3 @@
-/** @jsxImportSource ../playwright */
 import {expect, test} from '@playwright/experimental-ct-react'
 import {Button} from './Button.tsx'
 
