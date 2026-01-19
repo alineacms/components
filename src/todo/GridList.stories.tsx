@@ -1,15 +1,19 @@
 import {useMemo} from 'react'
-import {ListLayout, useDragAndDrop} from 'react-aria-components'
-import {Virtualizer} from 'react-aria-components'
+import {ListLayout, Virtualizer, useDragAndDrop} from 'react-aria-components'
 import {useListData} from 'react-stately'
 import {GridList, GridListItem} from './GridList.tsx'
 
 export const Example = (args: any) => {
+  const initialItems = useMemo(
+    () =>
+      Array.from({length: 10}, (_, i) => ({
+        key: i.toString(),
+        name: `Item ${i + 1}`
+      })),
+    []
+  )
   const list = useListData({
-    initialItems: Array.from({length: 10_000}, (_, i) => ({
-      key: i.toString(),
-      name: `Item ${i + 1}`
-    }))
+    initialItems
   })
 
   const {dragAndDropHooks} = useDragAndDrop({
@@ -25,20 +29,24 @@ export const Example = (args: any) => {
   })
   const layout = useMemo(() => {
     return new ListLayout({
-      rowHeight: 25
+      rowHeight: 38
     })
   }, [])
   return (
-    <Virtualizer layout={layout}>
+    <Virtualizer layout={layout} style={{height: 300}}>
       <GridList
         aria-label="Reorderable list"
         items={list.items}
         dragAndDropHooks={dragAndDropHooks}
       >
-        {item => <GridListItem>{item.name}</GridListItem>}
+        {item => (
+          <GridListItem id={item.key} textValue={item.name}>
+            {item.name}
+          </GridListItem>
+        )}
       </GridList>
     </Virtualizer>
   )
 }
 
-export default { title: 'Todo / GridList' }
+export default {title: 'Todo / GridList'}
