@@ -24,4 +24,26 @@ test.describe('GridList', () => {
     await expect(item).not.toHaveAttribute('data-dragging', /.+/)
     await page.mouse.up()
   })
+
+  test('arrow keys should work in input for cursor movement', async ({
+    mount
+  }) => {
+    const component = await mount(<GridListWithInput />)
+    const input = component.getByLabel('Text field').first()
+    await input.click()
+    await input.fill('Hello world')
+
+    // Move cursor to end, then use left arrow to move back
+    await input.press('End')
+    await input.press('ArrowLeft')
+    await input.press('ArrowLeft')
+    await input.press('ArrowLeft')
+    await input.press('ArrowLeft')
+    await input.press('ArrowLeft')
+    // Type a character at the cursor position
+    await input.pressSequentially('X')
+
+    // Should have inserted X before "world"
+    await expect(input).toHaveValue('Hello Xworld')
+  })
 })
