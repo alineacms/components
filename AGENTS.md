@@ -23,7 +23,7 @@ Component structure conventions:
 - Use `clsx` to combine class names.
 
 Playwright component tests:
-- Tests live in `src/components` as `<Component>.spec.tsx`.
+- Tests live in the same folder as the component, named `<Component>.spec.tsx`.
 - Run tests with `bunx playwright test` (or `bunx playwright test <Component>`).
 - Test harness uses `playwright/index.html` and `playwright/index.tsx`.
 

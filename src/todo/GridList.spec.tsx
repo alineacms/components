@@ -1,56 +1,75 @@
 import {expect, test} from '@playwright/experimental-ct-react'
-import {GridList, GridListItem} from './GridList.tsx'
+import {useMemo} from 'react'
+import {useDragAndDrop} from 'react-aria-components'
+import {useListData} from 'react-stately'
+import {TextField} from '../components/TextField.tsx'
+import {GridList, GridListItem} from '../todo/GridList.tsx'
 
-interface GridItem {
+interface Item {
   key: string
   name: string
 }
 
-const items: GridItem[] = [
-  {key: 'alpha', name: 'Alpha'},
-  {key: 'bravo', name: 'Bravo'},
-  {key: 'charlie', name: 'Charlie'}
-]
-
-test.describe('GridList', () => {
-  test('renders items with list styling', async ({mount, page}) => {
-    await mount(
-      <GridList aria-label="Example grid list">
-        {items.map(item => (
-          <GridListItem key={item.key} id={item.key} textValue={item.name}>
-            {item.name}
-          </GridListItem>
-        ))}
-      </GridList>
-    )
-
-    const list = page.locator('.alinea-rac-List')
-    await expect(list).toHaveCount(1)
-    await expect(list.locator('.alinea-rac-ListItem')).toHaveCount(items.length)
+function GridListWithInput() {
+  const initialItems = useMemo<Item[]>(
+    () =>
+      Array.from({length: 3}, (_, i) => ({
+        key: i.toString(),
+        name: `Item ${i + 1}`
+      })),
+    []
+  )
+  const list = useListData({
+    initialItems
+  })
+  const {dragAndDropHooks} = useDragAndDrop({
+    getItems: keys =>
+      [...keys].map(key => ({'text/plain': list.getItem(key)!.name})),
+    onReorder(e) {
+      if (e.target.dropPosition === 'before') {
+        list.moveBefore(e.target.key, e.keys)
+      } else if (e.target.dropPosition === 'after') {
+        list.moveAfter(e.target.key, e.keys)
+      }
+    }
   })
 
-  test('toggles selection', async ({mount, page}) => {
-    await mount(
-      <GridList
-        aria-label="Selectable grid list"
-        selectionMode="multiple"
-        selectionBehavior="toggle"
-      >
-        {items.map(item => (
-          <GridListItem key={item.key} id={item.key} textValue={item.name}>
-            {item.name}
-          </GridListItem>
-        ))}
-      </GridList>
-    )
+  return (
+    <GridList
+      aria-label="Reorderable list"
+      items={list.items}
+      dragAndDropHooks={dragAndDropHooks}
+    >
+      {item => (
+        <GridListItem id={item.key} textValue={item.name} header={item.name}>
+          <TextField label="Text field" placeholder="Type here..." />
+        </GridListItem>
+      )}
+    </GridList>
+  )
+}
 
-    const firstItem = page.locator('.alinea-rac-ListItem').first()
-    const before = await firstItem.getAttribute('data-selected')
-    await firstItem.click()
-    const after = await firstItem.getAttribute('data-selected')
-    expect(after).not.toBe(before)
-    await firstItem.click()
-    const final = await firstItem.getAttribute('data-selected')
-    expect(final).toBe(before)
+test.describe('GridList', () => {
+  test('selecting text in input should not start drag', async ({
+    mount,
+    page
+  }) => {
+    const component = await mount(<GridListWithInput />)
+    const input = component.getByLabel('Text field')
+    await input.click()
+    await input.fill('Hello world')
+
+    const box = await input.boundingBox()
+    expect(box).not.toBeNull()
+    if (!box) return
+
+    const item = component.locator('.alinea-rac-ListItem').first()
+
+    await page.mouse.move(box.x + 6, box.y + box.height / 2)
+    await page.mouse.down()
+    await page.mouse.move(box.x + box.width - 6, box.y + box.height / 2)
+
+    await expect(item).not.toHaveAttribute('data-dragging', /.+/)
+    await page.mouse.up()
   })
 })
