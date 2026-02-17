@@ -1,24 +1,14 @@
-import {useListData} from 'react-stately'
+import {useState} from 'react'
+import type {Key} from 'react-aria-components'
 import {Stack} from '../stories/Stack.tsx'
-import {
-  MultipleSelect,
-  MultipleSelectItem,
-  type SelectedKey
-} from './MultipleSelect.tsx'
+import {MultipleSelect, MultipleSelectItem} from './MultipleSelect.tsx'
 import {Tag} from './TagGroup.tsx'
 
 export function Basic() {
-  const emptyItems = useListData<SelectedKey>({
-    initialItems: []
-  })
-  const selectedItems = useListData<SelectedKey>({
-    initialItems: [fruits[0], fruits[1]]
-  })
   return (
     <Stack>
       <MultipleSelect
         label="Fruits"
-        selectedItems={emptyItems}
         items={fruits}
         tag={item => <Tag data-shape="circle">{item.name}</Tag>}
       >
@@ -31,9 +21,23 @@ export function Basic() {
         }}
       </MultipleSelect>
       <MultipleSelect
-        label="Disabled"
-        selectedItems={selectedItems}
+        label="Pre-selected"
         items={fruits}
+        defaultValue={[1, 2]}
+        tag={item => <Tag data-shape="circle">{item.name}</Tag>}
+      >
+        {item => {
+          return (
+            <MultipleSelectItem textValue={item.name}>
+              {item.name}
+            </MultipleSelectItem>
+          )
+        }}
+      </MultipleSelect>
+      <MultipleSelect
+        label="Disabled"
+        items={fruits}
+        defaultValue={[1, 2]}
         tag={item => (
           <Tag isDisabled data-shape="circle">
             {item.name}
@@ -50,6 +54,28 @@ export function Basic() {
           )
         }}
       </MultipleSelect>
+    </Stack>
+  )
+}
+
+export function Controlled() {
+  const [value, setValue] = useState<Array<Key>>([1, 3])
+  return (
+    <Stack>
+      <MultipleSelect
+        label="Fruits (controlled)"
+        items={fruits}
+        value={value}
+        onChange={setValue}
+        tag={item => <Tag data-shape="circle">{item.name}</Tag>}
+      >
+        {item => (
+          <MultipleSelectItem textValue={item.name}>
+            {item.name}
+          </MultipleSelectItem>
+        )}
+      </MultipleSelect>
+      <pre style={{fontSize: 12}}>Selected: {JSON.stringify(value)}</pre>
     </Stack>
   )
 }
