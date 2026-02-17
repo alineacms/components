@@ -5,6 +5,12 @@ import {Icon} from '../components/Icon.tsx'
 import {SearchField} from '../components/SearchField.tsx'
 import {Tab, TabList, TabPanel, Tabs} from '../components/Tabs.tsx'
 import {TextField} from '../components/TextField.tsx'
+import {
+  Sidebar,
+  SidebarBody,
+  SidebarFooter,
+  SidebarHeader
+} from '../todo/Sidebar.tsx'
 import {Tree, TreeItem} from '../todo/Tree.tsx'
 import {IcOutlineDescription} from './icons/IcOutlineDescription.tsx'
 import {IcRoundAddCircle} from './icons/IcRoundAddCircle.tsx'
@@ -42,14 +48,6 @@ const iconRail: React.CSSProperties = {
   padding: '12px 0',
   background: 'var(--alinea-background-color)',
   borderRight: '1px solid var(--alinea-border-color)'
-}
-
-const sidebarStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  background: 'var(--alinea-field-background)',
-  borderRight: '1px solid var(--alinea-border-color)',
-  overflow: 'auto'
 }
 
 const mainStyle: React.CSSProperties = {
@@ -248,24 +246,16 @@ export function Home() {
       </nav>
 
       {/* Sidebar */}
-      <aside style={sidebarStyle}>
-        <div
-          style={{
-            padding: '12px 12px 0',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 8,
-            marginBottom: 4
-          }}
-        >
+      <Sidebar>
+        <SidebarHeader>
           <span style={{fontWeight: 600, fontSize: 15, flex: 1}}>Alinea</span>
-        </div>
+        </SidebarHeader>
 
         <div style={{padding: '4px 12px 8px'}}>
           <SearchField placeholder="Search" hasIcon aria-label="Search pages" />
         </div>
 
-        <nav style={{flex: 1, padding: '0 8px'}}>
+        <SidebarBody style={{padding: '0 8px'}}>
           <Tree
             aria-label="Pages"
             selectionMode="single"
@@ -303,9 +293,9 @@ export function Home() {
               icon={<IcRoundDescription />}
             />
           </Tree>
-        </nav>
+        </SidebarBody>
 
-        <div style={{padding: 12}}>
+        <SidebarFooter>
           <Button
             appearance="outline"
             intent="secondary"
@@ -317,8 +307,8 @@ export function Home() {
             />
             Create new
           </Button>
-        </div>
-      </aside>
+        </SidebarFooter>
+      </Sidebar>
 
       {/* Main content */}
       <main style={mainStyle}>

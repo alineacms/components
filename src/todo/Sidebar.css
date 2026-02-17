@@ -1,0 +1,25 @@
+@import "../theme.css";
+
+.alinea-rac-Sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--alinea-field-background);
+  border-right: 1px solid var(--alinea-border-color);
+  overflow: auto;
+}
+
+.alinea-rac-SidebarHeader {
+  padding: 12px 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alinea-rac-SidebarBody {
+  flex: 1;
+  overflow: auto;
+}
+
+.alinea-rac-SidebarFooter {
+  padding: 12px;
+}
