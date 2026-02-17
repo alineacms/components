@@ -1,7 +1,10 @@
 import {parseDate} from '@internationalized/date'
+import {useState} from 'react'
 import {Button} from '../components/Button.tsx'
 import {DatePicker} from '../components/DatePicker.tsx'
+import {Elevation} from '../components/Elevation.tsx'
 import {Icon} from '../components/Icon.tsx'
+import {Label} from '../components/Label.tsx'
 import {Menu, MenuItem} from '../components/Menu.tsx'
 import {Tab, TabList, TabPanel, Tabs} from '../components/Tabs.tsx'
 import {TextField} from '../components/TextField.tsx'
@@ -19,7 +22,10 @@ import {IcRoundClose} from './icons/IcRoundClose.tsx'
 import {IcRoundDescription} from './icons/IcRoundDescription.tsx'
 import {IcRoundEdit} from './icons/IcRoundEdit.tsx'
 import {IcRoundHome} from './icons/IcRoundHome.tsx'
+import {IcRoundHistory} from './icons/IcRoundHistory.tsx'
+import {IcRoundKeyboardArrowLeft} from './icons/IcRoundKeyboardArrowLeft.tsx'
 import {IcRoundKeyboardArrowDown} from './icons/IcRoundKeyboardArrowDown.tsx'
+import {IcRoundKeyboardArrowRight} from './icons/IcRoundKeyboardArrowRight.tsx'
 import {IcRoundLink} from './icons/IcRoundLink.tsx'
 import {IcRoundMoreVert} from './icons/IcRoundMoreVert.tsx'
 import {IcRoundOpenInNew} from './icons/IcRoundOpenInNew.tsx'
@@ -112,13 +118,68 @@ function LinkField({label, value}: {label: string; value: string}) {
   )
 }
 
+function AlineaLogo() {
+  return (
+    <svg
+      aria-hidden
+      className="alinea-dashboard-workspaceLogo"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M15.9814 3.47727V5.07955C14.8773 3.78409 13.2379 3 10.9963 3C6.61338 3 3 6.92045 3 12C3 17.0795 6.61338 21 10.9963 21C13.2379 21 14.8773 20.2159 15.9814 18.9205V20.5227H21V3.47727H15.9814ZM12 16.1591C9.69145 16.1591 8.01859 14.5568 8.01859 12C8.01859 9.44318 9.69145 7.84091 12 7.84091C14.3086 7.84091 15.9814 9.44318 15.9814 12C15.9814 14.5568 14.3086 16.1591 12 16.1591Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+interface HistoryEntry {
+  id: string
+  title: string
+  changedBy: string
+  changedAt: string
+}
+
+const historyEntries: HistoryEntry[] = [
+  {
+    id: 'edit-1',
+    title: 'Updated hero copy',
+    changedBy: 'Ben Merckx',
+    changedAt: 'Today at 10:42'
+  },
+  {
+    id: 'edit-2',
+    title: 'Adjusted publish date',
+    changedBy: 'Sarah Johnson',
+    changedAt: 'Today at 09:18'
+  },
+  {
+    id: 'edit-3',
+    title: 'Reworked introduction',
+    changedBy: 'Ben Merckx',
+    changedAt: 'Yesterday at 17:04'
+  },
+  {
+    id: 'edit-4',
+    title: 'Added author avatar url',
+    changedBy: 'Alex Chen',
+    changedAt: 'February 14 at 14:27'
+  }
+]
+
 /* ------------------------------------------------------------------ */
 /*  Dashboard story                                                   */
 /* ------------------------------------------------------------------ */
 
 export function Home() {
+  const [isRightSidebarCollapsed, setIsRightSidebarCollapsed] = useState(false)
+
   return (
-    <div className="alinea-dashboard-story">
+    <div
+      className={`alinea-dashboard-story${isRightSidebarCollapsed ? ' alinea-dashboard-story--rightCollapsed' : ''}`}
+    >
       {/* Sidebar */}
       <Sidebar>
         <SidebarHeader>
@@ -136,7 +197,10 @@ export function Home() {
                       padding: '4px 8px'
                     }}
                   >
-                    Alinea
+                    <span className="alinea-dashboard-workspaceLabel">
+                      <AlineaLogo />
+                      Alinea
+                    </span>
                     <IcRoundKeyboardArrowDown data-slot="icon" />
                   </Button>
                 }
@@ -254,6 +318,16 @@ export function Home() {
           <Button size="icon" appearance="plain" aria-label="More options">
             <IcRoundMoreVert data-slot="icon" />
           </Button>
+          {isRightSidebarCollapsed ? (
+            <Button
+              size="icon"
+              appearance="plain"
+              aria-label="Expand right sidebar"
+              onPress={() => setIsRightSidebarCollapsed(false)}
+            >
+              <IcRoundKeyboardArrowLeft data-slot="icon" />
+            </Button>
+          ) : null}
         </header>
 
         {/* Tabs */}
@@ -309,44 +383,30 @@ export function Home() {
                 />
 
                 {/* Author object */}
-                <fieldset
-                  style={{
-                    border: '1px solid var(--alinea-border-color)',
-                    borderRadius: 8,
-                    padding: 16,
-                    margin: 0
-                  }}
-                >
-                  <legend
-                    style={{
-                      fontSize: 'var(--alinea-font-size-base)',
-                      fontWeight: 500,
-                      color: 'var(--alinea-text-color-base)',
-                      padding: '0 4px'
-                    }}
-                  >
-                    Author
-                  </legend>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: 16
-                    }}
-                  >
-                    <div className="alinea-dashboard-twoCol">
-                      <TextField label="Name" defaultValue="Ben Merckx" />
+                <div>
+                  <Label label="Author" />
+                  <Elevation style={{padding: 16}}>
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 16
+                      }}
+                    >
+                      <div className="alinea-dashboard-twoCol">
+                        <TextField label="Name" defaultValue="Ben Merckx" />
+                        <LinkField
+                          label="Url"
+                          value="https://github.com/benmerc..."
+                        />
+                      </div>
                       <LinkField
-                        label="Url"
-                        value="https://github.com/benmerc..."
+                        label="Avatar url"
+                        value="https://avatars.githubusercontent.com/u/10584189?v=4&s=48"
                       />
                     </div>
-                    <LinkField
-                      label="Avatar url"
-                      value="https://avatars.githubusercontent.com/u/10584189?v=4&s=48"
-                    />
-                  </div>
-                </fieldset>
+                  </Elevation>
+                </div>
 
                 {/* Short introduction */}
                 <TextField
@@ -376,6 +436,63 @@ export function Home() {
           </Tabs>
         </div>
       </main>
+
+      {/* Right sidebar */}
+      {!isRightSidebarCollapsed ? (
+        <Sidebar className="alinea-dashboard-rightSidebar">
+          <Tabs variant="subtle" defaultSelectedKey="history">
+            <SidebarHeader className="alinea-dashboard-rightSidebarHeader">
+              <div className="alinea-dashboard-rightSidebarHeaderRow">
+                <TabList>
+                  <Tab id="history">
+                    <span className="alinea-dashboard-tabLabel">
+                      <IcRoundHistory style={{width: 16, height: 16}} />
+                      History
+                    </span>
+                  </Tab>
+                  <Tab id="preview">
+                    <span className="alinea-dashboard-tabLabel">
+                      <IcRoundVisibility style={{width: 16, height: 16}} />
+                      Preview
+                    </span>
+                  </Tab>
+                </TabList>
+                <Button
+                  size="icon"
+                  appearance="plain"
+                  aria-label="Collapse right sidebar"
+                  onPress={() => setIsRightSidebarCollapsed(true)}
+                >
+                  <IcRoundKeyboardArrowRight data-slot="icon" />
+                </Button>
+              </div>
+            </SidebarHeader>
+            <SidebarBody className="alinea-dashboard-rightSidebarBody">
+              <TabPanel id="history">
+                <div className="alinea-dashboard-historyTimeline">
+                  {historyEntries.map(entry => (
+                    <div key={entry.id} className="alinea-dashboard-historyItem">
+                      <div className="alinea-dashboard-historyDot" />
+                      <div className="alinea-dashboard-historyContent">
+                        <p className="alinea-dashboard-historyTitle">{entry.title}</p>
+                        <p className="alinea-dashboard-historyMeta">
+                          {entry.changedBy} - {entry.changedAt}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </TabPanel>
+
+              <TabPanel id="preview">
+                <p className="alinea-dashboard-previewText">
+                  Preview panel content will appear here.
+                </p>
+              </TabPanel>
+            </SidebarBody>
+          </Tabs>
+        </Sidebar>
+      ) : null}
     </div>
   )
 }

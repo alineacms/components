@@ -89,6 +89,7 @@
 
   &[data-selected] {
     color: var(--alinea-text-color);
+    font-weight: 600;
 
     [data-variant="line"] &:before {
       background-color: var(--alinea-highlight-background);
@@ -127,7 +128,6 @@
 .alinea-rac-Tablist {
   overflow-x: auto;
   max-width: 100%;
-  margin: -2px;
   padding: 2px;
   white-space: nowrap;
   scrollbar-width: thin;
@@ -135,7 +135,6 @@
 
   .alinea-rac-Tablist-list {
     display: flex;
-    margin-bottom: 4px;
 
     &[data-orientation="horizontal"] {
       border-bottom: 1px solid var(--alinea-border-color);
