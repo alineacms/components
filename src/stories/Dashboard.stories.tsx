@@ -16,7 +16,7 @@ import {
 } from '../todo/Sidebar.tsx'
 import {Tree, TreeItem} from '../todo/Tree.tsx'
 import {IcOutlineDescription} from './icons/IcOutlineDescription.tsx'
-import {IcRoundAddCircle} from './icons/IcRoundAddCircle.tsx'
+import {IcRoundAdd} from './icons/IcRoundAdd.tsx'
 import {IcRoundArrowBack} from './icons/IcRoundArrowBack.tsx'
 import {IcRoundClose} from './icons/IcRoundClose.tsx'
 import {IcRoundDescription} from './icons/IcRoundDescription.tsx'
@@ -212,9 +212,9 @@ export function Home() {
               </Menu>
             </div>
             <Button
-              className="alinea-dashboard-solidIconButton"
+              className="alinea-dashboard-solidIconButton alinea-dashboard-searchIconButton"
               size="icon"
-              appearance="solid"
+              appearance="outline"
               intent="secondary"
               aria-label="Search pages"
             >
@@ -223,7 +223,7 @@ export function Home() {
           </div>
         </SidebarHeader>
 
-        <SidebarBody style={{padding: '0 16px'}}>
+        <SidebarBody style={{padding: '0 var(--alinea-dashboard-content-padding-x)'}}>
           <div className="alinea-dashboard-sidebarRow alinea-dashboard-sidebarSectionHeader">
             <div className="alinea-dashboard-sidebarRowMenu">
               <Menu
@@ -250,13 +250,13 @@ export function Home() {
               </Menu>
             </div>
             <Button
-              className="alinea-dashboard-solidIconButton"
+              className="alinea-dashboard-solidIconButton alinea-dashboard-createIconButton"
               size="icon"
               appearance="solid"
-              intent="secondary"
+              intent="primary"
               aria-label="Create new page"
             >
-              <IcRoundAddCircle data-slot="icon" />
+              <IcRoundAdd data-slot="icon" />
             </Button>
           </div>
           <Tree
@@ -314,7 +314,13 @@ export function Home() {
       <main className="alinea-dashboard-main">
         {/* Top bar */}
         <header className="alinea-dashboard-header">
-          <Button size="icon" appearance="plain" aria-label="Go back">
+          <Button
+            className="alinea-dashboard-solidIconButton alinea-dashboard-searchIconButton"
+            size="icon"
+            appearance="outline"
+            intent="secondary"
+            aria-label="Go back"
+          >
             <IcRoundArrowBack data-slot="icon" />
           </Button>
           <h1

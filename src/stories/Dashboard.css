@@ -16,6 +16,8 @@
   );
   --alinea-dashboard-header-height: 56px;
   --alinea-dashboard-sidebar-padding-x: 16px;
+  --alinea-dashboard-content-padding-x: 20px;
+  --alinea-field-text-color: var(--alinea-gray-800);
   display: grid;
   grid-template-columns: 320px 1fr 320px;
   height: 100vh;
@@ -32,7 +34,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 0;
-  overflow: hidden;
+  overflow: auto;
   background: var(--alinea-dashboard-surface);
 }
 
@@ -41,10 +43,19 @@
   align-items: center;
   gap: 12px;
   height: var(--alinea-dashboard-header-height);
-  padding: 0 24px;
+  padding: 0 var(--alinea-dashboard-content-padding-x);
   border-bottom: 1px solid var(--alinea-dashboard-faded-border);
   flex-shrink: 0;
-  background: var(--alinea-dashboard-surface);
+  background: color-mix(
+    in oklab,
+    var(--alinea-dashboard-surface) 64%,
+    transparent
+  );
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .alinea-dashboard-header,
@@ -58,6 +69,7 @@
   height: var(--alinea-dashboard-header-height);
   padding: 0 var(--alinea-dashboard-sidebar-padding-x);
   border-bottom-color: var(--alinea-dashboard-faded-border);
+  background: var(--alinea-dashboard-surface);
 }
 
 .alinea-dashboard-story .alinea-rac-Sidebar {
@@ -66,9 +78,9 @@
 }
 
 .alinea-dashboard-tabs {
-  padding: 12px 32px 0;
+  padding: 12px var(--alinea-dashboard-content-padding-x) 0;
   min-height: 0;
-  overflow: auto;
+  overflow: visible;
 }
 
 .alinea-dashboard-tabs > .alinea-rac-Tabs {
@@ -121,13 +133,23 @@
   flex-shrink: 0;
 }
 
+.alinea-dashboard-workspaceDivider {
+  width: 1px;
+  height: 14px;
+  background: color-mix(in oklab, var(--alinea-dashboard-faded-border) 85%, transparent);
+  flex-shrink: 0;
+  position: relative;
+  top: -1px;
+}
+
 .alinea-dashboard-sidebarSectionHeader {
   height: var(--alinea-dashboard-header-height);
+  background: var(--alinea-dashboard-surface);
 }
 
 .alinea-rac-Button.alinea-dashboard-solidIconButton {
   background-color: #fff;
-  border-color: var(--alinea-border-color);
+  border-color: var(--alinea-dashboard-faded-border);
   color: var(--alinea-text-color);
 }
 
@@ -137,6 +159,37 @@
 
 .alinea-rac-Button.alinea-dashboard-solidIconButton[data-pressed] {
   background-color: var(--alinea-background-color-hover);
+}
+
+.alinea-rac-Button.alinea-dashboard-searchIconButton {
+  color: var(--alinea-text-color-base);
+  border-color: var(--alinea-dashboard-faded-border);
+  background-color: transparent;
+}
+
+.alinea-rac-Button.alinea-dashboard-searchIconButton[data-hovered] {
+  color: var(--alinea-text-color);
+  background-color: var(--alinea-field-background);
+}
+
+.alinea-rac-Button.alinea-dashboard-searchIconButton[data-pressed] {
+  background-color: var(--alinea-background-color);
+}
+
+.alinea-rac-Button.alinea-dashboard-createIconButton {
+  color: var(--alinea-highlight-foreground);
+  background-color: var(--alinea-highlight-background);
+  border-color: transparent;
+  box-shadow: 0 1px 0
+    color-mix(in oklab, var(--alinea-highlight-background) 40%, transparent);
+}
+
+.alinea-rac-Button.alinea-dashboard-createIconButton[data-hovered] {
+  background-color: var(--alinea-highlight-background-hovered);
+}
+
+.alinea-rac-Button.alinea-dashboard-createIconButton[data-pressed] {
+  background-color: var(--alinea-highlight-background-pressed);
 }
 
 .alinea-dashboard-sidebarFooter {
@@ -155,6 +208,7 @@
   align-items: center;
   padding: 0 var(--alinea-dashboard-sidebar-padding-x);
   border-bottom: 1px solid var(--alinea-dashboard-faded-border);
+  background: var(--alinea-dashboard-surface);
 }
 
 .alinea-dashboard-rightSidebarHeaderRow {
