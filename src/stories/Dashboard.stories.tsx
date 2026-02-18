@@ -2,10 +2,12 @@ import {parseDate} from '@internationalized/date'
 import {useState} from 'react'
 import {Button} from '../components/Button.tsx'
 import {DatePicker} from '../components/DatePicker.tsx'
+import {Dialog, DialogTrigger} from '../components/Dialog.tsx'
 import {Elevation} from '../components/Elevation.tsx'
 import {Icon} from '../components/Icon.tsx'
 import {Label} from '../components/Label.tsx'
 import {Menu, MenuItem} from '../components/Menu.tsx'
+import {Modal} from '../components/Modal.tsx'
 import {Tab, TabList, TabPanel, Tabs} from '../components/Tabs.tsx'
 import {TextField} from '../components/TextField.tsx'
 import {
@@ -249,15 +251,47 @@ export function Home() {
                 <MenuItem id="archived-pages">Archived</MenuItem>
               </Menu>
             </div>
-            <Button
-              className="alinea-dashboard-solidIconButton alinea-dashboard-createIconButton"
-              size="icon"
-              appearance="solid"
-              intent="primary"
-              aria-label="Create new page"
-            >
-              <IcRoundAdd data-slot="icon" />
-            </Button>
+            <DialogTrigger>
+              <Button
+                className="alinea-dashboard-solidIconButton alinea-dashboard-createIconButton"
+                size="icon"
+                appearance="solid"
+                intent="primary"
+                aria-label="Create new page"
+              >
+                <IcRoundAdd data-slot="icon" />
+              </Button>
+              <Modal>
+                <Dialog className="alinea-dashboard-createDialog">
+                  <h2 className="alinea-dashboard-createDialogTitle">
+                    Create new entry
+                  </h2>
+                  <div className="alinea-dashboard-createDialogFields">
+                    <TextField
+                      autoFocus
+                      isRequired
+                      label="Title"
+                      placeholder="My new page"
+                    />
+                    <TextField
+                      isRequired
+                      label="Slug path"
+                      placeholder="my-new-page"
+                    />
+                    <TextField
+                      label="Parent path"
+                      placeholder="blog"
+                    />
+                  </div>
+                  <div className="alinea-dashboard-createDialogActions">
+                    <Button slot="close" appearance="outline" intent="secondary">
+                      Cancel
+                    </Button>
+                    <Button slot="close">Create</Button>
+                  </div>
+                </Dialog>
+              </Modal>
+            </DialogTrigger>
           </div>
           <Tree
             aria-label="Pages"

@@ -280,6 +280,32 @@
   color: var(--alinea-text-color-base);
 }
 
+.alinea-dashboard-createDialog {
+  width: min(460px, calc(100vw - 40px));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.alinea-dashboard-createDialogTitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.alinea-dashboard-createDialogFields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alinea-dashboard-createDialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
 @media (max-width: 1080px) {
   .alinea-dashboard-story {
     grid-template-columns: 280px 1fr;
