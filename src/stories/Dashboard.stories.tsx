@@ -294,7 +294,7 @@ export function Home() {
                       width: '100%',
                       justifyContent: 'space-between',
                       fontWeight: 600,
-                      fontSize: '15px',
+                      fontSize: '14px',
                       color: 'var(--alinea-text-color)',
                       padding: '4px 8px'
                     }}
@@ -330,7 +330,6 @@ export function Home() {
 
         <SidebarBody
           style={{
-            padding: '0 var(--alinea-dashboard-sidebar-padding-x)',
             display: 'flex',
             flexDirection: 'column',
             minHeight: 0,
@@ -338,6 +337,15 @@ export function Home() {
           }}
         >
           <div className="alinea-dashboard-sidebarRow alinea-dashboard-sidebarSectionHeader">
+            <Button
+              className="alinea-dashboard-solidIconButton alinea-dashboard-searchIconButton"
+              size="icon"
+              appearance="outline"
+              intent="secondary"
+              aria-label="Back"
+            >
+              <IcRoundArrowBack data-slot="icon" />
+            </Button>
             <div className="alinea-dashboard-sidebarRowMenu">
               <Menu
                 label={

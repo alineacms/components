@@ -9,11 +9,7 @@
     var(--alinea-border-color) 45%,
     transparent
   );
-  --alinea-dashboard-surface: color-mix(
-    in oklab,
-    var(--alinea-field-background) 20%,
-    var(--alinea-sidebar-background)
-  );
+  --alinea-dashboard-surface: #fff;
   --alinea-dashboard-header-height: 56px;
   --alinea-dashboard-sidebar-padding-x: 16px;
   --alinea-dashboard-content-padding-x: 20px;
@@ -23,7 +19,7 @@
   height: 100vh;
   font-size: var(--alinea-font-size-base);
   color: var(--alinea-text-color);
-  background: var(--alinea-field-background);
+  background: #fff;
 }
 
 .alinea-dashboard-story--rightCollapsed {
@@ -46,11 +42,7 @@
   padding: 0 var(--alinea-dashboard-content-padding-x);
   border-bottom: 1px solid var(--alinea-dashboard-faded-border);
   flex-shrink: 0;
-  background: color-mix(
-    in oklab,
-    var(--alinea-dashboard-surface) 64%,
-    transparent
-  );
+  background: #f3fbf6;
   backdrop-filter: blur(14px) saturate(1.15);
   -webkit-backdrop-filter: blur(14px) saturate(1.15);
   position: sticky;
@@ -145,21 +137,61 @@
 
 .alinea-dashboard-sidebarSectionHeader {
   height: var(--alinea-dashboard-header-height);
+  padding: 0 var(--alinea-dashboard-sidebar-padding-x);
   background: var(--alinea-dashboard-surface);
+  box-shadow: 0 1px 0 var(--alinea-dashboard-faded-border),
+    0 10px 24px color-mix(in oklab, var(--alinea-gray-900) 5%, transparent);
+  position: relative;
+  z-index: 1;
 }
 
 .alinea-dashboard-treeViewport {
   flex: 1;
   min-height: 0;
+  min-width: 0;
   overflow: hidden;
 }
 
+.alinea-dashboard-treeViewport > * {
+  min-width: 0;
+}
+
 .alinea-dashboard-tree {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   height: 100%;
   min-height: 0;
   display: block;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
   scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--alinea-border-color-hover) transparent;
+}
+
+.alinea-dashboard-tree .alinea-rac-TreeItem {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: calc(12px + var(--alinea-dashboard-sidebar-padding-x));
+  padding-left: calc(
+    var(--alinea-dashboard-sidebar-padding-x) + 8px +
+      (var(--tree-item-level, 1) - 1) * 16px
+  );
+}
+
+.alinea-dashboard-tree::-webkit-scrollbar {
+  width: 8px;
+}
+
+.alinea-dashboard-tree::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.alinea-dashboard-tree::-webkit-scrollbar-thumb {
+  background: var(--alinea-border-color-hover);
+  border-radius: 8px;
 }
 
 .alinea-rac-Button.alinea-dashboard-solidIconButton {
