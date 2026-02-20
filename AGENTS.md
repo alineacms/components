@@ -36,3 +36,4 @@ TypeScript and code style:
 When a component is done:
 - Move it and its css and story to `src/components`.
 - Update the story title in default export to `Components / <ComponentName>`.
+- Add it to the exports in `src/index.ts`.

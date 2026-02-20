@@ -1,11 +1,11 @@
 import {Button} from '../components/Button.tsx'
 import {SearchField} from '../components/SearchField.tsx'
+import {Tree, TreeItem} from '../components/Tree.tsx'
 import {IcOutlineDescription} from '../stories/icons/IcOutlineDescription.tsx'
 import {IcRoundAddCircle} from '../stories/icons/IcRoundAddCircle.tsx'
 import {IcRoundDescription} from '../stories/icons/IcRoundDescription.tsx'
 import {IcRoundHome} from '../stories/icons/IcRoundHome.tsx'
 import {Sidebar, SidebarBody, SidebarFooter, SidebarHeader} from './Sidebar.tsx'
-import {Tree, TreeItem} from './Tree.tsx'
 
 export function Example() {
   return (

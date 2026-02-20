@@ -1,13 +1,6 @@
 import {parseDate} from '@internationalized/date'
 import {memo, useMemo, useState} from 'react'
-import {
-  Button as AriaButton,
-  TreeItem as AriaTreeItem,
-  TreeItemContent as AriaTreeItemContent,
-  Collection,
-  ListLayout,
-  Virtualizer
-} from 'react-aria-components'
+import {Collection, ListLayout, Virtualizer} from 'react-aria-components'
 import {Button} from '../components/Button.tsx'
 import {DatePicker} from '../components/DatePicker.tsx'
 import {Dialog, DialogTrigger} from '../components/Dialog.tsx'
@@ -18,13 +11,13 @@ import {Menu, MenuItem} from '../components/Menu.tsx'
 import {Modal} from '../components/Modal.tsx'
 import {Tab, TabList, TabPanel, Tabs} from '../components/Tabs.tsx'
 import {TextField} from '../components/TextField.tsx'
+import {Tree, TreeItem} from '../components/Tree.tsx'
 import {
   Sidebar,
   SidebarBody,
   SidebarFooter,
   SidebarHeader
 } from '../todo/Sidebar.tsx'
-import {Tree} from '../todo/Tree.tsx'
 import {IcOutlineDescription} from './icons/IcOutlineDescription.tsx'
 import {IcRoundAdd} from './icons/IcRoundAdd.tsx'
 import {IcRoundArrowBack} from './icons/IcRoundArrowBack.tsx'
@@ -218,28 +211,11 @@ const pageTreeEntries: DashboardTreeEntry[] = [
 
 function renderTreeEntry(entry: DashboardTreeEntry) {
   return (
-    <AriaTreeItem
-      id={entry.id}
-      textValue={entry.title}
-      className="alinea-rac-TreeItem"
-    >
-      <AriaTreeItemContent>
-        <AriaButton slot="chevron">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M10 17l5-5-5-5v10z" />
-          </svg>
-        </AriaButton>
-        {entry.icon ? (
-          <span data-slot="icon">
-            <Icon icon={entry.icon} />
-          </span>
-        ) : null}
-        <span data-slot="label">{entry.title}</span>
-      </AriaTreeItemContent>
+    <TreeItem id={entry.id} title={entry.title} icon={entry.icon}>
       {entry.children ? (
         <Collection items={entry.children}>{renderTreeEntry}</Collection>
       ) : null}
-    </AriaTreeItem>
+    </TreeItem>
   )
 }
 

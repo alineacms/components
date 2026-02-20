@@ -87,5 +87,5 @@ export function WithStatus() {
 }
 
 export default {
-  title: 'Todo / Tree'
+  title: 'Components / Tree'
 }

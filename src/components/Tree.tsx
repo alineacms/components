@@ -9,8 +9,9 @@ import {
   type TreeItemContentRenderProps,
   type TreeProps
 } from 'react-aria-components'
-import {Checkbox} from '../components/Checkbox.tsx'
-import {Icon, type IconProps} from '../components/Icon.tsx'
+import {IcRoundKeyboardArrowRight} from '../stories/icons/IcRoundKeyboardArrowRight.tsx'
+import {Checkbox} from './Checkbox.tsx'
+import {Icon, type IconProps} from './Icon.tsx'
 import './Tree.css'
 import type {ReactNode} from 'react'
 
@@ -54,9 +55,7 @@ export function TreeItemContent({
             <Checkbox slot="selection" />
           )}
           <Button slot="chevron">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M10 17l5-5-5-5v10z" />
-            </svg>
+            <IcRoundKeyboardArrowRight />
           </Button>
           {icon && (
             <span data-slot="icon">

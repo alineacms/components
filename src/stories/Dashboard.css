@@ -228,7 +228,12 @@
 }
 
 .alinea-dashboard-tree {
-  --alinea-tree-scroll-surface: var(--alinea-dashboard-left-sidebar-surface);
+  --alinea-dashboard-tree-scroll-surface: var(
+    --alinea-dashboard-left-sidebar-surface
+  );
+  --alinea-dashboard-tree-scroll-shadow-color: rgb(
+    from var(--alinea-gray-900) r g b / 6%
+  );
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
@@ -236,17 +241,38 @@
   min-height: 0;
   display: block;
   overflow-y: auto;
-  overflow-x: hidden;
-}
 
-.alinea-dashboard-tree .alinea-rac-TreeItem {
-  padding-right: calc(12px + var(--alinea-dashboard-sidebar-padding-x));
-  padding-left: calc(
-    var(--alinea-dashboard-sidebar-padding-x) +
-    8px +
-    (var(--tree-item-level, 1) - 1) *
-    16px
-  );
+  background-image:
+    linear-gradient(
+      var(--alinea-dashboard-tree-scroll-surface) 30%,
+      rgb(from var(--alinea-dashboard-tree-scroll-surface) r g b / 0%)
+    ),
+    linear-gradient(
+      rgb(from var(--alinea-dashboard-tree-scroll-surface) r g b / 0%),
+      var(--alinea-dashboard-tree-scroll-surface) 70%
+    ),
+    radial-gradient(
+      farthest-side at 50% 0,
+      var(--alinea-dashboard-tree-scroll-shadow-color),
+      rgb(from var(--alinea-dashboard-tree-scroll-shadow-color) r g b / 0%)
+    ),
+    radial-gradient(
+      farthest-side at 50% 100%,
+      var(--alinea-dashboard-tree-scroll-shadow-color),
+      rgb(from var(--alinea-dashboard-tree-scroll-shadow-color) r g b / 0%)
+    );
+  background-repeat: no-repeat;
+  background-position:
+    center top,
+    center bottom,
+    center top,
+    center bottom;
+  background-size:
+    100% 36px,
+    100% 36px,
+    100% 18px,
+    100% 18px;
+  background-attachment: local, local, scroll, scroll;
 }
 
 .alinea-dashboard-sidebarFooter {

@@ -1,6 +1,4 @@
 .alinea-rac-Tree {
-  --alinea-tree-scroll-surface: var(--alinea-list-background);
-  --alinea-tree-scroll-shadow-color: rgb(from var(--alinea-gray-900) r g b / 6%);
   display: flex;
   flex-direction: column;
   gap: 1px;
@@ -8,29 +6,6 @@
   padding: 0;
   outline: none;
   forced-color-adjust: none;
-  background-color: var(--alinea-tree-scroll-surface);
-  background-image: linear-gradient(
-      var(--alinea-tree-scroll-surface) 30%,
-      rgb(from var(--alinea-tree-scroll-surface) r g b / 0%)
-    ),
-    linear-gradient(
-      rgb(from var(--alinea-tree-scroll-surface) r g b / 0%),
-      var(--alinea-tree-scroll-surface) 70%
-    ),
-    radial-gradient(
-      farthest-side at 50% 0,
-      var(--alinea-tree-scroll-shadow-color),
-      rgb(from var(--alinea-tree-scroll-shadow-color) r g b / 0%)
-    ),
-    radial-gradient(
-      farthest-side at 50% 100%,
-      var(--alinea-tree-scroll-shadow-color),
-      rgb(from var(--alinea-tree-scroll-shadow-color) r g b / 0%)
-    );
-  background-repeat: no-repeat;
-  background-position: center top, center bottom, center top, center bottom;
-  background-size: 100% 36px, 100% 36px, 100% 18px, 100% 18px;
-  background-attachment: local, local, scroll, scroll;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
   scrollbar-color: var(--alinea-border-color-hover) transparent;
@@ -58,7 +33,6 @@
     padding-left: calc(8px + (var(--tree-item-level, 1) - 1) * 16px);
     font-size: var(--alinea-font-size-base);
     font-weight: 400;
-    border-radius: 6px;
     background: transparent;
     color: var(--alinea-text-color);
     width: 100%;
@@ -183,7 +157,6 @@
       text-align: center;
 
       &[data-focus-visible] {
-        border-radius: 4px;
         outline: 2px solid var(--alinea-focus-ring-color);
       }
     }
@@ -228,7 +201,6 @@
 
 .alinea-rac-Tree::-webkit-scrollbar-thumb {
   background: var(--alinea-border-color-hover);
-  border-radius: 8px;
 }
 
 .alinea-rac-Tree[data-drop-target] {
