@@ -36,3 +36,15 @@ bun dev
 ```
 
 Install the Biome VSCode extension to format your code.
+
+## Publishing (npm OIDC trusted publishing)
+
+This package is published from GitHub Actions using npm trusted publishing (OIDC).
+
+Release flow:
+
+1. Run `bun release` (or `bun release <semver>`) from a clean, up-to-date `main` branch.
+2. This creates and pushes a `v*` tag.
+3. `.github/workflows/ci.yml` publishes on tag:
+   - stable tags -> `npm publish --provenance --access public`
+   - prerelease tags -> `npm publish --provenance --tag preview`

@@ -7,23 +7,28 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
       - run: bun i
       - run: bun prepublishOnly && bunx pkg-pr-new publish --comment=off
       - uses: nowsprinting/check-version-format-action@v3
         id: version
         with: { prefix: "v" }
-      - if: steps.version.outputs.is_valid == 'true'
-        run: |
-          npm config set //registry.npmjs.org/:_authToken ${{secrets.NPM_AUTH_TOKEN}}
       - if: steps.version.outputs.is_valid == 'true' && !steps.version.outputs.prerelease
-        run: npm publish --access public
-      - if: steps.version.outputs.prerelease
-        run: npm publish --tag preview
+        run: npm publish --provenance --access public
+      - if: steps.version.outputs.is_valid == 'true' && steps.version.outputs.prerelease
+        run: npm publish --provenance --tag preview
