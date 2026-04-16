@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import {type ReactNode, memo, useMemo} from 'react'
+import {type ReactNode, memo} from 'react'
 import {
   Tree as AriaTree,
   TreeItem as AriaTreeItem,
@@ -42,36 +42,37 @@ export const TreeItemContent = memo(function TreeItemContent({
   suffix,
   children
 }: TreeItemContentProps) {
-  const inner = useMemo(
-    () => (
-      <>
-        <Button slot="chevron">
-          <IcRoundKeyboardArrowRight />
-        </Button>
-        {icon && (
-          <span data-slot="icon">
-            <Icon icon={icon} />
-          </span>
-        )}
-        <span data-slot="label">{children}</span>
-        {suffix && <span data-slot="suffix">{suffix}</span>}
-      </>
-    ),
-    [children, icon, suffix]
-  )
   return (
     <AriaTreeItemContent>
       {({
         selectionBehavior,
         selectionMode,
-        allowsDragging
+        allowsDragging,
+        isDragging
       }: TreeItemContentRenderProps) => (
         <>
-          {allowsDragging && <Button slot="drag">≡</Button>}
           {selectionBehavior === 'toggle' && selectionMode !== 'none' && (
             <Checkbox slot="selection" />
           )}
-          {inner}
+          <div className="alinea-rac-TreeItem-controls">
+            <Button
+              slot="drag"
+              data-invisible={!isDragging}
+              className="alinea-rac-TreeItem-dragHandle"
+            >
+              ≡
+            </Button>
+            <Button slot="chevron" data-invisible={isDragging}>
+              <IcRoundKeyboardArrowRight />
+            </Button>
+          </div>
+          {icon && (
+            <span data-slot="icon">
+              <Icon icon={icon} />
+            </span>
+          )}
+          <span data-slot="label">{children}</span>
+          {suffix && <span data-slot="suffix">{suffix}</span>}
         </>
       )}
     </AriaTreeItemContent>
