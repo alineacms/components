@@ -1,49 +1,70 @@
 @import "../theme.css";
 
 .alinea-rac-Button {
-  --alinea-button-color: var(--alinea-highlight-foreground);
-  --alinea-button-bg: var(--alinea-highlight-background);
+  --alinea-button-bg: light-dark(
+    var(--alinea-gray-100),
+    var(--alinea-gray-800)
+  );
   --alinea-button-border: transparent;
-  --alinea-button-hovered: var(--alinea-highlight-background-hovered);
+  --alinea-button-color: light-dark(
+    var(--alinea-gray-800),
+    var(--alinea-gray-200)
+  );
+  --alinea-button-hovered: light-dark(
+    var(--alinea-gray-200),
+    var(--alinea-gray-700)
+  );
 
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  gap: 6px;
+  background-color: var(--alinea-button-bg);
+  padding: 3px 10px;
+  border: 1px solid var(--alinea-button-border);
+  border-radius: 4px;
   color: var(--alinea-button-color);
   font: inherit;
   font-size: var(--alinea-font-size-base);
   line-height: 24px;
   text-decoration: none;
   text-align: left;
-  appearance: none;
-  cursor: pointer;
-  outline: none;
-  position: relative;
-  vertical-align: middle;
-  background-color: var(--alinea-button-bg);
-  padding: 3px 10px;
-  border-radius: 4px;
-  border: 1px solid var(--alinea-button-border);
   transition: var(--alinea-transition);
   transition-property: background-color, border-color, color;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  &[data-disabled] {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
 
   &[data-appearance="outline"] {
     --alinea-button-bg: transparent;
+    --alinea-button-border: light-dark(
+      var(--alinea-gray-100),
+      var(--alinea-gray-800)
+    );
+  }
+
+  &[data-appearance="plain"] {
+    --alinea-button-bg: transparent;
+  }
+
+  &[data-hovered] {
+    background-color: var(--alinea-button-hovered);
   }
 
   &[data-focus-visible] {
     outline: 2px solid var(--alinea-button-bg);
     outline-offset: 2px;
 
-    &[data-appearance="outline"],
+    /* &[data-appearance="outline"],
     &[data-appearance="plain"] {
       outline-color: var(--alinea-button-border);
-    }
+    } */
+  }
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
   &[data-size="small"] {
@@ -74,11 +95,6 @@
     [data-slot="icon"] {
       font-size: var(--alinea-font-size-base);
     }
-
-    &[data-appearance="active"] {
-      background-color: var(--alinea-selected-background);
-      color: var(--alinea-selected-foreground);
-    }
   }
 
   &[data-size="square-petite"] {
@@ -99,11 +115,6 @@
       color: var(--alinea-icon-color-plain);
     }
 
-    &[data-appearance="active"] {
-      background-color: var(--alinea-selected-background);
-      color: var(--alinea-selected-foreground);
-    }
-
     &[data-hovered] {
       background-color: var(--alinea-button-hovered);
       color: var(--alinea-button-color);
@@ -121,105 +132,51 @@
   }
 
   &[data-intent="primary"] {
-    --alinea-button-color: var(--alinea-highlight-foreground);
     --alinea-button-bg: var(--alinea-highlight-background);
-    --alinea-button-border: transparent;
+    --alinea-button-color: var(--alinea-highlight-foreground);
     --alinea-button-hovered: var(--alinea-highlight-background-hovered);
 
-    &[data-hovered] {
-      --alinea-button-bg: var(--alinea-button-hovered);
-    }
-
     &[data-appearance="outline"] {
-      --alinea-button-color: var(--alinea-highlight-background);
       --alinea-button-bg: transparent;
       --alinea-button-border: var(--alinea-highlight-background);
+      --alinea-button-color: var(--alinea-highlight-background);
     }
 
     &[data-appearance="plain"] {
+      --alinea-button-bg: transparent;
       --alinea-button-color: var(--alinea-highlight-background);
     }
 
-    &[data-appearance="outline"][data-hovered],
-    &[data-appearance="plain"][data-hovered] {
+    &[data-hovered][data-appearance="outline"],
+    &[data-hovered][data-appearance="plain"] {
       --alinea-button-color: var(--alinea-highlight-foreground);
-      --alinea-button-bg: var(--alinea-highlight-background);
     }
   }
 
   &[data-intent="secondary"] {
-    --alinea-button-color: var(--alinea-selected-foreground);
     --alinea-button-bg: var(--alinea-selected-background);
-
-    &[data-hovered] {
-      --alinea-button-color: var(--alinea-highlight-foreground);
-      --alinea-button-bg: var(--alinea-highlight-background);
-    }
+    --alinea-button-color: var(--alinea-selected-foreground);
+    --alinea-button-hovered: var(--alinea-selected-background);
 
     &[data-appearance="outline"] {
       --alinea-button-bg: transparent;
       --alinea-button-border: var(--alinea-selected-background);
     }
 
-    &[data-appearance="outline"][data-hovered],
-    &[data-appearance="plain"][data-hovered] {
-      --alinea-button-color: var(--alinea-selected-foreground);
-      --alinea-button-bg: var(--alinea-selected-background);
-      --alinea-button-border: transparent;
-    }
-  }
-
-  &[data-intent="tertiary"] {
-    --alinea-button-color: light-dark(
-      var(--alinea-gray-800),
-      var(--alinea-gray-200)
-    );
-    --alinea-button-bg: light-dark(
-      var(--alinea-gray-100),
-      var(--alinea-gray-800)
-    );
-    --alinea-button-hovered: light-dark(
-      var(--alinea-gray-200),
-      var(--alinea-gray-700)
-    );
-
-    &[data-disabled] {
-      --alinea-button-color: light-dark(
-        var(--alinea-gray-400),
-        var(--alinea-gray-600)
-      );
-      --alinea-button-bg: light-dark(
-        var(--alinea-gray-50),
-        var(--alinea-gray-900)
-      );
+    &[data-appearance="plain"] {
+      --alinea-button-bg: transparent;
+      --alinea-button-color: var(--alinea-highlight-background);
     }
 
     &[data-hovered] {
-      --alinea-button-bg: var(--alinea-button-hovered);
+      --alinea-button-hovered: var(--alinea-highlight-background);
+      --alinea-button-color: var(--alinea-highlight-foreground);
     }
 
-    &[data-appearance="outline"] {
-      --alinea-button-color: light-dark(
-        var(--alinea-gray-700),
-        var(--alinea-gray-200)
-      );
-      --alinea-button-bg: transparent;
-      --alinea-button-border: light-dark(
-        var(--alinea-gray-300),
-        var(--alinea-gray-600)
-      );
-      --alinea-button-hovered: light-dark(
-        var(--alinea-gray-50),
-        var(--alinea-gray-800)
-      );
-
-      &[data-hovered] {
-        --alinea-button-bg: var(--alinea-button-hovered);
-      }
-    }
-
-    &[data-appearance="plain"] {
-      --alinea-button-color: var(--alinea-text-color);
+    &[data-hovered][data-appearance="outline"],
+    &[data-hovered][data-appearance="plain"] {
+      --alinea-button-hovered: var(--alinea-selected-background);
+      --alinea-button-color: var(--alinea-selected-foreground);
     }
   }
 
@@ -300,16 +257,5 @@
     &[data-appearance="plain"][data-hovered] {
       --alinea-button-color: var(--alinea-gray-900);
     }
-  }
-
-  &[data-appearance="plain"] {
-    --alinea-button-bg: transparent;
-    --alinea-button-border: transparent;
-  }
-
-  &[data-appearance="plain"][data-disabled] {
-    --alinea-button-color: var(--alinea-text-color-disabled);
-    --alinea-button-bg: transparent;
-    --alinea-button-hovered: transparent;
   }
 }

@@ -9,26 +9,26 @@ import {Icon} from './Icon.tsx'
 import {ProgressCircle} from './ProgressCircle.tsx'
 
 export interface ButtonProps extends ButtonPrimitiveProps {
-  appearance?: 'solid' | 'outline' | 'plain' | 'active'
-  intent?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning'
-  size?: 'small' | 'medium' | 'large' | 'square-petite' | 'icon'
+  appearance?: 'outline' | 'plain'
+  intent?: 'primary' | 'secondary' | 'danger' | 'warning'
+  size?: 'small' | 'large' | 'square-petite' | 'icon'
   icon?: ComponentType
   children?: ReactNode
 }
 
 export function Button({
-  intent = 'primary',
-  size = 'medium',
-  appearance = 'solid',
-  children,
+  appearance,
+  intent,
+  size,
   icon,
+  children,
   ...props
 }: ButtonProps) {
   return (
     <ButtonPrimitive
+      data-appearance={appearance}
       data-intent={intent}
       data-size={size}
-      data-appearance={appearance}
       {...props}
       className={clsx('alinea-rac-Button', props.className)}
     >
