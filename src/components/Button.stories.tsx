@@ -140,6 +140,34 @@ export function IconSize() {
           <IcRoundClose data-slot="icon" />
         </Button>
       </HStack>
+      <HStack>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 10,
+            padding: 10,
+            borderRadius: 6,
+            border: '1px solid lightgray'
+          }}
+        >
+          <Button size="icon-nav" appearance="plain" data-active>
+            <IcRoundArchive data-slot="icon" />
+          </Button>
+          <Button size="icon-nav" appearance="plain">
+            <IcRoundHistory data-slot="icon" />
+          </Button>
+          <Button size="icon-nav" appearance="plain">
+            <IcRoundLanguage data-slot="icon" />
+          </Button>
+          <Button size="icon-nav" appearance="plain">
+            <IcRoundSearch data-slot="icon" />
+          </Button>
+          <Button size="icon-nav" appearance="plain">
+            <IcRoundSettings data-slot="icon" />
+          </Button>
+        </div>
+      </HStack>
     </Stack>
   )
 }
@@ -155,56 +183,56 @@ export function Icons() {
   }
 
   return (
-    <HStack>
-      <Button>
-        <IcRoundRefresh data-slot="icon" />
-        With icon
-      </Button>
-      <Button size="square-petite">
-        <IcRoundRefresh data-slot="icon" />
-      </Button>
-      <Button size="square-petite" appearance="outline" intent="secondary">
-        <IcRoundRefresh data-slot="icon" />
-      </Button>
-      <Button size="square-petite" appearance="plain" intent="secondary">
-        <IcRoundRefresh data-slot="icon" />
-      </Button>
-      <Button isPending={isLoading} icon={IcRoundRefresh} onPress={handlePress}>
-        {isLoading ? 'Refreshing...' : 'Refresh'}
-      </Button>
-      <Button onPress={handlePress}>
-        <>
-          <ProgressCircle isIndeterminate aria-label="Loading..." />
-          Loading...
-        </>
-      </Button>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 10,
-          padding: 10,
-          borderRadius: 6,
-          border: '1px solid lightgray'
-        }}
-      >
-        <Button size="square-petite" appearance="plain" intent="secondary">
-          <IcRoundArchive data-slot="icon" />
+    <Stack>
+      <HStack>
+        <Button>
+          <IcRoundRefresh data-slot="icon" />
+          With icon
         </Button>
-        <Button size="square-petite" appearance="plain" intent="secondary">
-          <IcRoundHistory data-slot="icon" />
+        <Button
+          isPending={isLoading}
+          icon={IcRoundRefresh}
+          onPress={handlePress}
+        >
+          {isLoading ? 'Refreshing...' : 'Refresh'}
         </Button>
-        <Button size="square-petite" appearance="plain" intent="secondary">
-          <IcRoundLanguage data-slot="icon" />
+        <Button onPress={handlePress}>
+          <>
+            <ProgressCircle isIndeterminate aria-label="Loading..." />
+            Loading...
+          </>
         </Button>
-        <Button size="square-petite" appearance="plain" intent="secondary">
-          <IcRoundSearch data-slot="icon" />
+      </HStack>
+      <HStack>
+        <Button size="icon">
+          <IcRoundRefresh data-slot="icon" />
         </Button>
-        <Button size="square-petite" appearance="plain" intent="secondary">
-          <IcRoundSettings data-slot="icon" />
+        <Button size="icon" intent="primary">
+          <IcRoundRefresh data-slot="icon" />
         </Button>
-      </div>
-    </HStack>
+        <Button size="icon" intent="secondary">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button size="icon" appearance="outline">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button size="icon" appearance="outline" intent="primary">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button size="icon" appearance="outline" intent="secondary">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button size="icon" appearance="plain">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button size="icon" appearance="plain" intent="primary">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+        <Button size="icon" appearance="plain" intent="secondary">
+          <IcRoundRefresh data-slot="icon" />
+        </Button>
+      </HStack>
+    </Stack>
   )
 }
 

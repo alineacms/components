@@ -11,7 +11,7 @@ import {ProgressCircle} from './ProgressCircle.tsx'
 export interface ButtonProps extends ButtonPrimitiveProps {
   appearance?: 'outline' | 'plain'
   intent?: 'primary' | 'secondary' | 'danger' | 'warning'
-  size?: 'small' | 'large' | 'square-petite' | 'icon'
+  size?: 'small' | 'large' | 'icon' | 'icon-nav'
   icon?: ComponentType
   children?: ReactNode
 }

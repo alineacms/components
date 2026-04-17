@@ -56,10 +56,14 @@
     outline: 2px solid var(--alinea-button-bg);
     outline-offset: 2px;
 
-    /* &[data-appearance="outline"],
-    &[data-appearance="plain"] {
+    &[data-appearance="outline"] {
       outline-color: var(--alinea-button-border);
-    } */
+    }
+
+    &[data-appearance="plain"] {
+      background-color: var(--alinea-button-hovered);
+      outline-color: var(--alinea-button-hovered);
+    }
   }
 
   &[data-disabled] {
@@ -81,7 +85,8 @@
     display: block;
   }
 
-  &[data-size="icon"] {
+  &[data-size="icon"],
+  &[data-size="icon-nav"] {
     --alinea-font-size-base: 1rem;
     width: 2rem;
     height: 2rem;
@@ -97,37 +102,21 @@
     }
   }
 
-  &[data-size="square-petite"] {
-    --alinea-font-size-base: 1rem;
-    width: 2rem;
-    height: 2rem;
-    padding: 0;
+  &[data-size="icon-nav"] {
     border-radius: 0.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    [data-slot="icon"] {
-      font-size: var(--alinea-font-size-base);
-    }
-
-    &[data-appearance="plain"] {
-      color: var(--alinea-icon-color-plain);
-    }
+    color: var(--alinea-icon-color-plain);
 
     &[data-hovered] {
-      background-color: var(--alinea-button-hovered);
+      background-color: light-dark(
+        var(--alinea-gray-100),
+        var(--alinea-gray-800)
+      );
       color: var(--alinea-button-color);
     }
 
-    &[data-hovered][data-appearance="plain"] {
-      background-color: var(--alinea-background-color);
-      color: var(--alinea-text-color-hover);
-    }
-
-    &[data-hovered][data-appearance="outline"] {
-      color: var(--alinea-highlight-foreground);
-      background-color: var(--alinea-highlight-background-hovered);
+    &[data-active] {
+      background-color: var(--alinea-selected-background);
+      color: var(--alinea-selected-foreground);
     }
   }
 
@@ -148,7 +137,8 @@
     }
 
     &[data-hovered][data-appearance="outline"],
-    &[data-hovered][data-appearance="plain"] {
+    &[data-hovered][data-appearance="plain"],
+    &[data-focus-visible][data-appearance="plain"] {
       --alinea-button-color: var(--alinea-highlight-foreground);
     }
   }
